@@ -56,6 +56,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/Python/Demonstrating%20online%20learning/</loc>
+         <lastmod>2021-08-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/Python/Introduction%20to%20Networkx/</loc>
+         <lastmod>2021-08-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://squidfunk.github.io/mkdocs-material/R/Univariate-analysis/</loc>
          <lastmod>2021-08-22</lastmod>
          <changefreq>daily</changefreq>
