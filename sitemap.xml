@@ -2,87 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/Others/Imperial%20College%20London/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/Others/Publications/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/Python/Bipartite%20matching/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/Python/Community%20detection/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/Python/Demonstrating%20online%20learning/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/Python/Diffusion%20on%20networks/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/Python/Introduction%20to%20Networkx/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/Python/Machine%20learning%20as%20HTTP%20Request/</loc>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/Python/Network%20Flow%20problems/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/Python/Network%20Science/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/Python/Network%20centrality/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/Python/Shortest%20path%20problems/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/Python/Visualization%20for%20predictive%20analytics/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/Python/Vizualisation%20using%20python%20Part%201/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/R/Univariate-analysis/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/R/multivariateAnalysis/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/R/time-series/</loc>
-         <lastmod>2021-10-08</lastmod>
+         <lastmod>2021-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
