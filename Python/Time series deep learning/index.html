@@ -1,0 +1,827 @@
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Harsha's blog on data science"><meta name=author content="Harsha Achyuthuni"><link href=https://www.harshaash.com/Python/Time%20series%20deep%20learning/ rel=canonical><link rel=icon href=../../assets/images/logo.jpg><meta name=generator content="mkdocs-1.2.2, mkdocs-material-7.2.4"><title>Time Series forecasting using Deep learning - Data Science with Harsha</title><link rel=stylesheet href=../../assets/stylesheets/main.f7f47774.min.css><link rel=stylesheet href=../../assets/stylesheets/palette.3f5d1f46.min.css><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"><style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-65034507-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script><script async src=https://www.google-analytics.com/analytics.js></script></head> <body dir=ltr data-md-color-scheme data-md-color-primary data-md-color-accent> <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script> <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#time-series-forecasting-using-deep-learning class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../.. title="Data Science with Harsha" class="md-header__button md-logo" aria-label="Data Science with Harsha" data-md-component=logo> <img src=../../assets/images/logo.jpg alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Data Science with Harsha </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Time Series forecasting using Deep learning </span> </div> </div> </div> <form class=md-header__option data-md-component=palette> <input class=md-option data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme data-md-color-primary data-md-color-accent aria-hidden=true type=radio name=__palette id=__palette_1> <input class=md-option data-md-color-media data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo aria-label="Switch to dark mode" type=radio name=__palette id=__palette_2> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_1 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme data-md-color-primary data-md-color-accent aria-hidden=true type=radio name=__palette id=__palette_3> <input class=md-option data-md-color-media data-md-color-scheme=slate data-md-color-primary=red data-md-color-accent=red aria-label="Switch to light mode" type=radio name=__palette id=__palette_4> <label class="md-header__button md-icon" title="Switch to light mode" for=__palette_3 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg> </label> </form> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <nav class=md-search__options aria-label=Search> <a href=javascript:void(0) class="md-search__icon md-icon" aria-label=Share data-clipboard data-clipboard-text data-md-component=search-share tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg> </a> <button type=reset class="md-search__icon md-icon" aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </nav> <div class=md-search__suggest data-md-component=search-suggest></div> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../.. title="Data Science with Harsha" class="md-nav__button md-logo" aria-label="Data Science with Harsha" data-md-component=logo> <img src=../../assets/images/logo.jpg alt=logo> </a> Data Science with Harsha </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../.. class=md-nav__link> Home </a> </li> <li class=md-nav__item> <a href=../../Others/resume/ class=md-nav__link> Resume </a> </li> <li class="md-nav__item md-nav__item--section md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3 type=checkbox id=__nav_3> <label class=md-nav__link for=__nav_3> Blog <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Blog data-md-level=1> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> Blog </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_1 type=checkbox id=__nav_3_1> <label class=md-nav__link for=__nav_3_1> Visualization <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Visualization data-md-level=2> <label class=md-nav__title for=__nav_3_1> <span class="md-nav__icon md-icon"></span> Visualization </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Vizualisation%20using%20python%20Part%201/ class=md-nav__link> Vizualizing tabular data (Python) </a> </li> <li class=md-nav__item> <a href=../Visualization%20for%20predictive%20analytics/ class=md-nav__link> Vizualising for predictive analytics (Python) </a> </li> <li class=md-nav__item> <a href=../../R/Univariate-analysis/ class=md-nav__link> Univariate Analysis (R) </a> </li> <li class=md-nav__item> <a href=../../R/multivariateAnalysis/ class=md-nav__link> Multivariate Analysis (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_2 type=checkbox id=__nav_3_2> <label class=md-nav__link for=__nav_3_2> Prescriptive Analytics <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Prescriptive Analytics" data-md-level=2> <label class=md-nav__title for=__nav_3_2> <span class="md-nav__icon md-icon"></span> Prescriptive Analytics </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Diffusion%20on%20networks/ class=md-nav__link> Bass Forecasting model (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_3 type=checkbox id=__nav_3_3> <label class=md-nav__link for=__nav_3_3> Machine Learning <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Machine Learning" data-md-level=2> <label class=md-nav__title for=__nav_3_3> <span class="md-nav__icon md-icon"></span> Machine Learning </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Demonstrating%20online%20learning/ class=md-nav__link> Streaming Machine Learning (Python) </a> </li> <li class=md-nav__item> <a href=https://harshaachyuthuni.shinyapps.io/Machine_Learning/ class=md-nav__link> Interactive Machine Learning (RShiny) </a> </li> <li class=md-nav__item> <a href=../Machine%20Learning%20Part%201/ class=md-nav__link> Feature engineering (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_4 type=checkbox id=__nav_3_4> <label class=md-nav__link for=__nav_3_4> Time Series forecasting <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Time Series forecasting" data-md-level=2> <label class=md-nav__title for=__nav_3_4> <span class="md-nav__icon md-icon"></span> Time Series forecasting </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../R/time-series/ class=md-nav__link> Introduction to stationarity (R) </a> </li> <li class=md-nav__item> <a href=../../R/Stationarity-tests/ class=md-nav__link> Stationary Tests (R) </a> </li> <li class=md-nav__item> <a href=../../R/ARIMA/ class=md-nav__link> ARIMA in R </a> </li> <li class=md-nav__item> <a href=../ARIMA%20Forecasting/ class=md-nav__link> ARIMA in Python </a> </li> <li class=md-nav__item> <a href=../../R/Seasonal-Time-Series/ class=md-nav__link> Seasonal time series (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_5 type=checkbox id=__nav_3_5> <label class=md-nav__link for=__nav_3_5> Networks <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Networks data-md-level=2> <label class=md-nav__title for=__nav_3_5> <span class="md-nav__icon md-icon"></span> Networks </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Introduction%20to%20Networkx/ class=md-nav__link> Introduction to NetworkX (Python) </a> </li> <li class=md-nav__item> <a href=../Network%20Science/ class=md-nav__link> Network Science (Python) </a> </li> <li class=md-nav__item> <a href=../Network%20centrality/ class=md-nav__link> Network Centrality (Python) </a> </li> <li class=md-nav__item> <a href=../Shortest%20path%20problems/ class=md-nav__link> Shortest path using integer programming (Python) </a> </li> <li class=md-nav__item> <a href=../Network%20Flow%20problems/ class=md-nav__link> Network flow problems (Python) </a> </li> <li class=md-nav__item> <a href=../Community%20detection/ class=md-nav__link> Community detection (Python) </a> </li> <li class=md-nav__item> <a href=../Bipartite%20matching/ class=md-nav__link> Bipartite matching (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_6 type=checkbox id=__nav_3_6> <label class=md-nav__link for=__nav_3_6> Deployment <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Deployment data-md-level=2> <label class=md-nav__title for=__nav_3_6> <span class="md-nav__icon md-icon"></span> Deployment </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Machine%20learning%20as%20HTTP%20Request/ class=md-nav__link> ML deployment in Flask (Python) </a> </li> <li class=md-nav__item> <a href=../Saving%20predictions%20in%20database/ class=md-nav__link> Handling databases using python </a> </li> <li class=md-nav__item> <a href=../ORM/ class=md-nav__link> ORM (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_7 type=checkbox id=__nav_3_7> <label class=md-nav__link for=__nav_3_7> External blogs <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="External blogs" data-md-level=2> <label class=md-nav__title for=__nav_3_7> <span class="md-nav__icon md-icon"></span> External blogs </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Others/Imperial%20College%20London/ class=md-nav__link> Imperial college London </a> </li> <li class=md-nav__item> <a href=../../Others/Rolls%20Royce/ class=md-nav__link> Rolls Royce </a> </li> <li class=md-nav__item> <a href=../../Others/Publications/ class=md-nav__link> Publications/conferences </a> </li> <li class=md-nav__item> <a href=../../Others/Deployed%20apps/ class=md-nav__link> Deployed apps </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#simple-neural-net-perceptron class=md-nav__link> Simple Neural Net (Perceptron) </a> </li> <li class=md-nav__item> <a href=#deep-neural-network class=md-nav__link> Deep neural network </a> </li> <li class=md-nav__item> <a href=#rnn class=md-nav__link> RNN </a> </li> <li class=md-nav__item> <a href=#lstm class=md-nav__link> LSTM </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1 id=time-series-forecasting-using-deep-learning>Time Series forecasting using Deep learning<a class=headerlink href=#time-series-forecasting-using-deep-learning title="Permanent link">&para;</a></h1> <p>Placeholder: To write in the future. Deadline before end of deep learning module</p> <div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
+<span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
+<span class=kn>import</span> <span class=nn>seaborn</span> <span class=k>as</span> <span class=nn>sns</span>
+<span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+<span class=n>data</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s1>&#39;hyderabad-us consulate-air-quality.csv&#39;</span><span class=p>,</span> <span class=n>parse_dates</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;date&#39;</span><span class=p>])</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>data</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>sort_values</span><span class=p>(</span><span class=s1>&#39;date&#39;</span><span class=p>)</span>
+<span class=n>data</span><span class=o>.</span><span class=n>columns</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;date&#39;</span><span class=p>,</span> <span class=s1>&#39;pm25&#39;</span><span class=p>]</span>
+<span class=n>data</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>reset_index</span><span class=p>()</span>
+<span class=n>data</span>
+</code></pre></div> <div> <style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style> <table border=1 class=dataframe> <thead> <tr style="text-align: right;"> <th></th> <th>index</th> <th>date</th> <th>pm25</th> </tr> </thead> <tbody> <tr> <th>0</th> <td>2295</td> <td>2014-12-10</td> <td>172</td> </tr> <tr> <th>1</th> <td>2296</td> <td>2014-12-11</td> <td>166</td> </tr> <tr> <th>2</th> <td>2297</td> <td>2014-12-12</td> <td>159</td> </tr> <tr> <th>3</th> <td>2298</td> <td>2014-12-13</td> <td>164</td> </tr> <tr> <th>4</th> <td>2299</td> <td>2014-12-14</td> <td>166</td> </tr> <tr> <th>...</th> <td>...</td> <td>...</td> <td>...</td> </tr> <tr> <th>2309</th> <td>0</td> <td>2021-11-01</td> <td>155</td> </tr> <tr> <th>2310</th> <td>1</td> <td>2021-11-02</td> <td>115</td> </tr> <tr> <th>2311</th> <td>2</td> <td>2021-11-03</td> <td>67</td> </tr> <tr> <th>2312</th> <td>3</td> <td>2021-11-04</td> <td>112</td> </tr> <tr> <th>2313</th> <td>4</td> <td>2021-11-05</td> <td>115</td> </tr> </tbody> </table> <p>2314 rows × 3 columns</p> </div> <div class=highlight><pre><span></span><code><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>20</span><span class=p>,</span><span class=mi>10</span><span class=p>))</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>date</span><span class=p>,</span> <span class=n>data</span><span class=o>.</span><span class=n>pm25</span><span class=p>,</span> <span class=n>color</span><span class=o>=</span><span class=s1>&#39;tab:red&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>gca</span><span class=p>()</span><span class=o>.</span><span class=n>set</span><span class=p>(</span><span class=n>title</span><span class=o>=</span><span class=s1>&#39;Pollution at Hyderabad&#39;</span><span class=p>,</span> <span class=n>xlabel</span><span class=o>=</span><span class=s1>&#39;Date&#39;</span><span class=p>,</span> <span class=n>ylabel</span><span class=o>=</span><span class=s1>&#39;PM25&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></div> <p><img alt=png src=output_3_0.png></p> <p>From this plot, we can see that pollution is higher during winter months while its lower during summer months. This effect is observed every year indicating a seasonal pattern in the data. There seems to be no increasing or decreasing trend in the data. This can be better visualised by decomposing the data into three components:<br> 1. Seasonal component: The component that varies with season<br> 2. Trend: Increasing or decreasing pattern<br> 3. Random component: Remaining component that has no pattern </p> <div class=highlight><pre><span></span><code><span class=kn>from</span> <span class=nn>statsmodels.tsa.seasonal</span> <span class=kn>import</span> <span class=n>seasonal_decompose</span>
+<span class=n>result</span> <span class=o>=</span> <span class=n>seasonal_decompose</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>pm25</span><span class=p>,</span> <span class=n>model</span><span class=o>=</span><span class=s1>&#39;additive&#39;</span><span class=p>,</span> <span class=n>period</span> <span class=o>=</span> <span class=mi>365</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>fs</span><span class=p>,</span> <span class=n>axs</span> <span class=o>=</span> <span class=n>plt</span><span class=o>.</span><span class=n>subplots</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span> <span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>20</span><span class=p>,</span><span class=mi>10</span><span class=p>))</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>suptitle</span><span class=p>(</span><span class=s1>&#39;Pollution (PM25) at Hyderabad&#39;</span><span class=p>,</span> <span class=n>fontsize</span> <span class=o>=</span> <span class=mi>20</span><span class=p>,</span> <span class=n>y</span> <span class=o>=</span> <span class=mf>0.95</span><span class=p>)</span>
+
+<span class=n>axs</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>date</span><span class=p>,</span> <span class=n>result</span><span class=o>.</span><span class=n>trend</span><span class=p>)</span>
+<span class=n>axs</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>date</span><span class=p>,</span> <span class=n>result</span><span class=o>.</span><span class=n>seasonal</span><span class=p>)</span>
+<span class=n>axs</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>date</span><span class=p>,</span> <span class=n>result</span><span class=o>.</span><span class=n>resid</span><span class=p>)</span>
+
+<span class=n>axs</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>set_ylabel</span><span class=p>(</span><span class=s1>&#39;Trend&#39;</span><span class=p>,</span> <span class=n>fontsize</span><span class=o>=</span><span class=mi>15</span><span class=p>)</span>
+<span class=n>axs</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=o>.</span><span class=n>set_ylabel</span><span class=p>(</span><span class=s1>&#39;Seasonality&#39;</span><span class=p>,</span> <span class=n>fontsize</span><span class=o>=</span><span class=mi>15</span><span class=p>)</span>
+<span class=n>axs</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span><span class=o>.</span><span class=n>set_ylabel</span><span class=p>(</span><span class=s1>&#39;Random component&#39;</span><span class=p>,</span> <span class=n>fontsize</span><span class=o>=</span><span class=mi>15</span><span class=p>)</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></div> <p><img alt=png src=output_6_0.png></p> <p>Looking at the trend, we can see how the pollution decreased during 2020 (probably due to covid) and is slowly rising as the country is getting back to its feet.</p> <div class=highlight><pre><span></span><code><span class=n>data</span><span class=p>[</span><span class=s1>&#39;year&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>date</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>year</span>
+<span class=n>data</span><span class=p>[</span><span class=s1>&#39;day&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>date</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>dayofyear</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>16</span><span class=p>,</span><span class=mi>12</span><span class=p>),</span> <span class=n>dpi</span><span class=o>=</span> <span class=mi>80</span><span class=p>)</span>
+<span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>y</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>year</span><span class=o>.</span><span class=n>unique</span><span class=p>()):</span>
+    <span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=s1>&#39;day&#39;</span><span class=p>,</span> <span class=s1>&#39;pm25&#39;</span><span class=p>,</span> <span class=n>data</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=n>data</span><span class=o>.</span><span class=n>year</span><span class=o>==</span><span class=n>y</span><span class=p>,</span> <span class=p>:],</span> <span class=n>label</span> <span class=o>=</span> <span class=n>y</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s2>&quot;Seasonal Plot of Hyd AQ15&quot;</span><span class=p>,</span> <span class=n>fontsize</span><span class=o>=</span><span class=mi>20</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>loc</span><span class=o>=</span><span class=s2>&quot;upper left&quot;</span><span class=p>)</span>
+</code></pre></div> <p><img alt=png src=output_8_1.png></p> <h2 id=simple-neural-net-perceptron>Simple Neural Net (Perceptron)<a class=headerlink href=#simple-neural-net-perceptron title="Permanent link">&para;</a></h2> <div class=highlight><pre><span></span><code><span class=kn>from</span> <span class=nn>keras.models</span> <span class=kn>import</span> <span class=n>Sequential</span>
+<span class=kn>from</span> <span class=nn>keras.layers</span> <span class=kn>import</span> <span class=n>Dense</span><span class=p>,</span> <span class=n>SimpleRNN</span><span class=p>,</span> <span class=n>Lambda</span><span class=p>,</span> <span class=n>LSTM</span>
+<span class=kn>import</span> <span class=nn>tensorflow</span> <span class=k>as</span> <span class=nn>tf</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>dataset</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>data</span><span class=o>.</span><span class=n>Dataset</span><span class=o>.</span><span class=n>range</span><span class=p>(</span><span class=mi>20</span><span class=p>)</span>
+<span class=n>dataset</span> <span class=o>=</span> <span class=n>dataset</span><span class=o>.</span><span class=n>window</span><span class=p>(</span><span class=mi>15</span><span class=p>,</span> <span class=n>shift</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>drop_remainder</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+<span class=n>dataset</span> <span class=o>=</span> <span class=n>dataset</span><span class=o>.</span><span class=n>flat_map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>window</span><span class=p>:</span> <span class=n>window</span><span class=o>.</span><span class=n>batch</span><span class=p>(</span><span class=mi>15</span><span class=p>))</span>
+<span class=n>dataset</span> <span class=o>=</span> <span class=n>dataset</span><span class=o>.</span><span class=n>map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>window</span><span class=p>:</span> <span class=p>(</span><span class=n>window</span><span class=p>[:</span><span class=o>-</span><span class=mi>1</span><span class=p>],</span> <span class=n>window</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>:]))</span>
+<span class=n>dataset</span> <span class=o>=</span> <span class=n>dataset</span><span class=o>.</span><span class=n>shuffle</span><span class=p>(</span><span class=n>buffer_size</span><span class=o>=</span><span class=mi>3</span><span class=p>)</span>
+<span class=n>dataset</span> <span class=o>=</span> <span class=n>dataset</span><span class=o>.</span><span class=n>batch</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span><span class=o>.</span><span class=n>prefetch</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+<span class=k>for</span> <span class=n>x</span><span class=p>,</span><span class=n>y</span> <span class=ow>in</span> <span class=n>dataset</span><span class=p>:</span>
+    <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;x = &quot;</span><span class=p>,</span> <span class=n>x</span><span class=o>.</span><span class=n>numpy</span><span class=p>())</span>
+    <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;y = &quot;</span><span class=p>,</span> <span class=n>y</span><span class=o>.</span><span class=n>numpy</span><span class=p>())</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>x =  [[ 1  2  3  4  5  6  7  8  9 10 11 12 13 14]]
+y =  [[15]]
+x =  [[ 3  4  5  6  7  8  9 10 11 12 13 14 15 16]]
+y =  [[17]]
+x =  [[ 2  3  4  5  6  7  8  9 10 11 12 13 14 15]]
+y =  [[16]]
+x =  [[ 5  6  7  8  9 10 11 12 13 14 15 16 17 18]]
+y =  [[19]]
+x =  [[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13]]
+y =  [[14]]
+x =  [[ 4  5  6  7  8  9 10 11 12 13 14 15 16 17]]
+y =  [[18]]
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=k>def</span> <span class=nf>windowed_dataset</span><span class=p>(</span><span class=n>series</span><span class=p>,</span> <span class=n>window_size</span><span class=p>,</span> <span class=n>batch_size</span><span class=p>,</span> <span class=n>shuffle_buffer</span><span class=p>):</span>
+    <span class=n>dataset</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>data</span><span class=o>.</span><span class=n>Dataset</span><span class=o>.</span><span class=n>from_tensor_slices</span><span class=p>(</span><span class=n>series</span><span class=p>)</span>
+    <span class=n>dataset</span> <span class=o>=</span> <span class=n>dataset</span><span class=o>.</span><span class=n>window</span><span class=p>(</span><span class=n>window_size</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=n>shift</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>drop_remainder</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+    <span class=n>dataset</span> <span class=o>=</span> <span class=n>dataset</span><span class=o>.</span><span class=n>flat_map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>window</span><span class=p>:</span> <span class=n>window</span><span class=o>.</span><span class=n>batch</span><span class=p>(</span><span class=n>window_size</span> <span class=o>+</span> <span class=mi>1</span><span class=p>))</span>
+    <span class=n>dataset</span> <span class=o>=</span> <span class=n>dataset</span><span class=o>.</span><span class=n>shuffle</span><span class=p>(</span><span class=n>shuffle_buffer</span><span class=p>)</span><span class=o>.</span><span class=n>map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>window</span><span class=p>:</span> <span class=p>(</span><span class=n>window</span><span class=p>[:</span><span class=o>-</span><span class=mi>1</span><span class=p>],</span> <span class=n>window</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>]))</span>
+    <span class=n>dataset</span> <span class=o>=</span> <span class=n>dataset</span><span class=o>.</span><span class=n>batch</span><span class=p>(</span><span class=n>batch_size</span><span class=p>)</span><span class=o>.</span><span class=n>prefetch</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>dataset</span>
+<span class=n>dataset</span> <span class=o>=</span> <span class=n>windowed_dataset</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>pm25</span><span class=p>,</span> <span class=mi>14</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span>
+<span class=k>for</span> <span class=n>x</span><span class=p>,</span><span class=n>y</span> <span class=ow>in</span> <span class=n>dataset</span><span class=p>:</span>
+    <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;x = &quot;</span><span class=p>,</span> <span class=n>x</span><span class=o>.</span><span class=n>numpy</span><span class=p>())</span>
+    <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;y = &quot;</span><span class=p>,</span> <span class=n>y</span><span class=o>.</span><span class=n>numpy</span><span class=p>())</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>x =  [[159 164 166 152 155 157 138 154 158 162 160 165 165 165]]
+y =  [163]
+x =  [[172 166 159 164 166 152 155 157 138 154 158 162 160 165]]
+y =  [165]
+</code></pre></div> <p>and so on</p> <div class=highlight><pre><span></span><code><span class=n>split_time</span> <span class=o>=</span> <span class=mi>2314</span><span class=o>-</span><span class=mi>365</span><span class=o>*</span><span class=mi>2</span>
+<span class=n>time_train</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>date</span><span class=p>[:</span><span class=n>split_time</span><span class=p>]</span>
+<span class=n>x_train</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>pm25</span><span class=p>[:</span><span class=n>split_time</span><span class=p>]</span>
+<span class=n>time_valid</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>date</span><span class=p>[</span><span class=n>split_time</span><span class=p>:]</span>
+<span class=n>x_valid</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>pm25</span><span class=p>[</span><span class=n>split_time</span><span class=p>:]</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>window_size</span> <span class=o>=</span> <span class=mi>14</span>
+<span class=n>batch_size</span> <span class=o>=</span> <span class=mi>1</span>
+<span class=n>shuffle_buffer_size</span> <span class=o>=</span> <span class=mi>2314</span><span class=o>-</span><span class=mi>365</span><span class=o>*</span><span class=mi>2</span>
+
+<span class=n>dataset</span> <span class=o>=</span> <span class=n>windowed_dataset</span><span class=p>(</span><span class=n>x_train</span><span class=p>,</span> <span class=n>window_size</span><span class=p>,</span> <span class=n>batch_size</span><span class=p>,</span> <span class=n>shuffle_buffer_size</span><span class=p>)</span>
+<span class=n>l0</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>Dense</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=n>input_shape</span><span class=o>=</span><span class=p>[</span><span class=n>window_size</span><span class=p>])</span>
+<span class=n>model</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>models</span><span class=o>.</span><span class=n>Sequential</span><span class=p>([</span><span class=n>l0</span><span class=p>])</span>
+
+<span class=n>model</span><span class=o>.</span><span class=n>compile</span><span class=p>(</span><span class=n>loss</span><span class=o>=</span><span class=s2>&quot;mse&quot;</span><span class=p>,</span> <span class=n>optimizer</span><span class=o>=</span><span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>optimizers</span><span class=o>.</span><span class=n>SGD</span><span class=p>(</span><span class=n>learning_rate</span><span class=o>=</span><span class=mf>1e-6</span><span class=p>,</span> <span class=n>momentum</span><span class=o>=</span><span class=mf>0.9</span><span class=p>),</span> <span class=n>metrics</span><span class=o>=</span><span class=p>[</span><span class=s2>&quot;mae&quot;</span><span class=p>])</span>
+
+<span class=n>model</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>dataset</span><span class=p>,</span><span class=n>epochs</span><span class=o>=</span><span class=mi>100</span><span class=p>)</span>
+
+<span class=nb>print</span><span class=p>(</span><span class=s2>&quot;Layer weights </span><span class=si>{}</span><span class=s2>&quot;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>l0</span><span class=o>.</span><span class=n>get_weights</span><span class=p>()))</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>Epoch 1/100
+1570/1570 [==============================] - 2s 764us/step - loss: 2513.6338 - mae: 36.4270
+Epoch 2/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 2627.8843 - mae: 38.2651
+Epoch 3/100
+1570/1570 [==============================] - 1s 625us/step - loss: 4424.3721 - mae: 48.4370
+Epoch 4/100
+1570/1570 [==============================] - 1s 623us/step - loss: 5549.5840 - mae: 53.6082
+Epoch 5/100
+1570/1570 [==============================] - 1s 637us/step - loss: 2992.0337 - mae: 40.5288
+Epoch 6/100
+1570/1570 [==============================] - 1s 846us/step - loss: 3471.9915 - mae: 44.3860
+Epoch 7/100
+1570/1570 [==============================] - 3s 2ms/step - loss: 2531.1494 - mae: 34.7863
+Epoch 8/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 1852.7971 - mae: 32.0643
+Epoch 9/100
+1570/1570 [==============================] - 1s 661us/step - loss: 1253.9712 - mae: 26.1902
+Epoch 10/100
+1570/1570 [==============================] - 1s 618us/step - loss: 2161.4375 - mae: 35.7045
+Epoch 11/100
+1570/1570 [==============================] - 1s 767us/step - loss: 1726.3955 - mae: 30.9938
+Epoch 12/100
+1570/1570 [==============================] - 2s 967us/step - loss: 1668.6731 - mae: 31.8759
+Epoch 13/100
+1570/1570 [==============================] - 1s 662us/step - loss: 2064.4319 - mae: 34.0762
+Epoch 14/100
+1570/1570 [==============================] - 1s 630us/step - loss: 2944.2009 - mae: 39.0366
+Epoch 15/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 2634.4287 - mae: 37.2135
+Epoch 16/100
+1570/1570 [==============================] - 1s 616us/step - loss: 2405.7512 - mae: 35.9506
+Epoch 17/100
+1570/1570 [==============================] - 1s 617us/step - loss: 3331.7898 - mae: 42.2314
+Epoch 18/100
+1570/1570 [==============================] - 2s 949us/step - loss: 1733.8339 - mae: 30.9589
+Epoch 19/100
+1570/1570 [==============================] - 1s 734us/step - loss: 2795.8682 - mae: 38.8242
+Epoch 20/100
+1570/1570 [==============================] - 1s 872us/step - loss: 3353.5576 - mae: 41.7762
+Epoch 21/100
+1570/1570 [==============================] - 1s 808us/step - loss: 1974.5398 - mae: 33.4402
+Epoch 22/100
+1570/1570 [==============================] - 1s 873us/step - loss: 1905.5634 - mae: 32.1671
+Epoch 23/100
+1570/1570 [==============================] - 2s 837us/step - loss: 2250.3162 - mae: 34.8362
+Epoch 24/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 2360.7571 - mae: 36.5247
+Epoch 25/100
+1570/1570 [==============================] - 1s 705us/step - loss: 2153.8865 - mae: 35.0538
+Epoch 26/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 1548.2344 - mae: 29.6058
+Epoch 27/100
+1570/1570 [==============================] - 2s 942us/step - loss: 2877.3025 - mae: 39.9668
+Epoch 28/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 1990.7844 - mae: 32.4618
+Epoch 29/100
+1570/1570 [==============================] - 2s 831us/step - loss: 1433.8342 - mae: 28.8914
+Epoch 30/100
+1570/1570 [==============================] - 1s 680us/step - loss: 2065.6316 - mae: 34.1275
+Epoch 31/100
+1570/1570 [==============================] - 2s 977us/step - loss: 2812.8083 - mae: 38.1380
+Epoch 32/100
+1570/1570 [==============================] - 2s 814us/step - loss: 1840.2141 - mae: 32.0926
+Epoch 33/100
+1570/1570 [==============================] - 2s 970us/step - loss: 1858.1345 - mae: 32.9561
+Epoch 34/100
+1570/1570 [==============================] - 1s 735us/step - loss: 2243.5950 - mae: 33.8061
+Epoch 35/100
+1570/1570 [==============================] - 1s 624us/step - loss: 1999.2378 - mae: 33.1796
+Epoch 36/100
+1570/1570 [==============================] - 1s 609us/step - loss: 2803.6067 - mae: 37.3053
+Epoch 37/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 3408.6633 - mae: 43.0755
+Epoch 38/100
+1570/1570 [==============================] - 1s 610us/step - loss: 7617.3584 - mae: 53.5411
+Epoch 39/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 3608.6226 - mae: 41.9082
+Epoch 40/100
+1570/1570 [==============================] - 1s 622us/step - loss: 1665.9635 - mae: 30.1138
+Epoch 41/100
+1570/1570 [==============================] - 1s 664us/step - loss: 2472.9622 - mae: 34.7668
+Epoch 42/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 4391.3267 - mae: 44.2831
+Epoch 43/100
+1570/1570 [==============================] - 1s 658us/step - loss: 3736.1123 - mae: 43.4484
+Epoch 44/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 2405.3022 - mae: 37.2903
+Epoch 45/100
+1570/1570 [==============================] - 1s 637us/step - loss: 2640.0657 - mae: 37.7513
+Epoch 46/100
+1570/1570 [==============================] - 1s 624us/step - loss: 1698.6646 - mae: 30.3015
+Epoch 47/100
+1570/1570 [==============================] - 2s 904us/step - loss: 2157.7537 - mae: 34.5056
+Epoch 48/100
+1570/1570 [==============================] - 2s 850us/step - loss: 2351.3657 - mae: 36.3811
+Epoch 49/100
+1570/1570 [==============================] - 2s 923us/step - loss: 3389.1948 - mae: 42.5566
+Epoch 50/100
+1570/1570 [==============================] - 1s 753us/step - loss: 2557.7690 - mae: 36.7457
+Epoch 51/100
+1570/1570 [==============================] - 1s 866us/step - loss: 2274.4500 - mae: 35.3559
+Epoch 52/100
+1570/1570 [==============================] - 2s 814us/step - loss: 1476.2098 - mae: 29.2134
+Epoch 53/100
+1570/1570 [==============================] - 2s 895us/step - loss: 3051.8118 - mae: 41.4144
+Epoch 54/100
+1570/1570 [==============================] - 2s 837us/step - loss: 3997.4836 - mae: 42.0719
+Epoch 55/100
+1570/1570 [==============================] - 1s 632us/step - loss: 2640.8892 - mae: 37.8363
+Epoch 56/100
+1570/1570 [==============================] - 1s 676us/step - loss: 2127.0208 - mae: 33.5877
+Epoch 57/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 2155.6133 - mae: 35.2079
+Epoch 58/100
+1570/1570 [==============================] - 1s 628us/step - loss: 2110.5273 - mae: 35.1694
+Epoch 59/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 3205.5698 - mae: 41.6258
+Epoch 60/100
+1570/1570 [==============================] - 1s 681us/step - loss: 2516.9368 - mae: 37.6260
+Epoch 61/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 3302.0437 - mae: 40.9913
+Epoch 62/100
+1570/1570 [==============================] - 1s 621us/step - loss: 2135.1140 - mae: 34.7838
+Epoch 63/100
+1570/1570 [==============================] - 1s 631us/step - loss: 1920.6626 - mae: 32.1499
+Epoch 64/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 2632.5876 - mae: 37.2169
+Epoch 65/100
+1570/1570 [==============================] - 1s 642us/step - loss: 1719.2740 - mae: 30.8670
+Epoch 66/100
+1570/1570 [==============================] - 1s 618us/step - loss: 2797.1809 - mae: 38.1031
+Epoch 67/100
+1570/1570 [==============================] - 1s 821us/step - loss: 2052.6494 - mae: 33.3538
+Epoch 68/100
+1570/1570 [==============================] - 2s 826us/step - loss: 2140.2795 - mae: 33.2761
+Epoch 69/100
+1570/1570 [==============================] - 1s 810us/step - loss: 2568.9514 - mae: 35.5570
+Epoch 70/100
+1570/1570 [==============================] - 2s 916us/step - loss: 1741.9554 - mae: 31.4823
+Epoch 71/100
+1570/1570 [==============================] - 1s 640us/step - loss: 3985.8354 - mae: 41.0881
+Epoch 72/100
+1570/1570 [==============================] - 1s 625us/step - loss: 1813.1409 - mae: 31.6561
+Epoch 73/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 4502.4375 - mae: 45.8338
+Epoch 74/100
+1570/1570 [==============================] - 1s 621us/step - loss: 2171.1902 - mae: 34.1269
+Epoch 75/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 1887.9999 - mae: 33.1114
+Epoch 76/100
+1570/1570 [==============================] - 1s 614us/step - loss: 1521.0691 - mae: 29.7172
+Epoch 77/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 1950.2441 - mae: 32.6277
+Epoch 78/100
+1570/1570 [==============================] - 1s 617us/step - loss: 1778.5680 - mae: 30.9782
+Epoch 79/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 1485.2815 - mae: 29.3998
+Epoch 80/100
+1570/1570 [==============================] - 1s 602us/step - loss: 1437.3258 - mae: 29.3189
+Epoch 81/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 1997.8091 - mae: 34.4411
+Epoch 82/100
+1570/1570 [==============================] - 1s 587us/step - loss: 2212.0806 - mae: 34.5182
+Epoch 83/100
+1570/1570 [==============================] - 1s 587us/step - loss: 2208.1921 - mae: 33.5488
+Epoch 84/100
+1570/1570 [==============================] - 1s 590us/step - loss: 2176.0520 - mae: 35.4611
+Epoch 85/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 1925.0211 - mae: 32.5826
+Epoch 86/100
+1570/1570 [==============================] - 1s 599us/step - loss: 3626.3096 - mae: 42.7268
+Epoch 87/100
+1570/1570 [==============================] - 2s 1ms/step - loss: 1902.9331 - mae: 33.2850
+Epoch 88/100
+1570/1570 [==============================] - 1s 588us/step - loss: 1713.0077 - mae: 31.0925
+Epoch 89/100
+1570/1570 [==============================] - 1s 584us/step - loss: 1231.0505 - mae: 26.7580
+Epoch 90/100
+1570/1570 [==============================] - 2s 902us/step - loss: 2903.7974 - mae: 39.2899
+Epoch 91/100
+1570/1570 [==============================] - 1s 704us/step - loss: 4899.5703 - mae: 49.9197
+Epoch 92/100
+1570/1570 [==============================] - 1s 720us/step - loss: 4719.0454 - mae: 45.7755
+Epoch 93/100
+1570/1570 [==============================] - 2s 915us/step - loss: 2016.2034 - mae: 33.3431
+Epoch 94/100
+1570/1570 [==============================] - 1s 746us/step - loss: 1934.7463 - mae: 32.4981
+Epoch 95/100
+1570/1570 [==============================] - 2s 930us/step - loss: 2149.3330 - mae: 34.3910
+Epoch 96/100
+1570/1570 [==============================] - 1s 583us/step - loss: 2434.7302 - mae: 36.1103
+Epoch 97/100
+1570/1570 [==============================] - 1s 585us/step - loss: 2350.9609 - mae: 35.0144
+Epoch 98/100
+1570/1570 [==============================] - 1s 612us/step - loss: 2069.1951 - mae: 33.9281
+Epoch 99/100
+1570/1570 [==============================] - 1s 596us/step - loss: 2446.0693 - mae: 36.7350
+Epoch 100/100
+1570/1570 [==============================] - 1s 626us/step - loss: 2440.7476 - mae: 33.8709
+Layer weights [array([[-0.04500467],
+       [-0.05519092],
+       [ 0.09815453],
+       [-0.00597653],
+       [ 0.30430666],
+       [-0.00321147],
+       [ 0.07927534],
+       [ 0.00668947],
+       [ 0.04348003],
+       [ 0.11238142],
+       [-0.05560566],
+       [-0.29955685],
+       [ 0.01853935],
+       [ 0.76262796]], dtype=float32), array([0.7891302], dtype=float32)]
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=k>def</span> <span class=nf>plot_series</span><span class=p>(</span><span class=n>time</span><span class=p>,</span> <span class=n>series</span><span class=p>,</span> <span class=nb>format</span><span class=o>=</span><span class=s2>&quot;-&quot;</span><span class=p>,</span> <span class=n>start</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
+    <span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>time</span><span class=p>[</span><span class=n>start</span><span class=p>:</span><span class=n>end</span><span class=p>],</span> <span class=n>series</span><span class=p>[</span><span class=n>start</span><span class=p>:</span><span class=n>end</span><span class=p>],</span> <span class=nb>format</span><span class=p>)</span>
+    <span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&quot;Time&quot;</span><span class=p>)</span>
+    <span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&quot;Value&quot;</span><span class=p>)</span>
+    <span class=n>plt</span><span class=o>.</span><span class=n>grid</span><span class=p>(</span><span class=kc>True</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>forecast</span> <span class=o>=</span> <span class=p>[]</span>
+
+<span class=k>for</span> <span class=n>time</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>pm25</span><span class=p>)</span> <span class=o>-</span> <span class=n>window_size</span><span class=p>):</span>
+    <span class=n>forecast</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>model</span><span class=o>.</span><span class=n>predict</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>pm25</span><span class=p>[</span><span class=n>time</span><span class=p>:</span><span class=n>time</span> <span class=o>+</span> <span class=n>window_size</span><span class=p>])[</span><span class=n>np</span><span class=o>.</span><span class=n>newaxis</span><span class=p>]))</span>
+
+<span class=n>forecast</span> <span class=o>=</span> <span class=n>forecast</span><span class=p>[</span><span class=n>split_time</span><span class=o>-</span><span class=n>window_size</span><span class=p>:]</span>
+<span class=n>results</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>(</span><span class=n>forecast</span><span class=p>)[:,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>]</span>
+
+
+<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span> <span class=mi>6</span><span class=p>))</span>
+
+<span class=n>plot_series</span><span class=p>(</span><span class=n>time_valid</span><span class=p>,</span> <span class=n>x_valid</span><span class=p>)</span>
+<span class=n>plot_series</span><span class=p>(</span><span class=n>time_valid</span><span class=p>,</span> <span class=n>results</span><span class=p>)</span>
+</code></pre></div> <p><img alt=png src=output_15_0.png></p> <div class=highlight><pre><span></span><code><span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>metrics</span><span class=o>.</span><span class=n>mean_absolute_error</span><span class=p>(</span><span class=n>x_valid</span><span class=p>,</span> <span class=n>results</span><span class=p>)</span><span class=o>.</span><span class=n>numpy</span><span class=p>()</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>15.45758
+</code></pre></div> <p>This model is currently deployed in Azure</p> <h2 id=deep-neural-network>Deep neural network<a class=headerlink href=#deep-neural-network title="Permanent link">&para;</a></h2> <div class=highlight><pre><span></span><code><span class=n>dataset</span> <span class=o>=</span> <span class=n>windowed_dataset</span><span class=p>(</span><span class=n>x_train</span><span class=p>,</span> <span class=n>window_size</span><span class=p>,</span> <span class=n>batch_size</span><span class=p>,</span> <span class=n>shuffle_buffer_size</span><span class=p>)</span>
+
+
+<span class=n>model</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>models</span><span class=o>.</span><span class=n>Sequential</span><span class=p>([</span>
+    <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>Dense</span><span class=p>(</span><span class=mi>14</span><span class=p>,</span> <span class=n>input_shape</span><span class=o>=</span><span class=p>[</span><span class=n>window_size</span><span class=p>],</span> <span class=n>activation</span><span class=o>=</span><span class=s2>&quot;relu&quot;</span><span class=p>),</span> 
+    <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>Dense</span><span class=p>(</span><span class=mi>14</span><span class=p>,</span> <span class=n>activation</span><span class=o>=</span><span class=s2>&quot;relu&quot;</span><span class=p>),</span> 
+    <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>Dense</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+<span class=p>])</span>
+
+<span class=n>model</span><span class=o>.</span><span class=n>compile</span><span class=p>(</span><span class=n>loss</span><span class=o>=</span><span class=s2>&quot;mse&quot;</span><span class=p>,</span> <span class=n>optimizer</span><span class=o>=</span><span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>optimizers</span><span class=o>.</span><span class=n>SGD</span><span class=p>(</span><span class=n>learning_rate</span><span class=o>=</span><span class=mf>1e-6</span><span class=p>,</span> <span class=n>momentum</span><span class=o>=</span><span class=mf>0.9</span><span class=p>),</span> <span class=n>metrics</span><span class=o>=</span><span class=p>[</span><span class=s2>&quot;mae&quot;</span><span class=p>])</span>
+<span class=n>model</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>dataset</span><span class=p>,</span><span class=n>epochs</span><span class=o>=</span><span class=mi>100</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>Epoch 1/100
+1570/1570 [==============================] - 1s 730us/step - loss: 845.5267 - mae: 21.9859
+Epoch 2/100
+1570/1570 [==============================] - 1s 724us/step - loss: 1019.4009 - mae: 24.1638
+Epoch 3/100
+1570/1570 [==============================] - 1s 717us/step - loss: 722.2228 - mae: 20.5732
+Epoch 4/100
+1570/1570 [==============================] - 1s 718us/step - loss: 701.0610 - mae: 20.4133
+Epoch 5/100
+1570/1570 [==============================] - 1s 716us/step - loss: 677.8721 - mae: 19.7713
+Epoch 6/100
+1570/1570 [==============================] - 1s 689us/step - loss: 897.4562 - mae: 22.3025
+Epoch 7/100
+1570/1570 [==============================] - 1s 698us/step - loss: 739.0591 - mae: 20.7214
+Epoch 8/100
+1570/1570 [==============================] - 1s 688us/step - loss: 659.6113 - mae: 19.5167
+Epoch 9/100
+1570/1570 [==============================] - 1s 749us/step - loss: 774.5299 - mae: 21.2334
+Epoch 10/100
+1570/1570 [==============================] - 1s 725us/step - loss: 732.1213 - mae: 20.3679
+Epoch 11/100
+1570/1570 [==============================] - 1s 727us/step - loss: 600.1824 - mae: 18.8780
+Epoch 12/100
+1570/1570 [==============================] - 1s 661us/step - loss: 717.2169 - mae: 20.2712
+Epoch 13/100
+1570/1570 [==============================] - 1s 685us/step - loss: 627.1095 - mae: 19.3082
+Epoch 14/100
+1570/1570 [==============================] - 1s 686us/step - loss: 713.9377 - mae: 19.4658
+Epoch 15/100
+1570/1570 [==============================] - 1s 696us/step - loss: 671.5330 - mae: 19.8928
+Epoch 16/100
+1570/1570 [==============================] - 1s 689us/step - loss: 809.9895 - mae: 21.1933
+Epoch 17/100
+1570/1570 [==============================] - 1s 697us/step - loss: 626.8463 - mae: 18.9511
+Epoch 18/100
+1570/1570 [==============================] - 1s 690us/step - loss: 664.7856 - mae: 19.5640
+Epoch 19/100
+1570/1570 [==============================] - 1s 702us/step - loss: 695.1313 - mae: 20.3170
+Epoch 20/100
+1570/1570 [==============================] - 1s 685us/step - loss: 844.7645 - mae: 21.5548
+Epoch 21/100
+1570/1570 [==============================] - 1s 749us/step - loss: 750.3210 - mae: 20.9530
+Epoch 22/100
+1570/1570 [==============================] - 1s 682us/step - loss: 631.6428 - mae: 19.1385
+Epoch 23/100
+1570/1570 [==============================] - 1s 694us/step - loss: 721.4250 - mae: 20.0112
+Epoch 24/100
+1570/1570 [==============================] - 1s 687us/step - loss: 879.2552 - mae: 22.0182
+Epoch 25/100
+1570/1570 [==============================] - 1s 684us/step - loss: 827.2421 - mae: 21.6464
+Epoch 26/100
+1570/1570 [==============================] - 1s 700us/step - loss: 701.4094 - mae: 20.2091
+Epoch 27/100
+1570/1570 [==============================] - 1s 691us/step - loss: 695.8590 - mae: 20.0878
+Epoch 28/100
+1570/1570 [==============================] - 1s 692us/step - loss: 703.5710 - mae: 20.0760
+Epoch 29/100
+1570/1570 [==============================] - 1s 699us/step - loss: 632.8063 - mae: 19.4138
+Epoch 30/100
+1570/1570 [==============================] - 1s 701us/step - loss: 653.7804 - mae: 19.7783
+Epoch 31/100
+1570/1570 [==============================] - 1s 691us/step - loss: 1016.0288 - mae: 23.3376
+Epoch 32/100
+1570/1570 [==============================] - 1s 701us/step - loss: 695.7961 - mae: 20.5422
+Epoch 33/100
+1570/1570 [==============================] - 1s 719us/step - loss: 642.6339 - mae: 19.6469
+Epoch 34/100
+1570/1570 [==============================] - 1s 753us/step - loss: 604.4878 - mae: 18.8055
+Epoch 35/100
+1570/1570 [==============================] - 1s 696us/step - loss: 669.7369 - mae: 20.0942
+Epoch 36/100
+1570/1570 [==============================] - 1s 697us/step - loss: 778.4235 - mae: 20.4621
+Epoch 37/100
+1570/1570 [==============================] - 1s 700us/step - loss: 697.3196 - mae: 19.9764
+Epoch 38/100
+1570/1570 [==============================] - 1s 697us/step - loss: 600.9893 - mae: 18.5254
+Epoch 39/100
+1570/1570 [==============================] - 1s 704us/step - loss: 710.3656 - mae: 20.0062
+Epoch 40/100
+1570/1570 [==============================] - 1s 697us/step - loss: 704.0516 - mae: 20.1501
+Epoch 41/100
+1570/1570 [==============================] - 1s 695us/step - loss: 733.9904 - mae: 20.4308
+Epoch 42/100
+1570/1570 [==============================] - 1s 697us/step - loss: 555.9091 - mae: 18.1039
+Epoch 43/100
+1570/1570 [==============================] - 1s 683us/step - loss: 647.9240 - mae: 18.9008
+Epoch 44/100
+1570/1570 [==============================] - 1s 708us/step - loss: 696.8072 - mae: 20.2532
+Epoch 45/100
+1570/1570 [==============================] - 1s 721us/step - loss: 639.6487 - mae: 19.3308
+Epoch 46/100
+1570/1570 [==============================] - 1s 726us/step - loss: 554.9702 - mae: 17.9829
+Epoch 47/100
+1570/1570 [==============================] - 1s 725us/step - loss: 605.5833 - mae: 18.8098
+Epoch 48/100
+1570/1570 [==============================] - 1s 745us/step - loss: 823.3652 - mae: 22.1876
+Epoch 49/100
+1570/1570 [==============================] - 1s 745us/step - loss: 700.0248 - mae: 20.3396
+Epoch 50/100
+1570/1570 [==============================] - 1s 763us/step - loss: 707.9413 - mae: 20.2279
+Epoch 51/100
+1570/1570 [==============================] - 1s 757us/step - loss: 700.5992 - mae: 19.8542
+Epoch 52/100
+1570/1570 [==============================] - 1s 702us/step - loss: 645.3628 - mae: 19.1472
+Epoch 53/100
+1570/1570 [==============================] - 1s 701us/step - loss: 636.1317 - mae: 19.1446
+Epoch 54/100
+1570/1570 [==============================] - 1s 778us/step - loss: 667.7475 - mae: 19.5081
+Epoch 55/100
+1570/1570 [==============================] - 1s 750us/step - loss: 676.5157 - mae: 19.5577
+Epoch 56/100
+1570/1570 [==============================] - 1s 709us/step - loss: 929.1287 - mae: 22.7297
+Epoch 57/100
+1570/1570 [==============================] - 1s 741us/step - loss: 804.6200 - mae: 21.4121
+Epoch 58/100
+1570/1570 [==============================] - 1s 750us/step - loss: 725.5538 - mae: 20.5640
+Epoch 59/100
+1570/1570 [==============================] - 1s 726us/step - loss: 732.9226 - mae: 20.6287
+Epoch 60/100
+1570/1570 [==============================] - 1s 774us/step - loss: 763.7737 - mae: 20.9384
+Epoch 61/100
+1570/1570 [==============================] - 1s 771us/step - loss: 598.0344 - mae: 18.4678
+Epoch 62/100
+1570/1570 [==============================] - 1s 731us/step - loss: 783.2723 - mae: 21.0092
+Epoch 63/100
+1570/1570 [==============================] - 1s 689us/step - loss: 613.8795 - mae: 18.4673
+Epoch 64/100
+1570/1570 [==============================] - 1s 689us/step - loss: 891.0996 - mae: 21.7655
+Epoch 65/100
+1570/1570 [==============================] - 1s 683us/step - loss: 680.8638 - mae: 19.8157
+Epoch 66/100
+1570/1570 [==============================] - 1s 705us/step - loss: 660.6561 - mae: 19.6660
+Epoch 67/100
+1570/1570 [==============================] - 1s 698us/step - loss: 768.7937 - mae: 21.4989
+Epoch 68/100
+1570/1570 [==============================] - 1s 688us/step - loss: 667.2055 - mae: 19.1970
+Epoch 69/100
+1570/1570 [==============================] - 1s 706us/step - loss: 735.8928 - mae: 20.3921
+Epoch 70/100
+1570/1570 [==============================] - 1s 696us/step - loss: 843.5947 - mae: 21.6246
+Epoch 71/100
+1570/1570 [==============================] - 1s 676us/step - loss: 612.9269 - mae: 18.9968
+Epoch 72/100
+1570/1570 [==============================] - 1s 745us/step - loss: 631.1614 - mae: 18.9914
+Epoch 73/100
+1570/1570 [==============================] - 1s 693us/step - loss: 713.9399 - mae: 20.2510
+Epoch 74/100
+1570/1570 [==============================] - 1s 635us/step - loss: 628.4302 - mae: 19.2150
+Epoch 75/100
+1570/1570 [==============================] - 1s 651us/step - loss: 740.0641 - mae: 20.8704
+Epoch 76/100
+1570/1570 [==============================] - 1s 622us/step - loss: 634.4455 - mae: 19.2745
+Epoch 77/100
+1570/1570 [==============================] - 1s 609us/step - loss: 716.5535 - mae: 20.6797
+Epoch 78/100
+1570/1570 [==============================] - 1s 639us/step - loss: 735.1273 - mae: 20.3919
+Epoch 79/100
+1570/1570 [==============================] - 1s 657us/step - loss: 630.1802 - mae: 19.2159
+Epoch 80/100
+1570/1570 [==============================] - 1s 616us/step - loss: 597.2530 - mae: 18.6527
+Epoch 81/100
+1570/1570 [==============================] - 1s 684us/step - loss: 662.5781 - mae: 19.5194
+Epoch 82/100
+1570/1570 [==============================] - 1s 699us/step - loss: 631.2231 - mae: 19.0265
+Epoch 83/100
+1570/1570 [==============================] - 1s 638us/step - loss: 719.9138 - mae: 20.2006
+Epoch 84/100
+1570/1570 [==============================] - 1s 613us/step - loss: 578.8290 - mae: 18.5974
+Epoch 85/100
+1570/1570 [==============================] - 1s 630us/step - loss: 833.9090 - mae: 21.5101
+Epoch 86/100
+1570/1570 [==============================] - 1s 689us/step - loss: 724.4709 - mae: 20.2260
+Epoch 87/100
+1570/1570 [==============================] - 1s 650us/step - loss: 659.7275 - mae: 19.9460
+Epoch 88/100
+1570/1570 [==============================] - 1s 655us/step - loss: 710.6397 - mae: 20.5307
+Epoch 89/100
+1570/1570 [==============================] - 1s 641us/step - loss: 703.9041 - mae: 20.2339
+Epoch 90/100
+1570/1570 [==============================] - 1s 641us/step - loss: 747.5262 - mae: 20.9598
+Epoch 91/100
+1570/1570 [==============================] - 1s 671us/step - loss: 803.8232 - mae: 21.4400
+Epoch 92/100
+1570/1570 [==============================] - 1s 637us/step - loss: 643.2718 - mae: 19.1185
+Epoch 93/100
+1570/1570 [==============================] - 1s 656us/step - loss: 735.5874 - mae: 20.7587
+Epoch 94/100
+1570/1570 [==============================] - 1s 646us/step - loss: 659.4421 - mae: 19.6404
+Epoch 95/100
+1570/1570 [==============================] - 1s 699us/step - loss: 632.8841 - mae: 19.2961
+Epoch 96/100
+1570/1570 [==============================] - 1s 702us/step - loss: 713.7954 - mae: 20.0682
+Epoch 97/100
+1570/1570 [==============================] - 1s 623us/step - loss: 650.3159 - mae: 19.1298
+Epoch 98/100
+1570/1570 [==============================] - 1s 642us/step - loss: 786.0706 - mae: 21.4033
+Epoch 99/100
+1570/1570 [==============================] - 1s 625us/step - loss: 687.3713 - mae: 19.8312
+Epoch 100/100
+1570/1570 [==============================] - 1s 683us/step - loss: 692.3904 - mae: 20.3091
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>forecast</span> <span class=o>=</span> <span class=p>[]</span>
+
+<span class=k>for</span> <span class=n>time</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>pm25</span><span class=p>)</span> <span class=o>-</span> <span class=n>window_size</span><span class=p>):</span>
+    <span class=n>forecast</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>model</span><span class=o>.</span><span class=n>predict</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>pm25</span><span class=p>[</span><span class=n>time</span><span class=p>:</span><span class=n>time</span> <span class=o>+</span> <span class=n>window_size</span><span class=p>])[</span><span class=n>np</span><span class=o>.</span><span class=n>newaxis</span><span class=p>]))</span>
+
+<span class=n>forecast</span> <span class=o>=</span> <span class=n>forecast</span><span class=p>[</span><span class=n>split_time</span><span class=o>-</span><span class=n>window_size</span><span class=p>:]</span>
+<span class=n>results</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>(</span><span class=n>forecast</span><span class=p>)[:,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>]</span>
+
+
+<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span> <span class=mi>6</span><span class=p>))</span>
+
+<span class=n>plot_series</span><span class=p>(</span><span class=n>time_valid</span><span class=p>,</span> <span class=n>x_valid</span><span class=p>)</span>
+<span class=n>plot_series</span><span class=p>(</span><span class=n>time_valid</span><span class=p>,</span> <span class=n>results</span><span class=p>)</span>
+</code></pre></div> <p><img alt=png src=output_19_0.png></p> <div class=highlight><pre><span></span><code><span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>metrics</span><span class=o>.</span><span class=n>mean_absolute_error</span><span class=p>(</span><span class=n>x_valid</span><span class=p>,</span> <span class=n>results</span><span class=p>)</span><span class=o>.</span><span class=n>numpy</span><span class=p>()</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>13.240775
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>model</span><span class=o>.</span><span class=n>save</span><span class=p>(</span><span class=s1>&#39;pm25_DL_model&#39;</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>INFO:tensorflow:Assets written to: pm25_DL_model\assets
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>model</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>models</span><span class=o>.</span><span class=n>load_model</span><span class=p>(</span><span class=s1>&#39;pm25_DL_model&#39;</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>model</span><span class=o>.</span><span class=n>predict</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>pm25</span><span class=p>[</span><span class=mi>1</span><span class=p>:</span><span class=mi>15</span><span class=p>])[</span><span class=n>np</span><span class=o>.</span><span class=n>newaxis</span><span class=p>])</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>array([[163.71252]], dtype=float32)
+</code></pre></div> <p>This model is currently deployed as "Deep learning model" in Git actions</p> <h2 id=rnn>RNN<a class=headerlink href=#rnn title="Permanent link">&para;</a></h2> <div class=highlight><pre><span></span><code><span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>backend</span><span class=o>.</span><span class=n>clear_session</span><span class=p>()</span>
+<span class=n>tf</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>set_seed</span><span class=p>(</span><span class=mi>51</span><span class=p>)</span>
+<span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>seed</span><span class=p>(</span><span class=mi>51</span><span class=p>)</span>
+
+<span class=n>train_set</span> <span class=o>=</span> <span class=n>windowed_dataset</span><span class=p>(</span><span class=n>x_train</span><span class=p>,</span> <span class=n>window_size</span><span class=p>,</span> <span class=n>batch_size</span><span class=p>,</span> <span class=n>shuffle_buffer_size</span><span class=p>)</span>
+
+<span class=n>model</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>models</span><span class=o>.</span><span class=n>Sequential</span><span class=p>([</span>
+  <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>Lambda</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>tf</span><span class=o>.</span><span class=n>expand_dims</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>axis</span><span class=o>=-</span><span class=mi>1</span><span class=p>),</span>
+                      <span class=n>input_shape</span><span class=o>=</span><span class=p>[</span><span class=kc>None</span><span class=p>]),</span>
+  <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>SimpleRNN</span><span class=p>(</span><span class=mi>14</span><span class=p>,</span> <span class=n>return_sequences</span><span class=o>=</span><span class=kc>True</span><span class=p>),</span>
+  <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>SimpleRNN</span><span class=p>(</span><span class=mi>14</span><span class=p>,</span> <span class=n>return_sequences</span><span class=o>=</span><span class=kc>True</span><span class=p>),</span>
+  <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>Dense</span><span class=p>(</span><span class=mi>1</span><span class=p>),</span>
+  <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>Lambda</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>x</span> <span class=o>*</span> <span class=mf>200.0</span><span class=p>)</span>
+<span class=p>])</span>
+
+<span class=n>lr_schedule</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>callbacks</span><span class=o>.</span><span class=n>LearningRateScheduler</span><span class=p>(</span>
+    <span class=k>lambda</span> <span class=n>epoch</span><span class=p>:</span> <span class=mf>1e-8</span> <span class=o>*</span> <span class=mi>10</span><span class=o>**</span><span class=p>(</span><span class=n>epoch</span> <span class=o>/</span> <span class=mi>20</span><span class=p>))</span>
+<span class=n>optimizer</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>optimizers</span><span class=o>.</span><span class=n>SGD</span><span class=p>(</span><span class=n>learning_rate</span><span class=o>=</span><span class=mf>1e-8</span><span class=p>,</span> <span class=n>momentum</span><span class=o>=</span><span class=mf>0.9</span><span class=p>)</span>
+<span class=n>model</span><span class=o>.</span><span class=n>compile</span><span class=p>(</span><span class=n>loss</span><span class=o>=</span><span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>losses</span><span class=o>.</span><span class=n>Huber</span><span class=p>(),</span>
+              <span class=n>optimizer</span><span class=o>=</span><span class=n>optimizer</span><span class=p>,</span>
+              <span class=n>metrics</span><span class=o>=</span><span class=p>[</span><span class=s2>&quot;mae&quot;</span><span class=p>])</span>
+<span class=n>history</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>train_set</span><span class=p>,</span> <span class=n>epochs</span><span class=o>=</span><span class=mi>25</span><span class=p>,</span> <span class=n>callbacks</span><span class=o>=</span><span class=p>[</span><span class=n>lr_schedule</span><span class=p>])</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>Epoch 1/25
+1570/1570 [==============================] - 7s 3ms/step - loss: 255.5130 - mae: 256.0130
+Epoch 2/25
+1570/1570 [==============================] - 6s 3ms/step - loss: 136.1440 - mae: 136.6439
+Epoch 3/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 44.4807 - mae: 44.9783
+Epoch 4/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 36.5102 - mae: 37.0077
+Epoch 5/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 36.1142 - mae: 36.6120
+Epoch 6/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 35.6905 - mae: 36.1887
+Epoch 7/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 35.2254 - mae: 35.7231
+Epoch 8/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 34.7579 - mae: 35.2558
+Epoch 9/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 34.1971 - mae: 34.6951
+Epoch 10/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 33.6498 - mae: 34.1480
+Epoch 11/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 32.9927 - mae: 33.4904
+Epoch 12/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 32.3265 - mae: 32.8238
+Epoch 13/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 31.7288 - mae: 32.2260
+Epoch 14/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 31.1841 - mae: 31.6818
+Epoch 15/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 30.7113 - mae: 31.2086
+Epoch 16/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 30.3737 - mae: 30.8711
+Epoch 17/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 30.1141 - mae: 30.6113
+Epoch 18/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 29.7798 - mae: 30.2774
+Epoch 19/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 29.6268 - mae: 30.1236
+Epoch 20/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 29.4335 - mae: 29.9309
+Epoch 21/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 29.3501 - mae: 29.8474
+Epoch 22/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 30.9055 - mae: 31.4033
+Epoch 23/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 29.6605 - mae: 30.1580
+Epoch 24/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 29.5224 - mae: 30.0199
+Epoch 25/25
+1570/1570 [==============================] - 5s 3ms/step - loss: 28.9797 - mae: 29.4764
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>plt</span><span class=o>.</span><span class=n>semilogx</span><span class=p>(</span><span class=n>history</span><span class=o>.</span><span class=n>history</span><span class=p>[</span><span class=s2>&quot;lr&quot;</span><span class=p>],</span> <span class=n>history</span><span class=o>.</span><span class=n>history</span><span class=p>[</span><span class=s2>&quot;loss&quot;</span><span class=p>])</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>axis</span><span class=p>([</span><span class=mf>1e-8</span><span class=p>,</span> <span class=mf>1e-6</span><span class=p>,</span> <span class=mi>20</span><span class=p>,</span> <span class=mi>300</span><span class=p>])</span>
+</code></pre></div> <p><img alt=png src=output_26_1.png></p> <div class=highlight><pre><span></span><code><span class=n>forecast</span> <span class=o>=</span> <span class=p>[]</span>
+
+<span class=k>for</span> <span class=n>time</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>pm25</span><span class=p>)</span> <span class=o>-</span> <span class=n>window_size</span><span class=p>):</span>
+    <span class=n>forecast</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>model</span><span class=o>.</span><span class=n>predict</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>pm25</span><span class=p>[</span><span class=n>time</span><span class=p>:</span><span class=n>time</span> <span class=o>+</span> <span class=n>window_size</span><span class=p>])[</span><span class=n>np</span><span class=o>.</span><span class=n>newaxis</span><span class=p>]))</span>
+
+<span class=n>forecast</span> <span class=o>=</span> <span class=n>forecast</span><span class=p>[</span><span class=n>split_time</span><span class=o>-</span><span class=n>window_size</span><span class=p>:]</span>
+<span class=n>results</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>(</span><span class=n>forecast</span><span class=p>)[:,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>]</span>
+
+
+<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span> <span class=mi>6</span><span class=p>))</span>
+
+<span class=n>plot_series</span><span class=p>(</span><span class=n>time_valid</span><span class=p>,</span> <span class=n>x_valid</span><span class=p>)</span>
+<span class=n>plot_series</span><span class=p>(</span><span class=n>time_valid</span><span class=p>,</span> <span class=n>results</span><span class=p>)</span>
+</code></pre></div> <p><img alt=png src=output_27_0.png></p> <div class=highlight><pre><span></span><code><span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>metrics</span><span class=o>.</span><span class=n>mean_absolute_error</span><span class=p>(</span><span class=n>x_valid</span><span class=p>,</span> <span class=n>results</span><span class=p>)</span><span class=o>.</span><span class=n>numpy</span><span class=p>()</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>array([39.826717, 39.908363, 40.442093, ..., 39.340984, 39.340984], dtype=float32)
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>matplotlib.image</span>  <span class=k>as</span> <span class=nn>mpimg</span>
+<span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
+
+<span class=c1>#-----------------------------------------------------------</span>
+<span class=c1># Retrieve a list of list results on training and test data</span>
+<span class=c1># sets for each training epoch</span>
+<span class=c1>#-----------------------------------------------------------</span>
+<span class=n>mae</span><span class=o>=</span><span class=n>history</span><span class=o>.</span><span class=n>history</span><span class=p>[</span><span class=s1>&#39;mae&#39;</span><span class=p>]</span>
+<span class=n>loss</span><span class=o>=</span><span class=n>history</span><span class=o>.</span><span class=n>history</span><span class=p>[</span><span class=s1>&#39;loss&#39;</span><span class=p>]</span>
+
+<span class=n>epochs</span><span class=o>=</span><span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>loss</span><span class=p>))</span> <span class=c1># Get number of epochs</span>
+
+<span class=c1>#------------------------------------------------</span>
+<span class=c1># Plot MAE and Loss</span>
+<span class=c1>#------------------------------------------------</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>epochs</span><span class=p>,</span> <span class=n>mae</span><span class=p>,</span> <span class=s1>&#39;r&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>epochs</span><span class=p>,</span> <span class=n>loss</span><span class=p>,</span> <span class=s1>&#39;b&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s1>&#39;MAE and Loss&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&quot;Epochs&quot;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&quot;Accuracy&quot;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>([</span><span class=s2>&quot;MAE&quot;</span><span class=p>,</span> <span class=s2>&quot;Loss&quot;</span><span class=p>])</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>()</span>
+
+<span class=n>epochs_zoom</span> <span class=o>=</span> <span class=n>epochs</span><span class=p>[</span><span class=mi>200</span><span class=p>:]</span>
+<span class=n>mae_zoom</span> <span class=o>=</span> <span class=n>mae</span><span class=p>[</span><span class=mi>200</span><span class=p>:]</span>
+<span class=n>loss_zoom</span> <span class=o>=</span> <span class=n>loss</span><span class=p>[</span><span class=mi>200</span><span class=p>:]</span>
+
+<span class=c1>#------------------------------------------------</span>
+<span class=c1># Plot Zoomed MAE and Loss</span>
+<span class=c1>#------------------------------------------------</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>epochs_zoom</span><span class=p>,</span> <span class=n>mae_zoom</span><span class=p>,</span> <span class=s1>&#39;r&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>epochs_zoom</span><span class=p>,</span> <span class=n>loss_zoom</span><span class=p>,</span> <span class=s1>&#39;b&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s1>&#39;MAE and Loss&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&quot;Epochs&quot;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&quot;Accuracy&quot;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>([</span><span class=s2>&quot;MAE&quot;</span><span class=p>,</span> <span class=s2>&quot;Loss&quot;</span><span class=p>])</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>()</span>
+</code></pre></div> <p><img alt=png src=output_29_1.png></p> <p><img alt=png src=output_29_2.png></p> <h2 id=lstm>LSTM<a class=headerlink href=#lstm title="Permanent link">&para;</a></h2> <div class=highlight><pre><span></span><code><span class=k>def</span> <span class=nf>model_forecast</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>series</span><span class=p>,</span> <span class=n>window_size</span><span class=p>):</span>
+    <span class=n>ds</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>data</span><span class=o>.</span><span class=n>Dataset</span><span class=o>.</span><span class=n>from_tensor_slices</span><span class=p>(</span><span class=n>series</span><span class=p>)</span>
+    <span class=n>ds</span> <span class=o>=</span> <span class=n>ds</span><span class=o>.</span><span class=n>window</span><span class=p>(</span><span class=n>window_size</span><span class=p>,</span> <span class=n>shift</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>drop_remainder</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+    <span class=n>ds</span> <span class=o>=</span> <span class=n>ds</span><span class=o>.</span><span class=n>flat_map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>w</span><span class=p>:</span> <span class=n>w</span><span class=o>.</span><span class=n>batch</span><span class=p>(</span><span class=n>window_size</span><span class=p>))</span>
+    <span class=n>ds</span> <span class=o>=</span> <span class=n>ds</span><span class=o>.</span><span class=n>batch</span><span class=p>(</span><span class=mi>32</span><span class=p>)</span><span class=o>.</span><span class=n>prefetch</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+    <span class=n>forecast</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>predict</span><span class=p>(</span><span class=n>ds</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>forecast</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>backend</span><span class=o>.</span><span class=n>clear_session</span><span class=p>()</span>
+<span class=n>tf</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>set_seed</span><span class=p>(</span><span class=mi>51</span><span class=p>)</span>
+<span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>seed</span><span class=p>(</span><span class=mi>51</span><span class=p>)</span>
+
+<span class=n>x_train_LSTM</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>expand_dims</span><span class=p>(</span><span class=n>x_train</span><span class=p>,</span> <span class=n>axis</span><span class=o>=-</span><span class=mi>1</span><span class=p>)</span>
+
+<span class=n>train_set</span> <span class=o>=</span> <span class=n>windowed_dataset</span><span class=p>(</span><span class=n>x_train_LSTM</span><span class=p>,</span> <span class=n>window_size</span><span class=p>,</span> <span class=n>batch_size</span><span class=p>,</span> <span class=n>shuffle_buffer_size</span><span class=p>)</span>
+<span class=n>train_set</span>
+
+<span class=n>model</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>models</span><span class=o>.</span><span class=n>Sequential</span><span class=p>([</span>
+  <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>Conv1D</span><span class=p>(</span><span class=n>filters</span><span class=o>=</span><span class=mi>32</span><span class=p>,</span> <span class=n>kernel_size</span><span class=o>=</span><span class=mi>5</span><span class=p>,</span>
+                      <span class=n>strides</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>padding</span><span class=o>=</span><span class=s2>&quot;causal&quot;</span><span class=p>,</span>
+                      <span class=n>activation</span><span class=o>=</span><span class=s2>&quot;relu&quot;</span><span class=p>,</span>
+                      <span class=n>input_shape</span><span class=o>=</span><span class=p>[</span><span class=kc>None</span><span class=p>,</span> <span class=mi>1</span><span class=p>]),</span>
+  <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>Bidirectional</span><span class=p>(</span><span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>LSTM</span><span class=p>(</span><span class=mi>32</span><span class=p>,</span> <span class=n>return_sequences</span><span class=o>=</span><span class=kc>True</span><span class=p>)),</span>
+  <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>Bidirectional</span><span class=p>(</span><span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>LSTM</span><span class=p>(</span><span class=mi>32</span><span class=p>,</span> <span class=n>return_sequences</span><span class=o>=</span><span class=kc>True</span><span class=p>)),</span>
+  <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>Dense</span><span class=p>(</span><span class=mi>1</span><span class=p>),</span>
+  <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>layers</span><span class=o>.</span><span class=n>Lambda</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>x</span> <span class=o>*</span> <span class=mi>200</span><span class=p>)</span>
+<span class=p>])</span>
+<span class=n>lr_schedule</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>callbacks</span><span class=o>.</span><span class=n>LearningRateScheduler</span><span class=p>(</span>
+    <span class=k>lambda</span> <span class=n>epoch</span><span class=p>:</span> <span class=mf>1e-8</span> <span class=o>*</span> <span class=mi>10</span><span class=o>**</span><span class=p>(</span><span class=n>epoch</span> <span class=o>/</span> <span class=mi>20</span><span class=p>))</span>
+<span class=n>optimizer</span> <span class=o>=</span> <span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>optimizers</span><span class=o>.</span><span class=n>SGD</span><span class=p>(</span><span class=n>learning_rate</span><span class=o>=</span><span class=mf>1e-8</span><span class=p>,</span> <span class=n>momentum</span><span class=o>=</span><span class=mf>0.9</span><span class=p>)</span>
+<span class=n>model</span><span class=o>.</span><span class=n>compile</span><span class=p>(</span><span class=n>loss</span><span class=o>=</span><span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>losses</span><span class=o>.</span><span class=n>Huber</span><span class=p>(),</span>
+              <span class=n>optimizer</span><span class=o>=</span><span class=n>optimizer</span><span class=p>,</span>
+              <span class=n>metrics</span><span class=o>=</span><span class=p>[</span><span class=s2>&quot;mae&quot;</span><span class=p>])</span>
+<span class=n>history</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>train_set</span><span class=p>,</span> <span class=n>epochs</span><span class=o>=</span><span class=mi>25</span><span class=p>,</span> <span class=n>callbacks</span><span class=o>=</span><span class=p>[</span><span class=n>lr_schedule</span><span class=p>])</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>Epoch 1/25
+1570/1570 [==============================] - 27s 12ms/step - loss: 51.0839 - mae: 51.5817
+Epoch 2/25
+1570/1570 [==============================] - 21s 13ms/step - loss: 30.5634 - mae: 31.0600 0s - loss: 30.5700 - mae: 31.06
+Epoch 3/25
+1570/1570 [==============================] - 20s 13ms/step - loss: 28.5261 - mae: 29.0220
+Epoch 4/25
+1570/1570 [==============================] - 23s 14ms/step - loss: 27.1795 - mae: 27.6754
+Epoch 5/25
+1570/1570 [==============================] - 21s 13ms/step - loss: 25.9100 - mae: 26.4058
+Epoch 6/25
+1570/1570 [==============================] - 21s 13ms/step - loss: 24.7144 - mae: 25.2104
+Epoch 7/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 23.5953 - mae: 24.0904
+Epoch 8/25
+1570/1570 [==============================] - 21s 13ms/step - loss: 22.6447 - mae: 23.1403
+Epoch 9/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 21.7317 - mae: 22.2269
+Epoch 10/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 20.8462 - mae: 21.3408
+Epoch 11/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 20.1405 - mae: 20.6347
+Epoch 12/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 19.4537 - mae: 19.9481
+Epoch 13/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 18.8216 - mae: 19.3158
+Epoch 14/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 18.2066 - mae: 18.7004
+Epoch 15/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 17.5309 - mae: 18.0234
+Epoch 16/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 17.3460 - mae: 17.8395
+Epoch 17/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 16.8951 - mae: 17.3882
+Epoch 18/25
+1570/1570 [==============================] - 23s 15ms/step - loss: 16.5255 - mae: 17.0192
+Epoch 19/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 16.4288 - mae: 16.9225
+Epoch 20/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 16.1572 - mae: 16.6509
+Epoch 21/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 15.7839 - mae: 16.2775
+Epoch 22/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 15.7438 - mae: 16.2366
+Epoch 23/25
+1570/1570 [==============================] - 23s 15ms/step - loss: 15.6320 - mae: 16.1244
+Epoch 24/25
+1570/1570 [==============================] - 23s 14ms/step - loss: 15.7910 - mae: 16.2841
+Epoch 25/25
+1570/1570 [==============================] - 22s 14ms/step - loss: 15.5656 - mae: 16.0587
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>rnn_forecast</span> <span class=o>=</span> <span class=n>model_forecast</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>pm25</span><span class=p>)[</span><span class=o>...</span><span class=p>,</span> <span class=n>np</span><span class=o>.</span><span class=n>newaxis</span><span class=p>],</span> <span class=n>window_size</span><span class=p>)</span>
+<span class=n>rnn_forecast</span> <span class=o>=</span> <span class=n>rnn_forecast</span><span class=p>[</span><span class=n>split_time</span> <span class=o>-</span> <span class=n>window_size</span><span class=p>:</span><span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=mi>0</span><span class=p>]</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span> <span class=mi>6</span><span class=p>))</span>
+<span class=n>plot_series</span><span class=p>(</span><span class=n>time_valid</span><span class=p>,</span> <span class=n>x_valid</span><span class=p>)</span>
+<span class=n>plot_series</span><span class=p>(</span><span class=n>time_valid</span><span class=p>,</span> <span class=n>rnn_forecast</span><span class=p>)</span>
+</code></pre></div> <p><img alt=png src=output_34_0.png></p> <div class=highlight><pre><span></span><code><span class=n>tf</span><span class=o>.</span><span class=n>keras</span><span class=o>.</span><span class=n>metrics</span><span class=o>.</span><span class=n>mean_absolute_error</span><span class=p>(</span><span class=n>x_valid</span><span class=p>,</span> <span class=n>rnn_forecast</span><span class=p>)</span><span class=o>.</span><span class=n>numpy</span><span class=p>()</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>17.472342
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>matplotlib.image</span>  <span class=k>as</span> <span class=nn>mpimg</span>
+<span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
+
+<span class=c1>#-----------------------------------------------------------</span>
+<span class=c1># Retrieve a list of list results on training and test data</span>
+<span class=c1># sets for each training epoch</span>
+<span class=c1>#-----------------------------------------------------------</span>
+<span class=n>mae</span><span class=o>=</span><span class=n>history</span><span class=o>.</span><span class=n>history</span><span class=p>[</span><span class=s1>&#39;mae&#39;</span><span class=p>]</span>
+<span class=n>loss</span><span class=o>=</span><span class=n>history</span><span class=o>.</span><span class=n>history</span><span class=p>[</span><span class=s1>&#39;loss&#39;</span><span class=p>]</span>
+
+<span class=n>epochs</span><span class=o>=</span><span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>loss</span><span class=p>))</span> <span class=c1># Get number of epochs</span>
+
+<span class=c1>#------------------------------------------------</span>
+<span class=c1># Plot MAE and Loss</span>
+<span class=c1>#------------------------------------------------</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>epochs</span><span class=p>,</span> <span class=n>mae</span><span class=p>,</span> <span class=s1>&#39;r&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>epochs</span><span class=p>,</span> <span class=n>loss</span><span class=p>,</span> <span class=s1>&#39;b&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s1>&#39;MAE and Loss&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&quot;Epochs&quot;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&quot;Accuracy&quot;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>([</span><span class=s2>&quot;MAE&quot;</span><span class=p>,</span> <span class=s2>&quot;Loss&quot;</span><span class=p>])</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>()</span>
+
+<span class=n>epochs_zoom</span> <span class=o>=</span> <span class=n>epochs</span><span class=p>[</span><span class=mi>200</span><span class=p>:]</span>
+<span class=n>mae_zoom</span> <span class=o>=</span> <span class=n>mae</span><span class=p>[</span><span class=mi>200</span><span class=p>:]</span>
+<span class=n>loss_zoom</span> <span class=o>=</span> <span class=n>loss</span><span class=p>[</span><span class=mi>200</span><span class=p>:]</span>
+
+<span class=c1>#------------------------------------------------</span>
+<span class=c1># Plot Zoomed MAE and Loss</span>
+<span class=c1>#------------------------------------------------</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>epochs_zoom</span><span class=p>,</span> <span class=n>mae_zoom</span><span class=p>,</span> <span class=s1>&#39;r&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>epochs_zoom</span><span class=p>,</span> <span class=n>loss_zoom</span><span class=p>,</span> <span class=s1>&#39;b&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s1>&#39;MAE and Loss&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&quot;Epochs&quot;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&quot;Accuracy&quot;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>([</span><span class=s2>&quot;MAE&quot;</span><span class=p>,</span> <span class=s2>&quot;Loss&quot;</span><span class=p>])</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>()</span>
+</code></pre></div> <p><img alt=png src=output_36_1.png></p> <p><img alt=png src=output_36_2.png></p> </article> </div> </div> <a href=# class="md-top md-icon" data-md-component=top data-md-state=hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg> Back to top </a> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> Copyright &copy; 2016 - 2021 Martin Donath </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> <div class=md-footer-social> <a href=https://github.com/HarshaAsh target=_blank rel=noopener title=github.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </a> <a href=https://www.linkedin.com/in/sri-harsha-achyuthuni/ target=_blank rel=noopener title=www.linkedin.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg> </a> <a href=https://www.instagram.com/harsh_uni/ target=_blank rel=noopener title=www.instagram.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> </a> <a href=https://www.facebook.com/sri.harsha.achyuthuni/ target=_blank rel=noopener title=www.facebook.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg> </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "header.autohide", "navigation.sections", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script> <script src=../../assets/javascripts/bundle.56838a2c.min.js></script> </body> </html>
