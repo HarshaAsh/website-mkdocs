@@ -34,3 +34,18 @@
 .resume a{
     color: #4051b5;
 }
+
+table.table th, table.table td{
+    border: 1px solid #ddd;
+}
+
+/* table.table::before{
+    position: fixed;
+    position: fixed;
+} */
+
+table.table{
+    overflow-x: auto;
+    display:inline-block;
+    width: 100%;
+}

@@ -171,6 +171,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.harshaash.com/R/Handling-Imbalanced-classes/</loc>
+         <lastmod>2022-01-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.harshaash.com/R/Seasonal-Time-Series/</loc>
          <lastmod>2022-01-01</lastmod>
          <changefreq>daily</changefreq>
@@ -196,7 +201,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.harshaash.com/R/multicolleniarity/</loc>
+         <loc>https://www.harshaash.com/R/multicollinearity/</loc>
          <lastmod>2022-01-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
