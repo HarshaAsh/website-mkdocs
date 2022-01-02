@@ -1,0 +1,559 @@
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Harsha's blog on data science"><meta name=author content="Achyuthuni Sri Harsha"><link href=https://www.harshaash.com/R/Linear-regression/ rel=canonical><link rel=icon href=../../assets/images/logo.jpg><meta name=generator content="mkdocs-1.2.2, mkdocs-material-7.2.4"><title>Linear Regression - Data Science with Harsha</title><link rel=stylesheet href=../../assets/stylesheets/main.f7f47774.min.css><link rel=stylesheet href=../../assets/stylesheets/palette.3f5d1f46.min.css><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"><style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style><link rel=stylesheet href=../../overrides/assets/stylesheets/user_defined.css><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-65034507-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script><script async src=https://www.google-analytics.com/analytics.js></script></head> <body dir=ltr data-md-color-scheme data-md-color-primary data-md-color-accent> <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script> <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#introduction class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../.. title="Data Science with Harsha" class="md-header__button md-logo" aria-label="Data Science with Harsha" data-md-component=logo> <img src=../../assets/images/logo.jpg alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Data Science with Harsha </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Linear Regression </span> </div> </div> </div> <form class=md-header__option data-md-component=palette> <input class=md-option data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme data-md-color-primary data-md-color-accent aria-hidden=true type=radio name=__palette id=__palette_1> <input class=md-option data-md-color-media data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo aria-label="Switch to dark mode" type=radio name=__palette id=__palette_2> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_1 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme data-md-color-primary data-md-color-accent aria-hidden=true type=radio name=__palette id=__palette_3> <input class=md-option data-md-color-media data-md-color-scheme=slate data-md-color-primary=red data-md-color-accent=red aria-label="Switch to light mode" type=radio name=__palette id=__palette_4> <label class="md-header__button md-icon" title="Switch to light mode" for=__palette_3 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg> </label> </form> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <nav class=md-search__options aria-label=Search> <a href=javascript:void(0) class="md-search__icon md-icon" aria-label=Share data-clipboard data-clipboard-text data-md-component=search-share tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg> </a> <button type=reset class="md-search__icon md-icon" aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </nav> <div class=md-search__suggest data-md-component=search-suggest></div> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../.. title="Data Science with Harsha" class="md-nav__button md-logo" aria-label="Data Science with Harsha" data-md-component=logo> <img src=../../assets/images/logo.jpg alt=logo> </a> Data Science with Harsha </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../.. class=md-nav__link> Home </a> </li> <li class=md-nav__item> <a href=../../resume/ class=md-nav__link> Resume </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3 type=checkbox id=__nav_3 checked> <label class=md-nav__link for=__nav_3> Blog <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Blog data-md-level=1> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> Blog </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_1 type=checkbox id=__nav_3_1> <label class=md-nav__link for=__nav_3_1> Visualization <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Visualization data-md-level=2> <label class=md-nav__title for=__nav_3_1> <span class="md-nav__icon md-icon"></span> Visualization </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Python/Vizualisation%20using%20python%20Part%201/ class=md-nav__link> Vizualizing tabular data (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Visualization%20for%20predictive%20analytics/ class=md-nav__link> Vizualising for predictive analytics (Python) </a> </li> <li class=md-nav__item> <a href=../Univariate-analysis/ class=md-nav__link> Univariate Analysis (R) </a> </li> <li class=md-nav__item> <a href=../multivariateAnalysis/ class=md-nav__link> Multivariate Analysis (R) </a> </li> <li class=md-nav__item> <a href=../multicollinearity/ class=md-nav__link> Multicollinearity (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_2 type=checkbox id=__nav_3_2> <label class=md-nav__link for=__nav_3_2> Hypothesis Testing <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Hypothesis Testing" data-md-level=2> <label class=md-nav__title for=__nav_3_2> <span class="md-nav__icon md-icon"></span> Hypothesis Testing </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../attendance_t_test/ class=md-nav__link> z-test and t-test (R) </a> </li> <li class=md-nav__item> <a href=../anova/ class=md-nav__link> ANOVA Test (R) </a> </li> <li class=md-nav__item> <a href=../chi-sq-goodness-of-fit/ class=md-nav__link> Chi-Square Goodness of fit (R) </a> </li> <li class=md-nav__item> <a href=../chi-sq-test-of-independence/ class=md-nav__link> Chi-Square test of independence (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_3 type=checkbox id=__nav_3_3> <label class=md-nav__link for=__nav_3_3> Factor Analysis <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Factor Analysis" data-md-level=2> <label class=md-nav__title for=__nav_3_3> <span class="md-nav__icon md-icon"></span> Factor Analysis </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Curse-of-Dimensionality/ class=md-nav__link> Curse of dimensionality </a> </li> <li class=md-nav__item> <a href=../EFA/ class=md-nav__link> Exploratory factor analysis (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_4 type=checkbox id=__nav_3_4 checked> <label class=md-nav__link for=__nav_3_4> Prediction algorithms <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Prediction algorithms" data-md-level=2> <label class=md-nav__title for=__nav_3_4> <span class="md-nav__icon md-icon"></span> Prediction algorithms </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_4_1 type=checkbox id=__nav_3_4_1> <label class=md-nav__link for=__nav_3_4_1> Classification Algorithms <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Classification Algorithms" data-md-level=3> <label class=md-nav__title for=__nav_3_4_1> <span class="md-nav__icon md-icon"></span> Classification Algorithms </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../logistic-regression/ class=md-nav__link> Logistic Regression (R) </a> </li> <li class=md-nav__item> <a href=../CHAID/ class=md-nav__link> CHAID Decision Trees (R) </a> </li> <li class=md-nav__item> <a href=../CART-Classification/ class=md-nav__link> CART Classification (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_4_2 type=checkbox id=__nav_3_4_2 checked> <label class=md-nav__link for=__nav_3_4_2> Regression Algorithms <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Regression Algorithms" data-md-level=3> <label class=md-nav__title for=__nav_3_4_2> <span class="md-nav__icon md-icon"></span> Regression Algorithms </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../part-and-partial-corr/ class=md-nav__link> Part and partial correlation </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> Linear Regression (R) <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> Linear Regression (R) </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#introduction class=md-nav__link> Introduction </a> </li> <li class=md-nav__item> <a href=#data-cleaning-and-eda class=md-nav__link> Data Cleaning and EDA </a> <nav class=md-nav aria-label="Data Cleaning and EDA"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#uni-variate-analysis class=md-nav__link> Uni-variate analysis </a> </li> <li class=md-nav__item> <a href=#bi-variate-analysis class=md-nav__link> Bi variate analysis </a> </li> <li class=md-nav__item> <a href=#correlation class=md-nav__link> Correlation </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#initial-model-training class=md-nav__link> Initial Model Training </a> </li> <li class=md-nav__item> <a href=#model-diagnostics class=md-nav__link> Model diagnostics </a> <nav class=md-nav aria-label="Model diagnostics"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#the-r-squared-and-rmse-of-the-model-on-test-data-are class=md-nav__link> The R-Squared and RMSE of the model on test data are: </a> </li> <li class=md-nav__item> <a href=#testing-statistical-significance-of-individual-dependent-variables class=md-nav__link> Testing statistical significance of individual dependent variables </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#validating-the-complete-model class=md-nav__link> Validating the complete model </a> <nav class=md-nav aria-label="Validating the complete model"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#residual-analysis class=md-nav__link> Residual analysis </a> </li> <li class=md-nav__item> <a href=#multi-collinearity class=md-nav__link> Multi-collinearity </a> </li> <li class=md-nav__item> <a href=#testing-over-fitting class=md-nav__link> Testing over-fitting </a> </li> <li class=md-nav__item> <a href=#auto-correlation class=md-nav__link> Auto correlation </a> </li> <li class=md-nav__item> <a href=#outlier-analysis class=md-nav__link> Outlier analysis </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#building-a-better-model class=md-nav__link> Building a better model </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_5 type=checkbox id=__nav_3_5> <label class=md-nav__link for=__nav_3_5> Preprocessing data <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Preprocessing data" data-md-level=2> <label class=md-nav__title for=__nav_3_5> <span class="md-nav__icon md-icon"></span> Preprocessing data </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../KNN_Imputation/ class=md-nav__link> Null Value Imputation (R) </a> </li> <li class=md-nav__item> <a href=../../Python/Machine%20Learning%20Part%201/ class=md-nav__link> Feature engineering (Python) </a> </li> <li class=md-nav__item> <a href=../Handling-Imbalanced-classes/ class=md-nav__link> Handling Imbalanced Classes </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_6 type=checkbox id=__nav_3_6> <label class=md-nav__link for=__nav_3_6> Machine Learning <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Machine Learning" data-md-level=2> <label class=md-nav__title for=__nav_3_6> <span class="md-nav__icon md-icon"></span> Machine Learning </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=https://harshaachyuthuni.shinyapps.io/Machine_Learning/ class=md-nav__link> Interactive Machine Learning (RShiny) </a> </li> <li class=md-nav__item> <a href=../../Python/ML%20using%20scikit-learn/ class=md-nav__link> ML using scikit-learn (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Demonstrating%20online%20learning/ class=md-nav__link> Streaming Machine Learning (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_7 type=checkbox id=__nav_3_7> <label class=md-nav__link for=__nav_3_7> Time Series forecasting <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Time Series forecasting" data-md-level=2> <label class=md-nav__title for=__nav_3_7> <span class="md-nav__icon md-icon"></span> Time Series forecasting </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../time-series/ class=md-nav__link> Introduction to stationarity (R) </a> </li> <li class=md-nav__item> <a href=../Stationarity-tests/ class=md-nav__link> Stationary Tests (R) </a> </li> <li class=md-nav__item> <a href=../ARIMA/ class=md-nav__link> ARIMA in R </a> </li> <li class=md-nav__item> <a href=../../Python/ARIMA%20Forecasting/ class=md-nav__link> ARIMA in Python </a> </li> <li class=md-nav__item> <a href=../Seasonal-Time-Series/ class=md-nav__link> Seasonal time series (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_8 type=checkbox id=__nav_3_8> <label class=md-nav__link for=__nav_3_8> Deep learning <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Deep learning" data-md-level=2> <label class=md-nav__title for=__nav_3_8> <span class="md-nav__icon md-icon"></span> Deep learning </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../ANN-1/ class=md-nav__link> Artificial Neural Network (Theory) </a> </li> <li class=md-nav__item> <a href=../ANN2/ class=md-nav__link> The math behind ANN </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_9 type=checkbox id=__nav_3_9> <label class=md-nav__link for=__nav_3_9> Prescriptive Analytics <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Prescriptive Analytics" data-md-level=2> <label class=md-nav__title for=__nav_3_9> <span class="md-nav__icon md-icon"></span> Prescriptive Analytics </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Linear-programming/ class=md-nav__link> Linear Programming (R) </a> </li> <li class=md-nav__item> <a href=../adoption_of_new_product/ class=md-nav__link> Adoption of new product (R) </a> </li> <li class=md-nav__item> <a href=../../Python/Diffusion%20on%20networks/ class=md-nav__link> Bass Forecasting model (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_10 type=checkbox id=__nav_3_10> <label class=md-nav__link for=__nav_3_10> Clustering <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Clustering data-md-level=2> <label class=md-nav__title for=__nav_3_10> <span class="md-nav__icon md-icon"></span> Clustering </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../hierarchical_clustering/ class=md-nav__link> Hierarchical Clustering </a> </li> <li class=md-nav__item> <a href=../kMeansClustering/ class=md-nav__link> K-Means Clustering </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_11 type=checkbox id=__nav_3_11> <label class=md-nav__link for=__nav_3_11> Reinforcement Learning <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Reinforcement Learning" data-md-level=2> <label class=md-nav__title for=__nav_3_11> <span class="md-nav__icon md-icon"></span> Reinforcement Learning </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../CustomerLifetimeValue/ class=md-nav__link> Customer Lifetime Value </a> </li> <li class=md-nav__item> <a href=../recommendation-systems/ class=md-nav__link> Recommendation Systems </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_12 type=checkbox id=__nav_3_12> <label class=md-nav__link for=__nav_3_12> Networks <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Networks data-md-level=2> <label class=md-nav__title for=__nav_3_12> <span class="md-nav__icon md-icon"></span> Networks </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Python/Introduction%20to%20Networkx/ class=md-nav__link> Introduction to NetworkX (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Network%20Science/ class=md-nav__link> Network Science (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Network%20centrality/ class=md-nav__link> Network Centrality (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Shortest%20path%20problems/ class=md-nav__link> Shortest path using integer programming (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Network%20Flow%20problems/ class=md-nav__link> Network flow problems (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Community%20detection/ class=md-nav__link> Community detection (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Bipartite%20matching/ class=md-nav__link> Bipartite matching (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_13 type=checkbox id=__nav_3_13> <label class=md-nav__link for=__nav_3_13> Deployment <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Deployment data-md-level=2> <label class=md-nav__title for=__nav_3_13> <span class="md-nav__icon md-icon"></span> Deployment </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Python/Machine%20learning%20as%20HTTP%20Request/ class=md-nav__link> ML deployment in Flask (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Saving%20predictions%20in%20database/ class=md-nav__link> Handling databases using python </a> </li> <li class=md-nav__item> <a href=../../Python/ORM/ class=md-nav__link> ORM (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_14 type=checkbox id=__nav_3_14> <label class=md-nav__link for=__nav_3_14> External blogs <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="External blogs" data-md-level=2> <label class=md-nav__title for=__nav_3_14> <span class="md-nav__icon md-icon"></span> External blogs </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Others/Imperial%20College%20London/ class=md-nav__link> Imperial college London </a> </li> <li class=md-nav__item> <a href=../../Others/Rolls%20Royce/ class=md-nav__link> Rolls Royce </a> </li> <li class=md-nav__item> <a href=../../Others/Publications/ class=md-nav__link> Publications/conferences </a> </li> <li class=md-nav__item> <a href=../../Others/Deployed%20apps/ class=md-nav__link> Deployed apps </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3_15 type=checkbox id=__nav_3_15> <label class=md-nav__link for=__nav_3_15> Projects <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Projects data-md-level=2> <label class=md-nav__title for=__nav_3_15> <span class="md-nav__icon md-icon"></span> Projects </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Others/Scarecrow/ class=md-nav__link> Scarecrow </a> </li> <li class=md-nav__item> <a href=../../Others/bid%20allocation%20model/ class=md-nav__link> Bid Allocation </a> </li> <li class=md-nav__item> <a href=../../Others/IIMB%20project/ class=md-nav__link> Reward and Recognition contests </a> </li> <li class=md-nav__item> <a href=../../Others/supply%20chain%20analytics/ class=md-nav__link> Supply chain analytics </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#introduction class=md-nav__link> Introduction </a> </li> <li class=md-nav__item> <a href=#data-cleaning-and-eda class=md-nav__link> Data Cleaning and EDA </a> <nav class=md-nav aria-label="Data Cleaning and EDA"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#uni-variate-analysis class=md-nav__link> Uni-variate analysis </a> </li> <li class=md-nav__item> <a href=#bi-variate-analysis class=md-nav__link> Bi variate analysis </a> </li> <li class=md-nav__item> <a href=#correlation class=md-nav__link> Correlation </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#initial-model-training class=md-nav__link> Initial Model Training </a> </li> <li class=md-nav__item> <a href=#model-diagnostics class=md-nav__link> Model diagnostics </a> <nav class=md-nav aria-label="Model diagnostics"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#the-r-squared-and-rmse-of-the-model-on-test-data-are class=md-nav__link> The R-Squared and RMSE of the model on test data are: </a> </li> <li class=md-nav__item> <a href=#testing-statistical-significance-of-individual-dependent-variables class=md-nav__link> Testing statistical significance of individual dependent variables </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#validating-the-complete-model class=md-nav__link> Validating the complete model </a> <nav class=md-nav aria-label="Validating the complete model"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#residual-analysis class=md-nav__link> Residual analysis </a> </li> <li class=md-nav__item> <a href=#multi-collinearity class=md-nav__link> Multi-collinearity </a> </li> <li class=md-nav__item> <a href=#testing-over-fitting class=md-nav__link> Testing over-fitting </a> </li> <li class=md-nav__item> <a href=#auto-correlation class=md-nav__link> Auto correlation </a> </li> <li class=md-nav__item> <a href=#outlier-analysis class=md-nav__link> Outlier analysis </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#building-a-better-model class=md-nav__link> Building a better model </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1>Linear Regression (R)</h1> <script type=text/javascript src=https://cdn.mathjax.org/mathjax/latest/MathJax.js>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script> <h2 id=introduction>Introduction<a class=headerlink href=#introduction title="Permanent link">&para;</a></h2> <p>Regression problems are an important category of problems in analytics in which the response variable <span class=arithmatex>\(Y\)</span> takes a continuous value. For example, a regression goal is predicting housing prices in an area. In this blog post, I will attempt to solve a supervised regression problem using the famous Boston housing price data set. Other than location and square footage, a house value is determined by various other factors.<br> The data used in this blog is taken from <a href=https://www.kaggle.com/c/boston-housing/overview>Kaggle</a>. It originates from the UCI Machine Learning Repository. The Boston housing data was collected in 1978 and each of the 506 entries represent aggregated data about 14 features for homes from various suburbs in Boston, Massachusetts.<br> The data frame contains the following columns:<br> <em>crim</em>: per capita crime rate by town.<br> <em>zn</em>: proportion of residential land zoned for lots over 25,000 sq.ft.<br> <em>indus</em>: proportion of non-retail business acres per town.<br> <em>chas</em>: Charles River categorical variable (tract bounds or otherwise).<br> <em>nox</em>: nitrogen oxides concentration (parts per 10 million).<br> <em>rm</em>: average number of rooms per dwelling.<br> <em>age</em>: proportion of owner-occupied units built prior to 1940.<br> <em>dis</em>: weighted mean of distances to five Boston employment centres.<br> <em>rad</em>: index of accessibility to radial highways.<br> <em>tax</em>: full-value property-tax rate per $10,000.<br> <em>ptratio</em>: pupil-teacher ratio by town.<br> <em>black</em>: racial discrimination factor. <br> <em>lstat</em>: lower status of the population (percent) </p> <p>The target variable is<br> <em>medv</em>: median value of owner-occupied homes in $1000s. </p> <p>In particular, in this blog I want to use multiple linear regression for the analysis. A sample of the data is given below: </p> <div style="border: 1px solid #ddd; padding: 5px; "><table class=table style="margin-left: auto; margin-right: auto;"> <caption>Sample data</caption> <thead> <tr> <th style=text-align:right;> crim </th> <th style=text-align:right;> zn </th> <th style=text-align:right;> indus </th> <th style=text-align:left;> chas </th> <th style=text-align:right;> nox </th> <th style=text-align:right;> rm </th> <th style=text-align:right;> age </th> <th style=text-align:right;> dis </th> <th style=text-align:right;> rad </th> <th style=text-align:right;> tax </th> <th style=text-align:right;> ptratio </th> <th style=text-align:right;> black </th> <th style=text-align:right;> lstat </th> <th style=text-align:right;> medv </th> </tr> </thead> <tbody> <tr> <td style=text-align:right;> 2.92400 </td> <td style=text-align:right;> 0.0 </td> <td style=text-align:right;> 19.58 </td> <td style=text-align:left;> otherwise </td> <td style=text-align:right;> 0.6050 </td> <td style=text-align:right;> 6.101 </td> <td style=text-align:right;> 93.0 </td> <td style=text-align:right;> 2.2834 </td> <td style=text-align:right;> 5 </td> <td style=text-align:right;> 403 </td> <td style=text-align:right;> 14.7 </td> <td style=text-align:right;> 240.16 </td> <td style=text-align:right;> 9.81 </td> <td style=text-align:right;> 25.0 </td> </tr> <tr> <td style=text-align:right;> 0.12816 </td> <td style=text-align:right;> 12.5 </td> <td style=text-align:right;> 6.07 </td> <td style=text-align:left;> otherwise </td> <td style=text-align:right;> 0.4090 </td> <td style=text-align:right;> 5.885 </td> <td style=text-align:right;> 33.0 </td> <td style=text-align:right;> 6.4980 </td> <td style=text-align:right;> 4 </td> <td style=text-align:right;> 345 </td> <td style=text-align:right;> 18.9 </td> <td style=text-align:right;> 396.90 </td> <td style=text-align:right;> 8.79 </td> <td style=text-align:right;> 20.9 </td> </tr> <tr> <td style=text-align:right;> 0.08244 </td> <td style=text-align:right;> 30.0 </td> <td style=text-align:right;> 4.93 </td> <td style=text-align:left;> otherwise </td> <td style=text-align:right;> 0.4280 </td> <td style=text-align:right;> 6.481 </td> <td style=text-align:right;> 18.5 </td> <td style=text-align:right;> 6.1899 </td> <td style=text-align:right;> 6 </td> <td style=text-align:right;> 300 </td> <td style=text-align:right;> 16.6 </td> <td style=text-align:right;> 379.41 </td> <td style=text-align:right;> 6.36 </td> <td style=text-align:right;> 23.7 </td> </tr> <tr> <td style=text-align:right;> 0.06588 </td> <td style=text-align:right;> 0.0 </td> <td style=text-align:right;> 2.46 </td> <td style=text-align:left;> otherwise </td> <td style=text-align:right;> 0.4880 </td> <td style=text-align:right;> 7.765 </td> <td style=text-align:right;> 83.3 </td> <td style=text-align:right;> 2.7410 </td> <td style=text-align:right;> 3 </td> <td style=text-align:right;> 193 </td> <td style=text-align:right;> 17.8 </td> <td style=text-align:right;> 395.56 </td> <td style=text-align:right;> 7.56 </td> <td style=text-align:right;> 39.8 </td> </tr> <tr> <td style=text-align:right;> 0.02009 </td> <td style=text-align:right;> 95.0 </td> <td style=text-align:right;> 2.68 </td> <td style=text-align:left;> otherwise </td> <td style=text-align:right;> 0.4161 </td> <td style=text-align:right;> 8.034 </td> <td style=text-align:right;> 31.9 </td> <td style=text-align:right;> 5.1180 </td> <td style=text-align:right;> 4 </td> <td style=text-align:right;> 224 </td> <td style=text-align:right;> 14.7 </td> <td style=text-align:right;> 390.55 </td> <td style=text-align:right;> 2.88 </td> <td style=text-align:right;> 50.0 </td> </tr> </tbody> </table></div> <p>The summary statistics for the data is:</p> <div class=highlight><pre><span></span><code>##       crim                zn             indus           chas          
+##  Min.   : 0.00632   Min.   :  0.00   Min.   : 0.46   Length:506        
+##  1st Qu.: 0.08205   1st Qu.:  0.00   1st Qu.: 5.19   Class :character  
+##  Median : 0.25651   Median :  0.00   Median : 9.69   Mode  :character  
+##  Mean   : 3.61352   Mean   : 11.36   Mean   :11.14                     
+##  3rd Qu.: 3.67708   3rd Qu.: 12.50   3rd Qu.:18.10                     
+##  Max.   :88.97620   Max.   :100.00   Max.   :27.74                     
+##       nox               rm             age              dis        
+##  Min.   :0.3850   Min.   :3.561   Min.   :  2.90   Min.   : 1.130  
+##  1st Qu.:0.4490   1st Qu.:5.886   1st Qu.: 45.02   1st Qu.: 2.100  
+##  Median :0.5380   Median :6.208   Median : 77.50   Median : 3.207  
+##  Mean   :0.5547   Mean   :6.285   Mean   : 68.57   Mean   : 3.795  
+##  3rd Qu.:0.6240   3rd Qu.:6.623   3rd Qu.: 94.08   3rd Qu.: 5.188  
+##  Max.   :0.8710   Max.   :8.780   Max.   :100.00   Max.   :12.127  
+##       rad              tax           ptratio          black       
+##  Min.   : 1.000   Min.   :187.0   Min.   :12.60   Min.   :  0.32  
+##  1st Qu.: 4.000   1st Qu.:279.0   1st Qu.:17.40   1st Qu.:375.38  
+##  Median : 5.000   Median :330.0   Median :19.05   Median :391.44  
+##  Mean   : 9.549   Mean   :408.2   Mean   :18.46   Mean   :356.67  
+##  3rd Qu.:24.000   3rd Qu.:666.0   3rd Qu.:20.20   3rd Qu.:396.23  
+##  Max.   :24.000   Max.   :711.0   Max.   :22.00   Max.   :396.90  
+##      lstat            medv      
+##  Min.   : 1.73   Min.   : 5.00  
+##  1st Qu.: 6.95   1st Qu.:17.02  
+##  Median :11.36   Median :21.20  
+##  Mean   :12.65   Mean   :22.53  
+##  3rd Qu.:16.95   3rd Qu.:25.00  
+##  Max.   :37.97   Max.   :50.00
+</code></pre></div> <h2 id=data-cleaning-and-eda>Data Cleaning and EDA<a class=headerlink href=#data-cleaning-and-eda title="Permanent link">&para;</a></h2> <p>Zero and Near Zero Variance features do not explain any variance in the predictor variable. </p> <div style="border: 1px solid #ddd; padding: 5px; "><table class=table style="margin-left: auto; margin-right: auto;"> <caption>Zero and near zero variance</caption> <thead> <tr> <th style=text-align:left;> </th> <th style=text-align:right;> freqRatio </th> <th style=text-align:right;> percentUnique </th> <th style=text-align:left;> zeroVar </th> <th style=text-align:left;> nzv </th> </tr> </thead> <tbody> <tr> <td style=text-align:left;> crim </td> <td style=text-align:right;> 1.000000 </td> <td style=text-align:right;> 99.6047431 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> <tr> <td style=text-align:left;> zn </td> <td style=text-align:right;> 17.714286 </td> <td style=text-align:right;> 5.1383399 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> <tr> <td style=text-align:left;> indus </td> <td style=text-align:right;> 4.400000 </td> <td style=text-align:right;> 15.0197628 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> <tr> <td style=text-align:left;> chas </td> <td style=text-align:right;> 13.457143 </td> <td style=text-align:right;> 0.3952569 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> <tr> <td style=text-align:left;> nox </td> <td style=text-align:right;> 1.277778 </td> <td style=text-align:right;> 16.0079051 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> <tr> <td style=text-align:left;> rm </td> <td style=text-align:right;> 1.000000 </td> <td style=text-align:right;> 88.1422925 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> <tr> <td style=text-align:left;> age </td> <td style=text-align:right;> 10.750000 </td> <td style=text-align:right;> 70.3557312 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> <tr> <td style=text-align:left;> dis </td> <td style=text-align:right;> 1.250000 </td> <td style=text-align:right;> 81.4229249 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> <tr> <td style=text-align:left;> rad </td> <td style=text-align:right;> 1.147826 </td> <td style=text-align:right;> 1.7786561 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> <tr> <td style=text-align:left;> tax </td> <td style=text-align:right;> 3.300000 </td> <td style=text-align:right;> 13.0434783 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> <tr> <td style=text-align:left;> ptratio </td> <td style=text-align:right;> 4.117647 </td> <td style=text-align:right;> 9.0909091 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> <tr> <td style=text-align:left;> black </td> <td style=text-align:right;> 40.333333 </td> <td style=text-align:right;> 70.5533597 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> <tr> <td style=text-align:left;> lstat </td> <td style=text-align:right;> 1.000000 </td> <td style=text-align:right;> 89.9209486 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> <tr> <td style=text-align:left;> medv </td> <td style=text-align:right;> 2.000000 </td> <td style=text-align:right;> 45.2569170 </td> <td style=text-align:left;> FALSE </td> <td style=text-align:left;> FALSE </td> </tr> </tbody> </table></div> <p>There are no near zero or zero variance columns</p> <p>Similarly, I can check for linearly dependent columns among the continuous variables.</p> <p><div class=highlight><pre><span></span><code>## $linearCombos
+## list()
+## 
+## $remove
+## NULL
+</code></pre></div> There are no linearly dependent columns. </p> <h3 id=uni-variate-analysis>Uni-variate analysis<a class=headerlink href=#uni-variate-analysis title="Permanent link">&para;</a></h3> <p>Now, I want to do some basic EDA on each column. On each continuous column, I want to visually check the following:<br> 1. Variation in the column<br> 2. Its distribution<br> 3. Any outliers <br> 4. q-q plot with normal distribution </p> <div class=highlight><pre><span></span><code>## [1] &quot;Univariate plots for crim&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/univ-cont-1.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Univariate plots for zn&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/univ-cont-2.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Univariate plots for indus&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/univ-cont-3.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Univariate plots for nox&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/univ-cont-4.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Univariate plots for rm&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/univ-cont-5.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Univariate plots for age&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/univ-cont-6.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Univariate plots for dis&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/univ-cont-7.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Univariate plots for rad&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/univ-cont-8.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Univariate plots for tax&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/univ-cont-9.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Univariate plots for ptratio&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/univ-cont-10.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Univariate plots for black&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/univ-cont-11.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Univariate plots for lstat&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/univ-cont-12.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Univariate plots for medv&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/univ-cont-13.png><!-- --></p> <p>For categorical variables, I want to look at the frequencies.<br> <img alt src=../Linear-regression_files/figure-html/univ-cat-1.png><!-- --></p> <p>Observations:<br> 1. If I look at <em>rad</em> and <em>tax</em>, I observe that there seem to be two categories. Houses having rad &lt; 10 follow a normal distribution, and there are some houses with rad = 24. As rad is an index, it could also be thought of as a categorical variable instead of a continuous variable.<br> 2. For data points with <em>rad</em>= 25, the behaviour in location based features looks different. For example <em>indus</em>, <em>tax</em> and <em>ptratio</em> have a different slope at the same points where the rad is 24. (observation for variation plots(top left plots)) </p> <p>Therefore, I am tempted to group the houses which have rad = 24 into one category, and create interaction variables of that column with <em>rad</em>, <em>indus</em>, <em>ptratio</em> and <em>tax</em>. The new variable is called <em>rad_cat</em>. Also, I would like to convert <em>rad</em> itself to categorical and see if it can explain better than continuous variable.<br> Additionally, from researching on the internet, I found that the cost might have a different slope with the number of bedrooms for different class of people. So, I want to visualize that interaction variable also.</p> <h3 id=bi-variate-analysis>Bi variate analysis<a class=headerlink href=#bi-variate-analysis title="Permanent link">&para;</a></h3> <p>I want to understand the relationship of each continuous variable with the <span class=arithmatex>\(y\)</span> variable. I will achieve that by doing the following:<br> 1. A scatter plot to look at the relationship between the <span class=arithmatex>\(x\)</span> and the <span class=arithmatex>\(y\)</span> variables.<br> 2. Draw a linear regression line and a smoothed means line to understand the curve fit.<br> 3. Predict using Linear regression using the variable alone to observe the increase in R-squared. </p> <p><img alt src=../Linear-regression_files/figure-html/bi-cont-1.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -15.816  -5.455  -1.970   2.633  29.615 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 23.99736    0.45955  52.220  &lt; 2e-16 ***
+## crim        -0.39123    0.04855  -8.059 8.75e-15 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.595 on 405 degrees of freedom
+## Multiple R-squared:  0.1382, Adjusted R-squared:  0.1361 
+## F-statistic: 64.94 on 1 and 405 DF,  p-value: 8.748e-15
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/bi-cont-2.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -15.9353  -5.6853  -0.9847   2.4653  29.0647 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 20.93532    0.48739  42.954  &lt; 2e-16 ***
+## zn           0.14247    0.01818   7.835 4.15e-14 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.812 on 405 degrees of freedom
+## Multiple R-squared:  0.1316, Adjusted R-squared:  0.1295 
+## F-statistic: 61.39 on 1 and 405 DF,  p-value: 4.155e-14
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/bi-cont-3.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -12.922  -5.144  -1.631   2.972  33.069 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 30.04045    0.77385   38.82   &lt;2e-16 ***
+## indus       -0.66951    0.05936  -11.28   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.249 on 405 degrees of freedom
+## Multiple R-squared:  0.239,  Adjusted R-squared:  0.2372 
+## F-statistic: 127.2 on 1 and 405 DF,  p-value: &lt; 2.2e-16
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/bi-cont-4.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -13.688  -5.146  -2.299   2.794  30.643 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   42.020      2.081  20.195   &lt;2e-16 ***
+## nox          -35.028      3.680  -9.518   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.548 on 405 degrees of freedom
+## Multiple R-squared:  0.1828, Adjusted R-squared:  0.1808 
+## F-statistic:  90.6 on 1 and 405 DF,  p-value: &lt; 2.2e-16
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/bi-cont-5.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -19.886  -2.551   0.174   3.009  39.729 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -36.6702     2.8680  -12.79   &lt;2e-16 ***
+## rm            9.4450     0.4538   20.81   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.574 on 405 degrees of freedom
+## Multiple R-squared:  0.5168, Adjusted R-squared:  0.5156 
+## F-statistic: 433.1 on 1 and 405 DF,  p-value: &lt; 2.2e-16
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/bi-cont-6.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -15.138  -5.266  -2.033   2.333  31.332 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  31.1468     1.1373  27.386  &lt; 2e-16 ***
+## age          -0.1248     0.0154  -8.104 6.33e-15 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.772 on 405 degrees of freedom
+## Multiple R-squared:  0.1395, Adjusted R-squared:  0.1374 
+## F-statistic: 65.68 on 1 and 405 DF,  p-value: 6.333e-15
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/bi-cont-7.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -15.010  -5.867  -1.968   2.297  30.275 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  18.4243     0.9436  19.526  &lt; 2e-16 ***
+## dis           1.1127     0.2188   5.085 5.62e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 9.168 on 405 degrees of freedom
+## Multiple R-squared:  0.06002,    Adjusted R-squared:  0.0577 
+## F-statistic: 25.86 on 1 and 405 DF,  p-value: 5.619e-07
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/bi-cont-8.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -18.022  -5.310  -2.298   3.375  33.475 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  26.7220     0.6412  41.677   &lt;2e-16 ***
+## rad          -0.4249     0.0493  -8.619   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.693 on 405 degrees of freedom
+## Multiple R-squared:  0.155,  Adjusted R-squared:  0.1529 
+## F-statistic: 74.28 on 1 and 405 DF,  p-value: &lt; 2.2e-16
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/bi-cont-9.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -13.039  -5.235  -2.191   3.166  34.209 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 33.707058   1.080289   31.20   &lt;2e-16 ***
+## tax         -0.026900   0.002427  -11.09   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.283 on 405 degrees of freedom
+## Multiple R-squared:  0.2328, Adjusted R-squared:  0.2309 
+## F-statistic: 122.9 on 1 and 405 DF,  p-value: &lt; 2.2e-16
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/bi-cont-10.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -19.4897  -4.9434  -0.7651   3.4363  31.2566 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  64.8226     3.4209   18.95   &lt;2e-16 ***
+## ptratio      -2.2811     0.1837  -12.42   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.047 on 405 degrees of freedom
+## Multiple R-squared:  0.2758, Adjusted R-squared:  0.274 
+## F-statistic: 154.2 on 1 and 405 DF,  p-value: &lt; 2.2e-16
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/bi-cont-11.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -18.573  -5.028  -1.864   2.874  27.066 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 10.505391   1.785873   5.882 8.47e-09 ***
+## black        0.033945   0.004844   7.008 1.02e-11 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.93 on 405 degrees of freedom
+## Multiple R-squared:  0.1081, Adjusted R-squared:  0.1059 
+## F-statistic: 49.11 on 1 and 405 DF,  p-value: 1.017e-11
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/bi-cont-12.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -10.023  -4.173  -1.390   2.172  24.327 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 34.88480    0.63310   55.10   &lt;2e-16 ***
+## lstat       -0.96665    0.04336  -22.29   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.336 on 405 degrees of freedom
+## Multiple R-squared:  0.551,  Adjusted R-squared:  0.5499 
+## F-statistic:   497 on 1 and 405 DF,  p-value: &lt; 2.2e-16
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/bi-cont-13.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -10.849  -4.148  -1.339   2.469  24.772 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 36.112064   0.696107   51.88   &lt;2e-16 ***
+## rm.lstat    -0.176325   0.008117  -21.72   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.36 on 405 degrees of freedom
+## Multiple R-squared:  0.5382, Adjusted R-squared:  0.537 
+## F-statistic: 471.9 on 1 and 405 DF,  p-value: &lt; 2.2e-16
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p>Observations: <br> 1. <em>Crim</em> and <em>black</em> might have a non-linear relationship with <em>medv</em>, I want further analysis on that front. <br> 2. As thought before <em>rad</em> might be better classified as a categorical variable.<br> 3. <em>lmstat</em> and <em>lm</em> might have a quadratic relationship with <em>medv</em>. </p> <p>I want to understand the relationship of each categorical variable with the <span class=arithmatex>\(y\)</span> variable. I will achieve that by doing the following: <br> 1. A box plot showing the difference between variation of y between different classes of the variable. <br> 2. Density plot for each class in the variable to understand the distribution and spread of each class. (If the means were far away from each other and both the classes have small standard deviation, then the variables explainability is more)<br> 3. Predict using Linear regression using the variable alone to observe the increase in R-square </p> <p><img alt src=../Linear-regression_files/figure-html/bi-cat-1.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -17.189  -6.092  -1.389   2.812  27.811 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)       22.1885     0.4766  46.553  &lt; 2e-16 ***
+## chasTract_bounds   6.9077     1.8858   3.663 0.000282 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 9.303 on 405 degrees of freedom
+## Multiple R-squared:  0.03207,    Adjusted R-squared:  0.02968 
+## F-statistic: 13.42 on 1 and 405 DF,  p-value: 0.0002823
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../Linear-regression_files/figure-html/bi-cat-2.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -14.853  -5.471  -1.853   3.545  33.741 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  25.3692     2.3093  10.986  &lt; 2e-16 ***
+## rad2          1.8117     2.9384   0.617 0.537872    
+## rad3          2.7756     2.7791   0.999 0.318530    
+## rad4         -3.9421     2.4671  -1.598 0.110865    
+## rad5          0.9137     2.4638   0.371 0.710934    
+## rad6         -4.4587     2.9969  -1.488 0.137609    
+## rad7          1.3308     3.2070   0.415 0.678396    
+## rad8          5.4837     3.0677   1.788 0.074610 .  
+## rad24        -9.1100     2.4443  -3.727 0.000222 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.326 on 398 degrees of freedom
+## Multiple R-squared:  0.2381, Adjusted R-squared:  0.2228 
+## F-statistic: 15.55 on 8 and 398 DF,  p-value: &lt; 2.2e-16
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p>Observations:<br> 1. <em>rad</em> as a categorical feature explains more as a categorical variable with R-Square of 0.2381 when compared to continuous variable with an R-square of 0.155. From the box plot I can observe that the class 'rad24' is different from all the other classes. That is what is being shown in the regression equation. If 'rad1' was my base class, then all other classes are similar except for 'rad24' which is significantly different from base class. This validates my initial creation of interaction variables with <em>rad_cat</em> too.<br> 2. There seems to be significant difference between the houses that are Charles River track-bound or otherwise. </p> <h3 id=correlation>Correlation<a class=headerlink href=#correlation title="Permanent link">&para;</a></h3> <p>The correlation between different variables is as follows<br> <img alt src=../Linear-regression_files/figure-html/corr3-1.png><!-- --></p> <p>Observations:<br> 1. There is a lot of correlation between many location based features like <em>dis</em> and <em>nox</em>, <em>dist</em> and <em>indus</em>, <em>dist</em> and <em>age</em>, <em>rm</em> and <em>lstat</em>, <em>lstat</em> and <em>indus</em> etc. The correlations between different (continuous) variables can be visualized below. </p> <p><img alt src=../Linear-regression_files/figure-html/corrPlot-1.png><!-- --></p> <h2 id=initial-model-training>Initial Model Training<a class=headerlink href=#initial-model-training title="Permanent link">&para;</a></h2> <p>For my initial model, I am training using step wise linear regression. In every step, I want to observe the following:<br> 1. What variables are added or removed from the model. The current model pics the column which gives the greatest decrease in AIC. The model stops when the decrease in AIC w.r.t. null(no change) is lower than the threshold. <br> 2. Substantial increase/decrease in <span class=arithmatex>\(\beta\)</span> or change in its sign (which may be due to collinearity between the dependent variables) </p> <div class=highlight><pre><span></span><code>## Start:  AIC=1297.43
+## .outcome ~ crim + zn + indus + chasTract_bounds + nox + rm + 
+##     age + dis + tax + ptratio + black + lstat + rad_catloc24
+## 
+##                    Df Sum of Sq     RSS    AIC
+## - age               1      0.72  9208.4 1295.5
+## - indus             1      3.76  9211.5 1295.6
+## &lt;none&gt;                           9207.7 1297.4
+## - chasTract_bounds  1     97.13  9304.8 1299.7
+## - tax               1    118.38  9326.1 1300.6
+## - zn                1    168.98  9376.7 1302.8
+## - black             1    191.17  9398.9 1303.8
+## - crim              1    307.05  9514.7 1308.8
+## - rad_catloc24      1    314.92  9522.6 1309.1
+## - nox               1    352.63  9560.3 1310.7
+## - ptratio           1    957.94 10165.6 1335.7
+## - dis               1    994.35 10202.0 1337.2
+## - rm                1   1892.99 11100.7 1371.5
+## - lstat             1   2127.87 11335.6 1380.0
+## 
+## Step:  AIC=1295.46
+## .outcome ~ crim + zn + indus + chasTract_bounds + nox + rm + 
+##     dis + tax + ptratio + black + lstat + rad_catloc24
+## 
+##                    Df Sum of Sq     RSS    AIC
+## - indus             1      3.65  9212.1 1293.6
+## &lt;none&gt;                           9208.4 1295.5
+## + age               1      0.72  9207.7 1297.4
+## - chasTract_bounds  1     97.93  9306.3 1297.8
+## - tax               1    118.46  9326.9 1298.7
+## - zn                1    168.59  9377.0 1300.8
+## - black             1    193.24  9401.6 1301.9
+## - crim              1    306.48  9514.9 1306.8
+## - rad_catloc24      1    314.22  9522.6 1307.1
+## - nox               1    369.87  9578.3 1309.5
+## - ptratio           1    960.19 10168.6 1333.8
+## - dis               1   1087.43 10295.8 1338.9
+## - rm                1   1970.22 11178.6 1372.4
+## - lstat             1   2321.66 11530.1 1385.0
+## 
+## Step:  AIC=1293.62
+## .outcome ~ crim + zn + chasTract_bounds + nox + rm + dis + tax + 
+##     ptratio + black + lstat + rad_catloc24
+## 
+##                    Df Sum of Sq     RSS    AIC
+## &lt;none&gt;                           9212.1 1293.6
+## + indus             1      3.65  9208.4 1295.5
+## + age               1      0.61  9211.5 1295.6
+## - chasTract_bounds  1     95.50  9307.6 1295.8
+## - tax               1    152.24  9364.3 1298.3
+## - zn                1    174.02  9386.1 1299.2
+## - black             1    196.27  9408.3 1300.2
+## - crim              1    303.79  9515.9 1304.8
+## - rad_catloc24      1    335.42  9547.5 1306.2
+## - nox               1    417.91  9630.0 1309.7
+## - ptratio           1    982.91 10195.0 1332.9
+## - dis               1   1125.61 10337.7 1338.5
+## - rm                1   2045.55 11257.6 1373.2
+## - lstat             1   2330.94 11543.0 1383.4
+</code></pre></div> <p><div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ crim + zn + chasTract_bounds + nox + 
+##     rm + dis + tax + ptratio + black + lstat + rad_catloc24, 
+##     data = dat)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -16.1877  -2.7794  -0.5639   1.8186  26.2200 
+## 
+## Coefficients:
+##                    Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)       35.638467   5.799094   6.146 1.95e-09 ***
+## crim              -0.125142   0.034673  -3.609 0.000347 ***
+## zn                 0.042184   0.015443   2.732 0.006585 ** 
+## chasTract_bounds   2.030470   1.003385   2.024 0.043682 *  
+## nox              -17.255174   4.076237  -4.233 2.87e-05 ***
+## rm                 4.120294   0.439949   9.365  &lt; 2e-16 ***
+## dis               -1.476732   0.212563  -6.947 1.54e-11 ***
+## tax               -0.010071   0.003942  -2.555 0.010994 *  
+## ptratio           -0.961287   0.148073  -6.492 2.55e-10 ***
+## black              0.008800   0.003033   2.901 0.003928 ** 
+## lstat             -0.526372   0.052651  -9.997  &lt; 2e-16 ***
+## rad_catloc24       5.669076   1.494858   3.792 0.000173 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.829 on 395 degrees of freedom
+## Multiple R-squared:  0.7474, Adjusted R-squared:  0.7404 
+## F-statistic: 106.2 on 11 and 395 DF,  p-value: &lt; 2.2e-16
+</code></pre></div> Summary:<br> 1. Initially all the factors were considered in the model.<br> 2. By removing <em>age</em> from the initial model, the AIC is 1295.5 vs 1297.43 in the initial model. Therefore, <em>age</em> was removed.<br> 3. By removing <em>industry</em> from the initial model, the AIC is 1293.6 vs the AIC of 1297.43. Therefore, <em>industry</em> was removed.<br> 4. Adding or removing any other variable does not decrease AIC significantly. The remaining factors are the best factors of the final model. </p> <p>Observations:<br> 1. For every unit increase in crime, the price decreases by 0.12 units.<br> 2. For every large residential properties, the price increases by 0.0421 units.<br> 3. For every unit increase in NOX(pollution) levels, the price decreases by -17.25 units.<br> 4. The presence of Charles River in track bounds increases the price of the property by 2.03 units.<br> 5. One extra room increases the price by 4.12<br> 6. Increase in average distance from work centres by 1 unit decreases the price by 1.47 units.<br> 7. Increase in tax by one unit decreases the price by -0.01 units.<br> 8. Surprisingly, increasing the parent teacher ratio by one unit, decreases the price by 0.96 units.<br> 9. Racial discrimination is still an important factor. <br> 10. One unit increase of lower status of the population decreases the price by 0.52 units.<br> 11. The presence of 'rad=24' increases the price by 5.6 units. </p> <h2 id=model-diagnostics>Model diagnostics<a class=headerlink href=#model-diagnostics title="Permanent link">&para;</a></h2> <p>I want to look at R-Squared and adjusted R-Square of the model on the test data. R-Square explains the proportion of variation in <span class=arithmatex>\(y\)</span> explained by our dependent variables. Then I want to look at the statistical significance of individual variables (using t-test) and validation of complete model (using F test). Some basic assumptions for doing the tests are validated using residual analysis, and finally I will look into multi-collinearity. </p> <h3 id=the-r-squared-and-rmse-of-the-model-on-test-data-are>The R-Squared and RMSE of the model on test data are:<a class=headerlink href=#the-r-squared-and-rmse-of-the-model-on-test-data-are title="Permanent link">&para;</a></h3> <p><div class=highlight><pre><span></span><code>##      RMSE  Rsquared       MAE 
+## 4.5506048 0.6797879 3.2017260
+</code></pre></div> R-Square remains similar on the test set. Therefore, we are not over-fitting. </p> <h3 id=testing-statistical-significance-of-individual-dependent-variables>Testing statistical significance of individual dependent variables<a class=headerlink href=#testing-statistical-significance-of-individual-dependent-variables title="Permanent link">&para;</a></h3> <p>The Null hypothesis and alternate hypothesis for each of the dependent variables <span class=arithmatex>\(i\)</span> is: $$ H_0 : \beta_i= 0 $$ $$ H_1 : \beta_i \neq 0 $$ The statistical significance can be validated using a t-test. </p> <h2 id=validating-the-complete-model>Validating the complete model<a class=headerlink href=#validating-the-complete-model title="Permanent link">&para;</a></h2> <p>The null and alternate hypothesis for the model <span class=arithmatex>\(y = \beta_0 + \beta_1x_1 + \beta_2x_2+...+\beta_kx_k + \epsilon\)</span> is: $$ H_0 : \beta_1 = \beta_2 = ... = \beta_k = 0 $$ $$ H_1 : Not \, all\, \beta_i \,are\, 0 $$ The statistical significance can be validated using F test. </p> <p><div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ crim + zn + chasTract_bounds + nox + 
+##     rm + dis + tax + ptratio + black + lstat + rad_catloc24, 
+##     data = dat)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -16.1877  -2.7794  -0.5639   1.8186  26.2200 
+## 
+## Coefficients:
+##                    Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)       35.638467   5.799094   6.146 1.95e-09 ***
+## crim              -0.125142   0.034673  -3.609 0.000347 ***
+## zn                 0.042184   0.015443   2.732 0.006585 ** 
+## chasTract_bounds   2.030470   1.003385   2.024 0.043682 *  
+## nox              -17.255174   4.076237  -4.233 2.87e-05 ***
+## rm                 4.120294   0.439949   9.365  &lt; 2e-16 ***
+## dis               -1.476732   0.212563  -6.947 1.54e-11 ***
+## tax               -0.010071   0.003942  -2.555 0.010994 *  
+## ptratio           -0.961287   0.148073  -6.492 2.55e-10 ***
+## black              0.008800   0.003033   2.901 0.003928 ** 
+## lstat             -0.526372   0.052651  -9.997  &lt; 2e-16 ***
+## rad_catloc24       5.669076   1.494858   3.792 0.000173 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.829 on 395 degrees of freedom
+## Multiple R-squared:  0.7474, Adjusted R-squared:  0.7404 
+## F-statistic: 106.2 on 11 and 395 DF,  p-value: &lt; 2.2e-16
+</code></pre></div> From the above summary, I can observe that the <em>Pr(&gt;|t|)</em> or p-value is less than the cut-off value of <span class=arithmatex>\(\alpha = 0.05\)</span> for all variables. Also, the F-Statistic is 106.2 with a p value &lt;2.2e-16. Thus, I reject both the above null hypothesis. The model is statistically significant. </p> <h3 id=residual-analysis>Residual analysis<a class=headerlink href=#residual-analysis title="Permanent link">&para;</a></h3> <p>Some assumptions in the above hypothesis tests are:<br> 1. The mean of errors should be zero<br> 2. The variance of the errors should be constant across <span class=arithmatex>\(y\)</span><br> 3. The errors should be random. They should follow a random distribution </p> <p>I can validate these three assumptions using the residual plots<br> <img alt src=../Linear-regression_files/figure-html/residual-plots-1.png><!-- --><img alt src=../Linear-regression_files/figure-html/residual-plots-2.png><!-- --><img alt src=../Linear-regression_files/figure-html/residual-plots-3.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ crim + zn + chasTract_bounds + nox + 
+##     rm + dis + tax + ptratio + black + lstat + rad_catloc24, 
+##     data = dat)
+## 
+## Coefficients:
+##      (Intercept)              crim                zn  chasTract_bounds  
+##         35.63847          -0.12514           0.04218           2.03047  
+##              nox                rm               dis               tax  
+##        -17.25517           4.12029          -1.47673          -0.01007  
+##          ptratio             black             lstat      rad_catloc24  
+##         -0.96129           0.00880          -0.52637           5.66908  
+## 
+## 
+## ASSESSMENT OF THE LINEAR MODEL ASSUMPTIONS
+## USING THE GLOBAL TEST ON 4 DEGREES-OF-FREEDOM:
+## Level of Significance =  0.05 
+## 
+## Call:
+##  gvlma(x = model$finalModel) 
+## 
+##                     Value   p-value                   Decision
+## Global Stat        650.35 0.000e+00 Assumptions NOT satisfied!
+## Skewness           125.66 0.000e+00 Assumptions NOT satisfied!
+## Kurtosis           385.33 0.000e+00 Assumptions NOT satisfied!
+## Link Function      120.98 0.000e+00 Assumptions NOT satisfied!
+## Heteroscedasticity  18.39 1.803e-05 Assumptions NOT satisfied!
+</code></pre></div> <p>Observations:<br> None of the three conditions are properly satisfied. Certain outlier points seem to have a huge effect on the residuals and the model. As normality conditions are not met, I cannot trust the p values from above t and F statistics. </p> <h3 id=multi-collinearity>Multi-collinearity<a class=headerlink href=#multi-collinearity title="Permanent link">&para;</a></h3> <p>From the correlation matrix, I am expecting large multicollinearity between the features. </p> <p>Variation inflation factor is the value by which the square of the estimate is inflated in presence of multi-collinearity. The t-statistic is thus deflated by <span class=arithmatex>\(\sqrt(VIF)\)</span> and standard error of estimate is inflated by <span class=arithmatex>\(\sqrt(VIF)\)</span>.<br> $$ VIF = \frac{1}{1-(R_j)^2} $$ Where <span class=arithmatex>\(R_j\)</span> is the regression correlation coefficient between <span class=arithmatex>\(j\)</span>th variable and all other dependent variables.<br> A VIF of greater than 10 is considered bad. (decreases the t-value ~3.16 times, thus increasing p-value) </p> <div class=highlight><pre><span></span><code>##             crim               zn chasTract_bounds              nox 
+##         1.733555         2.394835         1.050701         3.810818 
+##               rm              dis              tax          ptratio 
+##         1.825246         3.581245         7.671215         1.855131 
+##            black            lstat     rad_catloc24 
+##         1.320648         2.551655         7.602218
+</code></pre></div> <p>The t-value for <em>tax</em> and <em>rad_cat</em> variables are inflated by <span class=arithmatex>\(\sqrt(VIF) = \sqrt(7.6) =2.7\)</span>. The corrected t-value would be<br> $$ t_{actual} = \frac{\beta_i}{S_e(\beta_i)} * \sqrt(VIF) = t_{pred}<em>\sqrt(VIF$$ Where t-predicted is the value of t in the summary table. Increasing t-value by ~2.7% decreases p further, and as both the values *tax</em> and <em>rad_cat</em> have p-values below 5%, increasing the t-value further will only decrease the p-value further making the two variables more significant. </p> <h3 id=testing-over-fitting>Testing over-fitting<a class=headerlink href=#testing-over-fitting title="Permanent link">&para;</a></h3> <p>To prevent over fitting, it is important to find the ideal number of independent variables. Mallows's <span class=arithmatex>\(C_p\)</span> is used to identify the ideal number of features in the model. The best regression model is the model with the number of parameters close to <span class=arithmatex>\(C_p\)</span>. </p> <p>$$ C_p = \frac{SSE_p}{MSE_{full}} -(N-2p) $$ Where N is the number of observations and p is the number of parameters.<br> The Mallows cp in our case is: </p> <p><div class=highlight><pre><span></span><code>## [1] 10.18672
+</code></pre></div> The number of features that are significant in the current model is 11. </p> <h3 id=auto-correlation>Auto correlation<a class=headerlink href=#auto-correlation title="Permanent link">&para;</a></h3> <p>Durbin watson is a hypothesis test to test the existence of auto correlation. The null and alternate hypothesis are:<br> $$ H_0 : \rho_i= 0 $$ $$ H_1 : \rho_i \neq 0 $$ The test statistic is the Durbin Watson statistic <span class=arithmatex>\(D\)</span>. D is between 0 and 4. D close to 2 implies absence of auto correlation. </p> <p><div class=highlight><pre><span></span><code>##  lag Autocorrelation D-W Statistic p-value
+##    1       0.4198705      1.144239       0
+##  Alternative hypothesis: rho != 0
+</code></pre></div> As p value is less than cut-off at <span class=arithmatex>\(\alpha =0.05\)</span>, there is no auto correlation. Auto correlation generally exists in time series data. </p> <h3 id=outlier-analysis>Outlier analysis<a class=headerlink href=#outlier-analysis title="Permanent link">&para;</a></h3> <p>From the residual plots, I suspect that that there might be certain outliers that are adversely effecting the model. I am using the following distance measures to check for outliers in the model.<br> 1. Mahalanobis distance: Distance between the observation and the centroid of the values<br> 2. Leverages: Capacity of an observation to be influential due to having extreme predictor values (unusual combination of predictor values).<br> 3. Jackknife residuals (studentized residual): Division of residuals by its standard deviation<br> 4. Cook's distance': Detects observations that have a disproportionate impact on the determination of the model parameters (large change in parameters if deleted).<br> 5. DFBETAS: Changes in coefficients when the observations are deleted.<br> 6. DFFITS: Change in the fitted value when the observation is deleted (standardized by the standard error)<br> 7. hat: Diagonal elements of the hat matrix<br> 8. cov.r: Co-variance ratios </p> <p>The above metrics for sample 5 observations, and outlier plots (for significant metrics) are as follows: </p> <div style="border: 1px solid #ddd; padding: 5px; "><table class=table style="margin-left: auto; margin-right: auto;"> <caption>Outlier metrics</caption> <thead> <tr> <th style=text-align:left;> </th> <th style=text-align:right;> dfb.1_ </th> <th style=text-align:right;> dfb.crim </th> <th style=text-align:right;> dfb.zn </th> <th style=text-align:right;> dfb.chT_ </th> <th style=text-align:right;> dfb.nox </th> <th style=text-align:right;> dfb.rm </th> <th style=text-align:right;> dfb.dis </th> <th style=text-align:right;> dfb.tax </th> <th style=text-align:right;> dfb.ptrt </th> <th style=text-align:right;> dfb.blck </th> <th style=text-align:right;> dfb.lstt </th> <th style=text-align:right;> dfb.r_24 </th> <th style=text-align:right;> dffit </th> <th style=text-align:right;> cov.r </th> <th style=text-align:right;> cook.d </th> <th style=text-align:right;> hat </th> <th style=text-align:right;> maha </th> </tr> </thead> <tbody> <tr> <td style=text-align:left;> X369 </td> <td style=text-align:right;> 0.7796401 </td> <td style=text-align:right;> -0.2317501 </td> <td style=text-align:right;> 0.1678140 </td> <td style=text-align:right;> -0.0579735 </td> <td style=text-align:right;> -0.0936772 </td> <td style=text-align:right;> -1.1097413 </td> <td style=text-align:right;> -0.4805830 </td> <td style=text-align:right;> -0.0144256 </td> <td style=text-align:right;> -0.0745656 </td> <td style=text-align:right;> 0.0747545 </td> <td style=text-align:right;> -1.1868934 </td> <td style=text-align:right;> 0.4152958 </td> <td style=text-align:right;> 1.5508236 </td> <td style=text-align:right;> 0.4063263 </td> <td style=text-align:right;> 0.1848802 </td> <td style=text-align:right;> 0.0656965 </td> <td style=text-align:right;> 59.32389 </td> </tr> <tr> <td style=text-align:left;> X419 </td> <td style=text-align:right;> 0.0147891 </td> <td style=text-align:right;> 0.3645414 </td> <td style=text-align:right;> -0.0178977 </td> <td style=text-align:right;> 0.0107611 </td> <td style=text-align:right;> 0.0119382 </td> <td style=text-align:right;> -0.0058155 </td> <td style=text-align:right;> 0.0304393 </td> <td style=text-align:right;> 0.0005552 </td> <td style=text-align:right;> 0.0161723 </td> <td style=text-align:right;> -0.1159999 </td> <td style=text-align:right;> -0.0610864 </td> <td style=text-align:right;> -0.0882379 </td> <td style=text-align:right;> 0.4029018 </td> <td style=text-align:right;> 1.2799527 </td> <td style=text-align:right;> 0.0135408 </td> <td style=text-align:right;> 0.2094680 </td> <td style=text-align:right;> 80.63853 </td> </tr> <tr> <td style=text-align:left;> X411 </td> <td style=text-align:right;> 0.0050986 </td> <td style=text-align:right;> 0.0114598 </td> <td style=text-align:right;> -0.0002544 </td> <td style=text-align:right;> 0.0003139 </td> <td style=text-align:right;> -0.0021656 </td> <td style=text-align:right;> -0.0040736 </td> <td style=text-align:right;> -0.0019297 </td> <td style=text-align:right;> 0.0004132 </td> <td style=text-align:right;> 0.0001400 </td> <td style=text-align:right;> -0.0077489 </td> <td style=text-align:right;> -0.0068897 </td> <td style=text-align:right;> -0.0021726 </td> <td style=text-align:right;> 0.0159856 </td> <td style=text-align:right;> 1.1901705 </td> <td style=text-align:right;> 0.0000213 </td> <td style=text-align:right;> 0.1338773 </td> <td style=text-align:right;> 55.40362 </td> </tr> <tr> <td style=text-align:left;> X406 </td> <td style=text-align:right;> 0.0201748 </td> <td style=text-align:right;> -0.2245737 </td> <td style=text-align:right;> 0.0051880 </td> <td style=text-align:right;> -0.0027568 </td> <td style=text-align:right;> -0.0129879 </td> <td style=text-align:right;> -0.0007893 </td> <td style=text-align:right;> -0.0145494 </td> <td style=text-align:right;> -0.0025818 </td> <td style=text-align:right;> -0.0039595 </td> <td style=text-align:right;> -0.0563659 </td> <td style=text-align:right;> 0.0126108 </td> <td style=text-align:right;> 0.0401276 </td> <td style=text-align:right;> -0.2356062 </td> <td style=text-align:right;> 1.2262623 </td> <td style=text-align:right;> 0.0046343 </td> <td style=text-align:right;> 0.1664139 </td> <td style=text-align:right;> 65.24982 </td> </tr> <tr> <td style=text-align:left;> X381 </td> <td style=text-align:right;> 0.0980385 </td> <td style=text-align:right;> -0.5245638 </td> <td style=text-align:right;> 0.0341992 </td> <td style=text-align:right;> -0.0047776 </td> <td style=text-align:right;> -0.0327019 </td> <td style=text-align:right;> -0.0832358 </td> <td style=text-align:right;> -0.0461418 </td> <td style=text-align:right;> -0.0290283 </td> <td style=text-align:right;> -0.0292670 </td> <td style=text-align:right;> -0.1138749 </td> <td style=text-align:right;> 0.0386572 </td> <td style=text-align:right;> 0.1235709 </td> <td style=text-align:right;> -0.5425691 </td> <td style=text-align:right;> 1.4946534 </td> <td style=text-align:right;> 0.0245556 </td> <td style=text-align:right;> 0.3231086 </td> <td style=text-align:right;> 126.23671 </td> </tr> </tbody> </table></div> <p><img alt src=../Linear-regression_files/figure-html/outlier-analysis-1.png><!-- --><img alt src=../Linear-regression_files/figure-html/outlier-analysis-2.png><!-- --><img alt src=../Linear-regression_files/figure-html/outlier-analysis-3.png><!-- --><img alt src=../Linear-regression_files/figure-html/outlier-analysis-4.png><!-- --><img alt src=../Linear-regression_files/figure-html/outlier-analysis-5.png><!-- --></p> <p>Cooks distance and leverage values plots: <img alt src=../Linear-regression_files/figure-html/outlier-plots-1.png><!-- --><img alt src=../Linear-regression_files/figure-html/outlier-plots-2.png><!-- --><img alt src=../Linear-regression_files/figure-html/outlier-plots-3.png><!-- --></p> <h2 id=building-a-better-model>Building a better model<a class=headerlink href=#building-a-better-model title="Permanent link">&para;</a></h2> <p>Now that I know all the problems that are present in the current model, I build a better model taking care of all of them. The current model has the following problems:<br> 1. Residuals are not normally distributed<br> 2. Residuals do not have constant variance<br> 3. Multicollinearity among variables<br> 4. Outliers affecting <span class=arithmatex>\(\beta\)</span> coefficients<br> 5. Low R-Squared </p> <p>A slightly better model than the above is shown below. </p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## lm(formula = .outcome ~ rm + `I(1/rm)` + `poly(dis, degree = 2)2` + 
+##     `I(1/dis)` + `I(1/ptratio)` + `exp(black)` + `log(lstat)` + 
+##     `sqrt(lstat)` + `poly(crim, degree = 2)1` + `poly(crim, degree = 2)2` + 
+##     `exp(indus)` + nox + `I(1/tax)` + rad_catloc24 + `rm:lstat`, 
+##     data = dat)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -21.8040  -2.1502  -0.0956   1.9586  21.2613 
+## 
+## Coefficients:
+##                              Estimate  Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                -8.295e+01   1.535e+01  -5.404 1.14e-07 ***
+## rm                          1.107e+01   1.260e+00   8.786  &lt; 2e-16 ***
+## `I(1/rm)`                   1.990e+02   5.071e+01   3.925 0.000102 ***
+## `poly(dis, degree = 2)2`   -9.122e+00   4.170e+00  -2.188 0.029294 *  
+## `I(1/dis)`                  1.965e+01   2.167e+00   9.070  &lt; 2e-16 ***
+## `I(1/ptratio)`              1.815e+02   3.119e+01   5.821 1.22e-08 ***
+## `exp(black)`              -6.794e-173   0.000e+00    -Inf  &lt; 2e-16 ***
+## `log(lstat)`               -2.062e+01   2.729e+00  -7.554 3.02e-13 ***
+## `sqrt(lstat)`               1.792e+01   3.439e+00   5.211 3.04e-07 ***
+## `poly(crim, degree = 2)1`  -5.309e+01   6.468e+00  -8.208 3.29e-15 ***
+## `poly(crim, degree = 2)2`   2.435e+01   5.810e+00   4.191 3.44e-05 ***
+## `exp(indus)`               -5.070e-12   2.015e-12  -2.516 0.012264 *  
+## nox                        -2.090e+01   3.323e+00  -6.290 8.48e-10 ***
+## `I(1/tax)`                  1.248e+03   2.990e+02   4.173 3.70e-05 ***
+## rad_catloc24                5.340e+00   9.906e-01   5.391 1.22e-07 ***
+## `rm:lstat`                 -2.391e-01   5.106e-02  -4.684 3.89e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.664 on 391 degrees of freedom
+## Multiple R-squared:  0.8561, Adjusted R-squared:  0.8506 
+## F-statistic:   155 on 15 and 391 DF,  p-value: &lt; 2.2e-16
+</code></pre></div> <p>Modelling is an iterative process. With more effort, I could get a better model using linear regression itself. Otherwise, I could use other regression techniques to get better results. </p> </article> </div> </div> <a href=# class="md-top md-icon" data-md-component=top data-md-state=hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg> Back to top </a> </main> <footer class=md-footer> <nav class="md-footer__inner md-grid" aria-label=Footer> <a href=../part-and-partial-corr/ class="md-footer__link md-footer__link--prev" aria-label="Previous: Part and partial correlation" rel=prev> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </div> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Previous </span> Part and partial correlation </div> </div> </a> <a href=../KNN_Imputation/ class="md-footer__link md-footer__link--next" aria-label="Next: Null Value Imputation (R)" rel=next> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Next </span> Null Value Imputation (R) </div> </div> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> Copyright &copy; 2016 - 2021 Martin Donath </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> <div class=md-footer-social> <a href=https://github.com/HarshaAsh target=_blank rel=noopener title=github.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </a> <a href=https://www.linkedin.com/in/sri-harsha-achyuthuni/ target=_blank rel=noopener title=www.linkedin.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg> </a> <a href=https://www.instagram.com/harsha_uni/ target=_blank rel=noopener title=www.instagram.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> </a> <a href=https://www.facebook.com/sri.harsha.achyuthuni/ target=_blank rel=noopener title=www.facebook.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg> </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "header.autohide", "navigation.sections", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script> <script src=../../assets/javascripts/bundle.56838a2c.min.js></script> </body> </html>
