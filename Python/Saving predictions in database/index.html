@@ -4,7 +4,7 @@
   <span class=nb>type</span> <span class=n>VARCHAR</span><span class=p>(</span><span class=mi>20</span><span class=p>),</span>
   <span class=n>value</span> <span class=n>FLOAT</span>
 <span class=p>);</span>
-</code></pre></div> <h3 id=load-data-using-python>Load data using python<a class=headerlink href=#load-data-using-python title="Permanent link">&para;</a></h3> <p>We can use psycopg to connect and create the same table. The URL to connect is provided by ElephantSQL under "Details". </p> <p>After connecting to the database, we can create tables using SQL commands.</p> <div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>psycopg2</span>
+</code></pre></div> <h3 id=load-data-using-python>Load data using python<a class=headerlink href=#load-data-using-python title="Permanent link">&para;</a></h3> <p>We can use <strong>psycopg</strong> to connect and create the same table. The URL to connect is provided by ElephantSQL under "Details". </p> <p>After connecting to the database, we can create tables using SQL commands.</p> <div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>psycopg2</span>
 <span class=n>connection_string</span> <span class=o>=</span> <span class=s2>&quot;postgressql://username:password@hostname:hostnumber/database&quot;</span>
 <span class=n>conn</span> <span class=o>=</span> <span class=n>psycopg2</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span><span class=n>connection_string</span><span class=p>)</span>
 
