@@ -2,322 +2,327 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://www.harshaash.com/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/resume/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Others/AHP/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Others/Deployed%20apps/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Others/IIMB%20BAI/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Others/IIMB%20project/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Others/Imperial%20College%20London/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Others/Publications/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Others/Rolls%20Royce/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Others/Scarecrow/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Others/bid%20allocation%20model/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Others/part%20time%20data%20science%20masters/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.harshaash.com/Others/preventive_maintainence/</loc>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Others/supply%20chain%20analytics/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/ARIMA%20Forecasting/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Bipartite%20matching/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Community%20detection/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Demonstrating%20online%20learning/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Diffusion%20on%20networks/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Introduction%20to%20Networkx/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/ML%20using%20scikit-learn/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Machine%20Learning%20Part%201/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Machine%20learning%20as%20HTTP%20Request/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Network%20Flow%20problems/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Network%20Science/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Network%20centrality/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Neural_collaborative_filtering/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/ORM/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Saving%20predictions%20in%20database/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Shortest%20path%20problems/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Time%20series%20deep%20learning/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Visualization%20for%20predictive%20analytics/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/Python/Vizualisation%20using%20python%20Part%201/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/ANN-1/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/ANN2/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/ARIMA/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/CART-Classification/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/CHAID/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/Curse-of-Dimensionality/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/CustomerLifetimeValue/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/EFA/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/Handling-Imbalanced-classes/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/KNN_Imputation/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/Linear-programming/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/Linear-regression/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/Probability/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/Seasonal-Time-Series/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/Stationarity-tests/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/Univariate-analysis/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/VAR-models/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/adoption_of_new_product/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/anova/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/attendance_t_test/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/chi-sq-goodness-of-fit/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/chi-sq-test-of-independence/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/hierarchical_clustering/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/kMeansClustering/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/logistic-regression/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/matrices/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/multicollinearity/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/multivariateAnalysis/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/part-and-partial-corr/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/recommendation-systems/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/time-series/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.harshaash.com/R/vectors/</loc>
-         <lastmod>2023-07-28</lastmod>
+         <lastmod>2024-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
