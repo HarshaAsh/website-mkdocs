@@ -1,82 +1,81 @@
 title,path,topics,excerpt
-Vizualizing tabular data (Python),Python/Vizualisation using python Part 1,Visualization,Visualising tabular data using Python.
-Vizualising for predictive analytics (Python),Python/Visualization for predictive analytics,Visualization,Visualization techniques for predictive analytics.
-Univariate Analysis (R),R/Univariate-analysis,Visualization,Univariate analysis using R.
-Multivariate Analysis (R),R/multivariateAnalysis,Visualization,Multivariate exploratory techniques in R.
-Multicollinearity (R),R/multicollinearity,Visualization,Detecting and handling multicollinearity.
-Statistics Basics (Python),Python/Statistics basics,Statistics basics,Foundations of statistics in Python.
-Probability (R),R/Probability,Statistics basics,Probability concepts in R.
-Vectors (R),R/vectors,Statistics basics,Vector operations and basics in R.
-Matrices (R),R/matrices,Statistics basics,Matrix operations and applications in R.
-Call center distributions (Python),Python/Call center distributions,Statistics basics,Distributions commonly used in call centre modelling.
-z-test and t-test (R),R/attendance_t_test,Hypothesis Testing,z-test and t-test examples in R.
-ANOVA Test (R),R/anova,Hypothesis Testing,One-way ANOVA in R.
-Chi-Square Goodness of fit (R),R/chi-sq-goodness-of-fit,Hypothesis Testing,Chi-square goodness of fit tests.
-Chi-Square test of independence (R),R/chi-sq-test-of-independence,Hypothesis Testing,Chi-square test of independence.
-Hypothesis testing using Python,Python/Hypothesis_Testing_Python,Hypothesis Testing,Hypothesis testing workflows in Python.
-Curse of dimensionality (R),R/Curse-of-Dimensionality,Factor Analysis,Problems with high-dimensional data.
-Exploratory factor analysis (R),R/EFA,Factor Analysis,EFA techniques in R.
-Null Value Imputation (R),R/KNN_Imputation,Preprocessing data,KNN-based imputation methods.
-Feature engineering (Python),Python/Machine Learning Part 1,Preprocessing data|Machine Learning,Feature engineering and EDA.
-Handling Imbalanced Classes (R),R/Handling-Imbalanced-classes,Preprocessing data,Techniques for imbalanced datasets.
-Logistic Regression (R),R/logistic-regression,Prediction algorithms|Classification Algorithms,Logistic regression in R.
-CHAID Decision Trees (R),R/CHAID,Prediction algorithms|Classification Algorithms,CHAID trees in R.
-CART Classification (R),R/CART-Classification,Prediction algorithms|Classification Algorithms,CART classification examples.
-Part and partial correlation (R),R/part-and-partial-corr,Prediction algorithms|Regression Algorithms,Part and partial correlation.
-Linear Regression (R),R/Linear-regression,Prediction algorithms|Regression Algorithms,Linear regression in R.
-Lasso and Ridge regression (Python),Python/Linear regression usecase mpg prediction,Prediction algorithms|Regression Algorithms,Lasso and Ridge regression example.
-Interactive Machine Learning (RShiny),https://harshaachyuthuni.shinyapps.io/Machine_Learning/,Machine Learning,RShiny interactive ML demo.
-Multi models (Python),Python/ML using scikit-learn,Machine Learning,Using multiple models with scikit-learn.
-Explainable ML (Python),Python/Explainable models using Heart Failure,Machine Learning|Explainable ML,Explainable models and techniques.
-Streaming Machine Learning (Python),Python/Demonstrating online learning,Machine Learning,Online learning and streaming ML.
-Introduction to stationarity (R),R/time-series,Time Series forecasting,Stationarity concepts.
-Stationary Tests (R),R/Stationarity-tests,Time Series forecasting,Stationarity test implementations.
-ARIMA in R,R/ARIMA,Time Series forecasting,ARIMA in R.
-ARIMA in Python,Python/ARIMA Forecasting,Time Series forecasting,ARIMA models in Python.
-Seasonal time series (R),R/Seasonal-Time-Series,Time Series forecasting,Seasonal time series analysis.
-VAR Models (R),R/VAR-models,Time Series forecasting,Vector auto-regression models.
-Perceptron,Python/ANN-1,Deep learning,Perceptron basics.
-Backpropagation,Python/Backpropagation,Deep learning,Backpropagation algorithm explained.
-Tensorflow and Keras,Python/DNN,Deep learning,Intro to Tensorflow and Keras.
-Time series (python) - Deep learning,Python/Time series deep learning,Deep learning|Time Series forecasting,Deep learning for time series.
-LLM Tokenizers,Python/LLM Tokenizers,Generative AI,Tokenizers used for LLMs.
-Prompt Engineering,Python/prompt_engineering_techniques,Generative AI,Tips on prompt engineering.
-Agentic AI,Python/Agentic AI,Generative AI,Agentic AI for blog editing.
-LangGraph,Python/Blog validation,Generative AI,Agentic AI for blog editing.
-RAG,Python/RAG,Generative AI,Retrieval augmented generation overview.
-Linear Programming (R),R/Linear-programming,Prescriptive Analytics,LP formulations in R.
-Integer Programming tricks,Others/integer_programming_blog,Prescriptive Analytics,Integer programming tips.
-Inventory Optimisation (Python),Python/inventory_optimization_eoq_ortools,Prescriptive Analytics,EOQ and OR-Tools examples.
-Adoption of new product (R),R/adoption_of_new_product,Prescriptive Analytics,Bass diffusion and product adoption.
-Bass Forecasting model (Python),Python/Diffusion on networks,Prescriptive Analytics,Diffusion and Bass model.
-Analytic Hierarchy Process,Others/AHP,Prescriptive Analytics,AHP decision making method.
-Hierarchical Clustering (R),R/hierarchical_clustering,Clustering,Agglomerative hierarchical clustering.
-K-Means Clustering (R),R/kMeansClustering,Clustering,K-means algorithm in R.
-DBSCAN Clustering (Python),Python/train_delays,Clustering,DBSCAN clustering example.
-Customer Lifetime Value (R),R/CustomerLifetimeValue,Reinforcement Learning,CLV modelling approaches.
-Recommendation Systems (R),R/recommendation-systems,Reinforcement Learning,Recommendation systems overview.
-Collaborative Filtering (Python),Python/Neural_collaborative_filtering,Reinforcement Learning,Neural collaborative filtering.
-Introduction to NetworkX (Python),Python/Introduction to Networkx,Networks,NetworkX introduction.
-Network Science (Python),Python/Network Science,Networks,Network science basics.
-Network Centrality (Python),Python/Network centrality,Networks,Centrality measures explained.
-Shortest path using integer programming (Python),Python/Shortest path problems,Networks,Shortest path with integer programming.
-Network flow problems (Python),Python/Network Flow problems,Networks,Network flow problem formulations.
-Community detection (Python),Python/Community detection,Networks,Community detection algorithms.
-Bipartite matching (Python),Python/Bipartite matching,Networks,Bipartite matching examples.
-ML deployment in Flask (Python),Python/Machine learning as HTTP Request,Deployment,Deploying ML models via Flask.
-Handling databases using python,Python/Saving predictions in database,Deployment,Database handling for ML.
-ORM (Python),Python/ORM,Deployment,ORM usage in Python.
-IIMB BAI,Others/IIMB BAI,Higher education review,Review of IIMB BAI programme.
-Part-time DS masters,Others/part time data science masters,Higher education review,Guide to part-time DS masters.
-Imperial college London,Others/Imperial College London,External blogs,Notes about Imperial College London.
-Rolls Royce (external),Others/Rolls Royce,External blogs,Rolls Royce engagements.
-Publications/conferences,Others/Publications,External blogs,Publications and conferences.
-Deployed apps,Others/Deployed apps,External blogs,Deployed demo apps.
-Preventive maintainence,Others/preventive_maintainence,Projects,Predictive/preventive maintenance projects.
-Contract Intelligence,Others/Contract Intelligence tool,Projects,Contract intelligence tools.
-Competitor intelligence,Others/competitor intelligence,Projects,Competitive intelligence pipeline.
-Intelligent annotation,Others/Scarecrow,Projects,Intelligent annotation project.
-Demand Forecasting,Others/Demand Forecasting,Projects,Demand forecasting work.
-Bid Allocation,Others/bid allocation model,Projects,Bid allocation model.
-Reward and Recognition contests,Others/IIMB project,Projects,Reward & recognition contest projects.
-Supply chain analytics,Others/supply chain analytics,Projects,Supply chain analytics projects.
+"Building Clinically Interpretable Models for Heart Disease Prediction",Python/Explainable models using Heart Failure,"Machine Learning|Explainable ML","Build an interpretable heart disease prediction model for rapid clinical screening."
+"Analysing Indian Railway Delays with DBSCAN Clustering",Python/train_delays,Clustering,"Analyze Indian railway delays by scraping real-time data and applying DBSCAN clustering."
+"Solving Inventory Problems with OR-Tools and EOQ",Python/inventory_optimization_eoq_ortools,Prescriptive Analytics,"Solve retail inventory problems by building a Mixed Integer Programming model with Google OR-Tools."
+"Forecasting Air Quality with ARIMA: Hyderabad PM2.5 Analysis",Python/ARIMA Forecasting,Time Series forecasting,"Forecast PM2.5 air quality in Hyderabad by building a complete ARIMA model using real-world data."
+"Human-in-the-Loop Blog Validation with LangGraph",Python/Blog validation,Generative AI,"Create a human-in-the-loop blog editing pipeline using LangGraph to automate text and code validation."
+"Visualising Airbnb Data: London Market Analysis",Python/Vizualisation using python Part 1,Visualization,"Analyze London's Airbnb market by visualizing trends in listing popularity, seasonality, and review activity."
+"Retrieval Augmented Generation (RAG) Explained",Python/RAG,Generative AI,"Build a chatbot that answers questions from a PDF document using Retrieval-Augmented Generation (RAG)."
+"Comparing Multiple ML Models with Scikit-Learn",Python/ML using scikit-learn,Machine Learning,"Predict employee absenteeism by building and comparing multiple machine learning models using Scikit-learn."
+"Comparing Tokenizers Across Popular LLMs: From GPT to Llama",Python/LLM Tokenizers,Generative AI,"Compare how different LLMs like BERT, GPT-2, and Flan-T5 tokenize text, code, and names."
+"Neural Collaborative Filtering in Python",Python/Neural_collaborative_filtering,Reinforcement Learning,"Build a music recommendation system using Neural Collaborative Filtering on the NetEase dataset."
+"Probability Distributions for Call Centre Analytics",Python/Call center distributions,Statistics basics,"Model call center operations by applying Poisson, Exponential, and Geometric distributions."
+"Comprehensive Hypothesis Testing in Python",Python/Hypothesis_Testing_Python,Hypothesis Testing,"Build a complete hypothesis testing toolkit in Python using four real-world examples."
+"Demand Forecasting for Walmart using Vector Autoregression (VAR) Models",R/VAR-models,Time Series forecasting,"Learn how to model multiple interdependent time series simultaneously using Vector Autoregression (VAR)."
+"Building Agentic AI Systems with LangChain",Python/Agentic AI,Generative AI,"Build agentic systems with tool use, memory, and decision-making capabilities using LangChain."
+"Predicting Vehicle Fuel Efficiency: Complete Linear Regression Analysis",Python/Linear regression usecase mpg prediction,"Prediction algorithms|Regression Algorithms","Master linear regression using the classic Auto MPG data to predict city-cycle fuel consumption."
+"Mastering Prompt Engineering Techniques",Python/prompt_engineering_techniques,Generative AI,"Learn advanced prompt engineering strategies to get better results from large language models."
+"Building Recommendation Systems using Associate Mining",R/recommendation-systems,Reinforcement Learning,"Create personalised recommendation engines using association mining, collaborative filtering and content-based methods."
+"Forecasting Time Series with Deep Neural Networks",Python/Time series deep learning,"Deep learning|Time Series forecasting","Discover how recurrent neural networks (RNNs) and LSTM networks revolutionise time series forecasting."
+"Feature Engineering Fundamentals in Python",Python/Machine Learning Part 1,"Preprocessing data|Machine Learning","Master the art of creating predictive features from raw data through comprehensive feature engineering techniques."
+"Integer Programming: Advanced Modelling Tricks",Others/integer_programming_blog,Prescriptive Analytics,"Master advanced integer programming techniques for solving complex discrete optimisation problems."
+"Community Detection in Complex Networks",Python/Community detection,Networks,"Discover hidden community structures in networks using modularity optimisation and the Louvain algorithm."
+"Bipartite Matching and Assignment Problems",Python/Bipartite matching,Networks,"Solve assignment and matching problems using bipartite graphs and the Hungarian algorithm."
+"Getting Started with NetworkX in Python",Python/Introduction to Networkx,Networks,"Learn network analysis fundamentals using Python's NetworkX library."
+"Statistical Foundations for Data Science in Python",Python/Statistics basics,Statistics basics,"Build a solid foundation in statistical concepts using Python's scientific computing libraries."
+"Hypothesis Testing with Real Attendance Data: Z-test and T-test in R",R/attendance_t_test,Hypothesis Testing,"This practical tutorial demonstrates when to use z-tests versus t-tests."
+"ARIMA Forecasting in R",R/ARIMA,Time Series forecasting,"Build powerful forecasting models using Auto-Regressive Integrated Moving Average (ARIMA) methodology in R."
+"K-Means Clustering for Pattern Discovery in R",R/kMeansClustering,Clustering,"Master the K-Means algorithm for partitioning data into distinct clusters."
+"Logistic Regression for Binary Classification in R",R/logistic-regression,"Prediction algorithms|Classification Algorithms","Master logistic regression for predicting binary outcomes using R."
+"Deploying Machine Learning Models with Flask",Python/Machine learning as HTTP Request,Deployment,"Transform your machine learning models into production-ready HTTP APIs using Flask."
+"CHAID Decision Trees for Categorical Analysis",R/CHAID,"Prediction algorithms|Classification Algorithms","Explore Chi-square Automatic Interaction Detection (CHAID) for building interpretable decision trees."
+"CART Classification Trees in R",R/CART-Classification,"Prediction algorithms|Classification Algorithms","Learn Classification and Regression Trees (CART) methodology for building robust decision trees."
+"Building Linear Regression Models in R",R/Linear-regression,"Prediction algorithms|Regression Algorithms","Master the foundational technique of linear regression using R's comprehensive statistical toolkit."
+"Backpropagation: The Heart of Neural Network Training",Python/Backpropagation,Deep learning,"Master the backpropagation algorithm that powers neural network learning."
+"Deep Learning with TensorFlow and Keras",Python/DNN,Deep learning,"Build production-ready deep neural networks using TensorFlow and Keras."
+"Building Neural Networks from Scratch: The Perceptron",Python/ANN-1,Deep learning,"Understand the fundamental building block of neural networks by implementing a perceptron from scratch."
+"Object-Relational Mapping (ORM) in Python",Python/ORM,Deployment,"Master database interactions using SQLAlchemy ORM for clean, Pythonic data access."
+"Persisting ML Predictions in Databases with Python",Python/Saving predictions in database,Deployment,"Learn how to store and retrieve machine learning predictions using databases."
+"Online Learning and Streaming Data in Python",Python/Demonstrating online learning,Machine Learning,"Discover how to build machine learning models that learn incrementally from streaming data."
+"Visualisation Strategies for Predictive Models",Python/Visualization for predictive analytics,Visualization,"Discover how to create effective visualisations that communicate the performance and insights of your predictive models."
+"Exploring Data Patterns with Univariate Analysis",R/Univariate-analysis,Visualization,"Master the art of single-variable analysis in R by learning how to create histograms, box plots, and density curves."
+"Understanding Relationships Through Multivariate Analysis",R/multivariateAnalysis,Visualization,"Explore the power of multivariate exploratory techniques in R for uncovering relationships between multiple variables."
+"Optimisation with Linear Programming in R",R/Linear-programming,Prescriptive Analytics,"Learn how to formulate and solve resource allocation problems using linear programming."
+"Detecting and Addressing Multicollinearity Issues",R/multicollinearity,Visualization,"Learn how to identify and handle multicollinearity in regression models using variance inflation factors (VIF)."
+"Mastering Probability Concepts in R",R/Probability,Statistics basics,"Understand probability theory through hands-on R examples covering discrete and continuous distributions."
+"Vector Operations and Data Manipulation in R",R/vectors,Statistics basics,"Explore the fundamental building blocks of R programming through comprehensive vector operations."
+"Matrix Algebra and Applications in R",R/matrices,Statistics basics,"Master matrix operations in R for linear algebra applications in statistics and machine learning."
+"Understanding Variance with ANOVA in R",R/anova,Hypothesis Testing,"Discover how Analysis of Variance (ANOVA) helps compare means across multiple groups simultaneously."
+"Chi-Square Goodness of Fit Testing",R/chi-sq-goodness-of-fit,Hypothesis Testing,"Master the chi-square goodness of fit test to determine whether observed data matches an expected theoretical distribution."
+"Testing Independence with Chi-Square in R",R/chi-sq-test-of-independence,Hypothesis Testing,"Learn how to test for relationships between categorical variables using the chi-square test of independence."
+"Navigating the Curse of Dimensionality",R/Curse-of-Dimensionality,Factor Analysis,"Understand why high-dimensional data poses unique challenges for machine learning and statistical analysis."
+"Exploratory Factor Analysis in R",R/EFA,Factor Analysis,"Discover hidden latent variables in your data using exploratory factor analysis (EFA)."
+"Handling Missing Data with KNN Imputation",R/KNN_Imputation,Preprocessing data,"Learn how to handle missing values intelligently using K-Nearest Neighbours imputation."
+"Strategies for Imbalanced Classification Problems",R/Handling-Imbalanced-classes,Preprocessing data,"Tackle the common challenge of imbalanced datasets where one class significantly outnumbers others."
+"Understanding Part and Partial Correlations",R/part-and-partial-corr,"Prediction algorithms|Regression Algorithms","This blog explains the difference between part and partial correlations."
+"Interactive Machine Learning Explorer with RShiny",https://harshaachyuthuni.shinyapps.io/Machine_Learning/,Machine Learning,"Experience machine learning interactively through this RShiny web application."
+"Understanding Stationarity in Time Series",R/time-series,Time Series forecasting,"Master the foundational concept of stationarity in time series analysis."
+"Testing for Stationarity in R",R/Stationarity-tests,Time Series forecasting,"Learn how to formally test whether your time series data is stationary using the Augmented Dickey-Fuller (ADF) test."
+"Analysing Seasonal Time Series Patterns in R",R/Seasonal-Time-Series,Time Series forecasting,"Explore techniques for handling seasonal patterns in time series data using R."
+"Modelling Product Adoption with Bass Diffusion",R/adoption_of_new_product,Prescriptive Analytics,"Forecast new product adoption rates using the Bass Diffusion Model."
+"Network Diffusion and Bass Models in Python",Python/Diffusion on networks,Prescriptive Analytics,"Simulate how ideas, products, and behaviours spread through networks using diffusion models."
+"Decision Making with Analytic Hierarchy Process",Others/AHP,Prescriptive Analytics,"Make complex multi-criteria decisions systematically using the Analytic Hierarchy Process (AHP)."
+"Hierarchical Clustering for Data Segmentation",R/hierarchical_clustering,Clustering,"Discover how agglomerative hierarchical clustering builds nested groupings of similar data points."
+"Customer Lifetime Value Prediction in R",R/CustomerLifetimeValue,Reinforcement Learning,"Calculate and predict Customer Lifetime Value (CLV) to optimise marketing spend and retention strategies."
+"Fundamentals of Network Science",Python/Network Science,Networks,"Explore the mathematical principles underlying network theory and complex systems."
+"Measuring Influence with Network Centrality",Python/Network centrality,Networks,"Identify important nodes in networks using centrality measures like degree, betweenness, closeness, and PageRank."
+"Solving Shortest Path Problems with Integer Programming",Python/Shortest path problems,Networks,"Formulate and solve shortest path problems using integer programming optimisation."
+"Modelling Network Flow Problems in Python",Python/Network Flow problems,Networks,"Master network flow optimisation for applications like supply chain logistics and resource allocation."
+"Choosing the Right Part-Time Data Science Masters",Others/part time data science masters,Higher education review,"Navigate the landscape of part-time data science masters programmes with this comprehensive comparison guide."
+"Reflections on Imperial College London",Others/Imperial College London,External blogs,"Personal insights and experiences from studying at Imperial College London."
+"Inside IIM Bangalore's Business Analytics Programme: A Graduate's Honest Review",Others/IIMB BAI,Higher education review,"A comprehensive first-hand review of IIMB's part-time Business Analytics and Intelligence executive programme."
+"Publications and Conference Presentations",Others/Publications,External blogs,"A curated collection of academic publications, conference presentations, and research contributions."
+"Deployed Data Science Applications",Others/Deployed apps,External blogs,"Explore live demonstrations of data science applications and interactive tools."
+"Predictive Maintenance for Industrial Equipment",Others/preventive_maintainence,Projects,"Building predictive maintenance systems that forecast equipment failures before they occur."
+"Contract Intelligence and Analysis Tool",Others/Contract Intelligence tool,Projects,"Developing an AI-powered contract intelligence system that extracts key terms and identifies risks."
+"Competitor Intelligence Pipeline",Others/competitor intelligence,Projects,"Building an automated competitive intelligence system that monitors competitor activities."
+"Intelligent Document Annotation System (Scarecrow)",Others/Scarecrow,Projects,"Creating an intelligent annotation tool that accelerates machine learning dataset creation."
+"Demand Forecasting for Inventory Planning",Others/Demand Forecasting,Projects,"Implementing demand forecasting models that predict product sales and optimise inventory levels."
+"Optimal Bid Allocation System",Others/bid allocation model,Projects,"Designing a bid allocation optimisation system for auctions and procurement."
+"Reward and Recognition Programme Analytics",Others/IIMB project,Projects,"Analysing employee reward and recognition programmes to maximise engagement and retention."
+"Supply Chain Analytics and Optimisation",Others/supply chain analytics,Projects,"Developing comprehensive supply chain analytics that optimise logistics, inventory, and distribution networks."
