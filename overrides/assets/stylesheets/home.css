@@ -1,0 +1,126 @@
+/* ===== LAYOUT OVERRIDES ===== */
+.md-header { position: initial; }
+.md-main__inner { margin: 0; }
+.md-content { display: none; }
+
+/* Override theme background to white */
+.mdx-container {
+  background: white !important;
+}
+
+.mdx-hero,
+.mdx-hero__content {
+  color: black !important;
+}
+
+.mdx-hero__content p,
+.mdx-hero__content h2,
+.mdx-hero__content h3,
+.mdx-hero__content h4,
+.mdx-hero__content h5,
+.mdx-hero__content h6,
+.mdx-hero__content a:not(.md-button) {
+  color: black !important;
+}
+
+.mdx-hero .md-button {
+    color: black;
+}
+
+@media screen and (min-width: 60em) {
+  .md-sidebar--secondary { display: none; }
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary { display: none; }
+}
+
+/* ===== BLOG FILTER CONTROLS ===== */
+.dropdown-menu { display: none; }
+.dropdown-menu.show { display: block; }
+.md-button.active { 
+  background-color: #1976d2; 
+  color: white; 
+  border-radius: 4px; 
+}
+
+/* ===== BRAND WALL SECTION ===== */
+.brand-wall {
+  margin-top: 1rem;
+}
+
+.brand-wall h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* ===== MARQUEE CONTAINER ===== */
+.marquee {
+  --gap: clamp(1rem, 5vw, 2rem);
+  --speed: 40s;
+  position: relative;
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+  margin-top: 1.5rem;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ===== MARQUEE CONTENT TRACKS ===== */
+.marquee__content {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  min-width: max-content;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.marquee__content li {
+  list-style: none;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.marquee__content img {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ===== MARQUEE ANIMATIONS ===== */
+.marquee .marquee__content:first-child {
+  animation: scroll-a var(--speed) linear infinite;
+}
+
+.marquee .marquee__content:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: scroll-b var(--speed) linear infinite;
+}
+
+@keyframes scroll-a {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - var(--gap))); }
+}
+
+@keyframes scroll-b {
+  from { transform: translateX(calc(100% + var(--gap))); }
+  to { transform: translateX(0); }
+}
+
+/* ===== ACCESSIBILITY ===== */
+.marquee:focus-within .marquee__content,
+.marquee:hover .marquee__content {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__content { animation: none; }
+}
