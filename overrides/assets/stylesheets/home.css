@@ -124,3 +124,7 @@
 @media (prefers-reduced-motion: reduce) {
   .marquee__content { animation: none; }
 }
+
+.about-me svg{
+  fill: white;
+}

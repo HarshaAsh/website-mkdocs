@@ -79,8 +79,10 @@ function renderPosts(filterTopic, showAll = false) {
   const displayPosts = shouldLimit ? filtered.slice(0, maxPosts) : filtered;
   
   let html = displayPosts.map(p => `
-    <div class="card col-md-6 col-lg-4 mb-3" style="border: none; border-radius: 0; padding-right: 0.5rem; padding-left: 0.5rem;">
-      <div class="card-body" style="background-color: hsla(0, 0%, 0%, 0.2); border: 1px solid rgba(0, 0, 0, .125); border-radius: .25rem;">
+    <div class="card col-md-6 col-lg-4 mb-3" style="border: none; border-radius: 0; padding-right: 0.75rem; padding-left: 0.25rem;">
+      <div class="card-body" style="border: 2px solid transparent; width: 100%; color: black;
+                                    border-image-source: linear-gradient(89deg, #2f6df6 49.562%, #000d85 69.38%, #0edefb 89.14%);
+                                    border-image-slice: 1;">
         <h5 class="card-title d-flex justify-content-between align-items-center" style="color:black;">${p.title}</h5>
         <p class="card-text">${p.excerpt}</p>
         <p class="card-text"><small class="text-muted">Topics: ${p.topics.join(', ')}</small></p>
@@ -93,10 +95,12 @@ function renderPosts(filterTopic, showAll = false) {
     html += `
     <div class="card col-md-6 col-lg-4 mb-3" style="border: none; border-radius: 0; padding-right: 0.5rem; padding-left: 0.5rem; cursor: pointer;" 
          onclick="renderPosts('All', true); document.querySelectorAll('#blog-filters .active').forEach(el => el.classList.remove('active')); document.querySelector('#blog-filters [data-topic=\\'All\\']').classList.add('active');">
-      <div class="card-body" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 200px; background-color: hsla(0, 0%, 0%, 0.2); border: 1px solid rgba(0, 0, 0, .125); border-radius: .25rem;">
+      <div class="card-body" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 200px; border: 2px solid transparent; width: 100%; color: black;
+                                    border-image-source: linear-gradient(89deg, #2f6df6 49.562%, #000d85 69.38%, #0edefb 89.14%);
+                                    border-image-slice: 1;">
         <h5 class="card-title" style="color:black; font-size: 1rem; margin-bottom: 1rem;">View All Posts</h5>
         <p class="card-text" style="text-align: center;">Click here to see all ${filtered.length} blog posts</p>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 3rem; height: 3rem; fill: white; margin-top: 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 3rem; height: 3rem; fill: black; margin-top: 1rem;">
           <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
         </svg>
       </div>
