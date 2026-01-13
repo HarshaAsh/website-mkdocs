@@ -17,7 +17,7 @@
       function onClick(e) {
         e.preventDefault();
         grecaptcha.enterprise.ready(async () => {
-          const token = await grecaptcha.enterprise.execute('6LcGAUksAAAAAArFtoDzPBiOYLgjt9mMfD3RCAt4', {action: 'LOGIN'});
+          const token = await grecaptcha.enterprise.execute('6LcGAUksAAAAAArFtoDzPBiOYLgjt9mMfD3RCAt4', {action: 'submit'});
         });
       }
     </script> <button type=submit>Send</button> <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --> </form> </div> <style>
