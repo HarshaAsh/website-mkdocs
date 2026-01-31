@@ -93,6 +93,17 @@
   margin-bottom: 1rem;
 }
 
+@media (min-width: 900px) {
+  .hero-cta {
+    flex-wrap: nowrap;
+  }
+
+  .cta-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
 .cta-button {
   padding: 0.9rem 2rem;
   background: #4051b5;
