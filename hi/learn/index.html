@@ -1,0 +1,1137 @@
+<!doctype html><html lang=en class=no-js> <head><script>
+      (function () {
+        var adsLoaded = false;
+
+        function loadAds() {
+          if (adsLoaded) return;
+          adsLoaded = true;
+
+          var ads = document.createElement("script");
+          ads.async = true;
+          ads.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8786690539845043";
+          ads.crossOrigin = "anonymous";
+          document.head.appendChild(ads);
+
+          var amp = document.createElement("script");
+          amp.async = true;
+          amp.setAttribute("custom-element", "amp-auto-ads");
+          amp.src = "https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js";
+          document.head.appendChild(amp);
+
+          var autoAds = document.createElement("amp-auto-ads");
+          autoAds.setAttribute("type", "adsense");
+          autoAds.setAttribute("data-ad-client", "ca-pub-8786690539845043");
+          document.body.appendChild(autoAds);
+        }
+
+        function onFirstInteraction() {
+          loadAds();
+          removeListeners();
+        }
+
+        function removeListeners() {
+          window.removeEventListener("scroll", onFirstInteraction, { passive: true });
+          window.removeEventListener("mousemove", onFirstInteraction, { passive: true });
+          window.removeEventListener("touchstart", onFirstInteraction, { passive: true });
+          window.removeEventListener("keydown", onFirstInteraction, { passive: true });
+        }
+
+        window.addEventListener("scroll", onFirstInteraction, { passive: true });
+        window.addEventListener("mousemove", onFirstInteraction, { passive: true });
+        window.addEventListener("touchstart", onFirstInteraction, { passive: true });
+        window.addEventListener("keydown", onFirstInteraction, { passive: true });
+
+        window.addEventListener("load", function () {
+          setTimeout(loadAds, 5000);
+        }, { once: true });
+      })();
+    </script><script>
+      (function () {
+        function deferThirdParties() {
+          var optimize = document.createElement("script");
+          optimize.src = "https://www.googleoptimize.com/optimize.js?id=OPT-M98W6LW";
+          optimize.async = true;
+          document.head.appendChild(optimize);
+
+          window._mfq = window._mfq || [];
+          var mf = document.createElement("script");
+          mf.type = "text/javascript";
+          mf.defer = true;
+          mf.src = "//cdn.mouseflow.com/projects/7b4494c9-7974-49f0-9777-d14450db37e6.js";
+          document.head.appendChild(mf);
+        }
+
+        if (document.readyState === "complete") {
+          deferThirdParties();
+        } else {
+          window.addEventListener("load", deferThirdParties, { once: true });
+        }
+      })();
+    </script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Harsha's notes on data science"><meta name=author content="Harsha Achyuthuni"><link href=https://www.harshaash.com/hi/learn/ rel=canonical><link rel=icon href=../../assets/images/logo.jpg><meta name=generator content="mkdocs-1.6.1, mkdocs-material-7.2.4"><title>प्रोडक्शन-रेडी डेटा साइंस कोर्स - Data Science with Harsha</title><link rel=preload href=../../assets/stylesheets/main.f7f47774.min.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=../../assets/stylesheets/main.f7f47774.min.css></noscript><link rel=preload href=../../assets/stylesheets/palette.3f5d1f46.min.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=../../assets/stylesheets/palette.3f5d1f46.min.css></noscript><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload as=style href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"></noscript><style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style><link rel=preload href=../../overrides/assets/stylesheets/user_defined.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=../../overrides/assets/stylesheets/user_defined.css></noscript><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-65034507-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script><script async src=https://www.google-analytics.com/analytics.js></script></head> <body dir=ltr data-md-color-scheme data-md-color-primary data-md-color-accent> <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script> <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer style="margin-bottom: 0;"></label> <div data-md-component=skip> </div> <div data-md-component=announce> </div> <header class=md-header style="background-color: navy;" data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../ title="Data Science with Harsha" class="md-header__button md-logo" aria-label="Data Science with Harsha" data-md-component=logo> <img src=../../assets/images/logo.jpg alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Data Science with Harsha </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> प्रोडक्शन-रेडी डेटा साइंस कोर्स </span> </div> </div> </div> <form class=md-header__option data-md-component=palette> <input class=md-option data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme data-md-color-primary data-md-color-accent aria-hidden=true type=radio name=__palette id=__palette_1> <input class=md-option data-md-color-media data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo aria-label="Switch to dark mode" type=radio name=__palette id=__palette_2> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_1 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme data-md-color-primary data-md-color-accent aria-hidden=true type=radio name=__palette id=__palette_3> <input class=md-option data-md-color-media data-md-color-scheme=slate data-md-color-primary=red data-md-color-accent=red aria-label="Switch to light mode" type=radio name=__palette id=__palette_4> <label class="md-header__button md-icon" title="Switch to light mode" for=__palette_3 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg> </label> </form> <div class=md-header__option> <div class=md-select id=language-selector> <button class=md-header__button aria-label="Select language" id=lang-button style="font-weight: 500; font-size: 0.9rem; padding: 0.2rem 0.5rem;"> <span id=current-lang>En</span> </button> <div class=md-select__inner id=lang-dropdown style="display: none;"> <ul class=md-select__list> <li class=md-select__item> <a href=# class=md-select__link data-lang=en>English</a> </li> <li class=md-select__item> <a href=# class=md-select__link data-lang=hi>हिन्दी</a> </li> <li class=md-select__item> <a href=# class=md-select__link data-lang=te>తెలుగు</a> </li> </ul> </div> </div> </div> <script>
+      (function() {
+        const button = document.getElementById('lang-button');
+        const dropdown = document.getElementById('lang-dropdown');
+        const langLinks = document.querySelectorAll('[data-lang]');
+        const currentLangDisplay = document.getElementById('current-lang');
+        
+        // Detect current language from URL
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('/hi/')) {
+          currentLangDisplay.textContent = 'अ(A/అ)';
+        } else if (currentPath.includes('/te/')) {
+          currentLangDisplay.textContent = 'అ(A/अ)';
+        } else {
+          currentLangDisplay.textContent = 'Eng(अ/అ)'; // Default to English
+        }
+        
+        // Toggle dropdown on button click
+        button.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+          dropdown.style.display = 'none';
+        });
+        
+        // Handle language selection
+        langLinks.forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const selectedLang = this.getAttribute('data-lang');
+            const currentPath = window.location.pathname;
+            let newPath;
+            
+            if (selectedLang === 'en') {
+              // Remove /hi/ or /te/ from path
+              newPath = currentPath.replace(/\/(hi|te)\//, '/');
+            } else if (selectedLang === 'hi') {
+              // Add or replace with /hi/
+              if (currentPath.includes('/te/')) {
+                newPath = currentPath.replace('/te/', '/hi/');
+              } else if (currentPath.includes('/hi/')) {
+                newPath = currentPath;
+              } else {
+                newPath = '/hi' + currentPath;
+              }
+            } else if (selectedLang === 'te') {
+              // Add or replace with /te/
+              if (currentPath.includes('/hi/')) {
+                newPath = currentPath.replace('/hi/', '/te/');
+              } else if (currentPath.includes('/te/')) {
+                newPath = currentPath;
+              } else {
+                newPath = '/te' + currentPath;
+              }
+            }
+            
+            window.location.href = newPath;
+          });
+        });
+      })();
+    </script> <a href=../../contact title="Contact Me" class=md-header__button aria-label="Contact Me" style="display: inline-flex; align-items: center; gap: 0.3rem; white-space: nowrap;"> <span class=md-icon style="display: inline-flex;"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/></svg> </span> <span style="font-size: 0.8rem;">Contact Me</span> </a> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <nav class=md-search__options aria-label=Search> <a href=javascript:void(0) class="md-search__icon md-icon" aria-label=Share data-clipboard data-clipboard-text data-md-component=search-share tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg> </a> <button type=reset class="md-search__icon md-icon" aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </nav> <div class=md-search__suggest data-md-component=search-suggest></div> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation hidden> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../ title="Data Science with Harsha" class="md-nav__button md-logo" aria-label="Data Science with Harsha" data-md-component=logo> <img src=../../assets/images/logo.jpg alt=logo> </a> Data Science with Harsha </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../ class=md-nav__link> Home </a> </li> <li class=md-nav__item> <a href=../resume/ class=md-nav__link> Resume </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <a href=./ class="md-nav__link md-nav__link--active"> Learn </a> </li> <li class=md-nav__item> <a href=../contact/ class=md-nav__link> Contact </a> </li> <li class="md-nav__item md-nav__item--section md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5 type=checkbox id=__nav_5> <label class=md-nav__link for=__nav_5> Blog <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Blog data-md-level=1> <label class=md-nav__title for=__nav_5> <span class="md-nav__icon md-icon"></span> Blog </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Others/Table_of_Contents/ class=md-nav__link> Table of Contents </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_2 type=checkbox id=__nav_5_2> <label class=md-nav__link for=__nav_5_2> Visualization <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Visualization data-md-level=2> <label class=md-nav__title for=__nav_5_2> <span class="md-nav__icon md-icon"></span> Visualization </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Python/Vizualisation%20using%20python%20Part%201/ class=md-nav__link> Vizualizing tabular data (Python) </a> </li> <li class=md-nav__item> <a href=../Python/Visualization%20for%20predictive%20analytics/ class=md-nav__link> Vizualising for predictive analytics (Python) </a> </li> <li class=md-nav__item> <a href=../R/Univariate-analysis/ class=md-nav__link> Univariate Analysis (R) </a> </li> <li class=md-nav__item> <a href=../R/multivariateAnalysis/ class=md-nav__link> Multivariate Analysis (R) </a> </li> <li class=md-nav__item> <a href=../R/multicollinearity/ class=md-nav__link> Multicollinearity (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_3 type=checkbox id=__nav_5_3> <label class=md-nav__link for=__nav_5_3> Statistics basics <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Statistics basics" data-md-level=2> <label class=md-nav__title for=__nav_5_3> <span class="md-nav__icon md-icon"></span> Statistics basics </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Python/Statistics%20basics/ class=md-nav__link> Statistics Basics (Python) </a> </li> <li class=md-nav__item> <a href=../R/Probability/ class=md-nav__link> Probability (R) </a> </li> <li class=md-nav__item> <a href=../R/vectors/ class=md-nav__link> Vectors (R) </a> </li> <li class=md-nav__item> <a href=../R/matrices/ class=md-nav__link> Matrices (R) </a> </li> <li class=md-nav__item> <a href=../Python/Call%20center%20distributions/ class=md-nav__link> Call center distributions (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_4 type=checkbox id=__nav_5_4> <label class=md-nav__link for=__nav_5_4> Hypothesis Testing <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Hypothesis Testing" data-md-level=2> <label class=md-nav__title for=__nav_5_4> <span class="md-nav__icon md-icon"></span> Hypothesis Testing </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../R/attendance_t_test/ class=md-nav__link> z-test and t-test (R) </a> </li> <li class=md-nav__item> <a href=../R/anova/ class=md-nav__link> ANOVA Test (R) </a> </li> <li class=md-nav__item> <a href=../R/chi-sq-goodness-of-fit/ class=md-nav__link> Chi-Square Goodness of fit (R) </a> </li> <li class=md-nav__item> <a href=../R/chi-sq-test-of-independence/ class=md-nav__link> Chi-Square test of independence (R) </a> </li> <li class=md-nav__item> <a href=../Python/Hypothesis_Testing_Python/ class=md-nav__link> Hypothesis testing using Python </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_5 type=checkbox id=__nav_5_5> <label class=md-nav__link for=__nav_5_5> Factor Analysis <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Factor Analysis" data-md-level=2> <label class=md-nav__title for=__nav_5_5> <span class="md-nav__icon md-icon"></span> Factor Analysis </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../R/Curse-of-Dimensionality/ class=md-nav__link> Curse of dimensionality </a> </li> <li class=md-nav__item> <a href=../R/EFA/ class=md-nav__link> Exploratory factor analysis (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_6 type=checkbox id=__nav_5_6> <label class=md-nav__link for=__nav_5_6> Preprocessing data <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Preprocessing data" data-md-level=2> <label class=md-nav__title for=__nav_5_6> <span class="md-nav__icon md-icon"></span> Preprocessing data </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../R/KNN_Imputation/ class=md-nav__link> Null Value Imputation (R) </a> </li> <li class=md-nav__item> <a href=../Python/Machine%20Learning%20Part%201/ class=md-nav__link> Feature engineering (Python) </a> </li> <li class=md-nav__item> <a href=../R/Handling-Imbalanced-classes/ class=md-nav__link> Handling Imbalanced Classes </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_7 type=checkbox id=__nav_5_7> <label class=md-nav__link for=__nav_5_7> Prediction algorithms <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Prediction algorithms" data-md-level=2> <label class=md-nav__title for=__nav_5_7> <span class="md-nav__icon md-icon"></span> Prediction algorithms </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_7_1 type=checkbox id=__nav_5_7_1> <label class=md-nav__link for=__nav_5_7_1> Classification Algorithms <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Classification Algorithms" data-md-level=3> <label class=md-nav__title for=__nav_5_7_1> <span class="md-nav__icon md-icon"></span> Classification Algorithms </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../R/logistic-regression/ class=md-nav__link> Logistic Regression (R) </a> </li> <li class=md-nav__item> <a href=../R/CHAID/ class=md-nav__link> CHAID Decision Trees (R) </a> </li> <li class=md-nav__item> <a href=../R/CART-Classification/ class=md-nav__link> CART Classification (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_7_2 type=checkbox id=__nav_5_7_2> <label class=md-nav__link for=__nav_5_7_2> Regression Algorithms <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Regression Algorithms" data-md-level=3> <label class=md-nav__title for=__nav_5_7_2> <span class="md-nav__icon md-icon"></span> Regression Algorithms </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../R/part-and-partial-corr/ class=md-nav__link> Part and partial correlation </a> </li> <li class=md-nav__item> <a href=../R/Linear-regression/ class=md-nav__link> Linear Regression (R) </a> </li> <li class=md-nav__item> <a href=../Python/Linear%20regression%20usecase%20mpg%20prediction/ class=md-nav__link> Lasso and Ridge regression (Python) </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_8 type=checkbox id=__nav_5_8> <label class=md-nav__link for=__nav_5_8> Machine Learning <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Machine Learning" data-md-level=2> <label class=md-nav__title for=__nav_5_8> <span class="md-nav__icon md-icon"></span> Machine Learning </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=https://harshaachyuthuni.shinyapps.io/Machine_Learning/ class=md-nav__link> Interactive Machine Learning (RShiny) </a> </li> <li class=md-nav__item> <a href=../Python/ML%20using%20scikit-learn/ class=md-nav__link> Multi models (Python) </a> </li> <li class=md-nav__item> <a href=../Python/Explainable%20models%20using%20Heart%20Failure/ class=md-nav__link> Explainable ML (Python) </a> </li> <li class=md-nav__item> <a href=../Python/Demonstrating%20online%20learning/ class=md-nav__link> Streaming Machine Learning (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_9 type=checkbox id=__nav_5_9> <label class=md-nav__link for=__nav_5_9> Time Series forecasting <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Time Series forecasting" data-md-level=2> <label class=md-nav__title for=__nav_5_9> <span class="md-nav__icon md-icon"></span> Time Series forecasting </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../R/time-series/ class=md-nav__link> Introduction to stationarity (R) </a> </li> <li class=md-nav__item> <a href=../R/Stationarity-tests/ class=md-nav__link> Stationary Tests (R) </a> </li> <li class=md-nav__item> <a href=../R/ARIMA/ class=md-nav__link> ARIMA in R </a> </li> <li class=md-nav__item> <a href=../Python/ARIMA%20Forecasting/ class=md-nav__link> ARIMA in Python </a> </li> <li class=md-nav__item> <a href=../R/Seasonal-Time-Series/ class=md-nav__link> Seasonal time series (R) </a> </li> <li class=md-nav__item> <a href=../R/VAR-models/ class=md-nav__link> VAR Models (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_10 type=checkbox id=__nav_5_10> <label class=md-nav__link for=__nav_5_10> Deep learning <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Deep learning" data-md-level=2> <label class=md-nav__title for=__nav_5_10> <span class="md-nav__icon md-icon"></span> Deep learning </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Python/ANN-1/ class=md-nav__link> Perceptron </a> </li> <li class=md-nav__item> <a href=../Python/Backpropagation/ class=md-nav__link> Backpropagation </a> </li> <li class=md-nav__item> <a href=../Python/DNN/ class=md-nav__link> Tensorflow and Keras </a> </li> <li class=md-nav__item> <a href=../Python/Time%20series%20deep%20learning/ class=md-nav__link> Time series (python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_11 type=checkbox id=__nav_5_11> <label class=md-nav__link for=__nav_5_11> Generative AI <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Generative AI" data-md-level=2> <label class=md-nav__title for=__nav_5_11> <span class="md-nav__icon md-icon"></span> Generative AI </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Python/LLM%20Tokenizers/ class=md-nav__link> LLM Tokenizers </a> </li> <li class=md-nav__item> <a href=../Python/prompt_engineering_techniques/ class=md-nav__link> Prompt Engineering </a> </li> <li class=md-nav__item> <a href=../Python/Agentic%20AI/ class=md-nav__link> Agentic AI </a> </li> <li class=md-nav__item> <a href=../Python/RAG/ class=md-nav__link> RAG </a> </li> <li class=md-nav__item> <a href=../Python/Blog%20validation/ class=md-nav__link> LangGraphs </a> </li> <li class=md-nav__item> <a href=../Python/CrewAI/ class=md-nav__link> CrewAI </a> </li> <li class=md-nav__item> <a href=../Others/yashoda_presentation/ class=md-nav__link> AI in Healthcare </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_12 type=checkbox id=__nav_5_12> <label class=md-nav__link for=__nav_5_12> Prescriptive Analytics <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Prescriptive Analytics" data-md-level=2> <label class=md-nav__title for=__nav_5_12> <span class="md-nav__icon md-icon"></span> Prescriptive Analytics </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../R/Linear-programming/ class=md-nav__link> Linear Programming (R) </a> </li> <li class=md-nav__item> <a href=../Others/integer_programming_blog/ class=md-nav__link> Integer Programming tricks </a> </li> <li class=md-nav__item> <a href=../Python/inventory_optimization_eoq_ortools/ class=md-nav__link> Inventory Optimisation (Python) </a> </li> <li class=md-nav__item> <a href=../R/adoption_of_new_product/ class=md-nav__link> Adoption of new product (R) </a> </li> <li class=md-nav__item> <a href=../Python/Diffusion%20on%20networks/ class=md-nav__link> Bass Forecasting model (Python) </a> </li> <li class=md-nav__item> <a href=../Others/AHP/ class=md-nav__link> Analytic Hierarchy Process </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_13 type=checkbox id=__nav_5_13> <label class=md-nav__link for=__nav_5_13> Clustering <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Clustering data-md-level=2> <label class=md-nav__title for=__nav_5_13> <span class="md-nav__icon md-icon"></span> Clustering </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../R/hierarchical_clustering/ class=md-nav__link> Hierarchical Clustering </a> </li> <li class=md-nav__item> <a href=../R/kMeansClustering/ class=md-nav__link> K-Means Clustering </a> </li> <li class=md-nav__item> <a href=../Python/train_delays/ class=md-nav__link> DBSCAN Clustering (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_14 type=checkbox id=__nav_5_14> <label class=md-nav__link for=__nav_5_14> Reinforcement Learning <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Reinforcement Learning" data-md-level=2> <label class=md-nav__title for=__nav_5_14> <span class="md-nav__icon md-icon"></span> Reinforcement Learning </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../R/CustomerLifetimeValue/ class=md-nav__link> Customer Lifetime Value </a> </li> <li class=md-nav__item> <a href=../R/recommendation-systems/ class=md-nav__link> Recommendation Systems (R) </a> </li> <li class=md-nav__item> <a href=../Python/Neural_collaborative_filtering/ class=md-nav__link> Collaborative Filtering (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_15 type=checkbox id=__nav_5_15> <label class=md-nav__link for=__nav_5_15> Networks <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Networks data-md-level=2> <label class=md-nav__title for=__nav_5_15> <span class="md-nav__icon md-icon"></span> Networks </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Python/Introduction%20to%20Networkx/ class=md-nav__link> Introduction to NetworkX (Python) </a> </li> <li class=md-nav__item> <a href=../Python/Network%20Science/ class=md-nav__link> Network Science (Python) </a> </li> <li class=md-nav__item> <a href=../Python/Network%20centrality/ class=md-nav__link> Network Centrality (Python) </a> </li> <li class=md-nav__item> <a href=../Python/Shortest%20path%20problems/ class=md-nav__link> Shortest path using integer programming (Python) </a> </li> <li class=md-nav__item> <a href=../Python/Network%20Flow%20problems/ class=md-nav__link> Network flow problems (Python) </a> </li> <li class=md-nav__item> <a href=../Python/Community%20detection/ class=md-nav__link> Community detection (Python) </a> </li> <li class=md-nav__item> <a href=../Python/Bipartite%20matching/ class=md-nav__link> Bipartite matching (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_16 type=checkbox id=__nav_5_16> <label class=md-nav__link for=__nav_5_16> Deployment <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Deployment data-md-level=2> <label class=md-nav__title for=__nav_5_16> <span class="md-nav__icon md-icon"></span> Deployment </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Python/Machine%20learning%20as%20HTTP%20Request/ class=md-nav__link> ML deployment in Flask (Python) </a> </li> <li class=md-nav__item> <a href=../Python/Saving%20predictions%20in%20database/ class=md-nav__link> Handling databases using python </a> </li> <li class=md-nav__item> <a href=../Python/ORM/ class=md-nav__link> ORM (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_17 type=checkbox id=__nav_5_17> <label class=md-nav__link for=__nav_5_17> Career lessons <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Career lessons" data-md-level=2> <label class=md-nav__title for=__nav_5_17> <span class="md-nav__icon md-icon"></span> Career lessons </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Others/learnings/ class=md-nav__link> Learnings from failures </a> </li> <li class=md-nav__item> <a href=../Others/podcast/ class=md-nav__link> Making ML Consumable </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_18 type=checkbox id=__nav_5_18> <label class=md-nav__link for=__nav_5_18> Higher education review <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Higher education review" data-md-level=2> <label class=md-nav__title for=__nav_5_18> <span class="md-nav__icon md-icon"></span> Higher education review </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Others/IIMB%20BAI/ class=md-nav__link> IIMB BAI </a> </li> <li class=md-nav__item> <a href=../Others/part%20time%20data%20science%20masters/ class=md-nav__link> Part-time DS masters </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_19 type=checkbox id=__nav_5_19> <label class=md-nav__link for=__nav_5_19> External blogs <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="External blogs" data-md-level=2> <label class=md-nav__title for=__nav_5_19> <span class="md-nav__icon md-icon"></span> External blogs </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Others/Imperial%20College%20London/ class=md-nav__link> Imperial college London </a> </li> <li class=md-nav__item> <a href=../Others/Publications/ class=md-nav__link> Publications/conferences </a> </li> <li class=md-nav__item> <a href=../Others/Deployed%20apps/ class=md-nav__link> Deployed apps </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_20 type=checkbox id=__nav_5_20> <label class=md-nav__link for=__nav_5_20> Projects <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Projects data-md-level=2> <label class=md-nav__title for=__nav_5_20> <span class="md-nav__icon md-icon"></span> Projects </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Others/preventive_maintainence/ class=md-nav__link> Preventive maintainence </a> </li> <li class=md-nav__item> <a href=../Others/Contract%20Intelligence%20tool/ class=md-nav__link> Contract Intelligence </a> </li> <li class=md-nav__item> <a href=../Others/competitor%20intelligence/ class=md-nav__link> Competitor intelligence </a> </li> <li class=md-nav__item> <a href=../Others/quiz%20generation/ class=md-nav__link> Quiz Generation </a> </li> <li class=md-nav__item> <a href=../Others/Scarecrow/ class=md-nav__link> Intelligent annotation </a> </li> <li class=md-nav__item> <a href=../Others/Demand%20Forecasting/ class=md-nav__link> Demand Forecasting </a> </li> <li class=md-nav__item> <a href=../Others/bid%20allocation%20model/ class=md-nav__link> Bid Allocation </a> </li> <li class=md-nav__item> <a href=../Others/IIMB%20project/ class=md-nav__link> Reward and Recognition contests </a> </li> <li class=md-nav__item> <a href=../Others/supply%20chain%20analytics/ class=md-nav__link> Supply chain analytics </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <p><meta name=description content="डेटा उत्साही से प्रोडक्शन-रेडी डेटा वैज्ञानिक में परिवर्तन करें। मॉडल डिप्लॉयमेंट, MLOps, फीचर इंजीनियरिंग, और वास्तविक दुनिया के डेटा साइंस कौशल सीखें।"></p> <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* हीरो सेक्शन */
+.hero {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #475569;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.form-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.form-group input {
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  min-width: 250px;
+}
+
+.form-group button {
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, #4051b5 0%, #5c6ac4 100%);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.form-group button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(64, 81, 181, 0.3);
+}
+
+.trust-badge {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .trust-badge {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .trust-badge img {
+    height: 0.9em !important;
+  }
+
+  .form-group {
+    flex-direction: column;
+  }
+
+  .form-group input,
+  .form-group button {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+/* ट्रस्ट बार */
+.trust-bar {
+  background: white;
+  padding: 3rem 2rem;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.trust-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.trust-bar h2 {
+  text-align: center;
+  color: #0f172a;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.companies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.company-item {
+  text-align: center;
+  color: #64748b;
+  font-weight: 600;
+  padding: 1.5rem;
+  transition: color 0.3s;
+}
+
+.company-item:hover {
+  color: #4051b5;
+}
+
+@media (max-width: 768px) {
+  .companies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .company-item {
+    font-size: 0.9rem;
+  }
+}
+
+/* शिक्षण दर्शन सेक्शन */
+.philosophy {
+  background: #f8fafc;
+  padding: 4rem 2rem;
+}
+
+.philosophy-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.philosophy h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.philosophy-subtitle {
+  color: #475569;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 640px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #0f766e 0%, #0891b2 100%);
+  color: white;
+  padding: 1.5rem;
+  min-height: 100px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-tag {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* पाठ्यक्रम सेक्शन */
+.curriculum {
+  background: white;
+  padding: 4rem 2rem;
+}
+
+.curriculum-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.curriculum h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(89deg, #2f6df6 49.562%, #000d85 69.38%, #0edefb 89.14%);
+}
+
+.timeline-item {
+  margin-bottom: 3rem;
+  width: 45%;
+}
+
+.timeline-item:nth-child(odd) {
+  margin-left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  margin-left: 55%;
+}
+
+.timeline-content {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border-left: 3px solid #2f6df6;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  border-left: none;
+  border-right: 3px solid #2f6df6;
+}
+
+.timeline-content h3 {
+  color: #2f6df6;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 4px solid #2f6df6;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  top: 1.5rem;
+}
+
+.timeline-item:nth-child(1) .timeline-dot {
+  top:0%
+}
+
+.timeline-item:nth-child(2) .timeline-dot {
+  top:27%
+}
+
+.timeline-item:nth-child(3) .timeline-dot {
+  top:54%
+}
+
+.timeline-item:nth-child(4) .timeline-dot {
+  top:80%
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 0;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 3rem;
+    text-align: left;
+  }
+
+  .timeline-content {
+    border-left: 3px solid #4051b5;
+    border-right: none;
+  }
+
+  .timeline-dot {
+    left: 0;
+  }
+}
+
+/* प्रोडक्शन वादा सेक्शन */
+.promise {
+  background: #f8fafc;
+  padding: 4rem 2rem;
+}
+
+.promise-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.promise h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.feature {
+  text-align: center;
+  padding: 2rem;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature h3 {
+  color: #4051b5;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.feature p {
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* प्रशिक्षक बायो */
+.instructor {
+  background: white;
+  padding: 4rem 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.instructor-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.instructor-image {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  overflow: hidden;
+}
+
+.instructor-image > div {
+  overflow: hidden;
+}
+
+.instructor-content h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.instructor-role {
+  color: #4051b5;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.instructor-details {
+  color: #475569;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat {
+  flex: 1;
+}
+
+.stat-number {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #4051b5;
+}
+
+.stat-label {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .instructor-container {
+    grid-template-columns: 1fr;
+  }
+
+  .instructor-image {
+    order: 2;
+    padding: 1rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .instructor-content {
+    order: 1;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+  }
+}
+
+/* प्रभाव हाइलाइट्स सेक्शन */
+.impact-highlights {
+  background: white;
+  padding: 4rem 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.impact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.impact-highlights h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.impact-subtitle {
+  text-align: center;
+  color: #475569;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.impact-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border-left: 3px solid #4051b5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  min-height: 140px;
+  position: relative;
+}
+
+.impact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* मोबाइल पर मैट्रिक्स और कंपनी के लिए फ्लेक्स रो */
+.impact-card-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.impact-company {
+  color: #4051b5;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.impact-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.impact-description {
+  color: #475569;
+  line-height: 1.5;
+  font-size: 0.85rem;
+  display: block;
+}
+
+.impact-metrics {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  min-width: 70px;
+}
+
+.impact-metric {
+  text-align: right;
+}
+
+.impact-metric-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #4051b5;
+  display: block;
+  line-height: 1.2;
+}
+
+.impact-metric-label {
+  font-size: 0.7rem;
+  color: #64748b;
+  margin-top: 0.1rem;
+  display: block;
+  line-height: 1.2;
+}
+
+.impact-link {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+  .impact-card-header-row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .impact-metrics {
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 70px;
+  }
+  .impact-company {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+}
+
+/* ब्रांड वॉल / मार्की स्टाइल्स */
+.brand-wall {
+  background: white;
+  padding: 3rem 2rem;
+  margin-top: 1rem;
+}
+
+.brand-wall h2 {
+  text-align: center;
+  color: #0f172a;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* मार्की कंटेनर */
+.marquee {
+  --gap: clamp(1rem, 5vw, 2rem);
+  --speed: 40s;
+  position: relative;
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+  margin-top: 1.5rem;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* मार्की सामग्री ट्रैक्स */
+.marquee__content {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  min-width: max-content;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.marquee__content li {
+  list-style: none;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.marquee__content img {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* मार्की एनिमेशन */
+.marquee .marquee__content:first-child {
+  animation: scroll-a var(--speed) linear infinite;
+}
+
+.marquee .marquee__content:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: scroll-b var(--speed) linear infinite;
+}
+
+@keyframes scroll-a {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - var(--gap))); }
+}
+
+@keyframes scroll-b {
+  from { transform: translateX(calc(100% + var(--gap))); }
+  to { transform: translateX(0); }
+}
+
+/* मार्की एक्सेसिबिलिटी */
+.marquee:focus-within .marquee__content,
+.marquee:hover .marquee__content {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__content { animation: none; }
+}
+
+/* डायनामिक ब्लॉग कार्ड्स स्टाइलिंग */
+#blog-cards-dynamic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+#blog-cards-dynamic .card {
+  background: white;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#blog-cards-dynamic .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+#blog-cards-dynamic .card-header {
+  background: linear-gradient(135deg, #4051b5 0%, #5c6ac4 100%);
+  color: white;
+  padding: 1.5rem;
+  min-height: 100px;
+  display: flex;
+  align-items: flex-end;
+}
+
+#blog-cards-dynamic .card h3 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+#blog-cards-dynamic .card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#blog-cards-dynamic .card-text {
+  margin: 0 0 0.5rem 0;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+#blog-cards-dynamic .card-tag {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: auto;
+  width: fit-content;
+}
+
+#blog-cards-dynamic .stretched-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* फ़िल्टर बटन स्टाइलिंग */
+#blog-filters-dynamic a {
+  padding: 0.5rem 1rem;
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+#blog-filters-dynamic a:hover {
+  background: #e2e8f0;
+}
+
+#blog-filters-dynamic a.active {
+  background: linear-gradient(135deg, #4051b5 0%, #5c6ac4 100%);
+  color: white;
+  border-color: #4051b5;
+}
+
+/* लिंक्डइन बैज ओवरफ्लो फिक्स */
+.profile-badge {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+</style> <script>
+// ===== ब्लॉग पोस्ट्स डायनामिक लोडिंग फॉर लर्न पेज =====
+
+let postsLearn = [];
+
+/**
+ * CSV फ़ाइल से ब्लॉग पोस्ट लोड करें
+ */
+function loadPostsFromCSVLearn() {
+  if (typeof Papa === 'undefined') {
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js';
+    script.onload = function() { loadPostsFromCSVLearn(); };
+    document.head.appendChild(script);
+    return;
+  }
+
+  // साइट रूट से पूर्ण पथ का उपयोग करें
+  const csvPath = '/data/blog_posts.csv';
+
+  Papa.parse(csvPath, {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    complete: function(results) {
+      postsLearn = results.data.map(post => ({
+        title: post.title,
+        url: /^https?:\/\//.test(post.path) 
+          ? post.path 
+          : '/' + post.path.split('/').map(s => encodeURIComponent(s.trim())).join('/'),
+        topics: post.topics ? post.topics.split('|').map(s => s.trim()) : [],
+        excerpt: post.excerpt || ''
+      }));
+      renderPostsLearn('All');
+    },
+    error: function(error) {
+      console.error('CSV लोड करने में त्रुटि:', error);
+      const container = document.getElementById('blog-cards-dynamic');
+      if (container) {
+        container.innerHTML = '<div style="grid-column: 1/-1;"><p><em>ब्लॉग पोस्ट लोड करने में त्रुटि। कृपया पुनः प्रयास करें।</em></p></div>';
+      }
+    }
+  });
+}
+
+/**
+ * पृष्ठ पर फ़िल्टर की गई ब्लॉग पोस्ट प्रदर्शित करें
+ * @param {string} filterTopic - फ़िल्टर करने के लिए विषय या 'All'
+ * @param {boolean} showAll - सभी पोस्ट दिखाने के लिए या 9 तक सीमित करने के लिए
+ */
+function renderPostsLearn(filterTopic, showAll = false) {
+  const container = document.getElementById('blog-cards-dynamic');
+  if (!container) return;
+
+  const filtered = postsLearn.filter(p => 
+    filterTopic === 'All' || p.topics.indexOf(filterTopic) !== -1
+  );
+
+  if (!filtered.length) {
+    container.innerHTML = '<div style="grid-column: 1/-1;"><p><em>इस विषय के लिए कोई पोस्ट नहीं मिली।</em></p></div>';
+    return;
+  }
+
+  const maxPosts = 8;
+  const shouldLimit = !showAll && filtered.length > maxPosts;
+  const displayPosts = shouldLimit ? filtered.slice(0, maxPosts) : filtered;
+
+  let html = displayPosts.map(p => `
+    <a href="${p.url}" class="card" style="position: relative;">
+      <div class="card-header">
+        <h3>${p.title}</h3>
+      </div>
+      <div class="card-body">
+        <p class="card-text">${p.excerpt}</p>
+        <span class="card-tag">${p.topics.join(' / ')}</span>
+      </div>
+      <span class="stretched-link"></span>
+    </a>
+  `).join('');
+
+  if (shouldLimit) {
+    html += `
+    <div class="card" style="position: relative; cursor: pointer;" onclick="viewAllPostsLearn();">
+      <div class="card-header" style="justify-content: center; align-items: center; text-align: center; min-height: 150px;">
+        <h3 style="margin: 0;">सभी पोस्ट देखें</h3>
+      </div>
+      <div class="card-body" style="justify-content: center; align-items: center; text-align: center;">
+        <p class="card-text">यहां क्लिक करें सभी ${filtered.length} ब्लॉग पोस्ट देखने के लिए</p>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 2rem; height: 2rem; fill: #0f766e; margin-top: 1rem;">
+          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+        </svg>
+      </div>
+    </div>
+    `;
+  }
+
+  container.innerHTML = html;
+}
+
+/**
+ * वर्तमान फ़िल्टर के लिए सभी पोस्ट देखने के लिए सहायक फ़ंक्शन
+ */
+function viewAllPostsLearn() {
+  const activeTopic = document.querySelector('#blog-filters-dynamic a.active')?.getAttribute('data-topic') || 'All';
+  renderPostsLearn(activeTopic, true);
+}
+
+// पृष्ठ लोड होने पर पोस्ट लोड करें
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadPostsFromCSVLearn);
+} else {
+  loadPostsFromCSVLearn();
+}
+
+// ===== लर्न पेज फ़िल्टर के लिए इवेंट हैंडलर्स =====
+document.addEventListener('DOMContentLoaded', function() {
+  // डिफ़ॉल्ट सक्रिय फ़िल्टर सेट करें
+  const defaultBtn = document.querySelector('#blog-filters-dynamic [data-topic="All"]');
+  if (defaultBtn) defaultBtn.classList.add('active');
+
+  const blogFilters = document.getElementById('blog-filters-dynamic');
+  const moreTopicsBtn = document.getElementById('more-topics-btn-learn');
+  const moreTopicsMenu = document.getElementById('more-topics-menu-learn');
+
+  // ब्लॉग फ़िल्टर क्लिक हैंडलर शीर्ष स्तर के बटन और ड्रॉपडाउन आइटम के लिए
+  if (blogFilters) {
+    blogFilters.addEventListener('click', function(e) {
+      const btn = e.target.closest('a[data-topic]');
+      if (!btn) return;
+
+      e.preventDefault();
+
+      // सभी फ़िल्टर से सक्रिय वर्ग हटाएं
+      Array.from(this.querySelectorAll('.active')).forEach(el => el.classList.remove('active'));
+
+      if (btn.classList.contains('dropdown-item')) {
+        // ड्रॉपडाउन आइटम चयनित
+        if (moreTopicsBtn) moreTopicsBtn.classList.add('active');
+        btn.classList.add('active');
+        if (moreTopicsMenu) moreTopicsMenu.style.display = 'none';
+      } else {
+        // शीर्ष स्तर का बटन चयनित
+        btn.classList.add('active');
+        if (moreTopicsBtn) moreTopicsBtn.classList.remove('active');
+        if (moreTopicsMenu) moreTopicsMenu.style.display = 'none';
+      }
+
+      renderPostsLearn(btn.getAttribute('data-topic'));
+    });
+  }
+
+  // ड्रॉपडाउन टॉगल
+  if (moreTopicsBtn) {
+    moreTopicsBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (moreTopicsMenu) {
+        moreTopicsMenu.style.display = moreTopicsMenu.style.display === 'block' ? 'none' : 'block';
+      }
+    });
+  }
+
+  // बाहर क्लिक करने पर ड्रॉपडाउन बंद करें
+  document.addEventListener('click', function(e) {
+    if (blogFilters && !blogFilters.contains(e.target)) {
+      if (moreTopicsMenu) moreTopicsMenu.style.display = 'none';
+    }
+  });
+
+  // Escape कुंजी पर ड्रॉपडाउन बंद करें
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      if (moreTopicsMenu) moreTopicsMenu.style.display = 'none';
+    }
+  });
+});
+</script> <!-- हीरो सेक्शन --> <section class=hero> <div class=hero-container> <h1>फंडामेंटल्स से वास्तविक‑विश्व GenAI और ML सिस्टम तक</h1> <p class=hero-subtitle> मैं hands on काम करता हूं, डेटा साइंस और GenAI टीमों का नेतृत्व करता हूं, हर दिन हायरिंग पैनल में बैठता हूं, Fortune 500 कंपनियों के लिए प्रोजेक्ट बनाता हूं और वास्तविक दुनिया के deployment अनुभव से आने वाली स्पष्टता के साथ पढ़ाता हूं। </p> <form action=https://www.harshaash.com/contact/ method=get class=form-group id=apply> <button type=submit>अगले कोहोर्ट के लिए आवेदन करें</button> </form> <div class=trust-badge> प्रशिक्षक पूर्व छात्र <img src=https://upload.wikimedia.org/wikipedia/sco/thumb/a/ad/Imperial_College_London_crest.svg/1920px-Imperial_College_London_crest.svg.png alt="Imperial College London" loading=lazy decoding=async style="height: 1em; vertical-align: middle; margin: 0 0.2em;"> Imperial College London & <img src=https://upload.wikimedia.org/wikipedia/en/a/a2/IIM_Bangalore_Logo.svg alt="IIM Bangalore" loading=lazy decoding=async style="height: 1em; vertical-align: middle; margin: 0 0.2em;"> Indian Institute of Management, Bangalore </div> </div> </section> <!-- ट्रस्ट बार --> <section class=brand-wall aria-label="डिप्लॉयड प्रोजेक्ट्स के साथ"> <h2>प्रोडक्शन AI सॉल्यूशंस प्रदान किए गए:</h2> <div class=marquee role=region aria-label="स्क्रॉलिंग लोगो"> <!-- पहला ट्रैक --> <ul class=marquee__content> <li><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_Deloitte.svg/2560px-Logo_of_Deloitte.svg.png alt="Deloitte लोगो" loading=lazy decoding=async></li> <li><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Rolls-royce.svg/800px-Rolls-royce.svg.png alt="Rolls-Royce लोगो" loading=lazy decoding=async>&nbsp; Rolls-Royce</li> <li><img src=https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/Unilever.svg/800px-Unilever.svg.png alt="Unilever लोगो" loading=lazy decoding=async>&nbsp; Unilever</li> <li><img src=https://upload.wikimedia.org/wikipedia/commons/c/cd/Johnson_and_Johnson_Logo.svg alt="Johnson & Johnson लोगो" loading=lazy decoding=async></li> <li><img src=https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Dr._Reddy%27s_Laboratories_logo.svg/1920px-Dr._Reddy%27s_Laboratories_logo.svg.png alt="Dr. Reddy's Laboratories लोगो" loading=lazy decoding=async></li> <li><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Walmart_logo_%282025%3B_Alt%29.svg/1920px-Walmart_logo_%282025%3B_Alt%29.svg.png alt="Walmart लोगो" loading=lazy decoding=async></li> <li><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/PepsiCo_logo.svg/1920px-PepsiCo_logo.svg.png alt="PepsiCo लोगो" loading=lazy decoding=async></li> <li><img src=https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Tesco_Logo.svg/500px-Tesco_Logo.svg.png alt="Tesco लोगो" loading=lazy decoding=async></li> </ul> <!-- दूसरा ट्रैक (संपूर्ण लूप के लिए डुप्लिकेट) --> <ul class=marquee__content> <li><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_Deloitte.svg/2560px-Logo_of_Deloitte.svg.png alt="Deloitte लोगो" loading=lazy decoding=async></li> <li><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Rolls-royce.svg/800px-Rolls-royce.svg.png alt="Rolls-Royce लोगो" loading=lazy decoding=async>&nbsp; Rolls-Royce</li> <li><img src=https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/Unilever.svg/800px-Unilever.svg.png alt="Unilever लोगो" loading=lazy decoding=async>&nbsp; Unilever</li> <li><img src=https://upload.wikimedia.org/wikipedia/commons/c/cd/Johnson_and_Johnson_Logo.svg alt="Johnson & Johnson लोगो" loading=lazy decoding=async></li> <li><img src=https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Dr._Reddy%27s_Laboratories_logo.svg/1920px-Dr._Reddy%27s_Laboratories_logo.svg.png alt="Dr. Reddy's Laboratories लोगो" loading=lazy decoding=async></li> <li><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Walmart_logo_%282025%3B_Alt%29.svg/1920px-Walmart_logo_%282025%3B_Alt%29.svg.png alt="Walmart लोगो" loading=lazy decoding=async></li> <li><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/PepsiCo_logo.svg/1920px-PepsiCo_logo.svg.png alt="PepsiCo लोगो" loading=lazy decoding=async></li> <li><img src=https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Tesco_Logo.svg/500px-Tesco_Logo.svg.png alt="Tesco लोगो" loading=lazy decoding=async></li> </ul> </div> <div class=impact-container style="max-width: 1200px; margin: 2rem auto 0 auto;"> <div class=impact-grid> <a href=/Others/preventive_maintainence/ class=impact-card> <div class=impact-metrics> <div class=impact-metric> <span class=impact-metric-value>1,000+</span> <span class=impact-metric-label>इंजन</span> </div> </div> <div class=impact-company> Rolls-Royce </div> <p class=impact-description>विमान इंजन के लिए पूर्वानुमानित रखरखाव प्रणाली लागू की गई।</p> </a> <a href=/Others/supply%20chain%20analytics/ class=impact-card> <div class=impact-metrics> <div class=impact-metric> <span class=impact-metric-value>$1.2M</span> <span class=impact-metric-label>मासिक बचत</span> </div> </div> <div class=impact-company> Walmart </div> <p class=impact-description>लैटिन अमेरिका में अंडरस्टॉक को कम किया।</p> </a> <a href=/Others/Demand%20Forecasting/ class=impact-card> <div class=impact-metrics> <div class=impact-metric> <span class=impact-metric-value>90%</span> <span class=impact-metric-label>सटीकता</span> </div> </div> <div class=impact-company> PepsiCo </div> <p class=impact-description>उत्तर अमेरिका में मांग का पूर्वानुमान लगाया।</p> </a> <a href=/Others/quiz%20generation/ class=impact-card> <div class=impact-metrics> <div class=impact-metric> <span class=impact-metric-value>4h</span> <span class=impact-metric-label>प्रत्येक क्विज के लिए बचत</span> </div> </div> <div class=impact-company> Johnson & Johnson </div> <p class=impact-description>जापान में बिक्री प्रतिनिधियों के लिए क्विज़ उत्पन्न करना।</p> </a> </div> </div> </section> <section class=philosophy> <div class=philosophy-container> <h2>मैं हर दिन AI सिस्टम बनाता हूं: पढ़ाना मेरा योगदान है।</h2> <p class=philosophy-subtitle> मेरे तकनीकी विश्लेषणों का अन्वेषण करें ताकि आप मेरे शिक्षण शैली को देख सकें इससे पहले कि आप प्रतिबद्ध हों। </p> <div id=blog-posts-dynamic data-csv-path=data/blog_posts.csv> <div class=mb-3 id=blog-filters-dynamic style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 2rem;"> <a href=# data-topic=All class=md-button style="margin-top: 0; margin-right: 0;">सभी</a> <a href=# data-topic="Machine Learning" class=md-button style="margin-top: 0; margin-right: 0;">Machine Learning</a> <a href=# data-topic="Generative AI" class=md-button style="margin-top: 0; margin-right: 0;">Gen AI</a> <a href=# data-topic="Deep learning" class=md-button style="margin-top: 0; margin-right: 0;">Deep Learning</a> <a href=# data-topic="Time Series forecasting" class=md-button style="margin-top: 0; margin-right: 0;">Time Series</a> <a href=# data-topic="Prescriptive Analytics" class=md-button style="margin-top: 0; margin-right: 0;">Optimisation</a> <a href=# data-topic="Career Lessons" class=md-button style="margin-top: 0; margin-right: 0;">Career Lessons</a> <div class=dropdown style="position: relative;"> <a href=# class=md-button id=more-topics-btn-learn style="margin-top: 0; margin-right: 0;">और ▼</a> <div class=dropdown-menu id=more-topics-menu-learn style="position: absolute; background: white; border: 1px solid #ddd; border-radius: 4px; min-width: 200px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 1000; top: 100%; left: 0; display: none;"> <a class=dropdown-item href=# data-topic="Statistics basics" style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Statistics basics</a> <a class=dropdown-item href=# data-topic="Hypothesis Testing" style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Hypothesis Testing</a> <a class=dropdown-item href=# data-topic="Factor Analysis" style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Factor Analysis</a> <a class=dropdown-item href=# data-topic="Preprocessing data" style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Preprocessing data</a> <a class=dropdown-item href=# data-topic="Prediction algorithms" style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Prediction algorithms</a> <a class=dropdown-item href=# data-topic="Prescriptive Analytics" style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Prescriptive Analytics</a> <a class=dropdown-item href=# data-topic=Clustering style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Clustering</a> <a class=dropdown-item href=# data-topic="Reinforcement Learning" style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Reinforcement Learning</a> <a class=dropdown-item href=# data-topic=Networks style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Networks</a> <a class=dropdown-item href=# data-topic=Deployment style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Deployment</a> <a class=dropdown-item href=# data-topic="Real World Data" style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Real World Data</a> <a class=dropdown-item href=# data-topic="Higher education review" style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Higher education review</a> <a class=dropdown-item href=# data-topic="External blogs" style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">External blogs</a> <a class=dropdown-item href=# data-topic=Projects style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Projects</a> </div> </div> </div> <div class=cards-grid id=blog-cards-dynamic> <p><em>पोस्ट लोड हो रही है…</em></p> </div> </div> </div> </section> <!-- लाइव प्रोजेक्ट्स शोकेस --> <section class=curriculum> <div class=curriculum-container> <h2>लाइव प्रोजेक्ट्स: देखें कि आप क्या बनाएंगे</h2> <p style="text-align: center; color: #475569; margin-bottom: 3rem; font-size: 1.1rem;"> ये हाल ही में मैंने लागू की गई वास्तविक एप्लिकेशन हैं। इस कोर्स के अंत तक, आप समान प्रोडक्शन-रेडी सिस्टम बनाएंगे और लागू करेंगे। </p> <div class=cards-grid> <a href=https://resumecreator-spxr.onrender.com/ target=_blank class=card> <div class=card-header> <h3>🤖 एजेंटिक रिज़्यूमे बिल्डर</h3> </div> <div class=card-body> <p style="color: #475569; margin-bottom: 1rem; line-height: 1.6;"> AI एजेंट जो रिज़्यूमे को विशिष्ट नौकरी विवरणों के अनुसार अनुकूलित करता है। मल्टी-एजेंट ऑर्केस्ट्रेशन और प्रोडक्शन डिप्लॉयमेंट का प्रदर्शन करता है। </p> <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;"> <strong>टेक स्टैक:</strong> CrewAI • FastAPI • Render </p> <span class=card-tag>लाइव डेमो →</span> </div> </a> <a href=https://hydpm25.onrender.com/ target=_blank class=card> <div class=card-header> <h3>🌍 PM2.5 पूर्वानुमान प्रणाली</h3> </div> <div class=card-body> <p style="color: #475569; margin-bottom: 1rem; line-height: 1.6;"> स्वचालित दैनिक पूर्वानुमान, अनुसूचित कार्यप्रवाह और डेटाबेस एकीकरण के साथ एंड-टू-एंड ML डिप्लॉयमेंट। </p> <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;"> <strong>टेक स्टैक:</strong> ARIMA • Deep Learning • Flask • GitHub Actions • Neon DB • Render </p> <span class=card-tag>लाइव डेमो →</span> </div> </a> <a href=https://read-article.streamlit.app/ target=_blank class=card> <div class=card-header> <h3>📚 Gen AI RAG चैटबॉट</h3> </div> <div class=card-body> <p style="color: #475569; margin-bottom: 1rem; line-height: 1.6;"> लेख विश्लेषण के लिए प्रोडक्शन-रेडी RAG चैटबॉट। यही हर छात्र को पाठ्यक्रम पूरा होने पर लागू करना होगा। </p> <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;"> <strong>टेक स्टैक:</strong> LangChain • OpenAI • Vector DB • Streamlit </p> <span class=card-tag>लाइव डेमो →</span> </div> </a> </div> </div> </section> <!-- पाठ्यक्रम रोडमैप --> <section class=curriculum id=curriculum> <div class=curriculum-container> <h2>पाठ्यक्रम रोडमैप</h2> <div class=timeline> <div class=timeline-item> <div class=timeline-dot></div> <div class=timeline-content> <h3>चरण 1: फाउंडेशन और सांख्यिकी (सप्ताह 1-3)</h3> <p> <strong>Python आवश्यकताएँ</strong> • हाइपोथीसिस टेस्टिंग (Z-tests, ANOVA) • वास्तविक डेटा सेट के साथ अन्वेषणात्मक डेटा विश्लेषण </p> </div> </div> <div class=timeline-item> <div class=timeline-dot></div> <div class=timeline-content> <h3>चरण 2: उन्नत ML और गहरे अध्ययन (सप्ताह 4-7)</h3> <p> <strong>रेखीय और वर्गीकरण</strong> • XGBoost/Ensembles • मॉडल ट्यूनिंग और मान्यता • मल्टी मॉडल </p> </div> </div> <div class=timeline-item> <div class=timeline-dot></div> <div class=timeline-content> <h3>चरण 3: GenAI और प्रोडक्शन (सप्ताह 8-11)</h3> <p> <strong>LLMs (BERT/GPT)</strong> • प्रॉम्प्ट इंजीनियरिंग • RAG के साथ LangChain • एजेंटिक फ्रेमवर्क • डिप्लॉयमेंट (Docker, Streamlit, Cloud) </p> </div> </div> <div class=timeline-item> <div class=timeline-dot></div> <div class=timeline-content> <h3>चरण 4: वैकल्पिक अनुभाग (सप्ताह 11-16)</h3> <p> <strong>अन्य विषय</strong> • क्लस्टरिंग • ऑप्टिमाइजेशन • टाइम सीरीज • GitHub Copilot </p> </div> </div> </div> </div> </section> <!-- प्रोडक्शन वादा --> <section class=promise> <div class=promise-container> <h2>प्रोडक्शन लाभ: इस कोर्स को अलग क्या बनाता है?</h2> <div class=features-grid> <div class=feature> <div class=feature-icon>🚀</div> <h3>उद्योग में पहला</h3> <p> यह केवल मॉडलिंग के बारे में नहीं है: यह पूरे यात्रा के बारे में है: समस्या को फ्रेम करना, दृष्टिकोण की योजना बनाना, समाधान को लागू करना, और इसे वास्तविक दुनिया में वितरित करना। </p> </div> <div class=feature> <div class=feature-icon>💼</div> <h3>वास्तविक परिणाम</h3> <p> प्रत्येक छात्र एक व्यक्तिगत ML केस स्टडी और एक लाइव GenAI चैटबॉट बनाता है जिसे आप अपने पोर्टफोलियो में प्रदर्शित कर सकते हैं। </p> </div> <div class=feature> <div class=feature-icon>🎯</div> <h3>करियर तैयारी</h3> <p> वास्तविक हायरिंग अनुभव के आधार पर रिज़्यूमे ऑप्टिमाइजेशन और इंटरव्यू तैयारी: नौकरी पाएं, केवल शिक्षा नहीं। </p> </div> </div> </div> </section> <!-- प्रशिक्षक बायो --> <section class=instructor> <div class=instructor-container> <div class=instructor-content> <h2>श्री हरिष आच्युतुनी</h2> <p class=instructor-role>Deloitte में डेटा साइंस प्रबंधक</p> <p class=instructor-details> हरिष एक डेटा साइंस पेशेवर हैं जिनका उच्च प्रभाव वाले AI और ML समाधान प्रदान करने का ट्रैक रिकॉर्ड है जो Fortune 500 कंपनियों में है। </p> <p class=instructor-details> <strong>शिक्षा:</strong> Imperial College London से बिजनेस एनालिटिक्स में MSc • IIM बैंगलोर से कार्यकारी शिक्षा </p> <p class=instructor-details> <strong>विशेषज्ञता:</strong> पूर्वानुमानित रखरखाव, मांग पूर्वानुमान, ऑप्टिमाइजेशन इंजन, वर्गीकरण, NLP, सप्लाई चेन एनालिटिक्स, और जनरेटिव AI अनुप्रयोग। </p> <p class=instructor-details> <strong>उद्योग:</strong> परामर्श, निर्माण, उपभोक्ता सामान, सप्लाई चेन, फार्मास्यूटिकल्स, स्वास्थ्य देखभाल, बीमा, खुदरा, रक्षा, और एयरोस्पेस क्षेत्र। </p> <div class=stats> <div class=stat> <div class=stat-number>8+</div> <div class=stat-label>वर्षों का अनुभव</div> </div> <div class=stat> <div class=stat-number>500+</div> <div class=stat-label>डेटा साइंस लेख</div> </div> <div class=stat> <div class=stat-number>50+</div> <div class=stat-label>लाइव प्रोजेक्ट्स</div> </div> </div> <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; justify-content: center;"> <a href=https://www.linkedin.com/in/sri-harsha-achyuthuni target=_blank style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: #0077b5; color: white; text-decoration: none; border-radius: 0.5rem; font-weight: 600; transition: transform 0.3s;"> <svg xmlns=http://www.w3.org/2000/svg width=20 height=20 viewbox="0 0 24 24" fill=white><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg> लिंक्डइन पर कनेक्ट करें </a> <a href=https://github.com/harshaash target=_blank style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: #24292e; color: white; text-decoration: none; border-radius: 0.5rem; font-weight: 600; transition: transform 0.3s;"> <svg xmlns=http://www.w3.org/2000/svg width=20 height=20 viewbox="0 0 24 24" fill=white><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub प्रोफ़ाइल देखें </a> </div> </div> <div class=instructor-image style="display: flex; flex-direction: column; gap: 2rem; justify-content: center; align-items: center; width: 100%; padding: 2rem; background: #f8fafc; border-radius: 0.75rem;"> <div style="text-align: center; width: 100%; max-width: 500px;"> <h3 style="color: #4051b5; margin-bottom: 1rem; font-size: 1.1rem;">GitHub गतिविधि</h3> <div style="background: white; padding: 1rem; border-radius: 0.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"> <a href=https://github.com/harshaash target=_blank style="display: block;"> <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=harshaash&theme=default" alt="GitHub प्रोफ़ाइल सारांश" loading=lazy decoding=async style="width: 100%; border-radius: 0.5rem;"> </a> </div> </div> <div style="text-align: center; width: 100%; max-width: 400px;"> <h3 style="color: #4051b5; margin-bottom: 1rem; font-size: 1.1rem;">पेशेवर नेटवर्क</h3> <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"> <script src=https://platform.linkedin.com/badges/js/profile.js async defer type=text/javascript></script> <div class="badge-base LI-profile-badge" data-locale=en_US data-size=large data-theme=light data-type=VERTICAL data-vanity=sri-harsha-achyuthuni data-version=v1 style="margin: 0 auto; max-width: 100%;"></div> </div> </div> </div> </div> </section> <!-- कॉल टू एक्शन बटन --> <section style="background: #f8fafc; padding: 4rem 2rem; text-align: center;"> <div style="max-width: 1200px; margin: 0 auto;"> <h2 style="font-size: 2rem; color: #0f172a; margin-bottom: 2rem;">क्या आप अपनी यात्रा शुरू करने के लिए तैयार हैं?</h2> <p style="color: #475569; margin-bottom: 3rem; font-size: 1.1rem;"> मेरे काम के बारे में अधिक जानें और संपर्क करें। </p> <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;"> <a href=/contact/ style="padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #4051b5 0%, #5c6ac4 100%); color: white; text-decoration: none; border-radius: 0.5rem; font-weight: 600; transition: transform 0.3s; display: inline-block;">मुझसे संपर्क करें</a> <a href=/Others/Table_of_Contents/ style="padding: 0.75rem 1.5rem; background: #e2e8f0; color: #0f172a; text-decoration: none; border-radius: 0.5rem; font-weight: 600; transition: transform 0.3s; display: inline-block;">सभी ब्लॉग पोस्ट</a> <a href=/resume/ style="padding: 0.75rem 1.5rem; background: #e2e8f0; color: #0f172a; text-decoration: none; border-radius: 0.5rem; font-weight: 600; transition: transform 0.3s; display: inline-block;">रिज़्यूमे</a> <a href=/Others/projects/ style="padding: 0.75rem 1.5rem; background: #e2e8f0; color: #0f172a; text-decoration: none; border-radius: 0.5rem; font-weight: 600; transition: transform 0.3s; display: inline-block;">प्रोजेक्ट्स</a> <a href=/Others/Publications/ style="padding: 0.75rem 1.5rem; background: #e2e8f0; color: #0f172a; text-decoration: none; border-radius: 0.5rem; font-weight: 600; transition: transform 0.3s; display: inline-block;">प्रकाशन</a> <a href=/Others/Deployed%20apps/ style="padding: 0.75rem 1.5rem; background: #e2e8f0; color: #0f172a; text-decoration: none; border-radius: 0.5rem; font-weight: 600; transition: transform 0.3s; display: inline-block;">डिप्लॉयड ऐप्स</a> </div> </div> </section> </article> </div> </div> <a href=# class="md-top md-icon" data-md-component=top data-md-state=hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg> Back to top </a> </main> <footer class=md-footer> <nav class="md-footer__inner md-grid" aria-label=Footer> <a href=../resume/ class="md-footer__link md-footer__link--prev" aria-label="Previous: Resume" rel=prev> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </div> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Previous </span> Resume </div> </div> </a> <a href=../contact/ class="md-footer__link md-footer__link--next" aria-label="Next: Contact" rel=next> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Next </span> Contact </div> </div> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> <img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by/4.0/88x31.png> </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> <div class=md-footer-contact style="text-align: center; margin: 1rem 0;"> <a href=../../contact title="Contact Me" style="display: inline-flex; align-items: center; gap: 0.5rem; color: rgba(255, 255, 255, 0.7); text-decoration: none;"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24" style="width: 1.2rem; height: 1.2rem; fill: rgba(255, 255, 255, 0.7);"> <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/> </svg> <span>Contact Me</span> </a> </div> <div class=md-footer-social> <a href=https://github.com/HarshaAsh target=_blank rel=noopener title=github.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </a> <a href=https://www.linkedin.com/in/sri-harsha-achyuthuni/ target=_blank rel=noopener title=www.linkedin.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg> </a> <a href=https://www.instagram.com/harshaash_com/ target=_blank rel=noopener title=www.instagram.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> </a> <a href=https://www.facebook.com/sri.harsha.achyuthuni/ target=_blank rel=noopener title=www.facebook.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg> </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "header.autohide", "navigation.sections", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.709b4209.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": null}</script> <script src=../../assets/javascripts/bundle.56838a2c.min.js></script> </body> </html>

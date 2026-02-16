@@ -1,371 +1,2211 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-         <loc>https://www.harshaash.com/</loc>
-         <lastmod>2026-02-13</lastmod>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://www.harshaash.com/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/contact-success/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/contact-success/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/contact-success/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/contact-success/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/contact-success/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/contact/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/contact/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/contact/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/contact/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/contact/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/learn/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/learn/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/learn/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/learn/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/learn/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/resume/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/resume/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/resume/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/resume/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/resume/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/AHP/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/AHP/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/AHP/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/AHP/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/AHP/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/Contract%20Intelligence%20tool/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/Contract%20Intelligence%20tool/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Contract%20Intelligence%20tool/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Contract%20Intelligence%20tool/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Contract%20Intelligence%20tool/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/Demand%20Forecasting/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/Demand%20Forecasting/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Demand%20Forecasting/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Demand%20Forecasting/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Demand%20Forecasting/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/Deployed%20apps/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/Deployed%20apps/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Deployed%20apps/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Deployed%20apps/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Deployed%20apps/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/IIMB%20BAI/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/IIMB%20BAI/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/IIMB%20BAI/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/IIMB%20BAI/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/IIMB%20BAI/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/IIMB%20project/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/IIMB%20project/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/IIMB%20project/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/IIMB%20project/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/IIMB%20project/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/Imperial%20College%20London/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/Imperial%20College%20London/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Imperial%20College%20London/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Imperial%20College%20London/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Imperial%20College%20London/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/Publications/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/Publications/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Publications/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Publications/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Publications/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/Rolls%20Royce/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/Rolls%20Royce/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Rolls%20Royce/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Rolls%20Royce/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Rolls%20Royce/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/Scarecrow/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/Scarecrow/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Scarecrow/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Scarecrow/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Scarecrow/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/Table_of_Contents/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/Table_of_Contents/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Table_of_Contents/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Table_of_Contents/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Table_of_Contents/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/bid%20allocation%20model/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/bid%20allocation%20model/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/bid%20allocation%20model/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/bid%20allocation%20model/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/bid%20allocation%20model/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/competitor%20intelligence/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/competitor%20intelligence/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/competitor%20intelligence/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/competitor%20intelligence/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/competitor%20intelligence/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/integer_programming_blog/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/integer_programming_blog/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/integer_programming_blog/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/integer_programming_blog/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/integer_programming_blog/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/learnings/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/learnings/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/learnings/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/learnings/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/learnings/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/part%20time%20data%20science%20masters/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/part%20time%20data%20science%20masters/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/part%20time%20data%20science%20masters/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/part%20time%20data%20science%20masters/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/part%20time%20data%20science%20masters/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/podcast/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/podcast/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/podcast/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/podcast/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/podcast/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/preventive_maintainence/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/preventive_maintainence/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/preventive_maintainence/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/preventive_maintainence/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/preventive_maintainence/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/projects/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/projects/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/projects/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/projects/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/projects/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/quiz%20generation/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/quiz%20generation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/quiz%20generation/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/quiz%20generation/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/quiz%20generation/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/supply%20chain%20analytics/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/supply%20chain%20analytics/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/supply%20chain%20analytics/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/supply%20chain%20analytics/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/supply%20chain%20analytics/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Others/yashoda_presentation/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Others/yashoda_presentation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/yashoda_presentation/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/yashoda_presentation/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/yashoda_presentation/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/ANN-1/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/ANN-1/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/ANN-1/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/ANN-1/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/ANN-1/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/ARIMA%20Forecasting/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/ARIMA%20Forecasting/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/ARIMA%20Forecasting/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/ARIMA%20Forecasting/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/ARIMA%20Forecasting/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Agentic%20AI/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Agentic%20AI/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Agentic%20AI/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Agentic%20AI/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Agentic%20AI/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Backpropagation/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Backpropagation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Backpropagation/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Backpropagation/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Backpropagation/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Bipartite%20matching/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Bipartite%20matching/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Bipartite%20matching/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Bipartite%20matching/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Bipartite%20matching/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Blog%20validation/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Blog%20validation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Blog%20validation/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Blog%20validation/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Blog%20validation/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Call%20center%20distributions/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Call%20center%20distributions/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Call%20center%20distributions/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Call%20center%20distributions/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Call%20center%20distributions/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Community%20detection/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Community%20detection/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Community%20detection/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Community%20detection/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Community%20detection/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/CrewAI/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/CrewAI/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/CrewAI/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/CrewAI/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/CrewAI/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/DNN/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/DNN/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/DNN/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/DNN/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/DNN/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Demonstrating%20online%20learning/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Demonstrating%20online%20learning/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Demonstrating%20online%20learning/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Demonstrating%20online%20learning/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Demonstrating%20online%20learning/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Diffusion%20on%20networks/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Diffusion%20on%20networks/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Diffusion%20on%20networks/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Diffusion%20on%20networks/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Diffusion%20on%20networks/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Explainable%20models%20using%20Heart%20Failure/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Explainable%20models%20using%20Heart%20Failure/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Explainable%20models%20using%20Heart%20Failure/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Explainable%20models%20using%20Heart%20Failure/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Explainable%20models%20using%20Heart%20Failure/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Hypothesis_Testing_Python/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Hypothesis_Testing_Python/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Hypothesis_Testing_Python/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Hypothesis_Testing_Python/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Hypothesis_Testing_Python/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Introduction%20to%20Networkx/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Introduction%20to%20Networkx/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Introduction%20to%20Networkx/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Introduction%20to%20Networkx/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Introduction%20to%20Networkx/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/LLM%20Tokenizers/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/LLM%20Tokenizers/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/LLM%20Tokenizers/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/LLM%20Tokenizers/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/LLM%20Tokenizers/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Linear%20regression%20usecase%20mpg%20prediction/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Linear%20regression%20usecase%20mpg%20prediction/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Linear%20regression%20usecase%20mpg%20prediction/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Linear%20regression%20usecase%20mpg%20prediction/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Linear%20regression%20usecase%20mpg%20prediction/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/ML%20using%20scikit-learn/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/ML%20using%20scikit-learn/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/ML%20using%20scikit-learn/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/ML%20using%20scikit-learn/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/ML%20using%20scikit-learn/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Machine%20Learning%20Part%201/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Machine%20Learning%20Part%201/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Machine%20Learning%20Part%201/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Machine%20Learning%20Part%201/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Machine%20Learning%20Part%201/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Machine%20learning%20as%20HTTP%20Request/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Machine%20learning%20as%20HTTP%20Request/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Machine%20learning%20as%20HTTP%20Request/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Machine%20learning%20as%20HTTP%20Request/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Machine%20learning%20as%20HTTP%20Request/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Network%20Flow%20problems/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Network%20Flow%20problems/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Network%20Flow%20problems/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Network%20Flow%20problems/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Network%20Flow%20problems/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Network%20Science/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Network%20Science/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Network%20Science/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Network%20Science/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Network%20Science/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Network%20centrality/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Network%20centrality/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Network%20centrality/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Network%20centrality/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Network%20centrality/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Neural_collaborative_filtering/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Neural_collaborative_filtering/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Neural_collaborative_filtering/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Neural_collaborative_filtering/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Neural_collaborative_filtering/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/ORM/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/ORM/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/ORM/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/ORM/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/ORM/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/RAG/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/RAG/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/RAG/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/RAG/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/RAG/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Saving%20predictions%20in%20database/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Saving%20predictions%20in%20database/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Saving%20predictions%20in%20database/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Saving%20predictions%20in%20database/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Saving%20predictions%20in%20database/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Shortest%20path%20problems/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Shortest%20path%20problems/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Shortest%20path%20problems/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Shortest%20path%20problems/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Shortest%20path%20problems/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Statistics%20basics/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Statistics%20basics/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Statistics%20basics/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Statistics%20basics/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Statistics%20basics/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Time%20series%20deep%20learning/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Time%20series%20deep%20learning/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Time%20series%20deep%20learning/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Time%20series%20deep%20learning/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Time%20series%20deep%20learning/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Visualization%20for%20predictive%20analytics/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Visualization%20for%20predictive%20analytics/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Visualization%20for%20predictive%20analytics/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Visualization%20for%20predictive%20analytics/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Visualization%20for%20predictive%20analytics/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/Vizualisation%20using%20python%20Part%201/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/Vizualisation%20using%20python%20Part%201/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Vizualisation%20using%20python%20Part%201/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Vizualisation%20using%20python%20Part%201/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Vizualisation%20using%20python%20Part%201/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/inventory_optimization_eoq_ortools/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/inventory_optimization_eoq_ortools/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/inventory_optimization_eoq_ortools/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/inventory_optimization_eoq_ortools/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/inventory_optimization_eoq_ortools/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/prompt_engineering_techniques/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/prompt_engineering_techniques/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/prompt_engineering_techniques/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/prompt_engineering_techniques/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/prompt_engineering_techniques/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/Python/train_delays/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/Python/train_delays/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/train_delays/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/train_delays/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/train_delays/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/ARIMA/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/ARIMA/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/ARIMA/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/ARIMA/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/ARIMA/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/CART-Classification/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/CART-Classification/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/CART-Classification/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/CART-Classification/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/CART-Classification/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/CHAID/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/CHAID/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/CHAID/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/CHAID/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/CHAID/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/Curse-of-Dimensionality/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/Curse-of-Dimensionality/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Curse-of-Dimensionality/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Curse-of-Dimensionality/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Curse-of-Dimensionality/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/CustomerLifetimeValue/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/CustomerLifetimeValue/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/CustomerLifetimeValue/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/CustomerLifetimeValue/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/CustomerLifetimeValue/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/EFA/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/EFA/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/EFA/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/EFA/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/EFA/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/Handling-Imbalanced-classes/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/Handling-Imbalanced-classes/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Handling-Imbalanced-classes/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Handling-Imbalanced-classes/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Handling-Imbalanced-classes/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/KNN_Imputation/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/KNN_Imputation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/KNN_Imputation/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/KNN_Imputation/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/KNN_Imputation/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/Linear-programming/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/Linear-programming/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Linear-programming/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Linear-programming/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Linear-programming/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/Linear-regression/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/Linear-regression/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Linear-regression/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Linear-regression/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Linear-regression/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/Probability/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/Probability/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Probability/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Probability/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Probability/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/Seasonal-Time-Series/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/Seasonal-Time-Series/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Seasonal-Time-Series/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Seasonal-Time-Series/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Seasonal-Time-Series/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/Stationarity-tests/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/Stationarity-tests/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Stationarity-tests/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Stationarity-tests/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Stationarity-tests/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/Univariate-analysis/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/Univariate-analysis/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Univariate-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Univariate-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Univariate-analysis/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/VAR-models/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/VAR-models/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/VAR-models/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/VAR-models/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/VAR-models/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/adoption_of_new_product/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/adoption_of_new_product/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/adoption_of_new_product/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/adoption_of_new_product/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/adoption_of_new_product/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/anova/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/anova/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/anova/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/anova/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/anova/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/attendance_t_test/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/attendance_t_test/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/attendance_t_test/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/attendance_t_test/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/attendance_t_test/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/chi-sq-goodness-of-fit/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/chi-sq-goodness-of-fit/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/chi-sq-goodness-of-fit/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/chi-sq-goodness-of-fit/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/chi-sq-goodness-of-fit/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/chi-sq-test-of-independence/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/chi-sq-test-of-independence/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/chi-sq-test-of-independence/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/chi-sq-test-of-independence/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/chi-sq-test-of-independence/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/hierarchical_clustering/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/hierarchical_clustering/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/hierarchical_clustering/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/hierarchical_clustering/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/hierarchical_clustering/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/kMeansClustering/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/kMeansClustering/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/kMeansClustering/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/kMeansClustering/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/kMeansClustering/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/logistic-regression/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/logistic-regression/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/logistic-regression/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/logistic-regression/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/logistic-regression/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/matrices/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/matrices/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/matrices/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/matrices/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/matrices/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/multicollinearity/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/multicollinearity/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/multicollinearity/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/multicollinearity/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/multicollinearity/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/multivariateAnalysis/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/multivariateAnalysis/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/multivariateAnalysis/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/multivariateAnalysis/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/multivariateAnalysis/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/part-and-partial-corr/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/part-and-partial-corr/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/part-and-partial-corr/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/part-and-partial-corr/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/part-and-partial-corr/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/recommendation-systems/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/recommendation-systems/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/recommendation-systems/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/recommendation-systems/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/recommendation-systems/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/time-series/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/time-series/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/time-series/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/time-series/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/time-series/"/>
     </url>
-    <url>
-         <loc>https://www.harshaash.com/R/vectors/</loc>
-         <lastmod>2026-02-13</lastmod>
+    <url>
+        <loc>https://www.harshaash.com/R/vectors/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/vectors/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/vectors/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/vectors/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/contact-success/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/contact-success/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/contact-success/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/contact-success/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/contact/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/contact/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/contact/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/contact/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/learn/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/learn/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/learn/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/learn/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/resume/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/resume/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/resume/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/resume/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/AHP/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/AHP/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/AHP/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/AHP/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/Contract%20Intelligence%20tool/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Contract%20Intelligence%20tool/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Contract%20Intelligence%20tool/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Contract%20Intelligence%20tool/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/Demand%20Forecasting/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Demand%20Forecasting/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Demand%20Forecasting/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Demand%20Forecasting/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/Deployed%20apps/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Deployed%20apps/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Deployed%20apps/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Deployed%20apps/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/IIMB%20BAI/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/IIMB%20BAI/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/IIMB%20BAI/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/IIMB%20BAI/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/IIMB%20project/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/IIMB%20project/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/IIMB%20project/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/IIMB%20project/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/Imperial%20College%20London/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Imperial%20College%20London/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Imperial%20College%20London/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Imperial%20College%20London/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/Publications/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Publications/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Publications/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Publications/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/Rolls%20Royce/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Rolls%20Royce/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Rolls%20Royce/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Rolls%20Royce/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/Scarecrow/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Scarecrow/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Scarecrow/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Scarecrow/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/Table_of_Contents/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Table_of_Contents/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Table_of_Contents/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Table_of_Contents/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/bid%20allocation%20model/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/bid%20allocation%20model/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/bid%20allocation%20model/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/bid%20allocation%20model/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/competitor%20intelligence/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/competitor%20intelligence/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/competitor%20intelligence/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/competitor%20intelligence/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/integer_programming_blog/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/integer_programming_blog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/integer_programming_blog/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/integer_programming_blog/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/learnings/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/learnings/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/learnings/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/learnings/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/part%20time%20data%20science%20masters/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/part%20time%20data%20science%20masters/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/part%20time%20data%20science%20masters/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/part%20time%20data%20science%20masters/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/podcast/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/podcast/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/podcast/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/podcast/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/preventive_maintainence/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/preventive_maintainence/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/preventive_maintainence/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/preventive_maintainence/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/projects/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/projects/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/projects/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/projects/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/quiz%20generation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/quiz%20generation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/quiz%20generation/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/quiz%20generation/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/supply%20chain%20analytics/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/supply%20chain%20analytics/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/supply%20chain%20analytics/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/supply%20chain%20analytics/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Others/yashoda_presentation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/yashoda_presentation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/yashoda_presentation/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/yashoda_presentation/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/ANN-1/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/ANN-1/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/ANN-1/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/ANN-1/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/ARIMA%20Forecasting/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/ARIMA%20Forecasting/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/ARIMA%20Forecasting/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/ARIMA%20Forecasting/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Agentic%20AI/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Agentic%20AI/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Agentic%20AI/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Agentic%20AI/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Backpropagation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Backpropagation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Backpropagation/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Backpropagation/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Bipartite%20matching/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Bipartite%20matching/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Bipartite%20matching/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Bipartite%20matching/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Blog%20validation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Blog%20validation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Blog%20validation/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Blog%20validation/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Call%20center%20distributions/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Call%20center%20distributions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Call%20center%20distributions/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Call%20center%20distributions/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Community%20detection/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Community%20detection/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Community%20detection/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Community%20detection/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/CrewAI/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/CrewAI/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/CrewAI/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/CrewAI/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/DNN/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/DNN/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/DNN/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/DNN/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Demonstrating%20online%20learning/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Demonstrating%20online%20learning/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Demonstrating%20online%20learning/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Demonstrating%20online%20learning/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Diffusion%20on%20networks/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Diffusion%20on%20networks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Diffusion%20on%20networks/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Diffusion%20on%20networks/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Explainable%20models%20using%20Heart%20Failure/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Explainable%20models%20using%20Heart%20Failure/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Explainable%20models%20using%20Heart%20Failure/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Explainable%20models%20using%20Heart%20Failure/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Hypothesis_Testing_Python/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Hypothesis_Testing_Python/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Hypothesis_Testing_Python/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Hypothesis_Testing_Python/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Introduction%20to%20Networkx/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Introduction%20to%20Networkx/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Introduction%20to%20Networkx/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Introduction%20to%20Networkx/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/LLM%20Tokenizers/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/LLM%20Tokenizers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/LLM%20Tokenizers/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/LLM%20Tokenizers/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Linear%20regression%20usecase%20mpg%20prediction/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Linear%20regression%20usecase%20mpg%20prediction/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Linear%20regression%20usecase%20mpg%20prediction/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Linear%20regression%20usecase%20mpg%20prediction/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/ML%20using%20scikit-learn/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/ML%20using%20scikit-learn/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/ML%20using%20scikit-learn/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/ML%20using%20scikit-learn/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Machine%20Learning%20Part%201/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Machine%20Learning%20Part%201/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Machine%20Learning%20Part%201/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Machine%20Learning%20Part%201/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Machine%20learning%20as%20HTTP%20Request/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Machine%20learning%20as%20HTTP%20Request/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Machine%20learning%20as%20HTTP%20Request/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Machine%20learning%20as%20HTTP%20Request/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Network%20Flow%20problems/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Network%20Flow%20problems/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Network%20Flow%20problems/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Network%20Flow%20problems/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Network%20Science/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Network%20Science/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Network%20Science/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Network%20Science/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Network%20centrality/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Network%20centrality/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Network%20centrality/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Network%20centrality/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Neural_collaborative_filtering/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Neural_collaborative_filtering/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Neural_collaborative_filtering/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Neural_collaborative_filtering/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/ORM/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/ORM/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/ORM/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/ORM/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/RAG/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/RAG/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/RAG/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/RAG/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Saving%20predictions%20in%20database/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Saving%20predictions%20in%20database/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Saving%20predictions%20in%20database/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Saving%20predictions%20in%20database/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Shortest%20path%20problems/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Shortest%20path%20problems/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Shortest%20path%20problems/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Shortest%20path%20problems/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Statistics%20basics/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Statistics%20basics/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Statistics%20basics/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Statistics%20basics/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Time%20series%20deep%20learning/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Time%20series%20deep%20learning/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Time%20series%20deep%20learning/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Time%20series%20deep%20learning/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Visualization%20for%20predictive%20analytics/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Visualization%20for%20predictive%20analytics/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Visualization%20for%20predictive%20analytics/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Visualization%20for%20predictive%20analytics/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/Vizualisation%20using%20python%20Part%201/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Vizualisation%20using%20python%20Part%201/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Vizualisation%20using%20python%20Part%201/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Vizualisation%20using%20python%20Part%201/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/inventory_optimization_eoq_ortools/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/inventory_optimization_eoq_ortools/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/inventory_optimization_eoq_ortools/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/inventory_optimization_eoq_ortools/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/prompt_engineering_techniques/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/prompt_engineering_techniques/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/prompt_engineering_techniques/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/prompt_engineering_techniques/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/Python/train_delays/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/train_delays/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/train_delays/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/train_delays/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/ARIMA/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/ARIMA/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/ARIMA/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/ARIMA/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/CART-Classification/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/CART-Classification/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/CART-Classification/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/CART-Classification/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/CHAID/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/CHAID/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/CHAID/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/CHAID/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/Curse-of-Dimensionality/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Curse-of-Dimensionality/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Curse-of-Dimensionality/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Curse-of-Dimensionality/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/CustomerLifetimeValue/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/CustomerLifetimeValue/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/CustomerLifetimeValue/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/CustomerLifetimeValue/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/EFA/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/EFA/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/EFA/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/EFA/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/Handling-Imbalanced-classes/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Handling-Imbalanced-classes/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Handling-Imbalanced-classes/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Handling-Imbalanced-classes/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/KNN_Imputation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/KNN_Imputation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/KNN_Imputation/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/KNN_Imputation/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/Linear-programming/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Linear-programming/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Linear-programming/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Linear-programming/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/Linear-regression/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Linear-regression/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Linear-regression/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Linear-regression/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/Probability/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Probability/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Probability/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Probability/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/Seasonal-Time-Series/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Seasonal-Time-Series/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Seasonal-Time-Series/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Seasonal-Time-Series/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/Stationarity-tests/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Stationarity-tests/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Stationarity-tests/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Stationarity-tests/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/Univariate-analysis/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Univariate-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Univariate-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Univariate-analysis/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/VAR-models/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/VAR-models/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/VAR-models/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/VAR-models/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/adoption_of_new_product/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/adoption_of_new_product/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/adoption_of_new_product/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/adoption_of_new_product/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/anova/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/anova/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/anova/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/anova/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/attendance_t_test/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/attendance_t_test/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/attendance_t_test/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/attendance_t_test/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/chi-sq-goodness-of-fit/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/chi-sq-goodness-of-fit/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/chi-sq-goodness-of-fit/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/chi-sq-goodness-of-fit/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/chi-sq-test-of-independence/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/chi-sq-test-of-independence/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/chi-sq-test-of-independence/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/chi-sq-test-of-independence/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/hierarchical_clustering/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/hierarchical_clustering/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/hierarchical_clustering/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/hierarchical_clustering/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/kMeansClustering/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/kMeansClustering/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/kMeansClustering/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/kMeansClustering/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/logistic-regression/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/logistic-regression/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/logistic-regression/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/logistic-regression/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/matrices/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/matrices/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/matrices/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/matrices/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/multicollinearity/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/multicollinearity/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/multicollinearity/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/multicollinearity/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/multivariateAnalysis/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/multivariateAnalysis/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/multivariateAnalysis/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/multivariateAnalysis/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/part-and-partial-corr/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/part-and-partial-corr/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/part-and-partial-corr/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/part-and-partial-corr/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/recommendation-systems/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/recommendation-systems/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/recommendation-systems/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/recommendation-systems/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/time-series/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/time-series/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/time-series/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/time-series/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/hi/R/vectors/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/vectors/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/vectors/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/vectors/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/contact-success/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/contact-success/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/contact-success/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/contact-success/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/contact/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/contact/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/contact/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/contact/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/learn/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/learn/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/learn/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/learn/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/resume/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/resume/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/resume/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/resume/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/AHP/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/AHP/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/AHP/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/AHP/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/Contract%20Intelligence%20tool/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Contract%20Intelligence%20tool/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Contract%20Intelligence%20tool/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Contract%20Intelligence%20tool/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/Demand%20Forecasting/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Demand%20Forecasting/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Demand%20Forecasting/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Demand%20Forecasting/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/Deployed%20apps/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Deployed%20apps/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Deployed%20apps/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Deployed%20apps/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/IIMB%20BAI/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/IIMB%20BAI/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/IIMB%20BAI/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/IIMB%20BAI/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/IIMB%20project/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/IIMB%20project/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/IIMB%20project/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/IIMB%20project/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/Imperial%20College%20London/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Imperial%20College%20London/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Imperial%20College%20London/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Imperial%20College%20London/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/Publications/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Publications/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Publications/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Publications/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/Rolls%20Royce/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Rolls%20Royce/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Rolls%20Royce/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Rolls%20Royce/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/Scarecrow/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Scarecrow/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Scarecrow/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Scarecrow/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/Table_of_Contents/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/Table_of_Contents/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/Table_of_Contents/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/Table_of_Contents/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/bid%20allocation%20model/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/bid%20allocation%20model/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/bid%20allocation%20model/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/bid%20allocation%20model/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/competitor%20intelligence/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/competitor%20intelligence/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/competitor%20intelligence/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/competitor%20intelligence/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/integer_programming_blog/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/integer_programming_blog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/integer_programming_blog/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/integer_programming_blog/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/learnings/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/learnings/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/learnings/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/learnings/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/part%20time%20data%20science%20masters/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/part%20time%20data%20science%20masters/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/part%20time%20data%20science%20masters/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/part%20time%20data%20science%20masters/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/podcast/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/podcast/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/podcast/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/podcast/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/preventive_maintainence/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/preventive_maintainence/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/preventive_maintainence/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/preventive_maintainence/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/projects/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/projects/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/projects/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/projects/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/quiz%20generation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/quiz%20generation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/quiz%20generation/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/quiz%20generation/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/supply%20chain%20analytics/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/supply%20chain%20analytics/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/supply%20chain%20analytics/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/supply%20chain%20analytics/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/yashoda_presentation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/yashoda_presentation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/yashoda_presentation/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/yashoda_presentation/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/ANN-1/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/ANN-1/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/ANN-1/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/ANN-1/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/ARIMA%20Forecasting/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/ARIMA%20Forecasting/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/ARIMA%20Forecasting/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/ARIMA%20Forecasting/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Agentic%20AI/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Agentic%20AI/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Agentic%20AI/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Agentic%20AI/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Backpropagation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Backpropagation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Backpropagation/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Backpropagation/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Bipartite%20matching/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Bipartite%20matching/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Bipartite%20matching/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Bipartite%20matching/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Blog%20validation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Blog%20validation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Blog%20validation/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Blog%20validation/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Call%20center%20distributions/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Call%20center%20distributions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Call%20center%20distributions/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Call%20center%20distributions/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Community%20detection/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Community%20detection/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Community%20detection/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Community%20detection/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/CrewAI/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/CrewAI/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/CrewAI/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/CrewAI/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/DNN/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/DNN/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/DNN/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/DNN/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Demonstrating%20online%20learning/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Demonstrating%20online%20learning/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Demonstrating%20online%20learning/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Demonstrating%20online%20learning/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Diffusion%20on%20networks/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Diffusion%20on%20networks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Diffusion%20on%20networks/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Diffusion%20on%20networks/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Explainable%20models%20using%20Heart%20Failure/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Explainable%20models%20using%20Heart%20Failure/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Explainable%20models%20using%20Heart%20Failure/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Explainable%20models%20using%20Heart%20Failure/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Hypothesis_Testing_Python/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Hypothesis_Testing_Python/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Hypothesis_Testing_Python/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Hypothesis_Testing_Python/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Introduction%20to%20Networkx/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Introduction%20to%20Networkx/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Introduction%20to%20Networkx/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Introduction%20to%20Networkx/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/LLM%20Tokenizers/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/LLM%20Tokenizers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/LLM%20Tokenizers/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/LLM%20Tokenizers/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Linear%20regression%20usecase%20mpg%20prediction/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Linear%20regression%20usecase%20mpg%20prediction/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Linear%20regression%20usecase%20mpg%20prediction/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Linear%20regression%20usecase%20mpg%20prediction/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/ML%20using%20scikit-learn/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/ML%20using%20scikit-learn/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/ML%20using%20scikit-learn/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/ML%20using%20scikit-learn/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Machine%20Learning%20Part%201/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Machine%20Learning%20Part%201/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Machine%20Learning%20Part%201/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Machine%20Learning%20Part%201/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Machine%20learning%20as%20HTTP%20Request/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Machine%20learning%20as%20HTTP%20Request/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Machine%20learning%20as%20HTTP%20Request/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Machine%20learning%20as%20HTTP%20Request/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Network%20Flow%20problems/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Network%20Flow%20problems/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Network%20Flow%20problems/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Network%20Flow%20problems/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Network%20Science/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Network%20Science/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Network%20Science/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Network%20Science/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Network%20centrality/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Network%20centrality/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Network%20centrality/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Network%20centrality/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Neural_collaborative_filtering/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Neural_collaborative_filtering/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Neural_collaborative_filtering/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Neural_collaborative_filtering/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/ORM/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/ORM/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/ORM/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/ORM/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/RAG/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/RAG/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/RAG/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/RAG/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Saving%20predictions%20in%20database/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Saving%20predictions%20in%20database/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Saving%20predictions%20in%20database/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Saving%20predictions%20in%20database/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Shortest%20path%20problems/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Shortest%20path%20problems/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Shortest%20path%20problems/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Shortest%20path%20problems/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Statistics%20basics/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Statistics%20basics/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Statistics%20basics/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Statistics%20basics/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Time%20series%20deep%20learning/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Time%20series%20deep%20learning/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Time%20series%20deep%20learning/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Time%20series%20deep%20learning/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Visualization%20for%20predictive%20analytics/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Visualization%20for%20predictive%20analytics/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Visualization%20for%20predictive%20analytics/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Visualization%20for%20predictive%20analytics/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/Vizualisation%20using%20python%20Part%201/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/Vizualisation%20using%20python%20Part%201/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/Vizualisation%20using%20python%20Part%201/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/Vizualisation%20using%20python%20Part%201/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/inventory_optimization_eoq_ortools/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/inventory_optimization_eoq_ortools/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/inventory_optimization_eoq_ortools/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/inventory_optimization_eoq_ortools/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/prompt_engineering_techniques/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/prompt_engineering_techniques/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/prompt_engineering_techniques/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/prompt_engineering_techniques/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/train_delays/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/train_delays/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/train_delays/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/train_delays/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/ARIMA/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/ARIMA/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/ARIMA/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/ARIMA/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/CART-Classification/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/CART-Classification/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/CART-Classification/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/CART-Classification/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/CHAID/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/CHAID/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/CHAID/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/CHAID/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/Curse-of-Dimensionality/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Curse-of-Dimensionality/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Curse-of-Dimensionality/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Curse-of-Dimensionality/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/CustomerLifetimeValue/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/CustomerLifetimeValue/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/CustomerLifetimeValue/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/CustomerLifetimeValue/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/EFA/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/EFA/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/EFA/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/EFA/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/Handling-Imbalanced-classes/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Handling-Imbalanced-classes/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Handling-Imbalanced-classes/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Handling-Imbalanced-classes/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/KNN_Imputation/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/KNN_Imputation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/KNN_Imputation/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/KNN_Imputation/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/Linear-programming/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Linear-programming/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Linear-programming/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Linear-programming/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/Linear-regression/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Linear-regression/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Linear-regression/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Linear-regression/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/Probability/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Probability/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Probability/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Probability/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/Seasonal-Time-Series/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Seasonal-Time-Series/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Seasonal-Time-Series/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Seasonal-Time-Series/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/Stationarity-tests/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Stationarity-tests/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Stationarity-tests/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Stationarity-tests/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/Univariate-analysis/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/Univariate-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/Univariate-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/Univariate-analysis/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/VAR-models/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/VAR-models/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/VAR-models/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/VAR-models/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/adoption_of_new_product/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/adoption_of_new_product/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/adoption_of_new_product/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/adoption_of_new_product/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/anova/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/anova/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/anova/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/anova/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/attendance_t_test/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/attendance_t_test/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/attendance_t_test/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/attendance_t_test/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/chi-sq-goodness-of-fit/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/chi-sq-goodness-of-fit/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/chi-sq-goodness-of-fit/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/chi-sq-goodness-of-fit/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/chi-sq-test-of-independence/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/chi-sq-test-of-independence/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/chi-sq-test-of-independence/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/chi-sq-test-of-independence/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/hierarchical_clustering/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/hierarchical_clustering/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/hierarchical_clustering/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/hierarchical_clustering/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/kMeansClustering/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/kMeansClustering/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/kMeansClustering/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/kMeansClustering/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/logistic-regression/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/logistic-regression/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/logistic-regression/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/logistic-regression/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/matrices/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/matrices/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/matrices/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/matrices/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/multicollinearity/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/multicollinearity/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/multicollinearity/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/multicollinearity/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/multivariateAnalysis/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/multivariateAnalysis/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/multivariateAnalysis/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/multivariateAnalysis/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/part-and-partial-corr/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/part-and-partial-corr/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/part-and-partial-corr/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/part-and-partial-corr/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/recommendation-systems/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/recommendation-systems/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/recommendation-systems/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/recommendation-systems/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/time-series/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/time-series/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/time-series/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/time-series/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/R/vectors/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/R/vectors/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/R/vectors/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/R/vectors/"/>
     </url>
 </urlset>

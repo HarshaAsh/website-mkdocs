@@ -1,0 +1,852 @@
+<!doctype html><html lang=en class=no-js> <head><script>
+      (function () {
+        var adsLoaded = false;
+
+        function loadAds() {
+          if (adsLoaded) return;
+          adsLoaded = true;
+
+          var ads = document.createElement("script");
+          ads.async = true;
+          ads.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8786690539845043";
+          ads.crossOrigin = "anonymous";
+          document.head.appendChild(ads);
+
+          var amp = document.createElement("script");
+          amp.async = true;
+          amp.setAttribute("custom-element", "amp-auto-ads");
+          amp.src = "https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js";
+          document.head.appendChild(amp);
+
+          var autoAds = document.createElement("amp-auto-ads");
+          autoAds.setAttribute("type", "adsense");
+          autoAds.setAttribute("data-ad-client", "ca-pub-8786690539845043");
+          document.body.appendChild(autoAds);
+        }
+
+        function onFirstInteraction() {
+          loadAds();
+          removeListeners();
+        }
+
+        function removeListeners() {
+          window.removeEventListener("scroll", onFirstInteraction, { passive: true });
+          window.removeEventListener("mousemove", onFirstInteraction, { passive: true });
+          window.removeEventListener("touchstart", onFirstInteraction, { passive: true });
+          window.removeEventListener("keydown", onFirstInteraction, { passive: true });
+        }
+
+        window.addEventListener("scroll", onFirstInteraction, { passive: true });
+        window.addEventListener("mousemove", onFirstInteraction, { passive: true });
+        window.addEventListener("touchstart", onFirstInteraction, { passive: true });
+        window.addEventListener("keydown", onFirstInteraction, { passive: true });
+
+        window.addEventListener("load", function () {
+          setTimeout(loadAds, 5000);
+        }, { once: true });
+      })();
+    </script><script>
+      (function () {
+        function deferThirdParties() {
+          var optimize = document.createElement("script");
+          optimize.src = "https://www.googleoptimize.com/optimize.js?id=OPT-M98W6LW";
+          optimize.async = true;
+          document.head.appendChild(optimize);
+
+          window._mfq = window._mfq || [];
+          var mf = document.createElement("script");
+          mf.type = "text/javascript";
+          mf.defer = true;
+          mf.src = "//cdn.mouseflow.com/projects/7b4494c9-7974-49f0-9777-d14450db37e6.js";
+          document.head.appendChild(mf);
+        }
+
+        if (document.readyState === "complete") {
+          deferThirdParties();
+        } else {
+          window.addEventListener("load", deferThirdParties, { once: true });
+        }
+      })();
+    </script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Logistic Regression for Binary Classification in R. Master logistic regression for predicting binary outcomes using R."><meta name=author content="Achyuthuni Sri Harsha"><link href=https://www.harshaash.com/te/R/logistic-regression/ rel=canonical><link rel=icon href=../../../assets/images/logo.jpg><meta name=generator content="mkdocs-1.6.1, mkdocs-material-7.2.4"><title>Logistic Regression - Data Science with Harsha</title><link rel=preload href=../../../assets/stylesheets/main.f7f47774.min.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=../../../assets/stylesheets/main.f7f47774.min.css></noscript><link rel=preload href=../../../assets/stylesheets/palette.3f5d1f46.min.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=../../../assets/stylesheets/palette.3f5d1f46.min.css></noscript><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload as=style href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"></noscript><style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style><link rel=preload href=../../../overrides/assets/stylesheets/user_defined.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=../../../overrides/assets/stylesheets/user_defined.css></noscript><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-65034507-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script><script async src=https://www.google-analytics.com/analytics.js></script></head> <body dir=ltr data-md-color-scheme data-md-color-primary data-md-color-accent> <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script> <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer style="margin-bottom: 0;"></label> <div data-md-component=skip> <a href=#introduction class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header style="background-color: navy;" data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../../ title="Data Science with Harsha" class="md-header__button md-logo" aria-label="Data Science with Harsha" data-md-component=logo> <img src=../../../assets/images/logo.jpg alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Data Science with Harsha </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Logistic Regression </span> </div> </div> </div> <form class=md-header__option data-md-component=palette> <input class=md-option data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme data-md-color-primary data-md-color-accent aria-hidden=true type=radio name=__palette id=__palette_1> <input class=md-option data-md-color-media data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo aria-label="Switch to dark mode" type=radio name=__palette id=__palette_2> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_1 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme data-md-color-primary data-md-color-accent aria-hidden=true type=radio name=__palette id=__palette_3> <input class=md-option data-md-color-media data-md-color-scheme=slate data-md-color-primary=red data-md-color-accent=red aria-label="Switch to light mode" type=radio name=__palette id=__palette_4> <label class="md-header__button md-icon" title="Switch to light mode" for=__palette_3 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg> </label> </form> <div class=md-header__option> <div class=md-select id=language-selector> <button class=md-header__button aria-label="Select language" id=lang-button style="font-weight: 500; font-size: 0.9rem; padding: 0.2rem 0.5rem;"> <span id=current-lang>En</span> </button> <div class=md-select__inner id=lang-dropdown style="display: none;"> <ul class=md-select__list> <li class=md-select__item> <a href=# class=md-select__link data-lang=en>English</a> </li> <li class=md-select__item> <a href=# class=md-select__link data-lang=hi>हिन्दी</a> </li> <li class=md-select__item> <a href=# class=md-select__link data-lang=te>తెలుగు</a> </li> </ul> </div> </div> </div> <script>
+      (function() {
+        const button = document.getElementById('lang-button');
+        const dropdown = document.getElementById('lang-dropdown');
+        const langLinks = document.querySelectorAll('[data-lang]');
+        const currentLangDisplay = document.getElementById('current-lang');
+        
+        // Detect current language from URL
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('/hi/')) {
+          currentLangDisplay.textContent = 'अ(A/అ)';
+        } else if (currentPath.includes('/te/')) {
+          currentLangDisplay.textContent = 'అ(A/अ)';
+        } else {
+          currentLangDisplay.textContent = 'Eng(अ/అ)'; // Default to English
+        }
+        
+        // Toggle dropdown on button click
+        button.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+          dropdown.style.display = 'none';
+        });
+        
+        // Handle language selection
+        langLinks.forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const selectedLang = this.getAttribute('data-lang');
+            const currentPath = window.location.pathname;
+            let newPath;
+            
+            if (selectedLang === 'en') {
+              // Remove /hi/ or /te/ from path
+              newPath = currentPath.replace(/\/(hi|te)\//, '/');
+            } else if (selectedLang === 'hi') {
+              // Add or replace with /hi/
+              if (currentPath.includes('/te/')) {
+                newPath = currentPath.replace('/te/', '/hi/');
+              } else if (currentPath.includes('/hi/')) {
+                newPath = currentPath;
+              } else {
+                newPath = '/hi' + currentPath;
+              }
+            } else if (selectedLang === 'te') {
+              // Add or replace with /te/
+              if (currentPath.includes('/hi/')) {
+                newPath = currentPath.replace('/hi/', '/te/');
+              } else if (currentPath.includes('/te/')) {
+                newPath = currentPath;
+              } else {
+                newPath = '/te' + currentPath;
+              }
+            }
+            
+            window.location.href = newPath;
+          });
+        });
+      })();
+    </script> <a href=../../../contact title="Contact Me" class=md-header__button aria-label="Contact Me" style="display: inline-flex; align-items: center; gap: 0.3rem; white-space: nowrap;"> <span class=md-icon style="display: inline-flex;"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/></svg> </span> <span style="font-size: 0.8rem;">Contact Me</span> </a> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <nav class=md-search__options aria-label=Search> <a href=javascript:void(0) class="md-search__icon md-icon" aria-label=Share data-clipboard data-clipboard-text data-md-component=search-share tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg> </a> <button type=reset class="md-search__icon md-icon" aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </nav> <div class=md-search__suggest data-md-component=search-suggest></div> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../../ title="Data Science with Harsha" class="md-nav__button md-logo" aria-label="Data Science with Harsha" data-md-component=logo> <img src=../../../assets/images/logo.jpg alt=logo> </a> Data Science with Harsha </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../ class=md-nav__link> Home </a> </li> <li class=md-nav__item> <a href=../../resume/ class=md-nav__link> Resume </a> </li> <li class=md-nav__item> <a href=../../learn/ class=md-nav__link> Learn </a> </li> <li class=md-nav__item> <a href=../../contact/ class=md-nav__link> Contact </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5 type=checkbox id=__nav_5 checked> <label class=md-nav__link for=__nav_5> Blog <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Blog data-md-level=1> <label class=md-nav__title for=__nav_5> <span class="md-nav__icon md-icon"></span> Blog </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Others/Table_of_Contents/ class=md-nav__link> Table of Contents </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_2 type=checkbox id=__nav_5_2> <label class=md-nav__link for=__nav_5_2> Visualization <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Visualization data-md-level=2> <label class=md-nav__title for=__nav_5_2> <span class="md-nav__icon md-icon"></span> Visualization </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Python/Vizualisation%20using%20python%20Part%201/ class=md-nav__link> Vizualizing tabular data (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Visualization%20for%20predictive%20analytics/ class=md-nav__link> Vizualising for predictive analytics (Python) </a> </li> <li class=md-nav__item> <a href=../Univariate-analysis/ class=md-nav__link> Univariate Analysis (R) </a> </li> <li class=md-nav__item> <a href=../multivariateAnalysis/ class=md-nav__link> Multivariate Analysis (R) </a> </li> <li class=md-nav__item> <a href=../multicollinearity/ class=md-nav__link> Multicollinearity (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_3 type=checkbox id=__nav_5_3> <label class=md-nav__link for=__nav_5_3> Statistics basics <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Statistics basics" data-md-level=2> <label class=md-nav__title for=__nav_5_3> <span class="md-nav__icon md-icon"></span> Statistics basics </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Python/Statistics%20basics/ class=md-nav__link> Statistics Basics (Python) </a> </li> <li class=md-nav__item> <a href=../Probability/ class=md-nav__link> Probability (R) </a> </li> <li class=md-nav__item> <a href=../vectors/ class=md-nav__link> Vectors (R) </a> </li> <li class=md-nav__item> <a href=../matrices/ class=md-nav__link> Matrices (R) </a> </li> <li class=md-nav__item> <a href=../../Python/Call%20center%20distributions/ class=md-nav__link> Call center distributions (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_4 type=checkbox id=__nav_5_4> <label class=md-nav__link for=__nav_5_4> Hypothesis Testing <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Hypothesis Testing" data-md-level=2> <label class=md-nav__title for=__nav_5_4> <span class="md-nav__icon md-icon"></span> Hypothesis Testing </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../attendance_t_test/ class=md-nav__link> z-test and t-test (R) </a> </li> <li class=md-nav__item> <a href=../anova/ class=md-nav__link> ANOVA Test (R) </a> </li> <li class=md-nav__item> <a href=../chi-sq-goodness-of-fit/ class=md-nav__link> Chi-Square Goodness of fit (R) </a> </li> <li class=md-nav__item> <a href=../chi-sq-test-of-independence/ class=md-nav__link> Chi-Square test of independence (R) </a> </li> <li class=md-nav__item> <a href=../../Python/Hypothesis_Testing_Python/ class=md-nav__link> Hypothesis testing using Python </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_5 type=checkbox id=__nav_5_5> <label class=md-nav__link for=__nav_5_5> Factor Analysis <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Factor Analysis" data-md-level=2> <label class=md-nav__title for=__nav_5_5> <span class="md-nav__icon md-icon"></span> Factor Analysis </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Curse-of-Dimensionality/ class=md-nav__link> Curse of dimensionality </a> </li> <li class=md-nav__item> <a href=../EFA/ class=md-nav__link> Exploratory factor analysis (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_6 type=checkbox id=__nav_5_6> <label class=md-nav__link for=__nav_5_6> Preprocessing data <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Preprocessing data" data-md-level=2> <label class=md-nav__title for=__nav_5_6> <span class="md-nav__icon md-icon"></span> Preprocessing data </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../KNN_Imputation/ class=md-nav__link> Null Value Imputation (R) </a> </li> <li class=md-nav__item> <a href=../../Python/Machine%20Learning%20Part%201/ class=md-nav__link> Feature engineering (Python) </a> </li> <li class=md-nav__item> <a href=../Handling-Imbalanced-classes/ class=md-nav__link> Handling Imbalanced Classes </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_7 type=checkbox id=__nav_5_7 checked> <label class=md-nav__link for=__nav_5_7> Prediction algorithms <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Prediction algorithms" data-md-level=2> <label class=md-nav__title for=__nav_5_7> <span class="md-nav__icon md-icon"></span> Prediction algorithms </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_7_1 type=checkbox id=__nav_5_7_1 checked> <label class=md-nav__link for=__nav_5_7_1> Classification Algorithms <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Classification Algorithms" data-md-level=3> <label class=md-nav__title for=__nav_5_7_1> <span class="md-nav__icon md-icon"></span> Classification Algorithms </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> Logistic Regression (R) <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> Logistic Regression (R) </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#introduction class=md-nav__link> Introduction </a> </li> <li class=md-nav__item> <a href=#data-cleaning-and-eda class=md-nav__link> Data Cleaning and EDA </a> <nav class=md-nav aria-label="Data Cleaning and EDA"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#uni-variate-analysis class=md-nav__link> Uni-variate analysis </a> </li> <li class=md-nav__item> <a href=#bi-variate-analysis class=md-nav__link> Bi variate analysis </a> </li> <li class=md-nav__item> <a href=#correlation class=md-nav__link> Correlation </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#initial-model-training class=md-nav__link> Initial Model Training </a> <nav class=md-nav aria-label="Initial Model Training"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#model-diagnostics class=md-nav__link> Model Diagnostics </a> <nav class=md-nav aria-label="Model Diagnostics"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#checking-for-outliers class=md-nav__link> Checking for outliers: </a> </li> <li class=md-nav__item> <a href=#checking-for-multi-collinearity class=md-nav__link> Checking for multi collinearity </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#finding-optimal-cut-off class=md-nav__link> Finding optimal cut-off </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#validating-the-model-on-test-data-set class=md-nav__link> Validating the model on test data set </a> <nav class=md-nav aria-label="Validating the model on test data set"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#confusion-matrixspecificity-and-sensitivity-metrics class=md-nav__link> Confusion matrix/specificity and sensitivity metrics </a> </li> <li class=md-nav__item> <a href=#roc-and-lift-charts class=md-nav__link> ROC and lift charts </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../CHAID/ class=md-nav__link> CHAID Decision Trees (R) </a> </li> <li class=md-nav__item> <a href=../CART-Classification/ class=md-nav__link> CART Classification (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_7_2 type=checkbox id=__nav_5_7_2> <label class=md-nav__link for=__nav_5_7_2> Regression Algorithms <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Regression Algorithms" data-md-level=3> <label class=md-nav__title for=__nav_5_7_2> <span class="md-nav__icon md-icon"></span> Regression Algorithms </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../part-and-partial-corr/ class=md-nav__link> Part and partial correlation </a> </li> <li class=md-nav__item> <a href=../Linear-regression/ class=md-nav__link> Linear Regression (R) </a> </li> <li class=md-nav__item> <a href=../../Python/Linear%20regression%20usecase%20mpg%20prediction/ class=md-nav__link> Lasso and Ridge regression (Python) </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_8 type=checkbox id=__nav_5_8> <label class=md-nav__link for=__nav_5_8> Machine Learning <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Machine Learning" data-md-level=2> <label class=md-nav__title for=__nav_5_8> <span class="md-nav__icon md-icon"></span> Machine Learning </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=https://harshaachyuthuni.shinyapps.io/Machine_Learning/ class=md-nav__link> Interactive Machine Learning (RShiny) </a> </li> <li class=md-nav__item> <a href=../../Python/ML%20using%20scikit-learn/ class=md-nav__link> Multi models (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Explainable%20models%20using%20Heart%20Failure/ class=md-nav__link> Explainable ML (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Demonstrating%20online%20learning/ class=md-nav__link> Streaming Machine Learning (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_9 type=checkbox id=__nav_5_9> <label class=md-nav__link for=__nav_5_9> Time Series forecasting <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Time Series forecasting" data-md-level=2> <label class=md-nav__title for=__nav_5_9> <span class="md-nav__icon md-icon"></span> Time Series forecasting </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../time-series/ class=md-nav__link> Introduction to stationarity (R) </a> </li> <li class=md-nav__item> <a href=../Stationarity-tests/ class=md-nav__link> Stationary Tests (R) </a> </li> <li class=md-nav__item> <a href=../ARIMA/ class=md-nav__link> ARIMA in R </a> </li> <li class=md-nav__item> <a href=../../Python/ARIMA%20Forecasting/ class=md-nav__link> ARIMA in Python </a> </li> <li class=md-nav__item> <a href=../Seasonal-Time-Series/ class=md-nav__link> Seasonal time series (R) </a> </li> <li class=md-nav__item> <a href=../VAR-models/ class=md-nav__link> VAR Models (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_10 type=checkbox id=__nav_5_10> <label class=md-nav__link for=__nav_5_10> Deep learning <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Deep learning" data-md-level=2> <label class=md-nav__title for=__nav_5_10> <span class="md-nav__icon md-icon"></span> Deep learning </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Python/ANN-1/ class=md-nav__link> Perceptron </a> </li> <li class=md-nav__item> <a href=../../Python/Backpropagation/ class=md-nav__link> Backpropagation </a> </li> <li class=md-nav__item> <a href=../../Python/DNN/ class=md-nav__link> Tensorflow and Keras </a> </li> <li class=md-nav__item> <a href=../../Python/Time%20series%20deep%20learning/ class=md-nav__link> Time series (python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_11 type=checkbox id=__nav_5_11> <label class=md-nav__link for=__nav_5_11> Generative AI <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Generative AI" data-md-level=2> <label class=md-nav__title for=__nav_5_11> <span class="md-nav__icon md-icon"></span> Generative AI </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Python/LLM%20Tokenizers/ class=md-nav__link> LLM Tokenizers </a> </li> <li class=md-nav__item> <a href=../../Python/prompt_engineering_techniques/ class=md-nav__link> Prompt Engineering </a> </li> <li class=md-nav__item> <a href=../../Python/Agentic%20AI/ class=md-nav__link> Agentic AI </a> </li> <li class=md-nav__item> <a href=../../Python/RAG/ class=md-nav__link> RAG </a> </li> <li class=md-nav__item> <a href=../../Python/Blog%20validation/ class=md-nav__link> LangGraphs </a> </li> <li class=md-nav__item> <a href=../../Python/CrewAI/ class=md-nav__link> CrewAI </a> </li> <li class=md-nav__item> <a href=../../Others/yashoda_presentation/ class=md-nav__link> AI in Healthcare </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_12 type=checkbox id=__nav_5_12> <label class=md-nav__link for=__nav_5_12> Prescriptive Analytics <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Prescriptive Analytics" data-md-level=2> <label class=md-nav__title for=__nav_5_12> <span class="md-nav__icon md-icon"></span> Prescriptive Analytics </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Linear-programming/ class=md-nav__link> Linear Programming (R) </a> </li> <li class=md-nav__item> <a href=../../Others/integer_programming_blog/ class=md-nav__link> Integer Programming tricks </a> </li> <li class=md-nav__item> <a href=../../Python/inventory_optimization_eoq_ortools/ class=md-nav__link> Inventory Optimisation (Python) </a> </li> <li class=md-nav__item> <a href=../adoption_of_new_product/ class=md-nav__link> Adoption of new product (R) </a> </li> <li class=md-nav__item> <a href=../../Python/Diffusion%20on%20networks/ class=md-nav__link> Bass Forecasting model (Python) </a> </li> <li class=md-nav__item> <a href=../../Others/AHP/ class=md-nav__link> Analytic Hierarchy Process </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_13 type=checkbox id=__nav_5_13> <label class=md-nav__link for=__nav_5_13> Clustering <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Clustering data-md-level=2> <label class=md-nav__title for=__nav_5_13> <span class="md-nav__icon md-icon"></span> Clustering </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../hierarchical_clustering/ class=md-nav__link> Hierarchical Clustering </a> </li> <li class=md-nav__item> <a href=../kMeansClustering/ class=md-nav__link> K-Means Clustering </a> </li> <li class=md-nav__item> <a href=../../Python/train_delays/ class=md-nav__link> DBSCAN Clustering (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_14 type=checkbox id=__nav_5_14> <label class=md-nav__link for=__nav_5_14> Reinforcement Learning <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Reinforcement Learning" data-md-level=2> <label class=md-nav__title for=__nav_5_14> <span class="md-nav__icon md-icon"></span> Reinforcement Learning </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../CustomerLifetimeValue/ class=md-nav__link> Customer Lifetime Value </a> </li> <li class=md-nav__item> <a href=../recommendation-systems/ class=md-nav__link> Recommendation Systems (R) </a> </li> <li class=md-nav__item> <a href=../../Python/Neural_collaborative_filtering/ class=md-nav__link> Collaborative Filtering (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_15 type=checkbox id=__nav_5_15> <label class=md-nav__link for=__nav_5_15> Networks <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Networks data-md-level=2> <label class=md-nav__title for=__nav_5_15> <span class="md-nav__icon md-icon"></span> Networks </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Python/Introduction%20to%20Networkx/ class=md-nav__link> Introduction to NetworkX (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Network%20Science/ class=md-nav__link> Network Science (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Network%20centrality/ class=md-nav__link> Network Centrality (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Shortest%20path%20problems/ class=md-nav__link> Shortest path using integer programming (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Network%20Flow%20problems/ class=md-nav__link> Network flow problems (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Community%20detection/ class=md-nav__link> Community detection (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Bipartite%20matching/ class=md-nav__link> Bipartite matching (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_16 type=checkbox id=__nav_5_16> <label class=md-nav__link for=__nav_5_16> Deployment <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Deployment data-md-level=2> <label class=md-nav__title for=__nav_5_16> <span class="md-nav__icon md-icon"></span> Deployment </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Python/Machine%20learning%20as%20HTTP%20Request/ class=md-nav__link> ML deployment in Flask (Python) </a> </li> <li class=md-nav__item> <a href=../../Python/Saving%20predictions%20in%20database/ class=md-nav__link> Handling databases using python </a> </li> <li class=md-nav__item> <a href=../../Python/ORM/ class=md-nav__link> ORM (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_17 type=checkbox id=__nav_5_17> <label class=md-nav__link for=__nav_5_17> Career lessons <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Career lessons" data-md-level=2> <label class=md-nav__title for=__nav_5_17> <span class="md-nav__icon md-icon"></span> Career lessons </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Others/learnings/ class=md-nav__link> Learnings from failures </a> </li> <li class=md-nav__item> <a href=../../Others/podcast/ class=md-nav__link> Making ML Consumable </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_18 type=checkbox id=__nav_5_18> <label class=md-nav__link for=__nav_5_18> Higher education review <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Higher education review" data-md-level=2> <label class=md-nav__title for=__nav_5_18> <span class="md-nav__icon md-icon"></span> Higher education review </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Others/IIMB%20BAI/ class=md-nav__link> IIMB BAI </a> </li> <li class=md-nav__item> <a href=../../Others/part%20time%20data%20science%20masters/ class=md-nav__link> Part-time DS masters </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_19 type=checkbox id=__nav_5_19> <label class=md-nav__link for=__nav_5_19> External blogs <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="External blogs" data-md-level=2> <label class=md-nav__title for=__nav_5_19> <span class="md-nav__icon md-icon"></span> External blogs </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Others/Imperial%20College%20London/ class=md-nav__link> Imperial college London </a> </li> <li class=md-nav__item> <a href=../../Others/Publications/ class=md-nav__link> Publications/conferences </a> </li> <li class=md-nav__item> <a href=../../Others/Deployed%20apps/ class=md-nav__link> Deployed apps </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_20 type=checkbox id=__nav_5_20> <label class=md-nav__link for=__nav_5_20> Projects <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Projects data-md-level=2> <label class=md-nav__title for=__nav_5_20> <span class="md-nav__icon md-icon"></span> Projects </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Others/preventive_maintainence/ class=md-nav__link> Preventive maintainence </a> </li> <li class=md-nav__item> <a href=../../Others/Contract%20Intelligence%20tool/ class=md-nav__link> Contract Intelligence </a> </li> <li class=md-nav__item> <a href=../../Others/competitor%20intelligence/ class=md-nav__link> Competitor intelligence </a> </li> <li class=md-nav__item> <a href=../../Others/quiz%20generation/ class=md-nav__link> Quiz Generation </a> </li> <li class=md-nav__item> <a href=../../Others/Scarecrow/ class=md-nav__link> Intelligent annotation </a> </li> <li class=md-nav__item> <a href=../../Others/Demand%20Forecasting/ class=md-nav__link> Demand Forecasting </a> </li> <li class=md-nav__item> <a href=../../Others/bid%20allocation%20model/ class=md-nav__link> Bid Allocation </a> </li> <li class=md-nav__item> <a href=../../Others/IIMB%20project/ class=md-nav__link> Reward and Recognition contests </a> </li> <li class=md-nav__item> <a href=../../Others/supply%20chain%20analytics/ class=md-nav__link> Supply chain analytics </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#introduction class=md-nav__link> Introduction </a> </li> <li class=md-nav__item> <a href=#data-cleaning-and-eda class=md-nav__link> Data Cleaning and EDA </a> <nav class=md-nav aria-label="Data Cleaning and EDA"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#uni-variate-analysis class=md-nav__link> Uni-variate analysis </a> </li> <li class=md-nav__item> <a href=#bi-variate-analysis class=md-nav__link> Bi variate analysis </a> </li> <li class=md-nav__item> <a href=#correlation class=md-nav__link> Correlation </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#initial-model-training class=md-nav__link> Initial Model Training </a> <nav class=md-nav aria-label="Initial Model Training"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#model-diagnostics class=md-nav__link> Model Diagnostics </a> <nav class=md-nav aria-label="Model Diagnostics"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#checking-for-outliers class=md-nav__link> Checking for outliers: </a> </li> <li class=md-nav__item> <a href=#checking-for-multi-collinearity class=md-nav__link> Checking for multi collinearity </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#finding-optimal-cut-off class=md-nav__link> Finding optimal cut-off </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#validating-the-model-on-test-data-set class=md-nav__link> Validating the model on test data set </a> <nav class=md-nav aria-label="Validating the model on test data set"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#confusion-matrixspecificity-and-sensitivity-metrics class=md-nav__link> Confusion matrix/specificity and sensitivity metrics </a> </li> <li class=md-nav__item> <a href=#roc-and-lift-charts class=md-nav__link> ROC and lift charts </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1>Logistic Regression (R)</h1> <script type=text/javascript src=https://cdn.mathjax.org/mathjax/latest/MathJax.js>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script> <h2 id=introduction>Introduction<a class=headerlink href=#introduction title="Permanent link">&para;</a></h2> <p>Classification problems are an important category of problems in analytics in which the response variable <span class=arithmatex>\(Y\)</span> takes a discrete value. For example, a classification goal is to analyse what sorts of people were likely to survive the titanic. <br> The data used in this blog is taken from a very famous problem in <a href=https://www.kaggle.com/c/titanic/overview>Kaggle</a>. Please visit the link for the data description and problem statement. </p> <p>In particular, in this blog I want to use Logistic regression for the analysis. A sample of the data is given below: </p> <div class=highlight><pre><span></span><code>## # A tibble: 5 x 8
+##   Survived Pclass Sex      Age SibSp Parch  Fare Embarked
+##   &lt;fct&gt;    &lt;fct&gt;  &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;   
+## 1 O        3      female    43     1     6 46.9  S       
+## 2 O        2      male      54     0     0 26    S       
+## 3 O        2      male      33     0     0 12.3  S       
+## 4 O        3      male      25     0     0  7.23 C       
+## 5 O        3      female     2     0     1 10.5  S
+</code></pre></div> <p>The summary statistics for the data is:</p> <div class=highlight><pre><span></span><code>##  Survived Pclass      Sex           Age            SibSp       
+##  I:340    1:214   female:312   Min.   : 0.42   Min.   :0.0000  
+##  O:549    2:184   male  :577   1st Qu.:22.00   1st Qu.:0.0000  
+##           3:491                Median :28.05   Median :0.0000  
+##                                Mean   :29.59   Mean   :0.5242  
+##                                3rd Qu.:36.00   3rd Qu.:1.0000  
+##                                Max.   :80.00   Max.   :8.0000  
+##      Parch             Fare         Embarked
+##  Min.   :0.0000   Min.   :  0.000   C:168   
+##  1st Qu.:0.0000   1st Qu.:  7.896   Q: 77   
+##  Median :0.0000   Median : 14.454   S:644   
+##  Mean   :0.3825   Mean   : 32.097           
+##  3rd Qu.:0.0000   3rd Qu.: 31.000           
+##  Max.   :6.0000   Max.   :512.329
+</code></pre></div> <h2 id=data-cleaning-and-eda>Data Cleaning and EDA<a class=headerlink href=#data-cleaning-and-eda title="Permanent link">&para;</a></h2> <p>Zero and Near Zero Variance features do not explain any variance in the predictor variable. </p> <div class=highlight><pre><span></span><code><span class=nf>nearZeroVar</span><span class=p>(</span><span class=n>raw_df</span><span class=p>,</span><span class=w> </span><span class=n>saveMetrics</span><span class=o>=</span><span class=w> </span><span class=kc>TRUE</span><span class=p>)</span>
+</code></pre></div> <p><div class=highlight><pre><span></span><code>##          freqRatio percentUnique zeroVar   nzv
+## Survived  1.614706     0.2249719   FALSE FALSE
+## Pclass    2.294393     0.3374578   FALSE FALSE
+## Sex       1.849359     0.2249719   FALSE FALSE
+## Age       1.111111    16.0854893   FALSE FALSE
+## SibSp     2.899522     0.7874016   FALSE FALSE
+## Parch     5.728814     0.7874016   FALSE FALSE
+## Fare      1.023810    27.7840270   FALSE FALSE
+## Embarked  3.833333     0.3374578   FALSE FALSE
+</code></pre></div> There are no near zero or zero variance columns</p> <p>Similarly, I can check for linearly dependent columns among the continuous variables.</p> <div class=highlight><pre><span></span><code><span class=n>feature_map</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>unlist</span><span class=p>(</span><span class=nf>lapply</span><span class=p>(</span><span class=n>raw_df</span><span class=p>,</span><span class=w> </span><span class=n>is.numeric</span><span class=p>))</span><span class=w> </span>
+<span class=nf>findLinearCombos</span><span class=p>((</span><span class=n>raw_df</span><span class=p>[,</span><span class=n>feature_map</span><span class=p>]))</span>
+</code></pre></div> <p><div class=highlight><pre><span></span><code>## $linearCombos
+## list()
+## 
+## $remove
+## NULL
+</code></pre></div> There are no linearly dependent columns. </p> <h3 id=uni-variate-analysis>Uni-variate analysis<a class=headerlink href=#uni-variate-analysis title="Permanent link">&para;</a></h3> <p>Now, I want to do some basic EDA on each column. On each continuous column, I want to visually check the following:<br> 1. Variation in the column<br> 2. Its distribution<br> 3. Any outliers <br> 4. q-q plot with normal distribution </p> <div class=highlight><pre><span></span><code><span class=n>cont_univ_df</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>raw_df</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=nf>select_if</span><span class=p>(</span><span class=n>is.numeric</span><span class=p>)</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=nf>mutate</span><span class=p>(</span><span class=n>row_no</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>as.numeric</span><span class=p>(</span><span class=nf>rownames</span><span class=p>(</span><span class=n>raw_df</span><span class=p>)))</span>
+
+<span class=kr>for</span><span class=p>(</span><span class=n>column</span><span class=w> </span><span class=kr>in</span><span class=w> </span><span class=nf>colnames</span><span class=p>(</span><span class=n>cont_univ_df</span><span class=p>[</span><span class=o>-</span><span class=nf>ncol</span><span class=p>(</span><span class=n>cont_univ_df</span><span class=p>)])){</span>
+<span class=w>  </span><span class=n>p1</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>ggplot</span><span class=p>(</span><span class=n>cont_univ_df</span><span class=p>,</span><span class=w> </span><span class=nf>aes_string</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s>&#39;row_no&#39;</span><span class=p>,</span><span class=w> </span><span class=n>y</span><span class=o>=</span><span class=w> </span><span class=n>column</span><span class=p>))</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>geom_point</span><span class=p>(</span><span class=n>show.legend</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kc>FALSE</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>labs</span><span class=p>(</span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Univariate plot&#39;</span><span class=p>,</span><span class=w> </span><span class=n>y</span><span class=o>=</span><span class=n>column</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>ggtitle</span><span class=p>(</span><span class=n>column</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>theme_minimal</span><span class=p>()</span>
+
+<span class=w>  </span><span class=c1># Cumulative plot</span>
+<span class=w>  </span><span class=n>legendcols</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>c</span><span class=p>(</span><span class=s>&quot;Normal distribution&quot;</span><span class=o>=</span><span class=s>&quot;darkred&quot;</span><span class=p>,</span><span class=s>&quot;Density&quot;</span><span class=o>=</span><span class=s>&quot;darkBlue&quot;</span><span class=p>,</span><span class=s>&quot;Histogram&quot;</span><span class=o>=</span><span class=s>&quot;lightBlue&quot;</span><span class=p>)</span>
+<span class=w>  </span><span class=n>p2</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>ggplot</span><span class=p>(</span><span class=n>cont_univ_df</span><span class=p>,</span><span class=nf>aes_string</span><span class=p>(</span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>column</span><span class=p>))</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>geom_histogram</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>y</span><span class=o>=</span><span class=n>..density..</span><span class=p>,</span><span class=w> </span><span class=n>fill</span><span class=w> </span><span class=o>=</span><span class=s>&quot;Histogram&quot;</span><span class=p>),</span><span class=w> </span><span class=n>bins</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>50</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>stat_function</span><span class=p>(</span><span class=n>fun</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>dnorm</span><span class=p>,</span><span class=w> </span><span class=nf>aes</span><span class=p>(</span><span class=n>color</span><span class=o>=</span><span class=s>&quot;Normal distribution&quot;</span><span class=p>),</span><span class=w>  </span><span class=n>size</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>1</span><span class=p>,</span>
+<span class=w>                </span><span class=n>args</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>list</span><span class=p>(</span><span class=n>mean</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>mean</span><span class=p>(</span><span class=n>cont_univ_df</span><span class=p>[[</span><span class=n>column</span><span class=p>]]),</span>
+<span class=w>                            </span><span class=n>sd</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>sd</span><span class=p>(</span><span class=n>cont_univ_df</span><span class=p>[[</span><span class=n>column</span><span class=p>]])))</span><span class=w> </span><span class=o>+</span>
+<span class=w>  </span><span class=nf>geom_density</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>y</span><span class=o>=</span><span class=n>..density..</span><span class=p>,</span><span class=w> </span><span class=n>color</span><span class=o>=</span><span class=s>&quot;Density&quot;</span><span class=p>),</span><span class=w>  </span><span class=n>size</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>1</span><span class=p>)</span><span class=o>+</span>
+<span class=w>  </span><span class=nf>scale_colour_manual</span><span class=p>(</span><span class=n>name</span><span class=o>=</span><span class=s>&quot;Distribution&quot;</span><span class=p>,</span><span class=n>values</span><span class=o>=</span><span class=n>legendcols</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>  </span><span class=nf>scale_fill_manual</span><span class=p>(</span><span class=n>name</span><span class=o>=</span><span class=s>&quot;Bar&quot;</span><span class=p>,</span><span class=n>values</span><span class=o>=</span><span class=n>legendcols</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>  </span><span class=nf>theme_minimal</span><span class=p>()</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=nf>theme</span><span class=p>(</span><span class=n>legend.position</span><span class=o>=</span><span class=s>&quot;none&quot;</span><span class=p>)</span>
+
+<span class=w>  </span><span class=n>p3</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>ggplot</span><span class=p>(</span><span class=n>cont_univ_df</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=nf>mutate</span><span class=p>(</span><span class=n>constant</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>column</span><span class=p>),</span>
+<span class=w>    </span><span class=nf>aes_string</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s>&quot;constant&quot;</span><span class=p>,</span><span class=w> </span><span class=n>y</span><span class=o>=</span><span class=w> </span><span class=n>column</span><span class=p>,</span><span class=w> </span><span class=n>group</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>123</span><span class=p>))</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>geom_boxplot</span><span class=p>()</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>labs</span><span class=p>(</span><span class=n>y</span><span class=o>=</span><span class=n>column</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>theme_minimal</span><span class=p>()</span>
+
+<span class=w>  </span><span class=n>p4</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>ggplot</span><span class=p>(</span><span class=n>cont_univ_df</span><span class=p>,</span><span class=nf>aes_string</span><span class=p>(</span><span class=n>sample</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>column</span><span class=p>))</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>stat_qq</span><span class=p>()</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=nf>stat_qq_line</span><span class=p>()</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>theme_minimal</span><span class=p>()</span>
+<span class=w>  </span><span class=nf>grid.arrange</span><span class=p>(</span><span class=n>p1</span><span class=p>,</span><span class=w> </span><span class=n>p2</span><span class=p>,</span><span class=w> </span><span class=n>p3</span><span class=p>,</span><span class=w> </span><span class=n>p4</span><span class=p>,</span><span class=w> </span><span class=n>nrow</span><span class=o>=</span><span class=m>2</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/univ-cont-1.png><!-- --><img alt src=../../../R/logistic-regression_files/figure-html/univ-cont-2.png><!-- --><img alt src=../../../R/logistic-regression_files/figure-html/univ-cont-3.png><!-- --><img alt src=../../../R/logistic-regression_files/figure-html/univ-cont-4.png><!-- --></p> <p>For categorical variables, I want to look at the frequencies. </p> <div class=highlight><pre><span></span><code><span class=n>univ_cat_df</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>raw_df</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=nf>select_if</span><span class=p>(</span><span class=kr>function</span><span class=p>(</span><span class=n>col</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=nf>is.factor</span><span class=p>(</span><span class=n>col</span><span class=p>)</span><span class=w> </span><span class=o>|</span><span class=w> </span><span class=nf>is.character</span><span class=p>(</span><span class=n>col</span><span class=p>)})</span>
+<span class=kr>for</span><span class=p>(</span><span class=n>column</span><span class=w> </span><span class=kr>in</span><span class=w> </span><span class=nf>colnames</span><span class=p>(</span><span class=n>univ_cat_df</span><span class=p>)){</span>
+<span class=w>  </span><span class=nf>plot</span><span class=p>(</span><span class=nf>ggplot</span><span class=p>(</span><span class=n>univ_cat_df</span><span class=p>,</span><span class=nf>aes_string</span><span class=p>(</span><span class=n>column</span><span class=p>))</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>geom_bar</span><span class=p>()</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=nf>coord_flip</span><span class=p>()</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>ggtitle</span><span class=p>(</span><span class=n>column</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>theme_minimal</span><span class=p>())</span>
+<span class=p>}</span>
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/univ-cat-1.png><!-- --><img alt src=../../../R/logistic-regression_files/figure-html/univ-cat-2.png><!-- --><img alt src=../../../R/logistic-regression_files/figure-html/univ-cat-3.png><!-- --><img alt src=../../../R/logistic-regression_files/figure-html/univ-cat-4.png><!-- --></p> <p>From the above plot I infer that the data is unbalanced. But it might not be a problem as the unbalance ratio is less than 2:1. </p> <h3 id=bi-variate-analysis>Bi variate analysis<a class=headerlink href=#bi-variate-analysis title="Permanent link">&para;</a></h3> <p>I want to understand the relationship of each continuous variable with the <span class=arithmatex>\(y\)</span> variable. I will achieve that by doing the following:<br> 1. Plot box plot for each of the variables to do a visual comparison between the groups<br> 2. Plot the explanatory variable distribution for both the variables to understand the variability uniquely explained (The non-intersecting part of the blue and the pink is the variation explained by the variable) <br> 3. Predict using Logistic regression using the variable alone to observe the decrease in deviation/AIC<br> 4. Plot Lorenz curve to compute Gini coefficient if applicable (high Gini coefficient means that high inequality is caused by the column, which means more explain-ability) </p> <div class=highlight><pre><span></span><code><span class=nf>library</span><span class=p>(</span><span class=n>gglorenz</span><span class=p>)</span>
+<span class=nf>library</span><span class=p>(</span><span class=n>ineq</span><span class=p>)</span>
+<span class=n>plot_bivariate_cont</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=kr>function</span><span class=p>(</span><span class=n>raw_data</span><span class=p>,</span><span class=w> </span><span class=n>pred_column_name</span><span class=p>){</span>
+<span class=w>  </span><span class=n>bi_var_df</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>raw_df</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=nf>select_if</span><span class=p>(</span><span class=n>is.numeric</span><span class=p>)</span>
+<span class=w>  </span><span class=kr>for</span><span class=p>(</span><span class=n>column</span><span class=w> </span><span class=kr>in</span><span class=w> </span><span class=nf>colnames</span><span class=p>(</span><span class=n>bi_var_df</span><span class=p>)){</span>
+<span class=w>    </span><span class=n>p1</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>ggplot</span><span class=p>(</span><span class=n>raw_df</span><span class=p>,</span>
+<span class=w>      </span><span class=nf>aes_string</span><span class=p>(</span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>pred_column_name</span><span class=p>,</span><span class=w> </span><span class=n>y</span><span class=o>=</span><span class=w> </span><span class=n>column</span><span class=p>,</span><span class=w> </span><span class=n>group</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>pred_column_name</span><span class=p>))</span><span class=w> </span><span class=o>+</span>
+<span class=w>      </span><span class=nf>geom_boxplot</span><span class=p>()</span><span class=w> </span><span class=o>+</span>
+<span class=w>      </span><span class=nf>labs</span><span class=p>(</span><span class=n>y</span><span class=o>=</span><span class=n>column</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>      </span><span class=nf>ggtitle</span><span class=p>(</span><span class=n>column</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>      </span><span class=nf>theme_minimal</span><span class=p>()</span>
+
+<span class=w>    </span><span class=n>p2</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>ggplot</span><span class=p>(</span><span class=n>raw_df</span><span class=p>,</span><span class=w> </span><span class=nf>aes_string</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=n>column</span><span class=p>,</span><span class=w> </span><span class=n>fill</span><span class=o>=</span><span class=n>pred_column_name</span><span class=p>))</span><span class=w> </span><span class=o>+</span><span class=w> </span>
+<span class=w>      </span><span class=nf>geom_histogram</span><span class=p>(</span><span class=n>alpha</span><span class=o>=</span><span class=m>0.5</span><span class=p>,</span><span class=w> </span><span class=n>position</span><span class=o>=</span><span class=s>&quot;identity&quot;</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>      </span><span class=nf>theme_minimal</span><span class=p>()</span><span class=o>+</span><span class=w> </span><span class=nf>theme</span><span class=p>(</span><span class=n>legend.position</span><span class=o>=</span><span class=s>&quot;bottom&quot;</span><span class=p>)</span>
+
+<span class=w>    </span><span class=nf>grid.arrange</span><span class=p>(</span><span class=n>p1</span><span class=p>,</span><span class=w> </span><span class=n>p2</span><span class=p>,</span><span class=w> </span><span class=n>nrow</span><span class=o>=</span><span class=m>1</span><span class=p>,</span><span class=w> </span><span class=n>widths</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span><span class=m>2</span><span class=p>))</span>
+
+<span class=w>    </span><span class=n>trainList_bi</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>createDataPartition</span><span class=p>(</span><span class=n>y</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>unlist</span><span class=p>(</span><span class=n>raw_df</span><span class=p>[</span><span class=n>pred_column_name</span><span class=p>]),</span><span class=w> </span><span class=n>times</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>1</span><span class=p>,</span><span class=n>p</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>0.8</span><span class=p>,</span><span class=w> </span><span class=n>list</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kc>FALSE</span><span class=p>)</span>
+<span class=w>    </span><span class=n>dfTest_bi</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>raw_df</span><span class=p>[</span><span class=o>-</span><span class=n>trainList_bi</span><span class=p>,]</span>
+<span class=w>    </span><span class=n>dfTrain_bi</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>raw_df</span><span class=p>[</span><span class=n>trainList_bi</span><span class=p>,]</span>
+<span class=w>    </span><span class=n>form_2</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>as.formula</span><span class=p>(</span><span class=nf>paste0</span><span class=p>(</span><span class=n>pred_column_name</span><span class=p>,</span><span class=s>&#39; ~ &#39;</span><span class=p>,</span><span class=n>column</span><span class=p>))</span>
+<span class=w>    </span><span class=nf>set.seed</span><span class=p>(</span><span class=m>1234</span><span class=p>)</span>
+<span class=w>    </span><span class=n>objControl</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>trainControl</span><span class=p>(</span><span class=n>method</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;none&quot;</span><span class=p>,</span>
+<span class=w>                             </span><span class=n>summaryFunction</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>twoClassSummary</span><span class=p>,</span>
+<span class=w>                             </span><span class=c1># sampling = &#39;smote&#39;,</span>
+<span class=w>                             </span><span class=n>classProbs</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kc>TRUE</span><span class=p>)</span>
+
+<span class=w>    </span><span class=n>cont_loop_caret_model</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>train</span><span class=p>(</span><span class=n>form_2</span><span class=p>,</span><span class=w> </span><span class=n>data</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>dfTrain_bi</span><span class=p>,</span>
+<span class=w>                           </span><span class=n>method</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;glm&#39;</span><span class=p>,</span>
+<span class=w>                           </span><span class=n>trControl</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>objControl</span><span class=p>,</span>
+<span class=w>                           </span><span class=n>metric</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;ROC&quot;</span>
+<span class=w>                           </span><span class=p>)</span>
+<span class=w>    </span><span class=nf>print</span><span class=p>(</span><span class=nf>summary</span><span class=p>(</span><span class=n>cont_loop_caret_model</span><span class=p>))</span>
+<span class=w>    </span><span class=kr>if</span><span class=p>(</span><span class=nf>sum</span><span class=p>(</span><span class=n>raw_df</span><span class=p>[</span><span class=n>column</span><span class=p>]</span><span class=o>&lt;</span><span class=m>0</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=m>0</span><span class=p>){</span>
+<span class=w>      </span><span class=nf>plot</span><span class=p>(</span><span class=nf>ggplot</span><span class=p>(</span><span class=n>raw_df</span><span class=p>,</span><span class=w> </span><span class=nf>aes_string</span><span class=p>(</span><span class=n>column</span><span class=p>))</span><span class=w> </span><span class=o>+</span>
+<span class=w>        </span><span class=n>gglorenz</span><span class=o>::</span><span class=nf>stat_lorenz</span><span class=p>(</span><span class=n>color</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;red&quot;</span><span class=p>)</span><span class=w> </span><span class=o>+</span><span class=w> </span>
+<span class=w>        </span><span class=nf>geom_abline</span><span class=p>(</span><span class=n>intercept</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>0</span><span class=p>,</span><span class=w> </span><span class=n>slope</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>1</span><span class=p>,</span><span class=w> </span><span class=n>color</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;blue&#39;</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>        </span><span class=nf>theme_minimal</span><span class=p>())</span>
+<span class=w>      </span><span class=nf>print</span><span class=p>(</span><span class=nf>paste0</span><span class=p>(</span><span class=s>&#39;Gini coefficient = &#39;</span><span class=p>,</span><span class=w> </span><span class=nf>Gini</span><span class=p>(</span><span class=nf>unlist</span><span class=p>(</span><span class=n>raw_df</span><span class=p>[</span><span class=n>column</span><span class=p>]))))</span>
+<span class=w>    </span><span class=p>}</span>
+<span class=w>    </span><span class=nf>print</span><span class=p>(</span><span class=nf>strrep</span><span class=p>(</span><span class=s>&quot;-&quot;</span><span class=p>,</span><span class=m>100</span><span class=p>))</span>
+<span class=w>  </span><span class=p>}</span>
+<span class=p>}</span>
+<span class=nf>plot_bivariate_cont</span><span class=p>(</span><span class=n>raw_df</span><span class=p>,</span><span class=w> </span><span class=n>pred_column_name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Survived&#39;</span><span class=p>)</span>
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/bi-cont-1.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## NULL
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.5682  -1.3694   0.9455   0.9906   1.0696  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept) 0.251045   0.184309   1.362    0.173
+## Age         0.007909   0.005791   1.366    0.172
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 947.02  on 711  degrees of freedom
+## Residual deviance: 945.15  on 710  degrees of freedom
+## AIC: 949.15
+## 
+## Number of Fisher Scoring iterations: 4
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/bi-cont-2.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Gini coefficient = 0.25155022394829&quot;
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/bi-cont-3.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## NULL
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.4934  -1.3714   0.9685   0.9950   0.9950  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  0.44536    0.08507   5.235 1.65e-07 ***
+## SibSp        0.06812    0.07026   0.970    0.332    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 947.02  on 711  degrees of freedom
+## Residual deviance: 946.05  on 710  degrees of freedom
+## AIC: 950.05
+## 
+## Number of Fisher Scoring iterations: 4
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/bi-cont-4.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Gini coefficient = 0.785475313439897&quot;
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/bi-cont-5.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## NULL
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.4250  -1.4250   0.9486   0.9486   1.4932  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  0.56535    0.08631   6.550 5.75e-11 ***
+## Parch       -0.21380    0.09527  -2.244   0.0248 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 947.02  on 711  degrees of freedom
+## Residual deviance: 941.94  on 710  degrees of freedom
+## AIC: 945.94
+## 
+## Number of Fisher Scoring iterations: 4
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/bi-cont-6.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Gini coefficient = 0.818844703235625&quot;
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/bi-cont-7.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## NULL
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.5815  -1.3610   0.8594   0.8931   2.3627  
+## 
+## Coefficients:
+##              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  0.913285   0.105454   8.660  &lt; 2e-16 ***
+## Fare        -0.013845   0.002408  -5.749 8.95e-09 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 947.02  on 711  degrees of freedom
+## Residual deviance: 898.05  on 710  degrees of freedom
+## AIC: 902.05
+## 
+## Number of Fisher Scoring iterations: 4
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/bi-cont-8.png><!-- --></p> <div class=highlight><pre><span></span><code>## [1] &quot;Gini coefficient = 0.570560662746992&quot;
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p>Observations: <br> 1. From the box plot I observe that <em>age</em> and <em>sibsp</em> might not be significant factors. The same is reflected in the <em>Walds p-value</em> in the logistic regression. On the other hand, the Gini coefficient is high for <em>SibSp</em><br> 2. Parch and Fare might be significant as I can observe a significant difference in the box plots. </p> <p>I want to understand the relationship of each categorical variable with the <span class=arithmatex>\(y\)</span> variable. I will achieve that by doing the following: <br> 1. A mosaic plot shows if any column is significantly different from base column<br> 2. Predict using Logistic regression using the variable alone to observe the decrease in deviation/AIC </p> <div class=highlight><pre><span></span><code><span class=nf>library</span><span class=p>(</span><span class=n>ggmosaic</span><span class=p>)</span>
+<span class=n>plot_bivariate_cat</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=kr>function</span><span class=p>(</span><span class=n>raw_d</span><span class=p>,</span><span class=w> </span><span class=n>pred_column_name</span><span class=p>){</span>
+<span class=w>  </span><span class=n>plot_bi_cat_df</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>raw_df</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=nf>select_if</span><span class=p>(</span><span class=kr>function</span><span class=p>(</span><span class=n>col</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=nf>is.factor</span><span class=p>(</span><span class=n>col</span><span class=p>)</span><span class=w> </span><span class=o>|</span><span class=w> </span><span class=nf>is.character</span><span class=p>(</span><span class=n>col</span><span class=p>)})</span>
+<span class=w>  </span><span class=kr>for</span><span class=p>(</span><span class=n>column</span><span class=w> </span><span class=kr>in</span><span class=w> </span><span class=nf>colnames</span><span class=p>(</span><span class=n>plot_bi_cat_df</span><span class=p>)){</span>
+<span class=w>    </span><span class=kr>if</span><span class=p>(</span><span class=n>column</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=n>pred_column_name</span><span class=p>){</span>
+<span class=w>      </span><span class=nf>plot</span><span class=p>(</span><span class=nf>ggplot</span><span class=p>(</span><span class=n>data</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>plot_bi_cat_df</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=nf>group_by_</span><span class=p>(</span><span class=n>pred_column_name</span><span class=p>,</span><span class=n>column</span><span class=p>)</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=nf>summarise</span><span class=p>(</span><span class=n>count</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>n</span><span class=p>()))</span><span class=w> </span><span class=o>+</span>
+<span class=w>        </span><span class=nf>geom_mosaic</span><span class=p>(</span><span class=nf>aes_string</span><span class=p>(</span><span class=n>weight</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;count&#39;</span><span class=p>,</span><span class=w> </span>
+<span class=w>                               </span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>paste0</span><span class=p>(</span><span class=s>&quot;product(&quot;</span><span class=p>,</span><span class=w> </span><span class=n>pred_column_name</span><span class=p>,</span><span class=s>&quot; , &quot;</span><span class=p>,</span><span class=w> </span><span class=n>column</span><span class=p>,</span><span class=w> </span><span class=s>&quot;)&quot;</span><span class=p>),</span><span class=w> </span>
+<span class=w>                               </span><span class=n>fill</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>pred_column_name</span><span class=p>),</span><span class=w> </span><span class=n>na.rm</span><span class=o>=</span><span class=kc>TRUE</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>        </span><span class=nf>labs</span><span class=p>(</span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>column</span><span class=p>,</span><span class=w> </span><span class=n>y</span><span class=o>=</span><span class=s>&#39;%&#39;</span><span class=p>,</span><span class=w>  </span><span class=n>title</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>column</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>        </span><span class=nf>theme_minimal</span><span class=p>()</span><span class=o>+</span><span class=nf>theme</span><span class=p>(</span><span class=n>legend.position</span><span class=o>=</span><span class=s>&quot;bottom&quot;</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>        </span><span class=nf>theme</span><span class=p>(</span><span class=n>axis.text.x</span><span class=o>=</span><span class=nf>element_text</span><span class=p>(</span><span class=n>angle</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>45</span><span class=p>,</span><span class=w> </span><span class=n>vjust</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>0.5</span><span class=p>,</span><span class=w> </span><span class=n>hjust</span><span class=o>=</span><span class=m>1</span><span class=p>)))</span>
+
+<span class=w>      </span><span class=n>trainList_cat</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>createDataPartition</span><span class=p>(</span><span class=n>y</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>unlist</span><span class=p>(</span><span class=n>raw_df</span><span class=p>[</span><span class=n>pred_column_name</span><span class=p>]),</span><span class=w> </span><span class=n>times</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>1</span><span class=p>,</span><span class=n>p</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>0.8</span><span class=p>,</span><span class=w> </span><span class=n>list</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kc>FALSE</span><span class=p>)</span>
+<span class=w>      </span><span class=n>dfTest_bi_cat</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>raw_df</span><span class=p>[</span><span class=o>-</span><span class=n>trainList_cat</span><span class=p>,]</span>
+<span class=w>      </span><span class=n>dfTrain_bi_cat</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>raw_df</span><span class=p>[</span><span class=n>trainList_cat</span><span class=p>,]</span>
+<span class=w>      </span><span class=n>form_2</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>as.formula</span><span class=p>(</span><span class=nf>paste0</span><span class=p>(</span><span class=n>pred_column_name</span><span class=p>,</span><span class=s>&#39; ~ &#39;</span><span class=p>,</span><span class=n>column</span><span class=p>))</span>
+<span class=w>      </span><span class=nf>set.seed</span><span class=p>(</span><span class=m>1234</span><span class=p>)</span>
+<span class=w>      </span><span class=n>objControl</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>trainControl</span><span class=p>(</span><span class=n>method</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;none&quot;</span><span class=p>,</span>
+<span class=w>                               </span><span class=n>summaryFunction</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>twoClassSummary</span><span class=p>,</span>
+<span class=w>                               </span><span class=c1># sampling = &#39;smote&#39;,</span>
+<span class=w>                               </span><span class=n>classProbs</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kc>TRUE</span><span class=p>)</span>
+
+<span class=w>      </span><span class=n>cat_loop_caret_model</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>train</span><span class=p>(</span><span class=n>form_2</span><span class=p>,</span><span class=w> </span><span class=n>data</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>dfTrain_bi_cat</span><span class=p>,</span>
+<span class=w>                             </span><span class=n>method</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;glm&#39;</span><span class=p>,</span>
+<span class=w>                             </span><span class=n>trControl</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>objControl</span><span class=p>,</span>
+<span class=w>                             </span><span class=n>metric</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;ROC&quot;</span><span class=p>)</span>
+<span class=w>      </span><span class=nf>print</span><span class=p>(</span><span class=nf>summary</span><span class=p>(</span><span class=n>cat_loop_caret_model</span><span class=p>))</span>
+<span class=w>    </span><span class=p>}</span>
+<span class=w>    </span><span class=nf>print</span><span class=p>(</span><span class=nf>strrep</span><span class=p>(</span><span class=s>&quot;-&quot;</span><span class=p>,</span><span class=m>100</span><span class=p>))</span>
+<span class=w>  </span><span class=p>}</span>
+<span class=p>}</span>
+
+<span class=nf>plot_bivariate_cat</span><span class=p>(</span><span class=n>balanced_df</span><span class=p>,</span><span class=w> </span><span class=n>pred_column_name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Survived&#39;</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/bi-cat-1.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## NULL
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.6589  -0.9935   0.7631   0.7631   1.3732  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  -0.4493     0.1564  -2.873  0.00406 ** 
+## Pclass2       0.6340     0.2258   2.808  0.00499 ** 
+## Pclass3       1.5342     0.1952   7.860 3.85e-15 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 947.02  on 711  degrees of freedom
+## Residual deviance: 877.96  on 709  degrees of freedom
+## AIC: 883.96
+## 
+## Number of Fisher Scoring iterations: 4
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/bi-cat-2.png><!-- --></p> <div class=highlight><pre><span></span><code>## 
+## Call:
+## NULL
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.8513  -0.7772   0.6304   0.6304   1.6398  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  -1.0423     0.1421  -7.336  2.2e-13 ***
+## Sexmale       2.5572     0.1873  13.656  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 947.02  on 711  degrees of freedom
+## Residual deviance: 724.20  on 710  degrees of freedom
+## AIC: 728.2
+## 
+## Number of Fisher Scoring iterations: 4
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/bi-cat-3.png><!-- --></p> <p><div class=highlight><pre><span></span><code>## 
+## Call:
+## NULL
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.4500  -1.4500   0.9274   0.9274   1.1961  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  -0.0438     0.1709  -0.256 0.797729    
+## EmbarkedQ     0.5904     0.3178   1.858 0.063205 .  
+## EmbarkedS     0.6650     0.1943   3.422 0.000621 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 947.02  on 711  degrees of freedom
+## Residual deviance: 935.28  on 709  degrees of freedom
+## AIC: 941.28
+## 
+## Number of Fisher Scoring iterations: 4
+## 
+## [1] &quot;----------------------------------------------------------------------------------------------------&quot;
+</code></pre></div> Observations:<br> 1. Gender seems to be a very important factor. The decrease in Residual due to that factor is very high.<br> 2. There seems to be no significant difference between people embarked in Q vs C, but significant difference between C and S. From the plot, I could merge S and Q into one class for further analysis. <br> 3. The class of the passenger seems to be an important factor. </p> <h3 id=correlation>Correlation<a class=headerlink href=#correlation title="Permanent link">&para;</a></h3> <p>The correlation between different variables is as follows </p> <div class=highlight><pre><span></span><code><span class=nf>library</span><span class=p>(</span><span class=n>polycor</span><span class=p>)</span>
+<span class=n>corHet</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>hetcor</span><span class=p>(</span><span class=nf>as.data.frame</span><span class=p>(</span><span class=n>raw_df</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=nf>mutate_if</span><span class=p>(</span><span class=n>is.character</span><span class=p>,</span><span class=n>as.factor</span><span class=p>)))</span>
+<span class=n>hetCorrPlot</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=kr>function</span><span class=p>(</span><span class=n>corHet</span><span class=p>){</span>
+<span class=w>  </span><span class=n>melted_cormat</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>reshape</span><span class=o>::</span><span class=nf>melt</span><span class=p>(</span><span class=nf>round</span><span class=p>(</span><span class=n>corHet</span><span class=p>,</span><span class=m>2</span><span class=p>),</span><span class=w> </span><span class=n>na.rm</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kc>TRUE</span><span class=p>)</span>
+<span class=w>  </span><span class=nf>colnames</span><span class=p>(</span><span class=n>melted_cormat</span><span class=p>)</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>c</span><span class=p>(</span><span class=s>&#39;Var1&#39;</span><span class=p>,</span><span class=w> </span><span class=s>&#39;Var2&#39;</span><span class=p>,</span><span class=w> </span><span class=s>&#39;value&#39;</span><span class=p>)</span>
+<span class=w>  </span><span class=n>melted_cormat</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>melted_cormat</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=nf>filter</span><span class=p>(</span><span class=o>!</span><span class=nf>is.na</span><span class=p>(</span><span class=n>value</span><span class=p>))</span>
+
+<span class=w>  </span><span class=c1># Plot the corelation matrix</span>
+<span class=w>  </span><span class=n>ggheatmap</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>ggplot</span><span class=p>(</span><span class=n>melted_cormat</span><span class=p>,</span><span class=w> </span><span class=nf>aes</span><span class=p>(</span><span class=n>Var2</span><span class=p>,</span><span class=w> </span><span class=n>Var1</span><span class=p>,</span><span class=w> </span><span class=n>fill</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>value</span><span class=p>))</span><span class=o>+</span>
+<span class=w>  </span><span class=nf>geom_tile</span><span class=p>(</span><span class=n>color</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;black&quot;</span><span class=p>)</span><span class=o>+</span>
+<span class=w>  </span><span class=nf>scale_fill_gradient2</span><span class=p>(</span><span class=n>low</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;red&quot;</span><span class=p>,</span><span class=w> </span><span class=n>high</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;green&quot;</span><span class=p>,</span><span class=w> </span><span class=n>mid</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;white&quot;</span><span class=p>,</span><span class=w> </span>
+<span class=w>                       </span><span class=n>midpoint</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>0</span><span class=p>,</span><span class=w> </span><span class=n>limit</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>c</span><span class=p>(</span><span class=m>-1</span><span class=p>,</span><span class=m>1</span><span class=p>),</span><span class=w> </span><span class=n>space</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;Lab&quot;</span><span class=p>,</span><span class=w> </span>
+<span class=w>                       </span><span class=n>name</span><span class=o>=</span><span class=s>&quot;Heterogeneous Correlation Matrix&quot;</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>  </span><span class=nf>theme_minimal</span><span class=p>()</span><span class=o>+</span><span class=w> </span><span class=c1># minimal theme</span>
+<span class=w>  </span><span class=nf>theme</span><span class=p>(</span><span class=n>axis.text.x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>element_text</span><span class=p>(</span><span class=n>angle</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>45</span><span class=p>,</span><span class=w> </span><span class=n>vjust</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>1</span><span class=p>,</span><span class=w> </span><span class=n>size</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>10</span><span class=p>,</span><span class=w> </span><span class=n>hjust</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>1</span><span class=p>))</span><span class=o>+</span>
+<span class=w>  </span><span class=nf>geom_text</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>Var2</span><span class=p>,</span><span class=w> </span><span class=n>Var1</span><span class=p>,</span><span class=w> </span><span class=n>label</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>value</span><span class=p>),</span><span class=w> </span><span class=n>color</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;black&quot;</span><span class=p>,</span><span class=w> </span><span class=n>size</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>4</span><span class=p>)</span><span class=o>+</span>
+<span class=w>  </span><span class=nf>theme</span><span class=p>(</span>
+<span class=w>    </span><span class=n>axis.title.x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>element_blank</span><span class=p>(),</span>
+<span class=w>    </span><span class=n>axis.title.y</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>element_blank</span><span class=p>(),</span>
+<span class=w>    </span><span class=n>panel.grid.major</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>element_blank</span><span class=p>(),</span>
+<span class=w>    </span><span class=n>panel.border</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>element_blank</span><span class=p>(),</span>
+<span class=w>    </span><span class=n>panel.background</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>element_blank</span><span class=p>(),</span>
+<span class=w>    </span><span class=n>axis.ticks</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>element_blank</span><span class=p>()</span>
+<span class=w>  </span><span class=p>)</span>
+<span class=w>  </span><span class=nf>print</span><span class=p>(</span><span class=n>ggheatmap</span><span class=p>)</span>
+<span class=p>}</span>
+<span class=nf>hetCorrPlot</span><span class=p>(</span><span class=n>corHet</span><span class=o>$</span><span class=n>correlations</span><span class=p>)</span>
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/corr3-1.png><!-- --></p> <p>Observations:<br> 1. Passenger class and fare are negatively correlated (obvious).<br> 2. <em>Pclass</em> and <em>sex</em> are two variables that have good correlation with the y variable(survived). </p> <h2 id=initial-model-training>Initial Model Training<a class=headerlink href=#initial-model-training title="Permanent link">&para;</a></h2> <p>For my initial model, I am training using step wise logistic regression. In every step, I want to observe the following:<br> 1. What variables are added or removed from the model. The current model pics the column which gives the greatest reduction in AIC. The model stops when the reduction in AIC w.r.t. null is lower than the threshold. <br> 2. Substantial increase/decrease in <span class=arithmatex>\(\beta\)</span> or change in its sign (which may be due to collinearity between the dependent variables) </p> <div class=highlight><pre><span></span><code><span class=n>modified_df</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>raw_df</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=nf>mutate</span><span class=p>(</span><span class=n>Embarked</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>if_else</span><span class=p>(</span><span class=n>Embarked</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=s>&#39;C&#39;</span><span class=p>,</span><span class=w> </span><span class=s>&#39;C&#39;</span><span class=p>,</span><span class=w> </span><span class=s>&#39;S_or_Q&#39;</span><span class=p>))</span>
+
+<span class=n>trainList</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>createDataPartition</span><span class=p>(</span><span class=n>y</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>modified_df</span><span class=o>$</span><span class=n>Survived</span><span class=p>,</span><span class=w> </span><span class=n>times</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>1</span><span class=p>,</span><span class=n>p</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>0.8</span><span class=p>,</span><span class=w> </span><span class=n>list</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kc>FALSE</span><span class=p>)</span>
+<span class=n>dfTest</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>modified_df</span><span class=p>[</span><span class=o>-</span><span class=n>trainList</span><span class=p>,]</span>
+<span class=n>dfTrain</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>modified_df</span><span class=p>[</span><span class=n>trainList</span><span class=p>,]</span>
+<span class=n>form_2</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>as.formula</span><span class=p>(</span><span class=nf>paste0</span><span class=p>(</span><span class=s>&#39;Survived ~ .&#39;</span><span class=p>))</span>
+<span class=nf>set.seed</span><span class=p>(</span><span class=m>1234</span><span class=p>)</span>
+<span class=n>objControl</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>trainControl</span><span class=p>(</span><span class=n>method</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;none&quot;</span><span class=p>,</span>
+<span class=w>                         </span><span class=n>summaryFunction</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>twoClassSummary</span><span class=p>,</span>
+<span class=w>                         </span><span class=n>classProbs</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kc>TRUE</span><span class=p>,</span>
+<span class=w>                         </span><span class=c1># sampling = &#39;smote&#39;,</span>
+<span class=w>                         </span><span class=n>savePredictions</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kc>TRUE</span><span class=p>)</span>
+
+<span class=n>model</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>train</span><span class=p>(</span><span class=n>form_2</span><span class=p>,</span><span class=w> </span><span class=n>data</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>dfTrain</span><span class=p>,</span>
+<span class=w>                       </span><span class=n>method</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;glmStepAIC&#39;</span><span class=p>,</span>
+<span class=w>                       </span><span class=n>trControl</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>objControl</span><span class=p>,</span>
+<span class=w>                       </span><span class=n>metric</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;ROC&quot;</span><span class=p>,</span>
+<span class=w>                       </span><span class=n>direction</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;forward&#39;</span>
+<span class=w>                       </span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>## Start:  AIC=949.02
+## .outcome ~ 1
+## 
+##                  Df Deviance    AIC
+## + Sexmale         1   724.20 728.20
+## + Pclass3         1   885.94 889.94
+## + Fare            1   898.05 902.05
+## + EmbarkedS_or_Q  1   935.34 939.34
+## + Age             1   940.79 944.79
+## + Parch           1   941.94 945.94
+## + Pclass2         1   942.85 946.85
+## &lt;none&gt;                947.02 949.02
+## + SibSp           1   946.05 950.05
+## 
+## Step:  AIC=728.2
+## .outcome ~ Sexmale
+## 
+##                  Df Deviance    AIC
+## + Pclass3         1   672.39 678.39
+## + Fare            1   700.99 706.99
+## + SibSp           1   710.98 716.98
+## + EmbarkedS_or_Q  1   714.48 720.48
+## + Parch           1   720.72 726.72
+## + Pclass2         1   721.37 727.37
+## &lt;none&gt;                724.20 728.20
+## + Age             1   723.95 729.95
+## 
+## Step:  AIC=678.39
+## .outcome ~ Sexmale + Pclass3
+## 
+##                  Df Deviance    AIC
+## + Age             1   662.66 670.66
+## + SibSp           1   664.21 672.21
+## + Pclass2         1   664.36 672.36
+## + EmbarkedS_or_Q  1   666.38 674.38
+## + Fare            1   667.83 675.83
+## &lt;none&gt;                672.39 678.39
+## + Parch           1   670.60 678.60
+## 
+## Step:  AIC=670.66
+## .outcome ~ Sexmale + Pclass3 + Age
+## 
+##                  Df Deviance    AIC
+## + SibSp           1   646.62 656.62
+## + Pclass2         1   648.58 658.58
+## + EmbarkedS_or_Q  1   656.46 666.46
+## + Parch           1   658.81 668.81
+## + Fare            1   658.83 668.83
+## &lt;none&gt;                662.66 670.66
+## 
+## Step:  AIC=656.62
+## .outcome ~ Sexmale + Pclass3 + Age + SibSp
+## 
+##                  Df Deviance    AIC
+## + Pclass2         1   629.48 641.48
+## + Fare            1   638.87 650.87
+## + EmbarkedS_or_Q  1   642.17 654.17
+## &lt;none&gt;                646.62 656.62
+## + Parch           1   646.28 658.28
+## 
+## Step:  AIC=641.48
+## .outcome ~ Sexmale + Pclass3 + Age + SibSp + Pclass2
+## 
+##                  Df Deviance    AIC
+## &lt;none&gt;                629.48 641.48
+## + Fare            1   628.57 642.57
+## + EmbarkedS_or_Q  1   628.68 642.68
+## + Parch           1   628.98 642.98
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=nf>print</span><span class=p>(</span><span class=nf>summary</span><span class=p>(</span><span class=n>model</span><span class=p>))</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>## 
+## Call:
+## NULL
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.5000  -0.6081   0.4231   0.6178   2.6988  
+## 
+## Coefficients:
+##              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -4.150857   0.464909  -8.928  &lt; 2e-16 ***
+## Sexmale      2.749566   0.217162  12.661  &lt; 2e-16 ***
+## Pclass3      2.285336   0.279783   8.168 3.13e-16 ***
+## Age          0.044986   0.009111   4.938 7.91e-07 ***
+## SibSp        0.445697   0.115171   3.870 0.000109 ***
+## Pclass2      1.206182   0.297629   4.053 5.06e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 947.02  on 711  degrees of freedom
+## Residual deviance: 629.48  on 706  degrees of freedom
+## AIC: 641.48
+## 
+## Number of Fisher Scoring iterations: 5
+</code></pre></div> <p>Observations:<br> 1. Counter intuitively, both <em>age</em> and <em>sibSp</em> are significant features in the model while <em>Parch</em> and <em>Fare</em> are not. That might be due to <em>Fare</em> being explained by <em>passenger</em> class.<br> 2. Gender, <em>pclass</em> are significant features while embarked is not </p> <p>The model metrics for 50% cut-off are:</p> <div class=highlight><pre><span></span><code><span class=n>caretPredictedClass</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>predict</span><span class=p>(</span><span class=n>object</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>model</span><span class=p>,</span><span class=w> </span><span class=n>dfTrain</span><span class=p>)</span>
+<span class=nf>confusionMatrix</span><span class=p>(</span><span class=n>caretPredictedClass</span><span class=p>,</span><span class=n>dfTrain</span><span class=o>$</span><span class=n>Survived</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction   I   O
+##          I 192  62
+##          O  80 378
+##                                           
+##                Accuracy : 0.8006          
+##                  95% CI : (0.7693, 0.8293)
+##     No Information Rate : 0.618           
+##     P-Value [Acc &gt; NIR] : &lt;2e-16          
+##                                           
+##                   Kappa : 0.5722          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 0.1537          
+##                                           
+##             Sensitivity : 0.7059          
+##             Specificity : 0.8591          
+##          Pos Pred Value : 0.7559          
+##          Neg Pred Value : 0.8253          
+##              Prevalence : 0.3820          
+##          Detection Rate : 0.2697          
+##    Detection Prevalence : 0.3567          
+##       Balanced Accuracy : 0.7825          
+##                                           
+##        &#39;Positive&#39; Class : I               
+## 
+</code></pre></div> <h3 id=model-diagnostics>Model Diagnostics<a class=headerlink href=#model-diagnostics title="Permanent link">&para;</a></h3> <p>The created model can be validated using various tests such as the Omnibus test, Wald's test, Hosmer-Lemeshow's test etc. Outliers can be validated through residual plot, Mahalanobis distance and <em>dffit</em> values, and finally I want to check for multicollinearity and Pseudo R square.<br> The Omnibus and Wald's test have the following Null hypothesis $$ Omnibus\, H_0 : \beta_1 = \beta_2 = ... = \beta_k = 0 $$ $$ Omnibus\, H_1 : Not \, all\, \beta_i \,are\, 0 $$ And for each variable in the model <span class=arithmatex>\(i\)</span>, $$ Wald's \, H_0 : \beta_i= 0 $$ $$ Wald's \, H_1 : \beta_i \neq 0 $$ Omnibus and Wald's p values are given in the below table</p> <p><div class=highlight><pre><span></span><code>## 
+## Call:
+## NULL
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.5000  -0.6081   0.4231   0.6178   2.6988  
+## 
+## Coefficients:
+##              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -4.150857   0.464909  -8.928  &lt; 2e-16 ***
+## Sexmale      2.749566   0.217162  12.661  &lt; 2e-16 ***
+## Pclass3      2.285336   0.279783   8.168 3.13e-16 ***
+## Age          0.044986   0.009111   4.938 7.91e-07 ***
+## SibSp        0.445697   0.115171   3.870 0.000109 ***
+## Pclass2      1.206182   0.297629   4.053 5.06e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 947.02  on 711  degrees of freedom
+## Residual deviance: 629.48  on 706  degrees of freedom
+## AIC: 641.48
+## 
+## Number of Fisher Scoring iterations: 5
+</code></pre></div> For all the factors for which p value is less than <span class=arithmatex>\(\alpha=0.05\)</span>, I reject the Null hypothesis. These factors are significant factors for building the model. </p> <p>Hosmer Lemeshow test is a chi-square goodness of fit test to check if the logistic regression model fits the data. The Null hypothesis is that the model fits the data. </p> <div class=highlight><pre><span></span><code><span class=nf>library</span><span class=p>(</span><span class=n>ResourceSelection</span><span class=p>)</span>
+<span class=n>dfTrain</span><span class=o>$</span><span class=n>pred_probability_I</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=p>(</span><span class=nf>predict</span><span class=p>(</span><span class=n>object</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>model</span><span class=p>,</span><span class=w> </span><span class=n>dfTrain</span><span class=p>,</span><span class=n>type</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;prob&#39;</span><span class=p>))</span><span class=o>$</span><span class=n>I</span>
+<span class=n>dfTrain</span><span class=o>$</span><span class=n>pred_probability_O</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=p>(</span><span class=nf>predict</span><span class=p>(</span><span class=n>object</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>model</span><span class=p>,</span><span class=w> </span><span class=n>dfTrain</span><span class=p>,</span><span class=n>type</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;prob&#39;</span><span class=p>))</span><span class=o>$</span><span class=n>O</span>
+
+<span class=n>dfTrain</span><span class=o>$</span><span class=n>predictions</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>ifelse</span><span class=p>(</span><span class=n>dfTrain</span><span class=o>$</span><span class=n>pred_probability_I</span><span class=w> </span><span class=o>&gt;=</span><span class=w> </span><span class=m>0.5</span><span class=p>,</span><span class=w> </span><span class=m>1</span><span class=p>,</span><span class=w> </span><span class=m>0</span><span class=p>)</span>
+<span class=n>dfTrain</span><span class=o>$</span><span class=n>binary</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>ifelse</span><span class=p>(</span><span class=n>dfTrain</span><span class=o>$</span><span class=n>Survived</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=s>&#39;I&#39;</span><span class=p>,</span><span class=w> </span><span class=m>1</span><span class=p>,</span><span class=w> </span><span class=m>0</span><span class=p>)</span>
+<span class=nf>hoslem.test</span><span class=p>(</span><span class=n>dfTrain</span><span class=o>$</span><span class=n>predictions</span><span class=p>,</span><span class=w> </span><span class=n>dfTrain</span><span class=o>$</span><span class=n>binary</span><span class=p>,</span><span class=w> </span><span class=n>g</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>10</span><span class=p>)</span>
+</code></pre></div> <p><div class=highlight><pre><span></span><code>## 
+##  Hosmer and Lemeshow goodness of fit (GOF) test
+## 
+## data:  dfTrain$predictions, dfTrain$binary
+## X-squared = 1.9275, df = 8, p-value = 0.9832
+</code></pre></div> Since the p-value is greater than <span class=arithmatex>\(\alpha=0.05\)</span> I accept the null hypothesis that the logistic regression fits the data. </p> <h4 id=checking-for-outliers>Checking for outliers:<a class=headerlink href=#checking-for-outliers title="Permanent link">&para;</a></h4> <p>A simple residual plot can be useful to check outliers. </p> <div class=highlight><pre><span></span><code><span class=nf>library</span><span class=p>(</span><span class=n>arm</span><span class=p>)</span>
+<span class=nf>binnedplot</span><span class=p>(</span><span class=nf>fitted</span><span class=p>(</span><span class=n>model</span><span class=o>$</span><span class=n>finalModel</span><span class=p>),</span><span class=w> </span>
+<span class=w>           </span><span class=nf>residuals</span><span class=p>(</span><span class=n>model</span><span class=o>$</span><span class=n>finalModel</span><span class=p>,</span><span class=w> </span><span class=n>type</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;response&quot;</span><span class=p>),</span><span class=w> </span>
+<span class=w>           </span><span class=n>nclass</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kc>NULL</span><span class=p>,</span><span class=w> </span>
+<span class=w>           </span><span class=n>xlab</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;Expected Values&quot;</span><span class=p>,</span><span class=w> </span>
+<span class=w>           </span><span class=n>ylab</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;Average residual&quot;</span><span class=p>,</span><span class=w> </span>
+<span class=w>           </span><span class=n>main</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;Binned residual plot&quot;</span><span class=p>,</span><span class=w> </span>
+<span class=w>           </span><span class=n>cex.pts</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>0.8</span><span class=p>,</span><span class=w> </span>
+<span class=w>           </span><span class=n>col.pts</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>1</span><span class=p>,</span><span class=w> </span>
+<span class=w>           </span><span class=n>col.int</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;gray&quot;</span><span class=p>)</span>
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/residual-1.png><!-- --></p> <p>The grey lines represent ± 2<span class=arithmatex>\(\sigma\)</span> bands, which we would expect to contain about 95% of the observations. This model does look reasonable as the majority of the fitted values seem to fall inside the SE bands and are randomly distributed. </p> <p>The Mahalanobis distance gives the distance between the observation and the centroid of the values. A Mahalanobis distance of greater than the chi-square critical value where the degrees of freedom are equal to number of independent variables is considered as a highly influential variable. </p> <div class=highlight><pre><span></span><code><span class=n>maha.df</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>dfTrain</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=n>dplyr</span><span class=o>::</span><span class=nf>select</span><span class=p>(</span><span class=n>Age</span><span class=p>,</span><span class=w> </span><span class=n>SibSp</span><span class=p>)</span>
+<span class=n>maha.df</span><span class=o>$</span><span class=n>maha</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>mahalanobis</span><span class=p>(</span><span class=n>maha.df</span><span class=p>,</span><span class=w> </span><span class=nf>colMeans</span><span class=p>(</span><span class=n>maha.df</span><span class=p>),</span><span class=w> </span><span class=nf>cov</span><span class=p>(</span><span class=n>maha.df</span><span class=p>))</span>
+<span class=n>maha.df</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>maha.df</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=nf>arrange</span><span class=p>(</span><span class=o>-</span><span class=n>maha</span><span class=p>)</span><span class=w> </span><span class=o>%&gt;%</span><span class=w> </span><span class=nf>mutate</span><span class=p>(</span><span class=n>is.outlier</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>if_else</span><span class=p>(</span><span class=n>maha</span><span class=o>&gt;</span><span class=m>12</span><span class=p>,</span><span class=w> </span><span class=kc>TRUE</span><span class=p>,</span><span class=w> </span><span class=kc>FALSE</span><span class=p>))</span>
+<span class=nf>ggplot</span><span class=p>(</span><span class=n>maha.df</span><span class=p>,</span><span class=w> </span><span class=nf>aes</span><span class=p>(</span><span class=n>y</span><span class=o>=</span><span class=n>Age</span><span class=p>,</span><span class=w> </span><span class=n>x</span><span class=o>=</span><span class=w> </span><span class=n>SibSp</span><span class=p>,</span><span class=w> </span><span class=n>color</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>is.outlier</span><span class=p>))</span><span class=w> </span><span class=o>+</span><span class=w> </span>
+<span class=w>  </span><span class=nf>geom_point</span><span class=p>(</span><span class=n>show.legend</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kc>TRUE</span><span class=p>)</span><span class=w> </span><span class=o>+</span><span class=w> </span>
+<span class=w>  </span><span class=nf>theme_minimal</span><span class=p>()</span><span class=o>+</span><span class=nf>theme</span><span class=p>(</span><span class=n>legend.position</span><span class=o>=</span><span class=s>&quot;bottom&quot;</span><span class=p>)</span>
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/outlier-1.png><!-- --></p> <p>Although the model predicts that certain observations are outliers, I am not doing any outlier treatment as they are observations that I am interested in. </p> <h4 id=checking-for-multi-collinearity>Checking for multi collinearity<a class=headerlink href=#checking-for-multi-collinearity title="Permanent link">&para;</a></h4> <p>Like in case of linear regression, we should check for multi collinearity in the model. Multi collinearity is given by VIF. VIF above 4 means there is significant multicollinearity. </p> <div class=highlight><pre><span></span><code><span class=nf>library</span><span class=p>(</span><span class=n>car</span><span class=p>)</span>
+<span class=nf>vif</span><span class=p>(</span><span class=n>model</span><span class=o>$</span><span class=n>finalModel</span><span class=p>)</span>
+</code></pre></div> <p><div class=highlight><pre><span></span><code>##  Sexmale  Pclass3      Age    SibSp  Pclass2 
+## 1.147666 1.961434 1.446117 1.224168 1.630786
+</code></pre></div> No factor has high multicollinearity(VIF&gt;4). </p> <h3 id=finding-optimal-cut-off>Finding optimal cut-off<a class=headerlink href=#finding-optimal-cut-off title="Permanent link">&para;</a></h3> <p>For finding the optimal cut-off, I am using three methods.<br> 1. Classification plot<br> 2. Youden's Index<br> 3. Cost based approach </p> <ol> <li>Classification plot</li> </ol> <div class=highlight><pre><span></span><code><span class=nf>ggplot</span><span class=p>(</span><span class=n>dfTrain</span><span class=p>,</span><span class=w> </span><span class=nf>aes</span><span class=p>(</span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>pred_probability_I</span><span class=p>,</span><span class=w> </span><span class=n>fill</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>Survived</span><span class=p>))</span><span class=w> </span><span class=o>+</span><span class=w> </span>
+<span class=w>      </span><span class=nf>geom_histogram</span><span class=p>(</span><span class=n>alpha</span><span class=o>=</span><span class=m>0.5</span><span class=p>,</span><span class=w> </span><span class=n>position</span><span class=o>=</span><span class=s>&quot;identity&quot;</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>      </span><span class=nf>labs</span><span class=p>(</span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Predicted probability&#39;</span><span class=p>,</span><span class=w> </span><span class=n>y</span><span class=o>=</span><span class=s>&#39;Count&#39;</span><span class=p>,</span><span class=w>  </span><span class=n>title</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Classification plot&#39;</span><span class=p>,</span><span class=n>fill</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Observed Groups&#39;</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>      </span><span class=nf>theme_minimal</span><span class=p>()</span><span class=o>+</span><span class=w> </span><span class=nf>theme</span><span class=p>(</span><span class=n>legend.position</span><span class=o>=</span><span class=s>&quot;bottom&quot;</span><span class=p>)</span>
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/classification-plot-1.png><!-- --></p> <ol> <li>Youden's Index<br> Youdens index can be used to find cut-off when sensitivity and specificity are equally important. It is the point which has minimum distance from ROC curve's (1, 1) point.<br> $$ Youden's\, Index \, = \, \max_{p} (Sensitivity(p),Specificity(p)-1) $$</li> </ol> <div class=highlight><pre><span></span><code><span class=nf>library</span><span class=p>(</span><span class=n>ROCR</span><span class=p>)</span>
+
+<span class=n>lgPredObj</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>prediction</span><span class=p>(</span><span class=n>dfTrain</span><span class=o>$</span><span class=n>pred_probability_I</span><span class=p>,</span><span class=w> </span><span class=n>dfTrain</span><span class=o>$</span><span class=n>Survived</span><span class=p>,</span><span class=n>label.ordering</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>c</span><span class=p>(</span><span class=s>&#39;O&#39;</span><span class=p>,</span><span class=w> </span><span class=s>&#39;I&#39;</span><span class=p>))</span>
+<span class=n>lgPerfObj</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>performance</span><span class=p>(</span><span class=n>lgPredObj</span><span class=p>,</span><span class=w> </span><span class=s>&quot;tpr&quot;</span><span class=p>,</span><span class=w> </span><span class=s>&quot;fpr&quot;</span><span class=p>)</span>
+<span class=nf>plot</span><span class=p>(</span><span class=n>lgPerfObj</span><span class=p>,</span><span class=w> </span><span class=n>main</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;ROC Curve (train data)&quot;</span><span class=p>,</span><span class=w> </span><span class=n>col</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>2</span><span class=p>,</span><span class=w> </span><span class=n>lwd</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>2</span><span class=p>)</span>
+<span class=nf>abline</span><span class=p>(</span><span class=n>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>0</span><span class=p>,</span><span class=w> </span><span class=n>b</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>1</span><span class=p>,</span><span class=w> </span><span class=n>lwd</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>2</span><span class=p>,</span><span class=w> </span><span class=n>lty</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>3</span><span class=p>,</span><span class=w> </span><span class=n>col</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;black&quot;</span><span class=p>)</span>
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/roc-train-1.png><!-- --></p> <p>It can also be visualized as the point where sensitivity and specificity are the same </p> <div class=highlight><pre><span></span><code><span class=n>sens_spec_plot</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=kr>function</span><span class=p>(</span><span class=n>actual_value</span><span class=p>,</span><span class=w> </span><span class=n>positive_class_name</span><span class=p>,</span><span class=w> </span><span class=n>negitive_class_name</span><span class=p>,</span><span class=w> </span><span class=n>pred_probability</span><span class=p>){</span>
+<span class=w>  </span><span class=c1># Initialising Variables</span>
+<span class=w>  </span><span class=n>specificity</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>c</span><span class=p>()</span>
+<span class=w>  </span><span class=n>sensitivity</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>c</span><span class=p>()</span>
+<span class=w>  </span><span class=n>cutoff</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>c</span><span class=p>()</span>
+
+<span class=w>  </span><span class=kr>for</span><span class=w> </span><span class=p>(</span><span class=n>i</span><span class=w> </span><span class=kr>in</span><span class=w> </span><span class=m>1</span><span class=o>:</span><span class=m>100</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
+<span class=w>    </span><span class=n>predList</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>as.factor</span><span class=p>(</span><span class=nf>ifelse</span><span class=p>(</span><span class=n>pred_probability</span><span class=w> </span><span class=o>&gt;=</span><span class=w> </span><span class=n>i</span><span class=o>/</span><span class=m>100</span><span class=p>,</span><span class=w> </span><span class=n>positive_class_name</span><span class=p>,</span><span class=w> </span><span class=n>negitive_class_name</span><span class=p>))</span>
+<span class=w>    </span><span class=n>specificity</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>specificity</span><span class=p>(</span><span class=n>predList</span><span class=p>,</span><span class=w> </span><span class=n>actual_value</span><span class=p>)</span>
+<span class=w>    </span><span class=n>sensitivity</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>sensitivity</span><span class=p>(</span><span class=n>predList</span><span class=p>,</span><span class=w> </span><span class=n>actual_value</span><span class=p>)</span>
+<span class=w>    </span><span class=n>cutoff</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>i</span><span class=o>/</span><span class=m>100</span>
+<span class=w>  </span><span class=p>}</span>
+<span class=w>  </span><span class=n>df.sens.spec</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>as.data.frame</span><span class=p>(</span><span class=nf>cbind</span><span class=p>(</span><span class=n>cutoff</span><span class=p>,</span><span class=w> </span><span class=n>specificity</span><span class=p>,</span><span class=w> </span><span class=n>sensitivity</span><span class=p>))</span>
+
+<span class=w>  </span><span class=nf>ggplot</span><span class=p>(</span><span class=n>df.sens.spec</span><span class=p>,</span><span class=w> </span><span class=nf>aes</span><span class=p>(</span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>cutoff</span><span class=p>))</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>geom_line</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>y</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>specificity</span><span class=p>,</span><span class=w> </span><span class=n>color</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Specificity&#39;</span><span class=p>))</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>geom_line</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>y</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>sensitivity</span><span class=p>,</span><span class=w> </span><span class=n>color</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Sensitivity&#39;</span><span class=p>))</span><span class=o>+</span>
+<span class=w>    </span><span class=nf>labs</span><span class=p>(</span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Cutoff p value&#39;</span><span class=p>,</span><span class=w> </span><span class=n>y</span><span class=o>=</span><span class=s>&#39;Sens/Spec&#39;</span><span class=p>,</span><span class=w>  </span><span class=n>title</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Sensitivity-Specificity plot&#39;</span><span class=p>,</span><span class=n>fill</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Plot&#39;</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>      </span><span class=nf>theme_minimal</span><span class=p>()</span><span class=o>+</span><span class=w> </span><span class=nf>theme</span><span class=p>(</span><span class=n>legend.position</span><span class=o>=</span><span class=s>&quot;bottom&quot;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=nf>sens_spec_plot</span><span class=p>(</span><span class=n>actual_value</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>dfTrain</span><span class=o>$</span><span class=n>Survived</span><span class=p>,</span><span class=w> </span><span class=n>positive_class_name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;I&#39;</span><span class=p>,</span><span class=w> </span><span class=n>negitive_class_name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;O&#39;</span><span class=p>,</span><span class=w> </span><span class=n>pred_probability</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>dfTrain</span><span class=o>$</span><span class=n>pred_probability_I</span><span class=p>)</span>
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/sens-spec-1.png><!-- --></p> <ol> <li>Cost based approach </li> </ol> <p>I want to give penalties for positive and negatives. The optimal cutoff probability is the one which minimizes the total penalty cost, given by: $$ \min_p[C_{01}P_{01} + C_{10}P_{10}] $$ For example, if I want to give 3 times the importance to predicting survived when compared to not survived, the cost table is: </p> <p><div class=highlight><pre><span></span><code>##        act I act O
+## pred I     0     3
+## pred O     1     0
+</code></pre></div> For both the above approaches, the cut-off is: </p> <div class=highlight><pre><span></span><code><span class=n>find_p_cutoff</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=kr>function</span><span class=p>(</span><span class=n>actual_value</span><span class=p>,</span><span class=w> </span><span class=n>positive_class_name</span><span class=p>,</span><span class=w> </span><span class=n>negitive_class_name</span><span class=p>,</span><span class=w> </span><span class=n>pred_probability</span><span class=p>,</span><span class=w> </span><span class=n>p_01</span><span class=o>=</span><span class=m>1</span><span class=p>,</span><span class=w> </span><span class=n>p_10</span><span class=o>=</span><span class=m>1</span><span class=p>){</span>
+<span class=w>  </span><span class=c1># Initialising Variables</span>
+<span class=w>  </span><span class=n>msclaf_cost</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>c</span><span class=p>()</span>
+<span class=w>  </span><span class=n>youden_index</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>c</span><span class=p>()</span>
+<span class=w>  </span><span class=n>cutoff</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>c</span><span class=p>()</span>
+<span class=w>  </span><span class=n>P00</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>c</span><span class=p>()</span><span class=w> </span><span class=c1>#correct classification of negative as negative (Sensitivity)</span>
+<span class=w>  </span><span class=n>P01</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>c</span><span class=p>()</span><span class=w> </span><span class=c1>#misclassification of negative class to positive class (actual is 0, predicted 1)</span>
+<span class=w>  </span><span class=n>P10</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>c</span><span class=p>()</span><span class=w> </span><span class=c1>#misclassification of positive class to negative class (actual 1 predicted 0)</span>
+<span class=w>  </span><span class=n>P11</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>c</span><span class=p>()</span><span class=w> </span><span class=c1>#correct classification of positive as positive (Specificity)</span>
+
+<span class=w>  </span><span class=n>costs</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>matrix</span><span class=p>(</span><span class=nf>c</span><span class=p>(</span><span class=m>0</span><span class=p>,</span><span class=w> </span><span class=n>p_01</span><span class=p>,</span><span class=w> </span><span class=n>p_10</span><span class=p>,</span><span class=w> </span><span class=m>0</span><span class=p>),</span><span class=w> </span><span class=n>ncol</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>2</span><span class=p>)</span>
+
+<span class=w>  </span><span class=kr>for</span><span class=w> </span><span class=p>(</span><span class=n>i</span><span class=w> </span><span class=kr>in</span><span class=w> </span><span class=m>1</span><span class=o>:</span><span class=m>100</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
+<span class=w>    </span><span class=n>predList</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>as.factor</span><span class=p>(</span><span class=nf>ifelse</span><span class=p>(</span><span class=n>pred_probability</span><span class=w> </span><span class=o>&gt;=</span><span class=w> </span><span class=n>i</span><span class=o>/</span><span class=m>100</span><span class=p>,</span><span class=w> </span><span class=n>positive_class_name</span><span class=p>,</span><span class=w> </span><span class=n>negitive_class_name</span><span class=p>))</span>
+<span class=w>    </span><span class=n>tbl</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>table</span><span class=p>(</span><span class=n>predList</span><span class=p>,</span><span class=w> </span><span class=n>actual_value</span><span class=p>)</span>
+
+<span class=w>    </span><span class=c1># Classifying actual no as yes</span>
+<span class=w>    </span><span class=n>P00</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>tbl</span><span class=p>[</span><span class=m>1</span><span class=p>]</span><span class=o>/</span><span class=p>(</span><span class=n>tbl</span><span class=p>[</span><span class=m>1</span><span class=p>]</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=n>tbl</span><span class=p>[</span><span class=m>2</span><span class=p>])</span>
+
+<span class=w>    </span><span class=n>P01</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>tbl</span><span class=p>[</span><span class=m>2</span><span class=p>]</span><span class=o>/</span><span class=p>(</span><span class=n>tbl</span><span class=p>[</span><span class=m>1</span><span class=p>]</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=n>tbl</span><span class=p>[</span><span class=m>2</span><span class=p>])</span>
+
+<span class=w>    </span><span class=c1># Classifying actual yes as no</span>
+<span class=w>    </span><span class=n>P10</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>tbl</span><span class=p>[</span><span class=m>3</span><span class=p>]</span><span class=o>/</span><span class=p>(</span><span class=n>tbl</span><span class=p>[</span><span class=m>3</span><span class=p>]</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=n>tbl</span><span class=p>[</span><span class=m>4</span><span class=p>])</span>
+
+<span class=w>    </span><span class=n>P11</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>tbl</span><span class=p>[</span><span class=m>4</span><span class=p>]</span><span class=o>/</span><span class=p>(</span><span class=n>tbl</span><span class=p>[</span><span class=m>3</span><span class=p>]</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=n>tbl</span><span class=p>[</span><span class=m>4</span><span class=p>])</span>
+
+<span class=w>    </span><span class=n>cutoff</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>i</span><span class=o>/</span><span class=m>100</span>
+<span class=w>    </span><span class=n>msclaf_cost</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>P10</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=n>costs</span><span class=p>[</span><span class=m>3</span><span class=p>]</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=n>P01</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=n>costs</span><span class=p>[</span><span class=m>2</span><span class=p>]</span>
+<span class=w>    </span><span class=n>youden_index</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=n>P11</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=n>P00</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>-</span><span class=w> </span><span class=m>1</span>
+<span class=w>  </span><span class=p>}</span>
+<span class=w>  </span><span class=n>df.cost.table</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>as.data.frame</span><span class=p>(</span><span class=nf>cbind</span><span class=p>(</span><span class=n>cutoff</span><span class=p>,</span><span class=w> </span><span class=n>P10</span><span class=p>,</span><span class=w> </span><span class=n>P01</span><span class=p>,</span><span class=w> </span><span class=n>P11</span><span class=p>,</span><span class=w> </span><span class=n>P00</span><span class=p>,</span><span class=w> </span><span class=n>youden_index</span><span class=p>,</span><span class=w> </span><span class=n>msclaf_cost</span><span class=p>))</span>
+<span class=w>  </span><span class=nf>cat</span><span class=p>(</span><span class=nf>paste0</span><span class=p>(</span><span class=s>&#39;The ideal cutoff for:\n Yodens Index approach : &#39;</span><span class=p>,</span><span class=w> </span><span class=nf>which.max</span><span class=p>(</span><span class=n>df.cost.table</span><span class=o>$</span><span class=n>youden_index</span><span class=p>)</span><span class=o>/</span><span class=m>100</span><span class=p>))</span>
+<span class=w>  </span><span class=nf>cat</span><span class=p>(</span><span class=nf>paste0</span><span class=p>(</span><span class=s>&#39;\n Cost based approach : &#39;</span><span class=p>,</span><span class=w> </span><span class=nf>which.min</span><span class=p>(</span><span class=n>df.cost.table</span><span class=o>$</span><span class=n>msclaf_cost</span><span class=p>)</span><span class=o>/</span><span class=m>100</span><span class=p>))</span>
+<span class=w>  </span><span class=nf>ggplot</span><span class=p>(</span><span class=n>df.cost.table</span><span class=p>,</span><span class=w> </span><span class=nf>aes</span><span class=p>(</span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>cutoff</span><span class=p>))</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>geom_line</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>y</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>youden_index</span><span class=p>,</span><span class=w> </span><span class=n>color</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;yoden index&#39;</span><span class=p>))</span><span class=w> </span><span class=o>+</span>
+<span class=w>    </span><span class=nf>geom_line</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>y</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>msclaf_cost</span><span class=p>,</span><span class=w> </span><span class=n>color</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;misclassification cost&#39;</span><span class=p>))</span><span class=o>+</span>
+<span class=w>    </span><span class=nf>labs</span><span class=p>(</span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Cutoff p value&#39;</span><span class=p>,</span><span class=w> </span><span class=n>y</span><span class=o>=</span><span class=s>&#39;Index&#39;</span><span class=p>,</span><span class=w>  </span><span class=n>title</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Cutoff p value&#39;</span><span class=p>,</span><span class=n>fill</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Plot&#39;</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>      </span><span class=nf>theme_minimal</span><span class=p>()</span><span class=o>+</span><span class=w> </span><span class=nf>theme</span><span class=p>(</span><span class=n>legend.position</span><span class=o>=</span><span class=s>&quot;bottom&quot;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=nf>find_p_cutoff</span><span class=p>(</span><span class=n>actual_value</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>dfTrain</span><span class=o>$</span><span class=n>Survived</span><span class=p>,</span><span class=w> </span><span class=n>positive_class_name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;I&#39;</span><span class=p>,</span><span class=w> </span><span class=n>negitive_class_name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;O&#39;</span><span class=p>,</span><span class=w> </span><span class=n>pred_probability</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>dfTrain</span><span class=o>$</span><span class=n>pred_probability_I</span><span class=p>,</span><span class=w> </span><span class=n>p_01</span><span class=w> </span><span class=o>=</span><span class=m>3</span><span class=p>,</span><span class=w> </span><span class=n>p_10</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>1</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>## The ideal cutoff for:
+##  Yodens Index approach : 0.38
+##  Cost based approach : 0.27
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/finding%20index-1.png><!-- --></p> <p>I am going to consider a cut-off of 0.38.</p> <p>Final training model metrics: </p> <div class=highlight><pre><span></span><code><span class=n>caretPredictedProb</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>predict</span><span class=p>(</span><span class=n>object</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>model</span><span class=p>,</span><span class=w> </span><span class=n>dfTrain</span><span class=p>,</span><span class=w> </span><span class=n>type</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;prob&#39;</span><span class=p>)</span>
+<span class=n>caretPredictedClass</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>as.factor</span><span class=p>(</span><span class=nf>ifelse</span><span class=p>(</span><span class=n>caretPredictedProb</span><span class=o>$</span><span class=n>I</span><span class=w> </span><span class=o>&gt;=</span><span class=w> </span><span class=m>0.38</span><span class=p>,</span><span class=w> </span><span class=s>&#39;I&#39;</span><span class=p>,</span><span class=w> </span><span class=s>&#39;O&#39;</span><span class=p>))</span>
+<span class=nf>confusionMatrix</span><span class=p>(</span><span class=n>caretPredictedClass</span><span class=p>,</span><span class=n>dfTrain</span><span class=o>$</span><span class=n>Survived</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction   I   O
+##          I 214  79
+##          O  58 361
+##                                           
+##                Accuracy : 0.8076          
+##                  95% CI : (0.7767, 0.8359)
+##     No Information Rate : 0.618           
+##     P-Value [Acc &gt; NIR] : &lt;2e-16          
+##                                           
+##                   Kappa : 0.5984          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 0.0875          
+##                                           
+##             Sensitivity : 0.7868          
+##             Specificity : 0.8205          
+##          Pos Pred Value : 0.7304          
+##          Neg Pred Value : 0.8616          
+##              Prevalence : 0.3820          
+##          Detection Rate : 0.3006          
+##    Detection Prevalence : 0.4115          
+##       Balanced Accuracy : 0.8036          
+##                                           
+##        &#39;Positive&#39; Class : I               
+## 
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=c1># AUC, ROC and other metrics</span>
+<span class=n>summary_set</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>data.frame</span><span class=p>(</span><span class=n>obs</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>dfTrain</span><span class=o>$</span><span class=n>Survived</span><span class=p>,</span><span class=w> </span><span class=n>pred</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>caretPredictedClass</span><span class=p>,</span><span class=w> </span><span class=n>I</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>caretPredictedProb</span><span class=o>$</span><span class=n>I</span><span class=p>)</span>
+<span class=nf>twoClassSummary</span><span class=p>(</span><span class=n>summary_set</span><span class=p>,</span><span class=w> </span><span class=n>lev</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>levels</span><span class=p>(</span><span class=n>summary_set</span><span class=o>$</span><span class=n>obs</span><span class=p>))</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>##       ROC      Sens      Spec 
+## 0.8538854 0.7867647 0.8204545
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=nf>prSummary</span><span class=p>(</span><span class=n>summary_set</span><span class=p>,</span><span class=w> </span><span class=n>lev</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nf>levels</span><span class=p>(</span><span class=n>summary_set</span><span class=o>$</span><span class=n>obs</span><span class=p>))</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>##       AUC Precision    Recall         F 
+## 0.8168413 0.7303754 0.7867647 0.7575221
+</code></pre></div> <h2 id=validating-the-model-on-test-data-set>Validating the model on test data set<a class=headerlink href=#validating-the-model-on-test-data-set title="Permanent link">&para;</a></h2> <h3 id=confusion-matrixspecificity-and-sensitivity-metrics>Confusion matrix/specificity and sensitivity metrics<a class=headerlink href=#confusion-matrixspecificity-and-sensitivity-metrics title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction  I  O
+##          I 45 18
+##          O 23 91
+##                                           
+##                Accuracy : 0.7684          
+##                  95% CI : (0.6992, 0.8284)
+##     No Information Rate : 0.6158          
+##     P-Value [Acc &gt; NIR] : 1.153e-05       
+##                                           
+##                   Kappa : 0.5036          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 0.5322          
+##                                           
+##             Sensitivity : 0.6618          
+##             Specificity : 0.8349          
+##          Pos Pred Value : 0.7143          
+##          Neg Pred Value : 0.7982          
+##              Prevalence : 0.3842          
+##          Detection Rate : 0.2542          
+##    Detection Prevalence : 0.3559          
+##       Balanced Accuracy : 0.7483          
+##                                           
+##        &#39;Positive&#39; Class : I               
+## 
+</code></pre></div> <h3 id=roc-and-lift-charts>ROC and lift charts<a class=headerlink href=#roc-and-lift-charts title="Permanent link">&para;</a></h3> <p><img alt src=../../../R/logistic-regression_files/figure-html/roc-test-1.png><!-- --></p> <div class=highlight><pre><span></span><code><span class=n>roc_obj</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>performance</span><span class=p>(</span><span class=n>lgPredObj</span><span class=p>,</span><span class=w> </span><span class=s>&quot;lift&quot;</span><span class=p>,</span><span class=w> </span><span class=s>&quot;rpp&quot;</span><span class=p>)</span>
+<span class=nf>plot</span><span class=p>(</span><span class=n>roc_obj</span><span class=p>,</span><span class=w> </span><span class=n>main</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&quot;Lift chart (test data)&quot;</span><span class=p>,</span><span class=w> </span><span class=n>col</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>2</span><span class=p>,</span><span class=w> </span><span class=n>lwd</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>2</span><span class=p>)</span>
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/lift-chart-1.png><!-- --></p> <div class=highlight><pre><span></span><code><span class=nf>trellis.par.set</span><span class=p>(</span><span class=nf>caretTheme</span><span class=p>())</span>
+<span class=n>gain_obj</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nf>lift</span><span class=p>(</span><span class=n>Survived</span><span class=w> </span><span class=o>~</span><span class=w> </span><span class=n>predictions</span><span class=p>,</span><span class=w> </span><span class=n>data</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>dfTrain</span><span class=p>)</span>
+<span class=nf>ggplot</span><span class=p>(</span><span class=n>gain_obj</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>  </span><span class=nf>labs</span><span class=p>(</span><span class=n>title</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#39;Gain Chart&#39;</span><span class=p>)</span><span class=w> </span><span class=o>+</span>
+<span class=w>  </span><span class=nf>theme_minimal</span><span class=p>()</span>
+</code></pre></div> <p><img alt src=../../../R/logistic-regression_files/figure-html/gain%20plot-1.png><!-- --></p> <p>The accuracy metrics on the test set are as follows:</p> <div class=highlight><pre><span></span><code>##       ROC      Sens      Spec 
+## 0.8727739 0.6617647 0.8348624
+</code></pre></div> <div class=highlight><pre><span></span><code>##       AUC Precision    Recall         F 
+## 0.8114187 0.7142857 0.6617647 0.6870229
+</code></pre></div> <p>As our accuracy on the test set is similar to the accuracy on the training set and as all model validation checks are fine, I conclude that we can use Logistic regression to analyse what sort of people were likely to survive the titanic. </p> <p>Summary:<br> Age, Passenger class and number of siblings are important metrics for the survival in titanic. Females, young people, people in higher class(proxy for rich people) and siblings had a higher chance of survival. </p> </article> </div> </div> <a href=# class="md-top md-icon" data-md-component=top data-md-state=hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg> Back to top </a> </main> <footer class=md-footer> <nav class="md-footer__inner md-grid" aria-label=Footer> <a href=../Handling-Imbalanced-classes/ class="md-footer__link md-footer__link--prev" aria-label="Previous: Handling Imbalanced Classes" rel=prev> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </div> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Previous </span> Handling Imbalanced Classes </div> </div> </a> <a href=../CHAID/ class="md-footer__link md-footer__link--next" aria-label="Next: CHAID Decision Trees (R)" rel=next> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Next </span> CHAID Decision Trees (R) </div> </div> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> <img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by/4.0/88x31.png> </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> <div class=md-footer-contact style="text-align: center; margin: 1rem 0;"> <a href=../../../contact title="Contact Me" style="display: inline-flex; align-items: center; gap: 0.5rem; color: rgba(255, 255, 255, 0.7); text-decoration: none;"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24" style="width: 1.2rem; height: 1.2rem; fill: rgba(255, 255, 255, 0.7);"> <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/> </svg> <span>Contact Me</span> </a> </div> <div class=md-footer-social> <a href=https://github.com/HarshaAsh target=_blank rel=noopener title=github.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </a> <a href=https://www.linkedin.com/in/sri-harsha-achyuthuni/ target=_blank rel=noopener title=www.linkedin.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg> </a> <a href=https://www.instagram.com/harshaash_com/ target=_blank rel=noopener title=www.instagram.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> </a> <a href=https://www.facebook.com/sri.harsha.achyuthuni/ target=_blank rel=noopener title=www.facebook.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg> </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "../../..", "features": ["content.code.annotate", "content.tabs.link", "header.autohide", "navigation.sections", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "search": "../../../assets/javascripts/workers/search.709b4209.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": null}</script> <script src=../../../assets/javascripts/bundle.56838a2c.min.js></script> </body> </html>
