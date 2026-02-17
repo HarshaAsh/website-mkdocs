@@ -1026,8 +1026,27 @@ function renderPostsLearn(filterTopic, showAll = false) {
   const shouldLimit = !showAll && filtered.length > maxPosts;
   const displayPosts = shouldLimit ? filtered.slice(0, maxPosts) : filtered;
 
-  let html = displayPosts.map(p => `
-    <a href="${p.url}" class="card" style="position: relative;">
+  // Detect current language from URL path
+  const currentPath = window.location.pathname;
+  let langPrefix = '';
+  if (currentPath.startsWith('/hi/')) {
+    langPrefix = '/hi';
+  } else if (currentPath.startsWith('/te/')) {
+    langPrefix = '/te';
+  }
+
+  let html = displayPosts.map(p => {
+    // Adjust URL for language
+    let blogUrl = p.url;
+    if (langPrefix && blogUrl) {
+      // If URL starts with /, add language prefix
+      if (blogUrl.startsWith('/')) {
+        blogUrl = langPrefix + blogUrl;
+      }
+    }
+
+    return `
+    <a href="${blogUrl}" class="card" style="position: relative;">
       <div class="card-header">
         <h3>${p.title}</h3>
       </div>
@@ -1037,7 +1056,8 @@ function renderPostsLearn(filterTopic, showAll = false) {
       </div>
       <span class="stretched-link"></span>
     </a>
-  `).join('');
+    `;
+  }).join('');
 
   if (shouldLimit) {
     html += `

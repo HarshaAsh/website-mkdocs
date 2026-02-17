@@ -64,9 +64,31 @@ function renderBlogPosts(filter) {
   // Show only first 6 posts
   filtered = filtered.slice(0, 6);
 
+  // Detect current language from URL path
+  const currentPath = window.location.pathname;
+  let langPrefix = '';
+  if (currentPath.startsWith('/hi/')) {
+    langPrefix = '/hi';
+  } else if (currentPath.startsWith('/te/')) {
+    langPrefix = '/te';
+  }
+
   let html = '';
   filtered.forEach(post => {
     const topics = post.topics ? post.topics.split('|').map(t => t.trim()) : [];
+    
+    // Convert absolute URL to relative path and add language prefix
+    let blogUrl = post.url;
+    if (blogUrl && langPrefix) {
+      // Extract path from full URL (e.g., "https://www.harshaash.com/Python/CrewAI" -> "/Python/CrewAI")
+      const urlPath = blogUrl.replace('https://www.harshaash.com', '');
+      // Add language prefix
+      blogUrl = langPrefix + urlPath;
+    } else if (blogUrl) {
+      // For English, just use relative path
+      blogUrl = blogUrl.replace('https://www.harshaash.com', '');
+    }
+    
     html += `
       <div class="blog-card">
         <div class="blog-card-header">
@@ -77,7 +99,7 @@ function renderBlogPosts(filter) {
           <div class="blog-tags">
             ${topics.slice(0, 3).map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
           </div>
-          <a href="${post.url}" style="margin-top: 1rem; color: #4051b5; text-decoration: none; font-weight: 600;">Read More →</a>
+          <a href="${blogUrl}" style="margin-top: 1rem; color: #4051b5; text-decoration: none; font-weight: 600;">Read More →</a>
         </div>
       </div>
     `;
