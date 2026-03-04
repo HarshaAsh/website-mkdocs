@@ -49,7 +49,7 @@ function loadPostsFromCSV(csvPath) {
     .catch(err => console.error('Error loading posts:', err));
 }
 
-function renderBlogPosts(filter) {
+function renderBlogPosts(filter, showAll = false) {
   const container = document.getElementById('blog-cards-home');
   if (!container) return;
   
@@ -61,8 +61,9 @@ function renderBlogPosts(filter) {
     );
   }
 
-  // Show only first 6 posts
-  filtered = filtered.slice(0, 6);
+  const maxPosts = 8;
+  const shouldLimit = !showAll && filtered.length > maxPosts;
+  const displayPosts = shouldLimit ? filtered.slice(0, maxPosts) : filtered;
 
   // Detect current language from URL path
   const currentPath = window.location.pathname;
@@ -74,7 +75,7 @@ function renderBlogPosts(filter) {
   }
 
   let html = '';
-  filtered.forEach(post => {
+  displayPosts.forEach(post => {
     const topics = post.topics ? post.topics.split('|').map(t => t.trim()) : [];
     
     // Convert absolute URL to relative path and add language prefix
@@ -99,13 +100,40 @@ function renderBlogPosts(filter) {
           <div class="blog-tags">
             ${topics.slice(0, 3).map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
           </div>
-          <a href="${blogUrl}" style="margin-top: 1rem; color: #4051b5; text-decoration: none; font-weight: 600;">Read More →</a>
+          <a href="${blogUrl}" class="blog-read-more">Read More →</a>
         </div>
       </div>
     `;
   });
 
-  container.innerHTML = html || '<p style="grid-column: 1/-1; text-align: center;">No posts found for this category.</p>';
+  // Add "View All Posts" card if there are more posts
+  if (shouldLimit) {
+    html += `
+      <div class="blog-card view-all-posts-card" onclick="viewAllPosts()">
+        <div class="view-all-posts-content">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="view-all-posts-icon">
+            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+          </svg>
+          <h3>View All Posts</h3>
+          <p>Click to see all ${filtered.length} blog posts</p>
+        </div>
+      </div>
+    `;
+  }
+
+  container.innerHTML = html || '<p class="blog-empty">No posts found for this category.</p>';
+
+  // Hide or show the "View All Blog Posts" button
+  const viewAllLink = document.querySelector('.view-all-link');
+  if (viewAllLink) {
+    viewAllLink.style.display = showAll ? 'none' : 'block';
+  }
+}
+
+function viewAllPosts() {
+  const activeFilter = document.querySelector('#blog-filters-home .active');
+  const filter = activeFilter ? activeFilter.dataset.topic : 'All';
+  renderBlogPosts(filter, true);
 }
 
 function setupFilterButtons() {
