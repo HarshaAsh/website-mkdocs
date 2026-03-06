@@ -98,6 +98,7 @@ body {
   color: var(--color-text);
   background: var(--color-surface);
   font-size: var(--font-size-body);
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -347,6 +348,7 @@ button {
 .featured-projects-container {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .featured-projects-header {
@@ -373,7 +375,7 @@ button {
 
 .impact-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-4);
 }
 
@@ -1057,16 +1059,21 @@ button {
   }
 
   .pub-left {
+    flex: 1 1 100%;
+    max-width: 100%;
     padding-right: 0;
     border-right: 0;
     border-bottom: 1px solid #e2e8f0;
     padding-bottom: 40px;
-    min-width: 100%;
+    min-width: 0;
   }
 
   .pub-right {
+    flex: 1 1 100%;
+    max-width: 100%;
     padding-left: 0;
     width: 100%;
+    min-width: 0;
   }
 
   .pub-title {
@@ -1126,8 +1133,8 @@ button {
 
 .marquee .marquee__content:last-child {
   position: absolute;
+  top: 0;
   left: 0;
-  transform: translateY(-50%);
   animation: scroll-b var(--speed) linear infinite;
 }
 
@@ -1224,8 +1231,21 @@ button {
 .blog-section,
 .publications-section,
 .contact-section {
-  min-height: 100vh;
   padding: clamp(48px, 7vh, 80px) clamp(20px, 4vw, 48px);
+}
+
+.hero-section {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.about-snapshot,
+.featured-projects,
+.course-section,
+.blog-section,
+.publications-section,
+.contact-section {
+  min-height: auto;
 }
 
 .hero-section h1,
