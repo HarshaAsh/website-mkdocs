@@ -243,6 +243,11 @@ button {
   .cta-button {
     width: 100%;
   }
+  
+  /* Reduce particles opacity on mobile for better performance */
+  .particles-hero {
+    opacity: 0.6;
+  }
 }
 
 /* ===== ABOUT SNAPSHOT SECTION ===== */
@@ -1423,6 +1428,7 @@ button {
   .blog-section,
   .publications-section,
   .contact-section {
-    min-height: auto;
+    height: auto;
+    min-height: 100vh;
   }
 }
