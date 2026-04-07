@@ -1,0 +1,743 @@
+/* ============================================================
+   Shared CSS for Learn page (learn.md, learn.hi.md, learn.te.md)
+   Alternating light / dark sections, each ≥ 100vh tall.
+   ============================================================ */
+
+/* NOTE: global * and body resets intentionally omitted —
+   Material theme sets these sitewide; overriding here would
+   bleed into every blog post and other pages. */
+
+/* ── Hero Section (Light) ──────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero .hero-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.hero-content .subtitle {
+  font-size: 1.4rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero-content .instructor {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.hero-content .credentials {
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: #4051b5;
+  color: white !important;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #1e293b;
+  color: white !important;
+}
+
+button[type="submit"].btn-primary:hover {
+  background: #1e293b !important;
+  color: white !important;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #4051b5;
+  padding: 1rem 2rem;
+  border: 2px solid #4051b5;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: #4051b5;
+  color: white !important;
+}
+
+.hero-image {
+  text-align: center;
+}
+
+.hero-image img {
+  width: 100%;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* ── Course Details Section (Dark) ────────────────────────── */
+.course-details {
+  padding: 4rem 2rem;
+  background: #0f172a;
+  min-height: 100vh;
+}
+
+.course-details .section-title {
+  color: #f1f5f9;
+}
+
+.course-details .detail-section h3 {
+  color: #e2e8f0;
+}
+
+.course-details .detail-section p {
+  color: #94a3b8;
+}
+
+.course-details .highlight-box {
+  background: #1e293b;
+  border-left-color: #818cf8;
+}
+
+.course-details .highlight-box h4 {
+  color: #e2e8f0;
+}
+
+.course-details .highlight-box li {
+  color: #94a3b8;
+}
+
+.course-details .module-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.course-details .module-card:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.course-details .module-card h4 {
+  color: #e2e8f0;
+}
+
+.course-details .module-card p {
+  color: #94a3b8;
+}
+
+/* Shared containers & typography */
+.details-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 3rem;
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.detail-section {
+  margin-bottom: 3rem;
+}
+
+.detail-section h3 {
+  font-size: 1.8rem;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.detail-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.highlight-box {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid #4051b5;
+  margin: 2rem 0;
+}
+
+.highlight-box h4 {
+  color: #0f172a;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.highlight-box ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.highlight-box li {
+  margin-bottom: 0.5rem;
+  color: #64748b;
+}
+
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.module-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.module-card:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.module-card h4 {
+  color: #0f172a;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.module-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.case-study {
+  background: #fef3c7;
+  border-left: 3px solid #f59e0b;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
+  color: #92400e;
+}
+
+.case-study:before {
+  content: "📊 ";
+  font-weight: bold;
+}
+
+/* ── Course Features Section (Light) ──────────────────────── */
+.course-features {
+  background: #f8fafc;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.promise-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.feature-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.feature h3 {
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.feature p {
+  color: #64748b;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ── Blog Section (Dark) — scoped to learn page ──────────── */
+.hero ~ .blog-section,
+section.blog-section.course-blog {
+  padding: 4rem 2rem;
+  background: #0f172a;
+  min-height: 100vh;
+}
+
+.blog-section .section-title {
+  color: #f1f5f9;
+}
+
+.blog-section .blog-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.blog-section .blog-card:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.blog-section .blog-card h3 {
+  color: #e2e8f0;
+}
+
+.blog-section .blog-card p {
+  color: #94a3b8;
+}
+
+.blog-section .blog-card a {
+  color: #818cf8;
+}
+
+.blog-section .filter-button {
+  border-color: #818cf8;
+  color: #818cf8;
+}
+
+.blog-section .filter-button:hover,
+.blog-section .filter-button.active {
+  background: #818cf8;
+  color: white;
+}
+
+.blog-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 0.5rem 1rem;
+  border: 2px solid #4051b5;
+  background: transparent;
+  color: #4051b5;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  background: #4051b5;
+  color: white;
+}
+
+.blog-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+}
+
+.blog-card {
+  flex: 0 0 300px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease;
+  scroll-snap-align: start;
+}
+
+.blog-card:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.blog-card h3 {
+  color: #0f172a;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.blog-card p {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.blog-card a {
+  color: #4051b5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.view-all {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.view-all .btn-primary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #4051b5;
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.view-all .btn-primary:hover {
+  background: #1e293b;
+}
+
+/* ── Pricing Section (Light) ──────────────────────────────── */
+.pricing-section {
+  background: #f8fafc;
+  padding: 4rem 2rem;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.pricing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.pricing-title {
+  font-size: 3rem;
+  color: #0f172a;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.pricing-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+.pricing-card:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.pricing-card.popular {
+  border: 2px solid #4051b5;
+  transform: scale(1.05);
+}
+
+.pricing-card.popular::before {
+  content: "Most Popular";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4051b5;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.pricing-card h3 {
+  color: #0f172a;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 2.5rem;
+  color: #4051b5;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.discount {
+  color: #10b981;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.pricing-features {
+  list-style: none;
+  text-align: left;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.pricing-features li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.pricing-features li:before {
+  content: "✓";
+  color: #10b981;
+  font-weight: bold;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* ── Enroll Section (Dark) ────────────────────────────────── */
+.enroll-section {
+  background: #0f172a;
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.enroll-section .enroll-container {
+  width: 100%;
+}
+
+.enroll-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.enroll-title {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.enroll-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+}
+
+/* ── Marquee / Brand Wall ─────────────────────────────────── */
+.brand-wall {
+  background: white;
+  padding: 3rem 2rem;
+  margin-top: 1rem;
+}
+
+.brand-wall h2 {
+  text-align: center;
+  color: #0f172a;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.marquee {
+  --gap: clamp(1rem, 5vw, 2rem);
+  --speed: 40s;
+  position: relative;
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+  margin-top: 1.5rem;
+  overflow: hidden;
+  user-select: none;
+}
+
+.marquee__content {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  min-width: max-content;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.marquee__content li {
+  list-style: none;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.marquee__content img {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
+
+.marquee .marquee__content:first-child {
+  animation: scroll-a var(--speed) linear infinite;
+}
+
+.marquee .marquee__content:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: scroll-b var(--speed) linear infinite;
+}
+
+@keyframes scroll-a {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-100% - var(--gap))); }
+}
+
+@keyframes scroll-b {
+  from { transform: translateX(calc(100% + var(--gap))); }
+  to   { transform: translateX(0); }
+}
+
+.marquee:focus-within .marquee__content,
+.marquee:hover .marquee__content {
+  animation-play-state: paused;
+}
+
+/* ── Dropdown ─────────────────────────────────────────────── */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.dropdown-menu .dropdown-item {
+  color: #4051b5;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #f8fafc;
+}
+
+.dropdown-menu .dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero .hero-container {
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-content,
+  .hero-image {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-image {
+    order: 1;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}

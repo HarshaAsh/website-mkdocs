@@ -91,7 +91,7 @@ function renderBlogPosts(filter, showAll = false) {
     }
     
     html += `
-      <div class="blog-card">
+      <a href="${blogUrl}" class="blog-card">
         <div class="blog-card-header">
           <h3>${post.title}</h3>
         </div>
@@ -100,9 +100,8 @@ function renderBlogPosts(filter, showAll = false) {
           <div class="blog-tags">
             ${topics.slice(0, 3).map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
           </div>
-          <a href="${blogUrl}" class="blog-read-more">Read More →</a>
         </div>
-      </div>
+      </a>
     `;
   });
 
