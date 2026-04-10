@@ -647,7 +647,10 @@ section.blog-section.course-blog {
 .marquee .marquee__content:last-child {
   position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
+  height: fit-content;
+  margin-block: auto;
   animation: scroll-b var(--speed) linear infinite;
 }
 
