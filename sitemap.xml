@@ -489,6 +489,14 @@
         <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/inventory_optimization_eoq_ortools/"/>
     </url>
     <url>
+        <loc>https://www.harshaash.com/Python/probability_intuition/</loc>
+        <lastmod>2026-04-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/probability_intuition/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/probability_intuition/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/probability_intuition/"/>
+    </url>
+    <url>
         <loc>https://www.harshaash.com/Python/prompt_engineering_techniques/</loc>
         <lastmod>2026-04-10</lastmod>
         <changefreq>daily</changefreq>
@@ -1233,6 +1241,14 @@
         <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/inventory_optimization_eoq_ortools/"/>
     </url>
     <url>
+        <loc>https://www.harshaash.com/hi/Python/probability_intuition/</loc>
+        <lastmod>2026-04-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/probability_intuition/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/probability_intuition/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/probability_intuition/"/>
+    </url>
+    <url>
         <loc>https://www.harshaash.com/hi/Python/prompt_engineering_techniques/</loc>
         <lastmod>2026-04-10</lastmod>
         <changefreq>daily</changefreq>
@@ -1975,6 +1991,14 @@
         <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/inventory_optimization_eoq_ortools/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/inventory_optimization_eoq_ortools/"/>
         <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/inventory_optimization_eoq_ortools/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Python/probability_intuition/</loc>
+        <lastmod>2026-04-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Python/probability_intuition/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Python/probability_intuition/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Python/probability_intuition/"/>
     </url>
     <url>
         <loc>https://www.harshaash.com/te/Python/prompt_engineering_techniques/</loc>
