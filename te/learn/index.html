@@ -183,7 +183,8 @@
     var form = document.getElementById('enroll-form');
     if (!form) return;
 
-    form.addEventListener('submit', function () {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
       var select = document.getElementById('course-selection');
       var messageField = form.querySelector('[name="message"]');
       if (select && messageField) {
@@ -193,6 +194,16 @@
           messageField.value = prefix + messageField.value;
         }
       }
+      var data = new FormData(form);
+      var params = new URLSearchParams();
+      data.forEach(function(val, key) { params.append(key, val); });
+      fetch('https://script.google.com/macros/s/AKfycbyu_AUXh7ncz2G-uId3msGemXCW1KGAlDKeqJAxwSU3NPNMBmmCZ77M_pZ11grERHNW0g/exec', {
+        method: 'POST',
+        body: params,
+        mode: 'no-cors'
+      }).finally(function() {
+        form.submit();
+      });
     });
   });
 </script> <div class=giscus></div> <script src=https://giscus.app/client.js data-repo=HarshaAsh/website-mkdocs data-repo-id="MDEwOlJlcG9zaXRvcnkzOTg4MjYzNjk=" data-category=General data-category-id=DIC_kwDOF8Wbgc4C2jiA data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=te crossorigin=anonymous async>
