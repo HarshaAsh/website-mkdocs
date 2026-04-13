@@ -332,20 +332,10 @@
       var googleRequest = withTimeout(fetch('https://script.google.com/macros/s/AKfycbzcnjI0oL_wLbZPbXnbqL1fty9deKRxodFI11vTaL0E243oc7ZHqYk6U_2ULnplEmyENg/exec', {
         method: 'POST',
         body: googleParams,
-        mode: 'cors'
+        mode: 'no-cors'
       }), 12000);
 
-      googleRequest.then(function(response) {
-        if (!response || !response.ok) {
-          throw new Error('non-2xx response');
-        }
-        return response.json().catch(function() {
-          return { ok: true };
-        });
-      }).then(function(payload) {
-        if (payload && payload.ok === false) {
-          throw new Error(payload.error || 'backend rejected');
-        }
+      googleRequest.then(function() {
         window.location.href = '/contact-success';
       }).catch(function() {
         submitBtn.disabled = false;
