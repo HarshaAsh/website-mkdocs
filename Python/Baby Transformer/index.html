@@ -1,0 +1,1300 @@
+<!doctype html><html lang=en class=no-js> <head><script>
+      (function () {
+        var adsLoaded = false;
+
+        function loadAds() {
+          if (adsLoaded) return;
+          adsLoaded = true;
+
+          var ads = document.createElement("script");
+          ads.async = true;
+          ads.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8786690539845043";
+          ads.crossOrigin = "anonymous";
+          document.head.appendChild(ads);
+
+          var amp = document.createElement("script");
+          amp.async = true;
+          amp.setAttribute("custom-element", "amp-auto-ads");
+          amp.src = "https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js";
+          document.head.appendChild(amp);
+
+          var autoAds = document.createElement("amp-auto-ads");
+          autoAds.setAttribute("type", "adsense");
+          autoAds.setAttribute("data-ad-client", "ca-pub-8786690539845043");
+          document.body.appendChild(autoAds);
+        }
+
+        function onFirstInteraction() {
+          loadAds();
+          removeListeners();
+        }
+
+        function removeListeners() {
+          window.removeEventListener("scroll", onFirstInteraction, { passive: true });
+          window.removeEventListener("mousemove", onFirstInteraction, { passive: true });
+          window.removeEventListener("touchstart", onFirstInteraction, { passive: true });
+          window.removeEventListener("keydown", onFirstInteraction, { passive: true });
+        }
+
+        window.addEventListener("scroll", onFirstInteraction, { passive: true });
+        window.addEventListener("mousemove", onFirstInteraction, { passive: true });
+        window.addEventListener("touchstart", onFirstInteraction, { passive: true });
+        window.addEventListener("keydown", onFirstInteraction, { passive: true });
+
+        window.addEventListener("load", function () {
+          setTimeout(loadAds, 5000);
+        }, { once: true });
+      })();
+    </script><script>
+      (function () {
+        function deferThirdParties() {
+          var optimize = document.createElement("script");
+          optimize.src = "https://www.googleoptimize.com/optimize.js?id=OPT-M98W6LW";
+          optimize.async = true;
+          document.head.appendChild(optimize);
+
+          window._mfq = window._mfq || [];
+          var mf = document.createElement("script");
+          mf.type = "text/javascript";
+          mf.defer = true;
+          mf.src = "//cdn.mouseflow.com/projects/7b4494c9-7974-49f0-9777-d14450db37e6.js";
+          document.head.appendChild(mf);
+        }
+
+        if (document.readyState === "complete") {
+          deferThirdParties();
+        } else {
+          window.addEventListener("load", deferThirdParties, { once: true });
+        }
+      })();
+    </script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Harsha's notes on data science"><meta name=author content="Harsha Achyuthuni"><link href=https://www.harshaash.com/Python/Baby%20Transformer/ rel=canonical><link rel=icon href=../../assets/images/logo.jpg><meta name=generator content="mkdocs-1.6.1, mkdocs-material-7.2.4"><title>Understand GPT - Data Science with Harsha</title><link rel=preload href=../../assets/stylesheets/main.f7f47774.min.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=../../assets/stylesheets/main.f7f47774.min.css></noscript><link rel=preload href=../../assets/stylesheets/palette.3f5d1f46.min.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=../../assets/stylesheets/palette.3f5d1f46.min.css></noscript><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload as=style href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"></noscript><style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style><link rel=preload href=../../overrides/assets/stylesheets/user_defined.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=../../overrides/assets/stylesheets/user_defined.css></noscript><link rel=preload href=../../overrides/assets/stylesheets/learn-page.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=../../overrides/assets/stylesheets/learn-page.css></noscript><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-65034507-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script><script async src=https://www.google-analytics.com/analytics.js></script></head> <body dir=ltr data-md-color-scheme data-md-color-primary data-md-color-accent> <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script> <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer style="margin-bottom: 0;"></label> <div data-md-component=skip> <a href=#babygrootgpt-a-guided-walkthrough-of-the-transformer-decoder-from-scratch class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header style="background-color: navy;" data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../.. title="Data Science with Harsha" class="md-header__button md-logo" aria-label="Data Science with Harsha" data-md-component=logo> <img src=../../assets/images/logo.jpg alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Data Science with Harsha </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Understand GPT </span> </div> </div> </div> <form class=md-header__option data-md-component=palette> <input class=md-option data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme data-md-color-primary data-md-color-accent aria-hidden=true type=radio name=__palette id=__palette_1> <input class=md-option data-md-color-media data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo aria-label="Switch to dark mode" type=radio name=__palette id=__palette_2> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_1 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme data-md-color-primary data-md-color-accent aria-hidden=true type=radio name=__palette id=__palette_3> <input class=md-option data-md-color-media data-md-color-scheme=slate data-md-color-primary=red data-md-color-accent=red aria-label="Switch to light mode" type=radio name=__palette id=__palette_4> <label class="md-header__button md-icon" title="Switch to light mode" for=__palette_3 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg> </label> </form> <div class=md-header__option> <div class=md-select id=language-selector> <button class=md-header__button aria-label="Select language" id=lang-button style="font-weight: 500; font-size: 0.9rem; padding: 0.2rem 0.5rem;"> <span id=current-lang>En</span> </button> <div class=md-select__inner id=lang-dropdown style="display: none;"> <ul class=md-select__list> <li class=md-select__item> <a href=# class=md-select__link data-lang=en>English</a> </li> <li class=md-select__item> <a href=# class=md-select__link data-lang=hi>हिन्दी</a> </li> <li class=md-select__item> <a href=# class=md-select__link data-lang=te>తెలుగు</a> </li> </ul> </div> </div> </div> <script>
+      (function() {
+        const button = document.getElementById('lang-button');
+        const dropdown = document.getElementById('lang-dropdown');
+        const langLinks = document.querySelectorAll('[data-lang]');
+        const currentLangDisplay = document.getElementById('current-lang');
+        
+        // Detect current language from URL
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('/hi/')) {
+          currentLangDisplay.textContent = 'अ(A/అ)';
+        } else if (currentPath.includes('/te/')) {
+          currentLangDisplay.textContent = 'అ(A/अ)';
+        } else {
+          currentLangDisplay.textContent = 'Eng(अ/అ)'; // Default to English
+        }
+        
+        // Toggle dropdown on button click
+        button.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+          dropdown.style.display = 'none';
+        });
+        
+        // Handle language selection
+        langLinks.forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const selectedLang = this.getAttribute('data-lang');
+            const currentPath = window.location.pathname;
+            let newPath;
+            
+            if (selectedLang === 'en') {
+              // Remove /hi/ or /te/ from path
+              newPath = currentPath.replace(/\/(hi|te)\//, '/');
+            } else if (selectedLang === 'hi') {
+              // Add or replace with /hi/
+              if (currentPath.includes('/te/')) {
+                newPath = currentPath.replace('/te/', '/hi/');
+              } else if (currentPath.includes('/hi/')) {
+                newPath = currentPath;
+              } else {
+                newPath = '/hi' + currentPath;
+              }
+            } else if (selectedLang === 'te') {
+              // Add or replace with /te/
+              if (currentPath.includes('/hi/')) {
+                newPath = currentPath.replace('/hi/', '/te/');
+              } else if (currentPath.includes('/te/')) {
+                newPath = currentPath;
+              } else {
+                newPath = '/te' + currentPath;
+              }
+            }
+            
+            window.location.href = newPath;
+          });
+        });
+      })();
+    </script> <a href=../../contact title="Contact Me" class=md-header__button aria-label="Contact Me" style="display: inline-flex; align-items: center; gap: 0.3rem; white-space: nowrap;"> <span class=md-icon style="display: inline-flex;"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/></svg> </span> <span style="font-size: 0.8rem;">Contact Me</span> </a> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <nav class=md-search__options aria-label=Search> <a href=javascript:void(0) class="md-search__icon md-icon" aria-label=Share data-clipboard data-clipboard-text data-md-component=search-share tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg> </a> <button type=reset class="md-search__icon md-icon" aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </nav> <div class=md-search__suggest data-md-component=search-suggest></div> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../.. title="Data Science with Harsha" class="md-nav__button md-logo" aria-label="Data Science with Harsha" data-md-component=logo> <img src=../../assets/images/logo.jpg alt=logo> </a> Data Science with Harsha </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../.. class=md-nav__link> Home </a> </li> <li class=md-nav__item> <a href=../../resume/ class=md-nav__link> Resume </a> </li> <li class=md-nav__item> <a href=../../learn/ class=md-nav__link> Learn </a> </li> <li class=md-nav__item> <a href=../../contact/ class=md-nav__link> Contact </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5 type=checkbox id=__nav_5 checked> <label class=md-nav__link for=__nav_5> Blog <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Blog data-md-level=1> <label class=md-nav__title for=__nav_5> <span class="md-nav__icon md-icon"></span> Blog </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Others/Table_of_Contents/ class=md-nav__link> Table of Contents </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_2 type=checkbox id=__nav_5_2> <label class=md-nav__link for=__nav_5_2> Visualization <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Visualization data-md-level=2> <label class=md-nav__title for=__nav_5_2> <span class="md-nav__icon md-icon"></span> Visualization </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Vizualisation%20using%20python%20Part%201/ class=md-nav__link> Vizualizing tabular data (Python) </a> </li> <li class=md-nav__item> <a href=../Visualization%20for%20predictive%20analytics/ class=md-nav__link> Vizualising for predictive analytics (Python) </a> </li> <li class=md-nav__item> <a href=../../R/Univariate-analysis/ class=md-nav__link> Univariate Analysis (R) </a> </li> <li class=md-nav__item> <a href=../../R/multivariateAnalysis/ class=md-nav__link> Multivariate Analysis (R) </a> </li> <li class=md-nav__item> <a href=../../R/multicollinearity/ class=md-nav__link> Multicollinearity (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_3 type=checkbox id=__nav_5_3> <label class=md-nav__link for=__nav_5_3> Math basics <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Math basics" data-md-level=2> <label class=md-nav__title for=__nav_5_3> <span class="md-nav__icon md-icon"></span> Math basics </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../probability_intuition/ class=md-nav__link> Probability Intuition (Python) </a> </li> <li class=md-nav__item> <a href=../../R/Probability/ class=md-nav__link> Probability (R) </a> </li> <li class=md-nav__item> <a href=../Conditional_Probability_Interactive_Blog/ class=md-nav__link> Conditional Probability (Python) </a> </li> <li class=md-nav__item> <a href=../Statistics%20basics/ class=md-nav__link> Statistics Basics (Python) </a> </li> <li class=md-nav__item> <a href=../../R/vectors/ class=md-nav__link> Vectors (R) </a> </li> <li class=md-nav__item> <a href=../../R/matrices/ class=md-nav__link> Matrices (R) </a> </li> <li class=md-nav__item> <a href=../Call%20center%20distributions/ class=md-nav__link> Call center distributions (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_4 type=checkbox id=__nav_5_4> <label class=md-nav__link for=__nav_5_4> Hypothesis Testing <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Hypothesis Testing" data-md-level=2> <label class=md-nav__title for=__nav_5_4> <span class="md-nav__icon md-icon"></span> Hypothesis Testing </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../R/attendance_t_test/ class=md-nav__link> z-test and t-test (R) </a> </li> <li class=md-nav__item> <a href=../../R/anova/ class=md-nav__link> ANOVA Test (R) </a> </li> <li class=md-nav__item> <a href=../../R/chi-sq-goodness-of-fit/ class=md-nav__link> Chi-Square Goodness of fit (R) </a> </li> <li class=md-nav__item> <a href=../../R/chi-sq-test-of-independence/ class=md-nav__link> Chi-Square test of independence (R) </a> </li> <li class=md-nav__item> <a href=../Hypothesis_Testing_Python/ class=md-nav__link> Hypothesis testing using Python </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_5 type=checkbox id=__nav_5_5> <label class=md-nav__link for=__nav_5_5> Factor Analysis <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Factor Analysis" data-md-level=2> <label class=md-nav__title for=__nav_5_5> <span class="md-nav__icon md-icon"></span> Factor Analysis </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../R/Curse-of-Dimensionality/ class=md-nav__link> Curse of dimensionality </a> </li> <li class=md-nav__item> <a href=../../R/EFA/ class=md-nav__link> Exploratory factor analysis (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_6 type=checkbox id=__nav_5_6> <label class=md-nav__link for=__nav_5_6> Preprocessing data <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Preprocessing data" data-md-level=2> <label class=md-nav__title for=__nav_5_6> <span class="md-nav__icon md-icon"></span> Preprocessing data </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../R/KNN_Imputation/ class=md-nav__link> Null Value Imputation (R) </a> </li> <li class=md-nav__item> <a href=../Machine%20Learning%20Part%201/ class=md-nav__link> Feature engineering (Python) </a> </li> <li class=md-nav__item> <a href=../../R/Handling-Imbalanced-classes/ class=md-nav__link> Handling Imbalanced Classes </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_7 type=checkbox id=__nav_5_7> <label class=md-nav__link for=__nav_5_7> Prediction algorithms <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Prediction algorithms" data-md-level=2> <label class=md-nav__title for=__nav_5_7> <span class="md-nav__icon md-icon"></span> Prediction algorithms </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_7_1 type=checkbox id=__nav_5_7_1> <label class=md-nav__link for=__nav_5_7_1> Classification Algorithms <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Classification Algorithms" data-md-level=3> <label class=md-nav__title for=__nav_5_7_1> <span class="md-nav__icon md-icon"></span> Classification Algorithms </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../R/logistic-regression/ class=md-nav__link> Logistic Regression (R) </a> </li> <li class=md-nav__item> <a href=../../R/CHAID/ class=md-nav__link> CHAID Decision Trees (R) </a> </li> <li class=md-nav__item> <a href=../../R/CART-Classification/ class=md-nav__link> CART Classification (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_7_2 type=checkbox id=__nav_5_7_2> <label class=md-nav__link for=__nav_5_7_2> Regression Algorithms <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Regression Algorithms" data-md-level=3> <label class=md-nav__title for=__nav_5_7_2> <span class="md-nav__icon md-icon"></span> Regression Algorithms </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../R/part-and-partial-corr/ class=md-nav__link> Part and partial correlation </a> </li> <li class=md-nav__item> <a href=../../R/Linear-regression/ class=md-nav__link> Linear Regression (R) </a> </li> <li class=md-nav__item> <a href=../Linear%20regression%20usecase%20mpg%20prediction/ class=md-nav__link> Lasso and Ridge regression (Python) </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_8 type=checkbox id=__nav_5_8> <label class=md-nav__link for=__nav_5_8> Machine Learning <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Machine Learning" data-md-level=2> <label class=md-nav__title for=__nav_5_8> <span class="md-nav__icon md-icon"></span> Machine Learning </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=https://harshaachyuthuni.shinyapps.io/Machine_Learning/ class=md-nav__link> Interactive Machine Learning (RShiny) </a> </li> <li class=md-nav__item> <a href=../ML%20using%20scikit-learn/ class=md-nav__link> Multi models (Python) </a> </li> <li class=md-nav__item> <a href=../Explainable%20models%20using%20Heart%20Failure/ class=md-nav__link> Explainable ML (Python) </a> </li> <li class=md-nav__item> <a href=../Demonstrating%20online%20learning/ class=md-nav__link> Streaming Machine Learning (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_9 type=checkbox id=__nav_5_9> <label class=md-nav__link for=__nav_5_9> Time Series forecasting <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Time Series forecasting" data-md-level=2> <label class=md-nav__title for=__nav_5_9> <span class="md-nav__icon md-icon"></span> Time Series forecasting </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../R/time-series/ class=md-nav__link> Introduction to stationarity (R) </a> </li> <li class=md-nav__item> <a href=../../R/Stationarity-tests/ class=md-nav__link> Stationary Tests (R) </a> </li> <li class=md-nav__item> <a href=../../R/ARIMA/ class=md-nav__link> ARIMA in R </a> </li> <li class=md-nav__item> <a href=../ARIMA%20Forecasting/ class=md-nav__link> ARIMA in Python </a> </li> <li class=md-nav__item> <a href=../../R/Seasonal-Time-Series/ class=md-nav__link> Seasonal time series (R) </a> </li> <li class=md-nav__item> <a href=../../R/VAR-models/ class=md-nav__link> VAR Models (R) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_10 type=checkbox id=__nav_5_10 checked> <label class=md-nav__link for=__nav_5_10> Deep learning <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Deep learning" data-md-level=2> <label class=md-nav__title for=__nav_5_10> <span class="md-nav__icon md-icon"></span> Deep learning </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../ANN-1/ class=md-nav__link> Perceptron </a> </li> <li class=md-nav__item> <a href=../Backpropagation/ class=md-nav__link> Backpropagation </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> Understand GPT <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> Understand GPT </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#1-the-problem-we-are-solving class=md-nav__link> 1. The Problem We Are Solving </a> <nav class=md-nav aria-label="1. The Problem We Are Solving"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#why-use-a-toy-dataset class=md-nav__link> Why use a toy dataset? </a> </li> <li class=md-nav__item> <a href=#rnns-vs-transformer-decoders class=md-nav__link> RNNs vs Transformer Decoders </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#2-end-to-end-architecture-flow class=md-nav__link> 2. End-to-End Architecture Flow </a> <nav class=md-nav aria-label="2. End-to-End Architecture Flow"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#reading-roadmap class=md-nav__link> Reading Roadmap </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#3-how-to-read-this-guide class=md-nav__link> 3. How to Read This Guide </a> </li> <li class=md-nav__item> <a href=#part-1-data-setup class=md-nav__link> Part 1: Data Setup </a> <nav class=md-nav aria-label="Part 1: Data Setup"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#conceptual-input-output class=md-nav__link> Conceptual Input &amp; Output </a> </li> <li class=md-nav__item> <a href=#step-2-autoregressive-data-construction-and-padding class=md-nav__link> Step 2: Autoregressive Data Construction and Padding </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#part-2-model-immediate-training class=md-nav__link> Part 2: Model &amp; Immediate Training </a> <nav class=md-nav aria-label="Part 2: Model & Immediate Training"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#21-build-the-decoder-modules class=md-nav__link> 2.1: Build the Decoder Modules </a> </li> <li class=md-nav__item> <a href=#step-4-train-the-decoder-and-plot-the-loss class=md-nav__link> Step 4: Train the Decoder and Plot the Loss </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#part-3-the-interludes class=md-nav__link> Part 3: The Interludes </a> <nav class=md-nav aria-label="Part 3: The Interludes"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#31-visualising-the-embedding-matrices class=md-nav__link> 3.1 Visualising the Embedding Matrices </a> </li> <li class=md-nav__item> <a href=#32-the-positional-embedding-lookup-table class=md-nav__link> 3.2. The Positional Embedding Lookup Table </a> </li> <li class=md-nav__item> <a href=#33-constructing-the-input-matrix-mathbfh_0 class=md-nav__link> 3.3. Constructing the Input Matrix (\(\mathbf{H}_0\)) </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#part-4-self-attention-layer class=md-nav__link> Part 4: Self Attention Layer </a> <nav class=md-nav aria-label="Part 4: Self Attention Layer"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#41-generating-queries-keys-and-values-mathbfq-mathbfk-mathbfv class=md-nav__link> 4.1 Generating Queries, Keys, and Values (\(\mathbf{Q}, \mathbf{K}, \mathbf{V}\)) </a> </li> <li class=md-nav__item> <a href=#42-the-dot-product-measuring-compatibility class=md-nav__link> 4.2 The Dot Product: Measuring Compatibility </a> </li> <li class=md-nav__item> <a href=#43-the-causal-mask-and-softmax-mathbfa class=md-nav__link> 4.3. The Causal Mask and Softmax (\(\mathbf{A}\)) </a> </li> <li class=md-nav__item> <a href=#44-extracting-the-value-the-final-payload-mathbfamathbfv class=md-nav__link> 4.4. Extracting the Value: The Final Payload (\(\mathbf{A}\mathbf{V}\)) </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#part-5-tracing-the-matrix-through-the-transformer-block class=md-nav__link> Part 5. Tracing the Matrix Through the Transformer Block </a> <nav class=md-nav aria-label="Part 5. Tracing the Matrix Through the Transformer Block"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#51-the-first-residual-connection-addition class=md-nav__link> 5.1. The First Residual Connection (Addition) </a> </li> <li class=md-nav__item> <a href=#52-layer-normalisation class=md-nav__link> 5.2. Layer Normalisation </a> </li> <li class=md-nav__item> <a href=#53-visualising-the-feed-forward-network-ffn class=md-nav__link> 5.3. Visualising the Feed-Forward Network (FFN) </a> <nav class=md-nav aria-label="5.3. Visualising the Feed-Forward Network (FFN)"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#531-position-wise-processing-processing-token-by-token-in-parallel class=md-nav__link> 5.3.1. Position-wise Processing: Processing Token-by-Token (In Parallel) </a> </li> <li class=md-nav__item> <a href=#532-the-matrix-multiplication-math class=md-nav__link> 5.3.2. The Matrix Multiplication Math </a> </li> <li class=md-nav__item> <a href=#533-why-do-it-this-way class=md-nav__link> 5.3.3. Why do it this way? </a> </li> <li class=md-nav__item> <a href=#534-the-feed-forward-output class=md-nav__link> 5.3.4. The Feed-Forward Output </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#part-6-logits-probabilities-and-generation class=md-nav__link> Part 6: Logits, Probabilities, and Generation </a> <nav class=md-nav aria-label="Part 6: Logits, Probabilities, and Generation"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#61-second-residual-final-normalisation class=md-nav__link> 6.1. Second Residual &amp; Final Normalisation </a> </li> <li class=md-nav__item> <a href=#62-the-linear-prediction-head-logits class=md-nav__link> 6.2. The Linear Prediction Head (Logits) </a> </li> <li class=md-nav__item> <a href=#63-softmax-probabilities class=md-nav__link> 6.3. Softmax Probabilities </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#7-final-output-and-summary class=md-nav__link> 7. Final Output and summary </a> <nav class=md-nav aria-label="7. Final Output and summary"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#71-i-am-groot class=md-nav__link> 7.1 I am Groot </a> <nav class=md-nav aria-label="7.1 I am Groot"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#711-iteration-1-predicting-token-1 class=md-nav__link> 7.1.1 Iteration 1: Predicting Token 1 </a> </li> <li class=md-nav__item> <a href=#712-iteration-2-predicting-token-2 class=md-nav__link> 7.1.2 Iteration 2: Predicting Token 2 </a> </li> <li class=md-nav__item> <a href=#72-other-generation-examples-from-the-model class=md-nav__link> 7.2 Other Generation Examples from the Model: </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#73-summary class=md-nav__link> 7.3 Summary </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../DNN/ class=md-nav__link> Tensorflow and Keras </a> </li> <li class=md-nav__item> <a href=../Time%20series%20deep%20learning/ class=md-nav__link> Time series (python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_11 type=checkbox id=__nav_5_11> <label class=md-nav__link for=__nav_5_11> Generative AI <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Generative AI" data-md-level=2> <label class=md-nav__title for=__nav_5_11> <span class="md-nav__icon md-icon"></span> Generative AI </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../LLM%20Tokenizers/ class=md-nav__link> LLM Tokenizers </a> </li> <li class=md-nav__item> <a href=../prompt_engineering_techniques/ class=md-nav__link> Prompt Engineering </a> </li> <li class=md-nav__item> <a href=../Embeddings%20Understandings/ class=md-nav__link> Embeddings </a> </li> <li class=md-nav__item> <a href=../RAG/ class=md-nav__link> RAG </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_12 type=checkbox id=__nav_5_12> <label class=md-nav__link for=__nav_5_12> Agentic AI <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Agentic AI" data-md-level=2> <label class=md-nav__title for=__nav_5_12> <span class="md-nav__icon md-icon"></span> Agentic AI </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Agentic%20AI/ class=md-nav__link> Agentic AI </a> </li> <li class=md-nav__item> <a href=../Blog%20validation/ class=md-nav__link> LangGraphs </a> </li> <li class=md-nav__item> <a href=../CrewAI/ class=md-nav__link> CrewAI </a> </li> <li class=md-nav__item> <a href=../Enterprise%20Chatbot%20Example/ class=md-nav__link> Enterprise Chatbot </a> </li> <li class=md-nav__item> <a href=../../Others/yashoda_presentation/ class=md-nav__link> AI in Healthcare </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_13 type=checkbox id=__nav_5_13> <label class=md-nav__link for=__nav_5_13> Prescriptive Analytics <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Prescriptive Analytics" data-md-level=2> <label class=md-nav__title for=__nav_5_13> <span class="md-nav__icon md-icon"></span> Prescriptive Analytics </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../R/Linear-programming/ class=md-nav__link> Linear Programming (R) </a> </li> <li class=md-nav__item> <a href=../../Others/integer_programming_blog/ class=md-nav__link> Integer Programming tricks </a> </li> <li class=md-nav__item> <a href=../inventory_optimization_eoq_ortools/ class=md-nav__link> Inventory Optimisation (Python) </a> </li> <li class=md-nav__item> <a href=../../R/adoption_of_new_product/ class=md-nav__link> Adoption of new product (R) </a> </li> <li class=md-nav__item> <a href=../Diffusion%20on%20networks/ class=md-nav__link> Bass Forecasting model (Python) </a> </li> <li class=md-nav__item> <a href=../../Others/AHP/ class=md-nav__link> Analytic Hierarchy Process </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_14 type=checkbox id=__nav_5_14> <label class=md-nav__link for=__nav_5_14> Clustering <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Clustering data-md-level=2> <label class=md-nav__title for=__nav_5_14> <span class="md-nav__icon md-icon"></span> Clustering </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../R/hierarchical_clustering/ class=md-nav__link> Hierarchical Clustering </a> </li> <li class=md-nav__item> <a href=../../R/kMeansClustering/ class=md-nav__link> K-Means Clustering </a> </li> <li class=md-nav__item> <a href=../train_delays/ class=md-nav__link> DBSCAN Clustering (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_15 type=checkbox id=__nav_5_15> <label class=md-nav__link for=__nav_5_15> Reinforcement Learning <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Reinforcement Learning" data-md-level=2> <label class=md-nav__title for=__nav_5_15> <span class="md-nav__icon md-icon"></span> Reinforcement Learning </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../R/CustomerLifetimeValue/ class=md-nav__link> Customer Lifetime Value </a> </li> <li class=md-nav__item> <a href=../../R/recommendation-systems/ class=md-nav__link> Recommendation Systems (R) </a> </li> <li class=md-nav__item> <a href=../Neural_collaborative_filtering/ class=md-nav__link> Collaborative Filtering (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_16 type=checkbox id=__nav_5_16> <label class=md-nav__link for=__nav_5_16> Networks <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Networks data-md-level=2> <label class=md-nav__title for=__nav_5_16> <span class="md-nav__icon md-icon"></span> Networks </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Introduction%20to%20Networkx/ class=md-nav__link> Introduction to NetworkX (Python) </a> </li> <li class=md-nav__item> <a href=../Network%20Science/ class=md-nav__link> Network Science (Python) </a> </li> <li class=md-nav__item> <a href=../Network%20centrality/ class=md-nav__link> Network Centrality (Python) </a> </li> <li class=md-nav__item> <a href=../Shortest%20path%20problems/ class=md-nav__link> Shortest path using integer programming (Python) </a> </li> <li class=md-nav__item> <a href=../Network%20Flow%20problems/ class=md-nav__link> Network flow problems (Python) </a> </li> <li class=md-nav__item> <a href=../Community%20detection/ class=md-nav__link> Community detection (Python) </a> </li> <li class=md-nav__item> <a href=../Bipartite%20matching/ class=md-nav__link> Bipartite matching (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_17 type=checkbox id=__nav_5_17> <label class=md-nav__link for=__nav_5_17> Deployment <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Deployment data-md-level=2> <label class=md-nav__title for=__nav_5_17> <span class="md-nav__icon md-icon"></span> Deployment </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../Machine%20learning%20as%20HTTP%20Request/ class=md-nav__link> ML deployment in Flask (Python) </a> </li> <li class=md-nav__item> <a href=../Saving%20predictions%20in%20database/ class=md-nav__link> Handling databases using python </a> </li> <li class=md-nav__item> <a href=../ORM/ class=md-nav__link> ORM (Python) </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_18 type=checkbox id=__nav_5_18> <label class=md-nav__link for=__nav_5_18> Career lessons <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Career lessons" data-md-level=2> <label class=md-nav__title for=__nav_5_18> <span class="md-nav__icon md-icon"></span> Career lessons </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Others/learnings/ class=md-nav__link> Learnings from failures </a> </li> <li class=md-nav__item> <a href=../../Others/podcast/ class=md-nav__link> Making ML Consumable </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_19 type=checkbox id=__nav_5_19> <label class=md-nav__link for=__nav_5_19> Higher education review <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Higher education review" data-md-level=2> <label class=md-nav__title for=__nav_5_19> <span class="md-nav__icon md-icon"></span> Higher education review </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Others/IIMB%20BAI/ class=md-nav__link> IIMB BAI </a> </li> <li class=md-nav__item> <a href=../../Others/part%20time%20data%20science%20masters/ class=md-nav__link> Part-time DS masters </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_20 type=checkbox id=__nav_5_20> <label class=md-nav__link for=__nav_5_20> External blogs <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="External blogs" data-md-level=2> <label class=md-nav__title for=__nav_5_20> <span class="md-nav__icon md-icon"></span> External blogs </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Others/Imperial%20College%20London/ class=md-nav__link> Imperial college London </a> </li> <li class=md-nav__item> <a href=../../Others/Publications/ class=md-nav__link> Publications/conferences </a> </li> <li class=md-nav__item> <a href=../../Others/Deployed%20apps/ class=md-nav__link> Deployed apps </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5_21 type=checkbox id=__nav_5_21> <label class=md-nav__link for=__nav_5_21> Projects <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Projects data-md-level=2> <label class=md-nav__title for=__nav_5_21> <span class="md-nav__icon md-icon"></span> Projects </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Others/preventive_maintainence/ class=md-nav__link> Preventive maintainence </a> </li> <li class=md-nav__item> <a href=../../Others/Contract%20Intelligence%20tool/ class=md-nav__link> Contract Intelligence </a> </li> <li class=md-nav__item> <a href=../../Others/competitor%20intelligence/ class=md-nav__link> Competitor intelligence </a> </li> <li class=md-nav__item> <a href=../../Others/quiz%20generation/ class=md-nav__link> Quiz Generation </a> </li> <li class=md-nav__item> <a href=../../Others/Scarecrow/ class=md-nav__link> Intelligent annotation </a> </li> <li class=md-nav__item> <a href=../../Others/Demand%20Forecasting/ class=md-nav__link> Demand Forecasting </a> </li> <li class=md-nav__item> <a href=../../Others/bid%20allocation%20model/ class=md-nav__link> Bid Allocation </a> </li> <li class=md-nav__item> <a href=../../Others/IIMB%20project/ class=md-nav__link> Reward and Recognition contests </a> </li> <li class=md-nav__item> <a href=../../Others/supply%20chain%20analytics/ class=md-nav__link> Supply chain analytics </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#1-the-problem-we-are-solving class=md-nav__link> 1. The Problem We Are Solving </a> <nav class=md-nav aria-label="1. The Problem We Are Solving"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#why-use-a-toy-dataset class=md-nav__link> Why use a toy dataset? </a> </li> <li class=md-nav__item> <a href=#rnns-vs-transformer-decoders class=md-nav__link> RNNs vs Transformer Decoders </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#2-end-to-end-architecture-flow class=md-nav__link> 2. End-to-End Architecture Flow </a> <nav class=md-nav aria-label="2. End-to-End Architecture Flow"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#reading-roadmap class=md-nav__link> Reading Roadmap </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#3-how-to-read-this-guide class=md-nav__link> 3. How to Read This Guide </a> </li> <li class=md-nav__item> <a href=#part-1-data-setup class=md-nav__link> Part 1: Data Setup </a> <nav class=md-nav aria-label="Part 1: Data Setup"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#conceptual-input-output class=md-nav__link> Conceptual Input &amp; Output </a> </li> <li class=md-nav__item> <a href=#step-2-autoregressive-data-construction-and-padding class=md-nav__link> Step 2: Autoregressive Data Construction and Padding </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#part-2-model-immediate-training class=md-nav__link> Part 2: Model &amp; Immediate Training </a> <nav class=md-nav aria-label="Part 2: Model & Immediate Training"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#21-build-the-decoder-modules class=md-nav__link> 2.1: Build the Decoder Modules </a> </li> <li class=md-nav__item> <a href=#step-4-train-the-decoder-and-plot-the-loss class=md-nav__link> Step 4: Train the Decoder and Plot the Loss </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#part-3-the-interludes class=md-nav__link> Part 3: The Interludes </a> <nav class=md-nav aria-label="Part 3: The Interludes"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#31-visualising-the-embedding-matrices class=md-nav__link> 3.1 Visualising the Embedding Matrices </a> </li> <li class=md-nav__item> <a href=#32-the-positional-embedding-lookup-table class=md-nav__link> 3.2. The Positional Embedding Lookup Table </a> </li> <li class=md-nav__item> <a href=#33-constructing-the-input-matrix-mathbfh_0 class=md-nav__link> 3.3. Constructing the Input Matrix (\(\mathbf{H}_0\)) </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#part-4-self-attention-layer class=md-nav__link> Part 4: Self Attention Layer </a> <nav class=md-nav aria-label="Part 4: Self Attention Layer"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#41-generating-queries-keys-and-values-mathbfq-mathbfk-mathbfv class=md-nav__link> 4.1 Generating Queries, Keys, and Values (\(\mathbf{Q}, \mathbf{K}, \mathbf{V}\)) </a> </li> <li class=md-nav__item> <a href=#42-the-dot-product-measuring-compatibility class=md-nav__link> 4.2 The Dot Product: Measuring Compatibility </a> </li> <li class=md-nav__item> <a href=#43-the-causal-mask-and-softmax-mathbfa class=md-nav__link> 4.3. The Causal Mask and Softmax (\(\mathbf{A}\)) </a> </li> <li class=md-nav__item> <a href=#44-extracting-the-value-the-final-payload-mathbfamathbfv class=md-nav__link> 4.4. Extracting the Value: The Final Payload (\(\mathbf{A}\mathbf{V}\)) </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#part-5-tracing-the-matrix-through-the-transformer-block class=md-nav__link> Part 5. Tracing the Matrix Through the Transformer Block </a> <nav class=md-nav aria-label="Part 5. Tracing the Matrix Through the Transformer Block"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#51-the-first-residual-connection-addition class=md-nav__link> 5.1. The First Residual Connection (Addition) </a> </li> <li class=md-nav__item> <a href=#52-layer-normalisation class=md-nav__link> 5.2. Layer Normalisation </a> </li> <li class=md-nav__item> <a href=#53-visualising-the-feed-forward-network-ffn class=md-nav__link> 5.3. Visualising the Feed-Forward Network (FFN) </a> <nav class=md-nav aria-label="5.3. Visualising the Feed-Forward Network (FFN)"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#531-position-wise-processing-processing-token-by-token-in-parallel class=md-nav__link> 5.3.1. Position-wise Processing: Processing Token-by-Token (In Parallel) </a> </li> <li class=md-nav__item> <a href=#532-the-matrix-multiplication-math class=md-nav__link> 5.3.2. The Matrix Multiplication Math </a> </li> <li class=md-nav__item> <a href=#533-why-do-it-this-way class=md-nav__link> 5.3.3. Why do it this way? </a> </li> <li class=md-nav__item> <a href=#534-the-feed-forward-output class=md-nav__link> 5.3.4. The Feed-Forward Output </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#part-6-logits-probabilities-and-generation class=md-nav__link> Part 6: Logits, Probabilities, and Generation </a> <nav class=md-nav aria-label="Part 6: Logits, Probabilities, and Generation"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#61-second-residual-final-normalisation class=md-nav__link> 6.1. Second Residual &amp; Final Normalisation </a> </li> <li class=md-nav__item> <a href=#62-the-linear-prediction-head-logits class=md-nav__link> 6.2. The Linear Prediction Head (Logits) </a> </li> <li class=md-nav__item> <a href=#63-softmax-probabilities class=md-nav__link> 6.3. Softmax Probabilities </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#7-final-output-and-summary class=md-nav__link> 7. Final Output and summary </a> <nav class=md-nav aria-label="7. Final Output and summary"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#71-i-am-groot class=md-nav__link> 7.1 I am Groot </a> <nav class=md-nav aria-label="7.1 I am Groot"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#711-iteration-1-predicting-token-1 class=md-nav__link> 7.1.1 Iteration 1: Predicting Token 1 </a> </li> <li class=md-nav__item> <a href=#712-iteration-2-predicting-token-2 class=md-nav__link> 7.1.2 Iteration 2: Predicting Token 2 </a> </li> <li class=md-nav__item> <a href=#72-other-generation-examples-from-the-model class=md-nav__link> 7.2 Other Generation Examples from the Model: </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#73-summary class=md-nav__link> 7.3 Summary </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <script type=text/javascript src=https://cdn.mathjax.org/mathjax/latest/MathJax.js>
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+  },
+  "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script> <h1 id=babygrootgpt-a-guided-walkthrough-of-the-transformer-decoder-from-scratch>BabyGrootGPT: A Guided Walkthrough of the Transformer Decoder From Scratch<a class=headerlink href=#babygrootgpt-a-guided-walkthrough-of-the-transformer-decoder-from-scratch title="Permanent link">&para;</a></h1> <h2 id=1-the-problem-we-are-solving>1. The Problem We Are Solving<a class=headerlink href=#1-the-problem-we-are-solving title="Permanent link">&para;</a></h2> <p>This notebook is not trying to build a production language model. It is trying to make a Transformer decoder easy to see.</p> <p>Our goal is to answer one concrete question: how does a decoder-only model take a short prompt, represent it numerically, route information across tokens, and predict the next token without looking into the future?</p> <p>That question is hard to understand in a large model because the key ideas sit under large vocabularies, deep stacks of layers, and millions of parameters. So we shrink the setting on purpose. </p> <h3 id=why-use-a-toy-dataset>Why use a toy dataset?<a class=headerlink href=#why-use-a-toy-dataset title="Permanent link">&para;</a></h3> <p>We train on a tiny corpus of 19 short sentences and end up with a vocabulary of just 24 tokens, including <code>&lt;PAD&gt;</code>, <code>&lt;START&gt;</code>, and <code>&lt;END&gt;</code>. That small setup is a feature, not a limitation.</p> <p>With a 24-token vocabulary, we can inspect the full token dictionary, the embedding tables, the padded training pairs, the attention matrix, and the final logits without getting lost in scale. Every major tensor is small enough to print, reason about, and connect back to the maths.</p> <p>This means the notebook can focus on intuition:</p> <ul> <li>how raw text becomes token IDs</li> <li>how autoregressive training examples are created</li> <li>how self-attention mixes context</li> <li>how logits become next-token predictions</li> </ul> <p>Once that pipeline is clear in a toy setting, the same ideas transfer directly to larger Transformer decoders.</p> <h3 id=rnns-vs-transformer-decoders>RNNs vs Transformer Decoders<a class=headerlink href=#rnns-vs-transformer-decoders title="Permanent link">&para;</a></h3> <p>Traditional sequence models such as RNNs and LSTMs process text one token at a time:</p> <div class=arithmatex>\[t_1 \to t_2 \to t_3 \to \dots\]</div> <p>Each hidden state must pass through the next step in order. That makes training slower, limits parallelism, and makes long-range dependencies harder to preserve.</p> <p>Transformer decoders replace recurrence with <strong>self-attention</strong>. Instead of waiting for tokens to arrive one by one, the model ingests the available sequence together, computes query-key-value interactions in parallel, and then uses a <strong>causal mask</strong> so each position can only attend to itself and earlier tokens.</p> <p>In other words:</p> <ul> <li><strong>RNN/LSTM:</strong> sequential state passing</li> <li><strong>Transformer decoder:</strong> parallel context scoring with masked next-token prediction</li> </ul> <p>That contrast is the core motivation for the notebook. We want to see exactly how a masked self-attention system does the job that older sequential models handled through recurrence.</p> <h2 id=2-end-to-end-architecture-flow>2. End-to-End Architecture Flow<a class=headerlink href=#2-end-to-end-architecture-flow title="Permanent link">&para;</a></h2> <div class=highlight><pre><span></span><code>Input Tokens: [&quot;&lt;START&gt;&quot;, &quot;i&quot;, &quot;am&quot;, &quot;groot&quot;]
+                         │
+                         ▼
+             [ Token ID Lookup ] ───► Tensor: [ 1, 11, 3, 8 ] (Shape: [4])
+                         │
+        ┌────────────────┴────────────────┐
+        ▼                                 ▼
+Token Embedding: [4, 8]        Positional Embedding: [4, 8]
+        └────────────────┬────────────────┘
+                         ▼  (Element-wise Addition)
+              Combined Matrix H₀: [4, 8]
+                         │
+                         ▼
+           ╔═════════════════════════════════════════╗
+           ║            TRANSFORMER BLOCK            ║
+           ║                                         ║
+           ║  ┌───────────────────────────────────┐  ║
+           ║  │    Causal Self-Attention Layer    │  ║
+           ║  │  Q, K, V Projections ──► [4, 8]   │  ║
+           ║  │  Scores = (Q @ Kᵀ) / √8 ──► [4, 4]│  ║
+           ║  │  Apply Lower-Triangular Mask      │  ║
+           ║  │  Softmax Normalisation            │  ║
+           ║  │  Context = Attention @ V ──►[4, 8]│  ║
+           ║  └─────────────────┬─────────────────┘  ║
+           ║                    ▼                    ║
+           ║       Residual Add + LayerNorm          ║
+           ║                    │                    ║
+           ║  ┌─────────────────┴─────────────────┐  ║
+           ║  │     Feed-Forward Network (FFN)    │  ║
+           ║  │     Linear: [4, 8] ──► [4, 16]    │  ║
+           ║  │     Activation: ReLU              │  ║
+           ║  │     Linear: [4, 16] ──► [4, 8]    │  ║
+           ║  └─────────────────┬─────────────────┘  ║
+           ║                    ▼                    ║
+           ║       Residual Add + LayerNorm          ║
+           ╚════════════════════┼════════════════════╝
+                                │
+                                ▼
+                   Final Hidden State: [4, 8]
+                                │
+                                ▼
+         [ Linear Projection Head (Linear: 8 ──► 24) ]
+                                │
+                                ▼
+                    Logits Tensor: [4, 24]
+                                │
+                                ▼
+      [ Cross-Entropy Loss (Training) / Argmax (Inference) ]
+</code></pre></div> <h3 id=reading-roadmap>Reading Roadmap<a class=headerlink href=#reading-roadmap title="Permanent link">&para;</a></h3> <p>This article is organised in two passes. The first pass builds the decoder from a tiny text world up to next-token prediction. The second pass revisits the same machinery with deeper matrix-level inspection.</p> <h2 id=3-how-to-read-this-guide>3. How to Read This Guide<a class=headerlink href=#3-how-to-read-this-guide title="Permanent link">&para;</a></h2> <p>The walkthrough below is organised into seven parts. Each part introduces one segment of the decoder pipeline, explains why it exists, shows the math in context, and then runs the exact code that produces the tensors and outputs.</p> <ol> <li><code>Part 1 (Data Setup)</code>: corpus, vocabulary, token IDs, and padded autoregressive training pairs.</li> <li><code>Part 2 (Model &amp; Immediate Training)</code>: the PyTorch modules and the first full training run.</li> <li><code>Part 3 (The Interludes)</code>: one traced sequence through the learned embedding and input matrices.</li> <li><code>Part 4 (Self Attention Layer)</code>: queries, keys, values, scaled dot products, masking, and context mixing.</li> <li><code>Part 5 (Tracing the Matrix Through the Transformer Block)</code>: residual connections, layer normalisation, and the FFN path.</li> <li><code>Part 6 (Logits, Probabilities, and Generation)</code>: the output head, softmax probabilities, and greedy decoding.</li> <li><code>Part 7 (Final Output and Summary)</code>: end-to-end generation behaviour and the main decoder takeaways.</li> </ol> <h2 id=part-1-data-setup>Part 1: Data Setup<a class=headerlink href=#part-1-data-setup title="Permanent link">&para;</a></h2> <p>Before we build the neural network, we must load our tools, define a local display helper, and prepare our language. We use <strong>PyTorch</strong> as our deep learning framework to handle matrix operations and construct neural layers.</p> <div class=highlight><pre><span></span><code><span class=kn>import</span><span class=w> </span><span class=nn>torch</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>torch.nn</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>nn</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>torch.nn.functional</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>F</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>pandas</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>pd</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>numpy</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>np</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>matplotlib.pyplot</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>plt</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>seaborn</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>sns</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>IPython.display</span><span class=w> </span><span class=kn>import</span> <span class=n>display</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>baby_groot_viz</span><span class=w> </span><span class=kn>import</span> <span class=o>*</span>
+
+<span class=n>torch</span><span class=o>.</span><span class=n>manual_seed</span><span class=p>(</span><span class=mi>42</span><span class=p>)</span>
+<span class=n>device</span> <span class=o>=</span> <span class=s2>&quot;cuda&quot;</span> <span class=k>if</span> <span class=n>torch</span><span class=o>.</span><span class=n>cuda</span><span class=o>.</span><span class=n>is_available</span><span class=p>()</span> <span class=k>else</span> <span class=s2>&quot;cpu&quot;</span>
+<span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;Using device: </span><span class=si>{</span><span class=n>device</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>Using device: cpu
+</code></pre></div> <p>Neural networks cannot process raw text; they strictly perform mathematical operations on numbers. So we first create a tiny corpus that is intentionally small enough to inspect end to end. From that corpus, we build a vocabulary that assigns one integer ID to every unique token the model is allowed to know.</p> <p>This is why the vocabulary size of 24 matters. It is large enough to include repeated patterns such as <code>groot likes tree</code>, <code>tree needs water</code>, and <code>rocket helps groot</code>, but small enough that we can still print the entire lookup table and understand what the model is doing at each stage.</p> <p>We also introduce three structural tokens:</p> <ul> <li><code>&lt;PAD&gt;</code> (ID 0): Used to fill empty spaces so all sentences reach a uniform length.</li> <li><code>&lt;START&gt;</code> (ID 1): Acts as a cue, telling the model to begin generating a sentence.</li> <li><code>&lt;END&gt;</code> (ID 2): The model learns to output this token when the sentence is complete.</li> </ul> <h3 id=conceptual-input-output>Conceptual Input &amp; Output<a class=headerlink href=#conceptual-input-output title="Permanent link">&para;</a></h3> <p><strong>Input (Raw Text Corpus):</strong></p> <div class=highlight><pre><span></span><code>&quot;i am groot&quot;
+&quot;you are groot&quot;
+&quot;we are groot&quot;
+...
+
+
+```python
+corpus = [
+    &quot;i am groot&quot;,
+    &quot;you are groot&quot;,
+    &quot;we are groot&quot;,
+    &quot;groot is happy&quot;,
+    &quot;groot is sad&quot;,
+    &quot;groot is angry&quot;,
+    &quot;happy groot smiles&quot;,
+    &quot;sad groot cries&quot;,
+    &quot;angry groot shouts&quot;,
+    &quot;groot likes tree&quot;,
+    &quot;groot likes leaf&quot;,
+    &quot;tree needs water&quot;,
+    &quot;leaf needs water&quot;,
+    &quot;water helps tree&quot;,
+    &quot;tree helps groot&quot;,
+    &quot;groot helps rocket&quot;,
+    &quot;rocket helps groot&quot;,
+    &quot;groot likes friend&quot;,
+    &quot;friend likes groot&quot;
+]
+
+special_tokens = [&quot;&lt;PAD&gt;&quot;, &quot;&lt;START&gt;&quot;, &quot;&lt;END&gt;&quot;]
+
+words = set()
+for sentence in corpus:
+    for word in sentence.split():
+        words.add(word)
+
+vocab = special_tokens + sorted(list(words))
+token_to_id = {token: idx for idx, token in enumerate(vocab)}
+id_to_token = {idx: token for token, idx in token_to_id.items()}
+vocab_size = len(vocab)
+
+print(f&quot;Vocabulary Size: {vocab_size}&quot;)
+</code></pre></div> <div class=highlight><pre><span></span><code>Vocabulary Size: 24
+</code></pre></div> <p><strong>Output (Vocabulary Dictionary):</strong> The model scans the corpus, extracts 21 unique words, and adds the 3 special tokens, resulting in a total vocabulary size of 24.</p> <div class=highlight><pre><span></span><code><span class=n>show_vocabulary</span><span class=p>(</span><span class=n>token_to_id</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>Token        | Token ID
+-----------------------
+&lt;PAD&gt;        | 0       
+&lt;START&gt;      | 1       
+&lt;END&gt;        | 2       
+am           | 3       
+angry        | 4       
+are          | 5       
+cries        | 6       
+friend       | 7       
+groot        | 8       
+happy        | 9       
+helps        | 10      
+i            | 11      
+is           | 12      
+leaf         | 13      
+likes        | 14      
+needs        | 15      
+rocket       | 16      
+sad          | 17      
+shouts       | 18      
+smiles       | 19      
+tree         | 20      
+water        | 21      
+we           | 22      
+you          | 23
+</code></pre></div> <h3 id=step-2-autoregressive-data-construction-and-padding>Step 2: Autoregressive Data Construction and Padding<a class=headerlink href=#step-2-autoregressive-data-construction-and-padding title="Permanent link">&para;</a></h3> <p>To teach the model how to write, we train it autoregressively. Each training row asks the model to predict the next token <span class=arithmatex>\(y_t\)</span> from the prior context <span class=arithmatex>\(x_{1:t-1}\)</span>.</p> <p>Because neural networks require uniform tensors, we pad each context row to the maximum context length.</p> <p>When we pass a sentence to the model, we first bracket it with our special start and end tokens, then map it through the vocabulary dictionary into an integer vector (a 1D matrix):<br> Consider the integer-mapped sequence for <code>&lt;START&gt; i am groot &lt;END&gt;</code> $<span class=arithmatex>\(\text{["&lt;START&gt;", "i", "am", "groot", "&lt;END&gt;"]} \quad \xrightarrow{\text{Tokenisation}} \quad \begin{bmatrix} 1 &amp; 11 &amp; 3 &amp; 8 &amp; 2 \end{bmatrix}\)</span>$</p> <p>We break this single sequence into four distinct training examples. We pad the inputs with <code>0</code> until they all reach the maximum length of 4.</p> <table> <thead> <tr> <th>Step</th> <th>Raw Context</th> <th>Target</th> <th>Padded Context Matrix (<span class=arithmatex>\(\mathbf{X}\)</span>)</th> <th>Target ID (<span class=arithmatex>\(\mathbf{Y}\)</span>)</th> </tr> </thead> <tbody> <tr> <td><strong>1</strong></td> <td><code>&lt;START&gt;</code></td> <td><code>i</code></td> <td><span class=arithmatex>\(\begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}\)</span></td> <td><code>11</code></td> </tr> <tr> <td><strong>2</strong></td> <td><code>&lt;START&gt; i</code></td> <td><code>am</code></td> <td><span class=arithmatex>\(\begin{bmatrix} 1 &amp; 11 &amp; 0 &amp; 0 \end{bmatrix}\)</span></td> <td><code>3</code></td> </tr> <tr> <td><strong>3</strong></td> <td><code>&lt;START&gt; i am</code></td> <td><code>groot</code></td> <td><span class=arithmatex>\(\begin{bmatrix} 1 &amp; 11 &amp; 3 &amp; 0 \end{bmatrix}\)</span></td> <td><code>8</code></td> </tr> <tr> <td><strong>4</strong></td> <td><code>&lt;START&gt; i am groot</code></td> <td><code>&lt;END&gt;</code></td> <td><span class=arithmatex>\(\begin{bmatrix} 1 &amp; 11 &amp; 3 &amp; 8 \end{bmatrix}\)</span></td> <td><code>2</code></td> </tr> </tbody> </table> <p>After processing all 19 sentences in the corpus, we stack these 1D arrays into 2D matrices (Tensors). The entire training dataset results in 76 flashcards.</p> <ul> <li> <p><strong><span class=arithmatex>\(\mathbf{X}\)</span> Tensor (Input Contexts):</strong> Shape <code>[76, 4]</code> (76 examples, each containing 4 tokens).</p> </li> <li> <p><strong><span class=arithmatex>\(\mathbf{Y}\)</span> Tensor (Targets):</strong> Shape <code>[76]</code> (76 single-token answers).</p> </li> </ul> <div class=highlight><pre><span></span><code><span class=n>encoded_sentences</span> <span class=o>=</span> <span class=p>[]</span>
+<span class=k>for</span> <span class=n>sentence</span> <span class=ow>in</span> <span class=n>corpus</span><span class=p>:</span>
+    <span class=n>tokens</span> <span class=o>=</span> <span class=p>[</span><span class=s2>&quot;&lt;START&gt;&quot;</span><span class=p>]</span> <span class=o>+</span> <span class=n>sentence</span><span class=o>.</span><span class=n>split</span><span class=p>()</span> <span class=o>+</span> <span class=p>[</span><span class=s2>&quot;&lt;END&gt;&quot;</span><span class=p>]</span>
+    <span class=n>ids</span> <span class=o>=</span> <span class=p>[</span><span class=n>token_to_id</span><span class=p>[</span><span class=n>token</span><span class=p>]</span> <span class=k>for</span> <span class=n>token</span> <span class=ow>in</span> <span class=n>tokens</span><span class=p>]</span>
+    <span class=n>encoded_sentences</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>ids</span><span class=p>)</span>
+
+<span class=n>X</span> <span class=o>=</span> <span class=p>[]</span>
+<span class=n>Y</span> <span class=o>=</span> <span class=p>[]</span>
+<span class=k>for</span> <span class=n>ids</span> <span class=ow>in</span> <span class=n>encoded_sentences</span><span class=p>:</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>ids</span><span class=p>)):</span>
+        <span class=n>X</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>ids</span><span class=p>[:</span><span class=n>i</span><span class=p>])</span>
+        <span class=n>Y</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>ids</span><span class=p>[</span><span class=n>i</span><span class=p>])</span>
+
+<span class=n>max_len</span> <span class=o>=</span> <span class=nb>max</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>x</span><span class=p>)</span> <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=n>X</span><span class=p>)</span>
+<span class=n>pad_id</span> <span class=o>=</span> <span class=n>token_to_id</span><span class=p>[</span><span class=s2>&quot;&lt;PAD&gt;&quot;</span><span class=p>]</span>
+
+<span class=n>X_padded</span> <span class=o>=</span> <span class=p>[]</span>
+<span class=k>for</span> <span class=n>seq</span> <span class=ow>in</span> <span class=n>X</span><span class=p>:</span>
+    <span class=n>padded</span> <span class=o>=</span> <span class=n>seq</span> <span class=o>+</span> <span class=p>[</span><span class=n>pad_id</span><span class=p>]</span> <span class=o>*</span> <span class=p>(</span><span class=n>max_len</span> <span class=o>-</span> <span class=nb>len</span><span class=p>(</span><span class=n>seq</span><span class=p>))</span>
+    <span class=n>X_padded</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>padded</span><span class=p>)</span>
+
+<span class=n>X_tensor</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>tensor</span><span class=p>(</span><span class=n>X_padded</span><span class=p>)</span>
+<span class=n>Y_tensor</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>tensor</span><span class=p>(</span><span class=n>Y</span><span class=p>)</span>
+
+<span class=nb>print</span><span class=p>(</span><span class=s2>&quot;Input shape (X_tensor):&quot;</span><span class=p>,</span> <span class=n>X_tensor</span><span class=o>.</span><span class=n>shape</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=s2>&quot;Target shape (Y_tensor):&quot;</span><span class=p>,</span> <span class=n>Y_tensor</span><span class=o>.</span><span class=n>shape</span><span class=p>)</span>
+
+<span class=n>dataset</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>utils</span><span class=o>.</span><span class=n>data</span><span class=o>.</span><span class=n>TensorDataset</span><span class=p>(</span><span class=n>X_tensor</span><span class=p>,</span> <span class=n>Y_tensor</span><span class=p>)</span>
+<span class=n>loader</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>utils</span><span class=o>.</span><span class=n>data</span><span class=o>.</span><span class=n>DataLoader</span><span class=p>(</span><span class=n>dataset</span><span class=p>,</span> <span class=n>batch_size</span><span class=o>=</span><span class=mi>16</span><span class=p>,</span> <span class=n>shuffle</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>Input shape (X_tensor): torch.Size([76, 4])
+Target shape (Y_tensor): torch.Size([76])
+</code></pre></div> <div class=arithmatex>\[\mathbf{X} = \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 1 &amp; 11 &amp; 0 &amp; 0 \\ 1 &amp; 11 &amp; 3 &amp; 0 \\ \dots &amp; \dots &amp; \dots &amp; \dots \end{bmatrix} \quad \mathbf{Y} = \begin{bmatrix} 11 \\ 3 \\ 8 \\ \dots \end{bmatrix}\]</div> <div class=highlight><pre><span></span><code><span class=n>show_training_pairs</span><span class=p>(</span><span class=n>X_tensor</span><span class=p>,</span> <span class=n>Y_tensor</span><span class=p>,</span> <span class=n>id_to_token</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>First 15 training pairs:
+</code></pre></div> <div> <style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style> <table border=1 class=dataframe> <thead> <tr style="text-align: right;"> <th></th> <th>Sample</th> <th>X (IDs)</th> <th>X (Tokens)</th> <th>Y (ID)</th> <th>Y (Target Token)</th> </tr> </thead> <tbody> <tr> <th>0</th> <td>1</td> <td>[1, 0, 0, 0]</td> <td>&lt;START&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt;</td> <td>11</td> <td>i</td> </tr> <tr> <th>1</th> <td>2</td> <td>[1, 11, 0, 0]</td> <td>&lt;START&gt; i &lt;PAD&gt; &lt;PAD&gt;</td> <td>3</td> <td>am</td> </tr> <tr> <th>2</th> <td>3</td> <td>[1, 11, 3, 0]</td> <td>&lt;START&gt; i am &lt;PAD&gt;</td> <td>8</td> <td>groot</td> </tr> <tr> <th>3</th> <td>4</td> <td>[1, 11, 3, 8]</td> <td>&lt;START&gt; i am groot</td> <td>2</td> <td>&lt;END&gt;</td> </tr> <tr> <th>4</th> <td>5</td> <td>[1, 0, 0, 0]</td> <td>&lt;START&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt;</td> <td>23</td> <td>you</td> </tr> <tr> <th>5</th> <td>6</td> <td>[1, 23, 0, 0]</td> <td>&lt;START&gt; you &lt;PAD&gt; &lt;PAD&gt;</td> <td>5</td> <td>are</td> </tr> <tr> <th>6</th> <td>7</td> <td>[1, 23, 5, 0]</td> <td>&lt;START&gt; you are &lt;PAD&gt;</td> <td>8</td> <td>groot</td> </tr> <tr> <th>7</th> <td>8</td> <td>[1, 23, 5, 8]</td> <td>&lt;START&gt; you are groot</td> <td>2</td> <td>&lt;END&gt;</td> </tr> <tr> <th>8</th> <td>9</td> <td>[1, 0, 0, 0]</td> <td>&lt;START&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt;</td> <td>22</td> <td>we</td> </tr> <tr> <th>9</th> <td>10</td> <td>[1, 22, 0, 0]</td> <td>&lt;START&gt; we &lt;PAD&gt; &lt;PAD&gt;</td> <td>5</td> <td>are</td> </tr> <tr> <th>10</th> <td>11</td> <td>[1, 22, 5, 0]</td> <td>&lt;START&gt; we are &lt;PAD&gt;</td> <td>8</td> <td>groot</td> </tr> <tr> <th>11</th> <td>12</td> <td>[1, 22, 5, 8]</td> <td>&lt;START&gt; we are groot</td> <td>2</td> <td>&lt;END&gt;</td> </tr> <tr> <th>12</th> <td>13</td> <td>[1, 0, 0, 0]</td> <td>&lt;START&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt;</td> <td>8</td> <td>groot</td> </tr> <tr> <th>13</th> <td>14</td> <td>[1, 8, 0, 0]</td> <td>&lt;START&gt; groot &lt;PAD&gt; &lt;PAD&gt;</td> <td>12</td> <td>is</td> </tr> <tr> <th>14</th> <td>15</td> <td>[1, 8, 12, 0]</td> <td>&lt;START&gt; groot is &lt;PAD&gt;</td> <td>9</td> <td>happy</td> </tr> </tbody> </table> </div> <h2 id=part-2-model-immediate-training>Part 2: Model &amp; Immediate Training<a class=headerlink href=#part-2-model-immediate-training title="Permanent link">&para;</a></h2> <p>This section combines the full decoder architecture into one modular build, then trains it immediately. That ordering matters because the next section inspects learned embeddings, projections, and attention weights.</p> <h3 id=21-build-the-decoder-modules>2.1: Build the Decoder Modules<a class=headerlink href=#21-build-the-decoder-modules title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><span class=k>class</span><span class=w> </span><span class=nc>CausalSelfAttention</span><span class=p>(</span><span class=n>nn</span><span class=o>.</span><span class=n>Module</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>embed_dim</span><span class=p>):</span>
+        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>()</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>q</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Linear</span><span class=p>(</span><span class=n>embed_dim</span><span class=p>,</span> <span class=n>embed_dim</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>k</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Linear</span><span class=p>(</span><span class=n>embed_dim</span><span class=p>,</span> <span class=n>embed_dim</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>v</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Linear</span><span class=p>(</span><span class=n>embed_dim</span><span class=p>,</span> <span class=n>embed_dim</span><span class=p>)</span>
+
+    <span class=k>def</span><span class=w> </span><span class=nf>forward</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>x</span><span class=p>):</span>
+        <span class=n>B</span><span class=p>,</span> <span class=n>T</span><span class=p>,</span> <span class=n>C</span> <span class=o>=</span> <span class=n>x</span><span class=o>.</span><span class=n>shape</span>
+        <span class=n>Q</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>q</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+        <span class=n>K</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>k</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+        <span class=n>V</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>v</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+
+        <span class=n>scores</span> <span class=o>=</span> <span class=n>Q</span> <span class=o>@</span> <span class=n>K</span><span class=o>.</span><span class=n>transpose</span><span class=p>(</span><span class=o>-</span><span class=mi>2</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span>
+        <span class=n>scores</span> <span class=o>=</span> <span class=n>scores</span> <span class=o>/</span> <span class=p>(</span><span class=n>C</span> <span class=o>**</span> <span class=mf>0.5</span><span class=p>)</span>
+
+        <span class=n>mask</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>tril</span><span class=p>(</span><span class=n>torch</span><span class=o>.</span><span class=n>ones</span><span class=p>(</span><span class=n>T</span><span class=p>,</span> <span class=n>T</span><span class=p>,</span> <span class=n>device</span><span class=o>=</span><span class=n>x</span><span class=o>.</span><span class=n>device</span><span class=p>))</span>
+        <span class=n>scores</span> <span class=o>=</span> <span class=n>scores</span><span class=o>.</span><span class=n>masked_fill</span><span class=p>(</span><span class=n>mask</span> <span class=o>==</span> <span class=mi>0</span><span class=p>,</span> <span class=o>-</span><span class=mf>1e9</span><span class=p>)</span>
+
+        <span class=n>attn</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>softmax</span><span class=p>(</span><span class=n>scores</span><span class=p>,</span> <span class=n>dim</span><span class=o>=-</span><span class=mi>1</span><span class=p>)</span>
+        <span class=n>out</span> <span class=o>=</span> <span class=n>attn</span> <span class=o>@</span> <span class=n>V</span>
+        <span class=k>return</span> <span class=n>out</span><span class=p>,</span> <span class=n>attn</span>
+
+
+<span class=k>class</span><span class=w> </span><span class=nc>TransformerBlock</span><span class=p>(</span><span class=n>nn</span><span class=o>.</span><span class=n>Module</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>embed_dim</span><span class=p>):</span>
+        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>()</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>attn</span> <span class=o>=</span> <span class=n>CausalSelfAttention</span><span class=p>(</span><span class=n>embed_dim</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>norm1</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>LayerNorm</span><span class=p>(</span><span class=n>embed_dim</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>norm2</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>LayerNorm</span><span class=p>(</span><span class=n>embed_dim</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>ffn</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Sequential</span><span class=p>(</span>
+            <span class=n>nn</span><span class=o>.</span><span class=n>Linear</span><span class=p>(</span><span class=n>embed_dim</span><span class=p>,</span> <span class=mi>16</span><span class=p>),</span>
+            <span class=n>nn</span><span class=o>.</span><span class=n>ReLU</span><span class=p>(),</span>
+            <span class=n>nn</span><span class=o>.</span><span class=n>Linear</span><span class=p>(</span><span class=mi>16</span><span class=p>,</span> <span class=n>embed_dim</span><span class=p>)</span>
+        <span class=p>)</span>
+
+    <span class=k>def</span><span class=w> </span><span class=nf>forward</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>x</span><span class=p>):</span>
+        <span class=n>attn_out</span><span class=p>,</span> <span class=n>attn</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>attn</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+        <span class=n>x</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>norm1</span><span class=p>(</span><span class=n>x</span> <span class=o>+</span> <span class=n>attn_out</span><span class=p>)</span>
+        <span class=n>ff_out</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>ffn</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+        <span class=n>x</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>norm2</span><span class=p>(</span><span class=n>x</span> <span class=o>+</span> <span class=n>ff_out</span><span class=p>)</span>
+        <span class=k>return</span> <span class=n>x</span><span class=p>,</span> <span class=n>attn</span>
+
+
+<span class=k>class</span><span class=w> </span><span class=nc>BabyGrootGPT</span><span class=p>(</span><span class=n>nn</span><span class=o>.</span><span class=n>Module</span><span class=p>):</span>
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>vocab_size</span><span class=p>,</span> <span class=n>max_len</span><span class=p>,</span> <span class=n>embed_dim</span><span class=o>=</span><span class=mi>8</span><span class=p>):</span>
+        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>()</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>token_embedding</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Embedding</span><span class=p>(</span><span class=n>vocab_size</span><span class=p>,</span> <span class=n>embed_dim</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>position_embedding</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Embedding</span><span class=p>(</span><span class=n>max_len</span><span class=p>,</span> <span class=n>embed_dim</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>transformer</span> <span class=o>=</span> <span class=n>TransformerBlock</span><span class=p>(</span><span class=n>embed_dim</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>head</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Linear</span><span class=p>(</span><span class=n>embed_dim</span><span class=p>,</span> <span class=n>vocab_size</span><span class=p>)</span>
+
+    <span class=k>def</span><span class=w> </span><span class=nf>forward</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>x</span><span class=p>):</span>
+        <span class=n>B</span><span class=p>,</span> <span class=n>T</span> <span class=o>=</span> <span class=n>x</span><span class=o>.</span><span class=n>shape</span>
+        <span class=n>positions</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>arange</span><span class=p>(</span><span class=n>T</span><span class=p>,</span> <span class=n>device</span><span class=o>=</span><span class=n>x</span><span class=o>.</span><span class=n>device</span><span class=p>)</span><span class=o>.</span><span class=n>unsqueeze</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+        <span class=n>token_emb</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>token_embedding</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+        <span class=n>pos_emb</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>position_embedding</span><span class=p>(</span><span class=n>positions</span><span class=p>)</span>
+        <span class=n>h</span> <span class=o>=</span> <span class=n>token_emb</span> <span class=o>+</span> <span class=n>pos_emb</span>
+        <span class=n>h</span><span class=p>,</span> <span class=n>attn</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>transformer</span><span class=p>(</span><span class=n>h</span><span class=p>)</span>
+        <span class=n>logits</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>head</span><span class=p>(</span><span class=n>h</span><span class=p>)</span>
+        <span class=k>return</span> <span class=n>logits</span><span class=p>,</span> <span class=n>attn</span>
+
+
+<span class=n>model</span> <span class=o>=</span> <span class=n>BabyGrootGPT</span><span class=p>(</span><span class=n>vocab_size</span><span class=o>=</span><span class=n>vocab_size</span><span class=p>,</span> <span class=n>max_len</span><span class=o>=</span><span class=n>max_len</span><span class=p>,</span> <span class=n>embed_dim</span><span class=o>=</span><span class=mi>8</span><span class=p>)</span><span class=o>.</span><span class=n>to</span><span class=p>(</span><span class=n>device</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>model</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>BabyGrootGPT(
+  (token_embedding): Embedding(24, 8)
+  (position_embedding): Embedding(4, 8)
+  (transformer): TransformerBlock(
+    (attn): CausalSelfAttention(
+      (q): Linear(in_features=8, out_features=8, bias=True)
+      (k): Linear(in_features=8, out_features=8, bias=True)
+      (v): Linear(in_features=8, out_features=8, bias=True)
+    )
+    (norm1): LayerNorm((8,), eps=1e-05, elementwise_affine=True, bias=True)
+    (norm2): LayerNorm((8,), eps=1e-05, elementwise_affine=True, bias=True)
+    (ffn): Sequential(
+      (0): Linear(in_features=8, out_features=16, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=16, out_features=8, bias=True)
+    )
+  )
+  (head): Linear(in_features=8, out_features=24, bias=True)
+)
+</code></pre></div> <h3 id=step-4-train-the-decoder-and-plot-the-loss>Step 4: Train the Decoder and Plot the Loss<a class=headerlink href=#step-4-train-the-decoder-and-plot-the-loss title="Permanent link">&para;</a></h3> <p>The training loop uses cross-entropy loss on the last real token before padding begins.</p> <div class=highlight><pre><span></span><code><span class=n>optimizer</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>optim</span><span class=o>.</span><span class=n>Adam</span><span class=p>(</span><span class=n>model</span><span class=o>.</span><span class=n>parameters</span><span class=p>(),</span> <span class=n>lr</span><span class=o>=</span><span class=mf>0.01</span><span class=p>)</span>
+<span class=n>losses</span> <span class=o>=</span> <span class=p>[]</span>
+<span class=n>epochs</span> <span class=o>=</span> <span class=mi>500</span>
+
+<span class=k>for</span> <span class=n>epoch</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>epochs</span><span class=p>):</span>
+    <span class=n>total_loss</span> <span class=o>=</span> <span class=mi>0</span>
+
+    <span class=k>for</span> <span class=n>x</span><span class=p>,</span> <span class=n>y</span> <span class=ow>in</span> <span class=n>loader</span><span class=p>:</span>
+        <span class=n>x</span> <span class=o>=</span> <span class=n>x</span><span class=o>.</span><span class=n>to</span><span class=p>(</span><span class=n>device</span><span class=p>)</span>
+        <span class=n>y</span> <span class=o>=</span> <span class=n>y</span><span class=o>.</span><span class=n>to</span><span class=p>(</span><span class=n>device</span><span class=p>)</span>
+
+        <span class=n>logits</span><span class=p>,</span> <span class=n>_</span> <span class=o>=</span> <span class=n>model</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+        <span class=n>lengths</span> <span class=o>=</span> <span class=p>(</span><span class=n>x</span> <span class=o>!=</span> <span class=n>pad_id</span><span class=p>)</span><span class=o>.</span><span class=n>sum</span><span class=p>(</span><span class=n>dim</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
+        <span class=n>last_logits</span> <span class=o>=</span> <span class=n>logits</span><span class=p>[</span>
+            <span class=n>torch</span><span class=o>.</span><span class=n>arange</span><span class=p>(</span><span class=n>x</span><span class=o>.</span><span class=n>size</span><span class=p>(</span><span class=mi>0</span><span class=p>),</span> <span class=n>device</span><span class=o>=</span><span class=n>x</span><span class=o>.</span><span class=n>device</span><span class=p>),</span>
+            <span class=n>lengths</span> <span class=o>-</span> <span class=mi>1</span>
+        <span class=p>]</span>
+
+        <span class=n>loss</span> <span class=o>=</span> <span class=n>F</span><span class=o>.</span><span class=n>cross_entropy</span><span class=p>(</span><span class=n>last_logits</span><span class=p>,</span> <span class=n>y</span><span class=p>)</span>
+
+        <span class=n>optimizer</span><span class=o>.</span><span class=n>zero_grad</span><span class=p>()</span>
+        <span class=n>loss</span><span class=o>.</span><span class=n>backward</span><span class=p>()</span>
+        <span class=n>optimizer</span><span class=o>.</span><span class=n>step</span><span class=p>()</span>
+
+        <span class=n>total_loss</span> <span class=o>+=</span> <span class=n>loss</span><span class=o>.</span><span class=n>item</span><span class=p>()</span>
+
+    <span class=n>avg_loss</span> <span class=o>=</span> <span class=n>total_loss</span> <span class=o>/</span> <span class=nb>len</span><span class=p>(</span><span class=n>loader</span><span class=p>)</span>
+    <span class=n>losses</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>avg_loss</span><span class=p>)</span>
+
+    <span class=k>if</span> <span class=n>epoch</span> <span class=o>%</span> <span class=mi>50</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
+        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;Epoch </span><span class=si>{</span><span class=n>epoch</span><span class=si>:</span><span class=s2>3d</span><span class=si>}</span><span class=s2> | Loss: </span><span class=si>{</span><span class=n>avg_loss</span><span class=si>:</span><span class=s2>.4f</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>8</span><span class=p>,</span> <span class=mi>4</span><span class=p>))</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>losses</span><span class=p>,</span> <span class=n>color</span><span class=o>=</span><span class=s2>&quot;steelblue&quot;</span><span class=p>,</span> <span class=n>lw</span><span class=o>=</span><span class=mi>2</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s2>&quot;Training Loss Curve&quot;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&quot;Epoch&quot;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&quot;Cross-Entropy Loss&quot;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>grid</span><span class=p>(</span><span class=kc>True</span><span class=p>,</span> <span class=n>linestyle</span><span class=o>=</span><span class=s2>&quot;--&quot;</span><span class=p>,</span> <span class=n>alpha</span><span class=o>=</span><span class=mf>0.6</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>();</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>Epoch   0 | Loss: 3.1198
+Epoch  50 | Loss: 0.8143
+Epoch 100 | Loss: 0.7484
+Epoch 150 | Loss: 0.7672
+Epoch 200 | Loss: 0.7508
+Epoch 250 | Loss: 0.7477
+Epoch 300 | Loss: 0.7627
+Epoch 350 | Loss: 0.7492
+Epoch 400 | Loss: 0.7485
+Epoch 450 | Loss: 0.7264
+</code></pre></div> <p><img alt=png src=output_13_1.png></p> <h2 id=part-3-the-interludes>Part 3: The Interludes<a class=headerlink href=#part-3-the-interludes title="Permanent link">&para;</a></h2> <p>The next three interludes slow the model down and inspect one trained sequence, <code>"&lt;START&gt; i am groot"</code>, at matrix level. Every tensor in this part keeps explicit token labels and rounded values so the decoder path stays readable.</p> <h3 id=31-visualising-the-embedding-matrices>3.1 Visualising the Embedding Matrices<a class=headerlink href=#31-visualising-the-embedding-matrices title="Permanent link">&para;</a></h3> <p>Before the data ever reaches the Self-Attention mechanism, it must be converted from integers into continuous mathematical vectors. In PyTorch, <code>nn.Embedding</code> acts as a simple lookup table.</p> <p><img alt=png src=1.png></p> <div class=highlight><pre><span></span><code><span class=c1># Token embeddings</span>
+<span class=n>sentence</span> <span class=o>=</span> <span class=p>[</span><span class=s2>&quot;&lt;START&gt;&quot;</span><span class=p>,</span> <span class=s2>&quot;i&quot;</span><span class=p>,</span> <span class=s2>&quot;am&quot;</span><span class=p>,</span> <span class=s2>&quot;groot&quot;</span><span class=p>]</span>
+
+<span class=n>show_embeddings</span><span class=p>(</span><span class=n>token_to_id</span><span class=p>,</span> <span class=n>sentence</span><span class=p>,</span> <span class=n>device</span><span class=p>,</span> <span class=n>model</span><span class=p>,</span> <span class=n>vocab_size</span><span class=p>,</span> <span class=n>id_to_token</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>---------------------------------------------------------------------------
+
+NameError                                 Traceback (most recent call last)
+
+Cell In[8], line 4
+      1 # Token embeddings
+      2 sentence = [&quot;&lt;START&gt;&quot;, &quot;i&quot;, &quot;am&quot;, &quot;groot&quot;]
+----&gt; 4 show_embeddings(token_to_id, sentence, device, model, vocab_size)
+
+
+File ~\OneDrive\Documents\ML_AI_Training\Gen AI\code\baby_groot_viz.py:182, in show_embeddings(token_to_id, sentence, device, model, vocab_size)
+    180 embedding_data = []
+    181 for idx in range(vocab_size):
+--&gt; 182     word = id_to_token[idx]
+    183     vector = token_matrix[idx]
+    184     row = {&quot;Word&quot;: word, &quot;ID&quot;: idx}
+
+
+NameError: name &#39;id_to_token&#39; is not defined
+</code></pre></div> <h3 id=32-the-positional-embedding-lookup-table>3.2. The Positional Embedding Lookup Table<a class=headerlink href=#32-the-positional-embedding-lookup-table title="Permanent link">&para;</a></h3> <p>Just like the token embeddings, the positional embeddings are stored as a simple lookup table. Since our maximum sequence length (max_len) is 4, this table will only have 4 rows, each containing an 8-dimensional vector.</p> <p>Because the self-attention mechanism processes all words at the same time, it has no concept of reading left to right. To the model, "groot likes tree" and "tree likes groot" look identical unless we explicitly tell it which word comes first, second, and third.</p> <p>We solve this by creating a Positional Embedding matrix. This is a <span class=arithmatex>\(4 \times 8\)</span> lookup table where Row 0 represents the first slot in a sentence, Row 1 represents the second slot, and so on. During the forward pass, the vector for Position 0 is added directly to the vector for whichever word appears in Position 0.</p> <p>We can now extract and visualise this spatial lookup table.</p> <div class=highlight><pre><span></span><code><span class=n>show_positional_embeddings</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>max_len</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>Positional Embedding Table
+</code></pre></div> <div> <style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style> <table border=1 class=dataframe> <thead> <tr style="text-align: right;"> <th></th> <th>Position</th> <th>Emb_1</th> <th>Emb_2</th> <th>Emb_3</th> <th>Emb_4</th> <th>Emb_5</th> <th>Emb_6</th> <th>Emb_7</th> <th>Emb_8</th> </tr> </thead> <tbody> <tr> <th>0</th> <td>0</td> <td>1.65</td> <td>-1.69</td> <td>0.92</td> <td>0.13</td> <td>-1.27</td> <td>0.51</td> <td>0.50</td> <td>0.99</td> </tr> <tr> <th>1</th> <td>1</td> <td>0.52</td> <td>2.44</td> <td>-0.79</td> <td>-1.02</td> <td>-0.02</td> <td>1.41</td> <td>1.34</td> <td>0.04</td> </tr> <tr> <th>2</th> <td>2</td> <td>-0.54</td> <td>-1.05</td> <td>-0.25</td> <td>-0.85</td> <td>0.10</td> <td>0.35</td> <td>-0.20</td> <td>-2.18</td> </tr> <tr> <th>3</th> <td>3</td> <td>-0.96</td> <td>1.08</td> <td>-1.09</td> <td>2.14</td> <td>1.25</td> <td>-1.69</td> <td>0.36</td> <td>1.90</td> </tr> </tbody> </table> </div> <h3 id=33-constructing-the-input-matrix-mathbfh_0>3.3. Constructing the Input Matrix (<span class=arithmatex>\(\mathbf{H}_0\)</span>)<a class=headerlink href=#33-constructing-the-input-matrix-mathbfh_0 title="Permanent link">&para;</a></h3> <p>In a Transformer, the true input to the neural network is not just the word, and it is not just the position. It is the <strong>element-wise addition</strong> of the word's meaning (Token Embedding) and its location in the sentence (Positional Embedding).</p> <p>We can now extract the exact vectors for the phrase <code>["&lt;START&gt;", "i", "am", "groot"]</code>, add them together, and display the full operation in a clean DataFrame.</p> <p>Notice how the array under <code>Combined_H0_Vector</code> is the direct sum of the arrays in <code>Token_Embedding</code> and <code>Positional_Encoding</code>.</p> <div class=arithmatex>\[\mathbf{H}_0 = \mathbf{E}_{\text{token}}(\mathbf{X}_{\text{ids}}) + \mathbf{E}_{\text{pos}}(\mathbf{P})\]</div> <ul> <li><strong>Token Embedding Matrix <span class=arithmatex>\(\mathbf{E}_{\text{token}}\)</span> (<span class=arithmatex>\(4 \times 8\)</span>):</strong> Looks up the semantic vector for each token ID.</li> <li><strong>Positional Embedding Matrix <span class=arithmatex>\(\mathbf{E}_{\text{pos}}\)</span> (<span class=arithmatex>\(4 \times 8\)</span>):</strong> Looks up the spatial vector for indices <span class=arithmatex>\(\begin{bmatrix} 0 &amp; 1 &amp; 2 &amp; 3 \end{bmatrix}\)</span>.</li> </ul> <div class=arithmatex>\[\mathbf{H}_0 = \begin{bmatrix} e_{0,0} &amp; e_{0,1} &amp; e_{0,2} &amp; e_{0,3} &amp; e_{0,4} &amp; e_{0,5} &amp; e_{0,6} &amp; e_{0,7} \\ e_{1,0} &amp; e_{1,1} &amp; e_{1,2} &amp; e_{1,3} &amp; e_{1,4} &amp; e_{1,5} &amp; e_{1,6} &amp; e_{1,7} \\ e_{2,0} &amp; e_{2,1} &amp; e_{2,2} &amp; e_{2,3} &amp; e_{2,4} &amp; e_{2,5} &amp; e_{2,6} &amp; e_{2,7} \\ e_{3,0} &amp; e_{3,1} &amp; e_{3,2} &amp; e_{3,3} &amp; e_{3,4} &amp; e_{3,5} &amp; e_{3,6} &amp; e_{3,7} \end{bmatrix} \in \mathbb{R}^{4 \times 8}\]</div> <div class=highlight><pre><span></span><code><span class=n>ids</span> <span class=o>=</span> <span class=p>[</span><span class=n>token_to_id</span><span class=p>[</span><span class=n>t</span><span class=p>]</span> <span class=k>for</span> <span class=n>t</span> <span class=ow>in</span> <span class=n>sentence</span><span class=p>]</span>
+<span class=n>x_tensor</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>tensor</span><span class=p>([</span><span class=n>ids</span><span class=p>],</span> <span class=n>device</span><span class=o>=</span><span class=n>device</span><span class=p>)</span>
+<span class=c1># H0 trace</span>
+<span class=k>with</span> <span class=n>torch</span><span class=o>.</span><span class=n>no_grad</span><span class=p>():</span>
+    <span class=n>token_embs</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>token_embedding</span><span class=p>(</span><span class=n>x_tensor</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>cpu</span><span class=p>()</span><span class=o>.</span><span class=n>numpy</span><span class=p>()</span>
+    <span class=n>pos_embs</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>position_embedding</span><span class=p>(</span><span class=n>torch</span><span class=o>.</span><span class=n>arange</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>sentence</span><span class=p>),</span> <span class=n>device</span><span class=o>=</span><span class=n>device</span><span class=p>))</span><span class=o>.</span><span class=n>cpu</span><span class=p>()</span><span class=o>.</span><span class=n>numpy</span><span class=p>()</span>
+<span class=c1># Visualise the output</span>
+<span class=n>constructing_input_matrix</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>token_to_id</span><span class=p>,</span> <span class=n>token_embs</span><span class=p>,</span> <span class=n>pos_embs</span><span class=p>,</span> <span class=n>ids</span><span class=p>,</span> <span class=n>id_to_token</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>Single-Sequence Input Trace: Token + Position = H_0
+</code></pre></div> <div> <style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style> <table border=1 class=dataframe> <thead> <tr style="text-align: right;"> <th></th> <th>Token</th> <th>Pos</th> <th>Token_Embedding</th> <th>+</th> <th>Positional_Encoding</th> <th>=</th> <th>Combined_H0_Vector</th> </tr> </thead> <tbody> <tr> <th>0</th> <td>&lt;START&gt;</td> <td>0</td> <td>[-0.870, 0.880, -0.430, -0.940, -0.830, -0.410...</td> <td>+</td> <td>[1.650, -1.690, 0.920, 0.130, -1.270, 0.510, 0...</td> <td>=</td> <td>[0.780, -0.810, 0.490, -0.810, -2.100, 0.100, ...</td> </tr> <tr> <th>1</th> <td>i</td> <td>1</td> <td>[-0.020, -0.390, -0.100, 0.280, -1.230, -0.730...</td> <td>+</td> <td>[0.520, 2.440, -0.790, -1.020, -0.020, 1.410, ...</td> <td>=</td> <td>[0.500, 2.050, -0.890, -0.740, -1.250, 0.680, ...</td> </tr> <tr> <th>2</th> <td>am</td> <td>2</td> <td>[1.360, 1.210, -0.260, 1.090, -0.410, 0.460, -...</td> <td>+</td> <td>[-0.540, -1.050, -0.250, -0.850, 0.100, 0.350,...</td> <td>=</td> <td>[0.820, 0.160, -0.510, 0.240, -0.310, 0.810, -...</td> </tr> <tr> <th>3</th> <td>groot</td> <td>3</td> <td>[1.340, 1.310, 2.080, 0.880, 0.530, -0.610, -1...</td> <td>+</td> <td>[-0.960, 1.080, -1.090, 2.140, 1.250, -1.690, ...</td> <td>=</td> <td>[0.380, 2.390, 0.990, 3.020, 1.780, -2.300, -0...</td> </tr> </tbody> </table> </div> <div class=highlight><pre><span></span><code><span class=n>H_0</span> <span class=o>=</span> <span class=n>show_h0</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>token_to_id</span><span class=p>,</span> <span class=n>sentence</span><span class=p>,</span> <span class=n>id_to_token</span><span class=p>,</span> <span class=n>x_tensor</span><span class=p>,</span> <span class=n>model</span><span class=o>.</span><span class=n>token_embedding</span><span class=p>(</span><span class=n>x_tensor</span><span class=p>),</span> <span class=n>model</span><span class=o>.</span><span class=n>position_embedding</span><span class=p>(</span><span class=n>torch</span><span class=o>.</span><span class=n>arange</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>sentence</span><span class=p>),</span> <span class=n>device</span><span class=o>=</span><span class=n>device</span><span class=p>)))</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>H_0 Matrix:
+</code></pre></div> <div> <style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style> <table border=1 class=dataframe> <thead> <tr style="text-align: right;"> <th></th> <th>Token</th> <th>Pos</th> <th>H0_1</th> <th>H0_2</th> <th>H0_3</th> <th>H0_4</th> <th>H0_5</th> <th>H0_6</th> <th>H0_7</th> <th>H0_8</th> </tr> </thead> <tbody> <tr> <th>0</th> <td>&lt;START&gt;</td> <td>0</td> <td>0.78</td> <td>-0.81</td> <td>0.49</td> <td>-0.82</td> <td>-2.10</td> <td>0.10</td> <td>-0.25</td> <td>1.38</td> </tr> <tr> <th>1</th> <td>i</td> <td>1</td> <td>0.50</td> <td>2.05</td> <td>-0.90</td> <td>-0.74</td> <td>-1.25</td> <td>0.69</td> <td>3.45</td> <td>-0.61</td> </tr> <tr> <th>2</th> <td>am</td> <td>2</td> <td>0.82</td> <td>0.16</td> <td>-0.51</td> <td>0.23</td> <td>-0.31</td> <td>0.81</td> <td>-0.52</td> <td>-1.05</td> </tr> <tr> <th>3</th> <td>groot</td> <td>3</td> <td>0.38</td> <td>2.39</td> <td>0.98</td> <td>3.02</td> <td>1.78</td> <td>-2.30</td> <td>-0.88</td> <td>2.96</td> </tr> </tbody> </table> </div> <h2 id=part-4-self-attention-layer>Part 4: Self Attention Layer<a class=headerlink href=#part-4-self-attention-layer title="Permanent link">&para;</a></h2> <p>Once the model has constructed the <span class=arithmatex>\(\mathbf{H}_0\)</span> matrix (the combination of token and positional embeddings), it must figure out how these words relate to each other.</p> <p>In the <strong>Causal Self-Attention</strong> layer, the model passes <span class=arithmatex>\(\mathbf{H}_0\)</span> through three separate linear transformations (dense neural network layers) to create three new matrices:</p> <ul> <li><strong>Query (<span class=arithmatex>\(\mathbf{Q}\)</span>):</strong> Represents what the word is looking for. (e.g., A verb might query for a subject).</li> <li><strong>Key (<span class=arithmatex>\(\mathbf{K}\)</span>):</strong> Represents what the word contains. (e.g., A noun acts as a key for verbs looking for subjects).</li> <li><strong>Value (<span class=arithmatex>\(\mathbf{V}\)</span>):</strong> Represents the actual underlying meaning of the word that will be passed forward if it is selected.</li> </ul> <h3 id=41-generating-queries-keys-and-values-mathbfq-mathbfk-mathbfv>4.1 Generating Queries, Keys, and Values (<span class=arithmatex>\(\mathbf{Q}, \mathbf{K}, \mathbf{V}\)</span>)<a class=headerlink href=#41-generating-queries-keys-and-values-mathbfq-mathbfk-mathbfv title="Permanent link">&para;</a></h3> <p>Mathematically, this is done by multiplying <span class=arithmatex>\(\mathbf{H}_0\)</span> by the learned weight matrices <span class=arithmatex>\(\mathbf{W}_Q\)</span>, <span class=arithmatex>\(\mathbf{W}_K\)</span>, and <span class=arithmatex>\(\mathbf{W}_V\)</span>, and adding a bias term.</p> <ol> <li><strong>The Inputs (Left):</strong> The combined token and positional embeddings (<span class=arithmatex>\(\mathbf{H}_0\)</span>) enter the layer.</li> <li><strong>The Split (Middle):</strong> Each word branches into three distinct matrices: a Query (Red), a Key (Yellow), and a Value (Purple).</li> <li><strong>The Causal Routing (Right):</strong> Notice the arrows pointing to the Output node for <code>"groot"</code>. It receives connections from the Keys and Values of <code>&lt;START&gt;</code>, <code>i</code>, <code>am</code>, and <code>groot</code>. The Output node for <code>&lt;START&gt;</code> <em>only</em> receives connections from its own Key and Value. The missing backward arrows show that the causal mask prevents any look-ahead.</li> </ol> <p><img alt=png src=2.png></p> <p>We can now extract the exact Query matrix (<span class=arithmatex>\(\mathbf{Q}\)</span>) for our <code>"&lt;START&gt; i am groot"</code> sequence and display it.</p> <div class=highlight><pre><span></span><code><span class=n>display_q_matrix</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>sentence</span><span class=p>,</span> <span class=n>device</span><span class=p>,</span> <span class=n>id_to_token</span><span class=p>,</span> <span class=n>token_to_id</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>Query (Q) Matrix:
+</code></pre></div> <div> <style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style> <table border=1 class=dataframe> <thead> <tr style="text-align: right;"> <th></th> <th>Token</th> <th>Pos</th> <th>Q_1</th> <th>Q_2</th> <th>Q_3</th> <th>Q_4</th> <th>Q_5</th> <th>Q_6</th> <th>Q_7</th> <th>Q_8</th> </tr> </thead> <tbody> <tr> <th>0</th> <td>&lt;START&gt;</td> <td>0</td> <td>0.607</td> <td>0.055</td> <td>0.508</td> <td>-0.817</td> <td>-1.141</td> <td>0.454</td> <td>-0.301</td> <td>1.496</td> </tr> <tr> <th>1</th> <td>i</td> <td>1</td> <td>0.147</td> <td>-0.594</td> <td>-3.387</td> <td>0.265</td> <td>-0.388</td> <td>1.831</td> <td>0.917</td> <td>-0.417</td> </tr> <tr> <th>2</th> <td>am</td> <td>2</td> <td>-0.745</td> <td>1.441</td> <td>-0.279</td> <td>-0.168</td> <td>-0.650</td> <td>0.765</td> <td>-0.753</td> <td>-0.610</td> </tr> <tr> <th>3</th> <td>groot</td> <td>3</td> <td>1.823</td> <td>-1.039</td> <td>0.684</td> <td>-1.059</td> <td>-0.767</td> <td>-2.437</td> <td>1.233</td> <td>0.471</td> </tr> </tbody> </table> </div> <p>Notice how different the Query matrix looks from the <span class=arithmatex>\(\mathbf{H}_0\)</span> matrix in the previous step. The model's linear projection layers transform the raw token-and-position data into a specialised "search query".</p> <p>You can get this by multiplying the learned weights <span class=arithmatex>\(W_Q\)</span> with <span class=arithmatex>\(H_0\)</span>. $$ Q = W_Q \times H_0 $$</p> <div class=highlight><pre><span></span><code><span class=n>show_wq</span><span class=p>(</span><span class=n>model</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>The W_Q Weight Matrix:
+</code></pre></div> <div> <style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style> <table border=1 class=dataframe> <thead> <tr style="text-align: right;"> <th></th> <th>Dim_1</th> <th>Dim_2</th> <th>Dim_3</th> <th>Dim_4</th> <th>Dim_5</th> <th>Dim_6</th> <th>Dim_7</th> <th>Dim_8</th> </tr> </thead> <tbody> <tr> <th>Input_Dim_1</th> <td>-0.542</td> <td>0.201</td> <td>0.191</td> <td>0.033</td> <td>-0.264</td> <td>-0.300</td> <td>0.008</td> <td>0.281</td> </tr> <tr> <th>Input_Dim_2</th> <td>0.358</td> <td>-0.018</td> <td>-0.255</td> <td>0.134</td> <td>-0.235</td> <td>-0.085</td> <td>-0.464</td> <td>-0.554</td> </tr> <tr> <th>Input_Dim_3</th> <td>0.259</td> <td>-0.360</td> <td>0.082</td> <td>-0.244</td> <td>0.182</td> <td>-0.423</td> <td>-0.626</td> <td>0.127</td> </tr> <tr> <th>Input_Dim_4</th> <td>-0.156</td> <td>0.209</td> <td>0.047</td> <td>-0.298</td> <td>0.054</td> <td>-0.195</td> <td>-0.027</td> <td>-0.348</td> </tr> <tr> <th>Input_Dim_5</th> <td>0.059</td> <td>-0.230</td> <td>0.325</td> <td>-0.166</td> <td>0.451</td> <td>-0.190</td> <td>0.301</td> <td>-0.256</td> </tr> <tr> <th>Input_Dim_6</th> <td>0.006</td> <td>0.362</td> <td>-0.442</td> <td>-0.019</td> <td>-0.833</td> <td>-0.025</td> <td>-0.104</td> <td>-0.418</td> </tr> <tr> <th>Input_Dim_7</th> <td>-0.104</td> <td>0.333</td> <td>0.633</td> <td>0.103</td> <td>-0.105</td> <td>-0.178</td> <td>0.317</td> <td>-0.063</td> </tr> <tr> <th>Input_Dim_8</th> <td>0.007</td> <td>0.157</td> <td>-0.188</td> <td>-0.115</td> <td>-0.537</td> <td>0.007</td> <td>-0.266</td> <td>0.594</td> </tr> </tbody> </table> </div> <div class=arithmatex>\[\mathbf{Q} = \mathbf{H}_0 \mathbf{W}_Q \in \mathbb{R}^{4 \times 8} \quad (\text{What am I looking for?})\]</div> <div class=arithmatex>\[\mathbf{K} = \mathbf{H}_0 \mathbf{W}_K \in \mathbb{R}^{4 \times 8} \quad (\text{What information do I offer?})\]</div> <p>$<span class=arithmatex>\(\mathbf{V} = \mathbf{H}_0 \mathbf{W}_V \in \mathbb{R}^{4 \times 8} \quad (\text{What is my actual content?})\)</span>$ Similarly you can get the <strong>K</strong> matrix</p> <div class=highlight><pre><span></span><code><span class=n>display_k_matrix</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>sentence</span><span class=p>,</span> <span class=n>device</span><span class=p>,</span> <span class=n>id_to_token</span><span class=p>,</span> <span class=n>token_to_id</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>Key (K) Matrix:
+</code></pre></div> <div> <style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style> <table border=1 class=dataframe> <thead> <tr style="text-align: right;"> <th></th> <th>Token</th> <th>Pos</th> <th>K_1</th> <th>K_2</th> <th>K_3</th> <th>K_4</th> <th>K_5</th> <th>K_6</th> <th>K_7</th> <th>K_8</th> </tr> </thead> <tbody> <tr> <th>0</th> <td>&lt;START&gt;</td> <td>0</td> <td>0.458</td> <td>-1.546</td> <td>-0.486</td> <td>-0.143</td> <td>0.461</td> <td>-0.181</td> <td>0.895</td> <td>0.078</td> </tr> <tr> <th>1</th> <td>i</td> <td>1</td> <td>-0.948</td> <td>2.994</td> <td>0.548</td> <td>0.401</td> <td>1.225</td> <td>-0.049</td> <td>-1.395</td> <td>-2.031</td> </tr> <tr> <th>2</th> <td>am</td> <td>2</td> <td>0.152</td> <td>-0.492</td> <td>-0.693</td> <td>0.214</td> <td>-0.321</td> <td>0.286</td> <td>-0.511</td> <td>-0.359</td> </tr> <tr> <th>3</th> <td>groot</td> <td>3</td> <td>0.044</td> <td>-0.126</td> <td>-1.796</td> <td>-1.175</td> <td>-1.448</td> <td>0.170</td> <td>1.612</td> <td>2.824</td> </tr> </tbody> </table> </div> <h3 id=42-the-dot-product-measuring-compatibility>4.2 The Dot Product: Measuring Compatibility<a class=headerlink href=#42-the-dot-product-measuring-compatibility title="Permanent link">&para;</a></h3> <p>In linear algebra, a <strong>dot product</strong> measures how much two vectors align or point in the same direction. When the model computes <span class=arithmatex>\(\mathbf{Q} \mathbf{K}^T\)</span>, it is mathematically forcing every word's Query to shake hands with every word's Key.</p> <div class=arithmatex>\[ S = \frac{QK^\top}{\sqrt{d}} \]</div> <ul> <li>If the Query for "am" and the Key for "i" are highly aligned, their dot product yields a large positive number (a strong match).</li> <li>If they are unrelated (like "am" and "groot"), the dot product is near zero or negative.</li> <li>This dot product matrix forms the raw "scores" that dictate which words should pay attention to each other.</li> </ul> <p>We also scale this by dividing by the square root of our embedding dimension (<span class=arithmatex>\(\sqrt{8}\)</span>) to keep the numbers stable. </p> <div class=highlight><pre><span></span><code><span class=k>with</span> <span class=n>torch</span><span class=o>.</span><span class=n>no_grad</span><span class=p>():</span>
+    <span class=n>Q</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>transformer</span><span class=o>.</span><span class=n>attn</span><span class=o>.</span><span class=n>q</span><span class=p>(</span><span class=n>H_0</span><span class=p>)</span>  <span class=c1># Shape: [1, 4, 8]</span>
+    <span class=n>K</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>transformer</span><span class=o>.</span><span class=n>attn</span><span class=o>.</span><span class=n>k</span><span class=p>(</span><span class=n>H_0</span><span class=p>)</span>  <span class=c1># Shape: [1, 4, 8]</span>
+    <span class=n>V</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>transformer</span><span class=o>.</span><span class=n>attn</span><span class=o>.</span><span class=n>v</span><span class=p>(</span><span class=n>H_0</span><span class=p>)</span>  <span class=c1># Shape: [1, 4, 8]</span>
+<span class=c1># 1. Calculate scaled dot-product attention scores</span>
+<span class=n>C</span> <span class=o>=</span> <span class=mi>8</span>
+<span class=c1># Transpose K to align dimensions for matrix multiplication: [1, 4, 8] @ [1, 8, 4] -&gt; [1, 4, 4]</span>
+<span class=n>raw_scores</span> <span class=o>=</span> <span class=p>(</span><span class=n>Q</span> <span class=o>@</span> <span class=n>K</span><span class=o>.</span><span class=n>transpose</span><span class=p>(</span><span class=o>-</span><span class=mi>2</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>))</span> <span class=o>/</span> <span class=p>(</span><span class=n>C</span> <span class=o>**</span> <span class=mf>0.5</span><span class=p>)</span>
+<span class=n>plot_scaled_dot_product_attention_matrix</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>sentence</span><span class=p>,</span> <span class=n>device</span><span class=p>,</span> <span class=n>token_to_id</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>1. Raw Scaled Scores (Q @ K^T):
+</code></pre></div> <style type=text/css>
+#T_784dd_row0_col0 {
+  background-color: #fffebe;
+  color: #000000;
+}
+#T_784dd_row0_col1 {
+  background-color: #f98e52;
+  color: #f1f1f1;
+}
+#T_784dd_row0_col2 {
+  background-color: #f7fcb4;
+  color: #000000;
+}
+#T_784dd_row0_col3 {
+  background-color: #18954f;
+  color: #f1f1f1;
+}
+#T_784dd_row1_col0 {
+  background-color: #93d168;
+  color: #000000;
+}
+#T_784dd_row1_col1 {
+  background-color: #f8864f;
+  color: #f1f1f1;
+}
+#T_784dd_row1_col2 {
+  background-color: #8ccd67;
+  color: #000000;
+}
+#T_784dd_row1_col3 {
+  background-color: #006837;
+  color: #f1f1f1;
+}
+#T_784dd_row2_col0 {
+  background-color: #fdb567;
+  color: #000000;
+}
+#T_784dd_row2_col1 {
+  background-color: #0c7f43;
+  color: #f1f1f1;
+}
+#T_784dd_row2_col2 {
+  background-color: #e5f49b;
+  color: #000000;
+}
+#T_784dd_row2_col3 {
+  background-color: #fff1a8;
+  color: #000000;
+}
+#T_784dd_row3_col0 {
+  background-color: #78c565;
+  color: #000000;
+}
+#T_784dd_row3_col1 {
+  background-color: #a50026;
+  color: #f1f1f1;
+}
+#T_784dd_row3_col2 {
+  background-color: #fff6b0;
+  color: #000000;
+}
+#T_784dd_row3_col3 {
+  background-color: #57b65f;
+  color: #f1f1f1;
+}
+</style> <table id=T_784dd> <thead> <tr> <th class="blank level0">&nbsp;</th> <th id=T_784dd_level0_col0 class="col_heading level0 col0">< START ></th> <th id=T_784dd_level0_col1 class="col_heading level0 col1">i</th> <th id=T_784dd_level0_col2 class="col_heading level0 col2">am</th> <th id=T_784dd_level0_col3 class="col_heading level0 col3">groot</th> </tr> </thead> <tbody> <tr> <th id=T_784dd_level0_row0 class="row_heading level0 row0">< START ></th> <td id=T_784dd_row0_col0 class="data row0 col0">-0.247</td> <td id=T_784dd_row0_col1 class="data row0 col1">-1.590</td> <td id=T_784dd_row0_col2 class="data row0 col2">-0.123</td> <td id=T_784dd_row0_col3 class="data row0 col3">1.957</td> </tr> <tr> <th id=T_784dd_level0_row1 class="row_heading level0 row1">i</th> <td id=T_784dd_row1_col0 class="data row1 col0">1.015</td> <td id=T_784dd_row1_col1 class="data row1 col1">-1.649</td> <td id=T_784dd_row1_col2 class="data row1 col2">1.078</td> <td id=T_784dd_row1_col3 class="data row1 col3">2.484</td> </tr> <tr> <th id=T_784dd_level0_row2 class="row_heading level0 row2">am</th> <td id=T_784dd_row2_col0 class="data row2 col0">-1.262</td> <td id=T_784dd_row2_col1 class="data row2 col1">2.212</td> <td id=T_784dd_row2_col2 class="data row2 col2">0.130</td> <td id=T_784dd_row2_col3 class="data row2 col3">-0.489</td> </tr> <tr> <th id=T_784dd_level0_row3 class="row_heading level0 row3">groot</th> <td id=T_784dd_row3_col0 class="data row3 col0">1.234</td> <td id=T_784dd_row3_col1 class="data row3 col1">-2.965</td> <td id=T_784dd_row3_col2 class="data row3 col2">-0.411</td> <td id=T_784dd_row3_col3 class="data row3 col3">1.500</td> </tr> </tbody> </table> <h3 id=43-the-causal-mask-and-softmax-mathbfa>4.3. The Causal Mask and Softmax (<span class=arithmatex>\(\mathbf{A}\)</span>)<a class=headerlink href=#43-the-causal-mask-and-softmax-mathbfa title="Permanent link">&para;</a></h3> <p>For causal decoding, token <span class=arithmatex>\(t\)</span> must not look ahead to tokens <span class=arithmatex>\(&gt; t\)</span>. We enforce this with a lower-triangular mask:</p> <div class=arithmatex>\[ S_{\text{masked}} = \text{mask}(S), \qquad A = \text{softmax}(S_{\text{masked}}) \]</div> <p>The lower-triangular mask replaces all future token scores with <span class=arithmatex>\(-10^9\)</span>. Then, we apply the Softmax function to convert the remaining scores into percentages that sum to <span class=arithmatex>\(1.0\)</span> across each row.</p> <p>Causal Lower Triangular Matrix $<span class=arithmatex>\(\mathbf{S}_{\text{masked}} = \begin{bmatrix} s_{0,0} &amp; -\infty &amp; -\infty &amp; -\infty \\ s_{1,0} &amp; s_{1,1} &amp; -\infty &amp; -\infty \\ s_{2,0} &amp; s_{2,1} &amp; s_{2,2} &amp; -\infty \\ s_{3,0} &amp; s_{3,1} &amp; s_{3,2} &amp; s_{3,3} \end{bmatrix}\)</span>$</p> <p>Softmax Normalisation $<span class=arithmatex>\(\mathbf{A} = \text{softmax}(\mathbf{S}_{\text{masked}}) = \begin{bmatrix} 1.00 &amp; 0.00 &amp; 0.00 &amp; 0.00 \\ a_{1,0} &amp; a_{1,1} &amp; 0.00 &amp; 0.00 \\ a_{2,0} &amp; a_{2,1} &amp; a_{2,2} &amp; 0.00 \\ a_{3,0} &amp; a_{3,1} &amp; a_{3,2} &amp; a_{3,3} \end{bmatrix} \in \mathbb{R}^{4 \times 4} \quad \text{where } \sum_{j} a_{i,j} = 1.0\)</span>$</p> <div class=highlight><pre><span></span><code><span class=c1># 1. Create and apply the causal mask</span>
+<span class=n>T</span> <span class=o>=</span> <span class=mi>4</span>
+<span class=n>mask</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>tril</span><span class=p>(</span><span class=n>torch</span><span class=o>.</span><span class=n>ones</span><span class=p>(</span><span class=n>T</span><span class=p>,</span> <span class=n>T</span><span class=p>,</span> <span class=n>device</span><span class=o>=</span><span class=n>device</span><span class=p>))</span> 
+<span class=n>masked_scores</span> <span class=o>=</span> <span class=n>raw_scores</span><span class=o>.</span><span class=n>masked_fill</span><span class=p>(</span><span class=n>mask</span> <span class=o>==</span> <span class=mi>0</span><span class=p>,</span> <span class=o>-</span><span class=mf>1e9</span><span class=p>)</span>
+
+<span class=c1># 2. Apply Softmax to get percentages</span>
+<span class=n>attention_probs</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>softmax</span><span class=p>(</span><span class=n>masked_scores</span><span class=p>,</span> <span class=n>dim</span><span class=o>=-</span><span class=mi>1</span><span class=p>)</span>
+<span class=n>attn_np</span> <span class=o>=</span> <span class=n>attention_probs</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>cpu</span><span class=p>()</span><span class=o>.</span><span class=n>numpy</span><span class=p>()</span>
+
+<span class=c1># Display the probabilities</span>
+<span class=n>attention_probs</span> <span class=o>=</span> <span class=n>causal_mask</span><span class=p>(</span><span class=n>raw_scores</span><span class=p>,</span> <span class=n>device</span><span class=p>,</span> <span class=n>sentence</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>2. Attention Probabilities (Masked &amp; Softmax):
+</code></pre></div> <style type=text/css>
+#T_a7a97_row0_col0 {
+  background-color: #08306b;
+  color: #f1f1f1;
+}
+#T_a7a97_row0_col1, #T_a7a97_row0_col2, #T_a7a97_row0_col3, #T_a7a97_row1_col2, #T_a7a97_row1_col3, #T_a7a97_row2_col3 {
+  background-color: #f7fbff;
+  color: #000000;
+}
+#T_a7a97_row1_col0 {
+  background-color: #084184;
+  color: #f1f1f1;
+}
+#T_a7a97_row1_col1 {
+  background-color: #eaf3fb;
+  color: #000000;
+}
+#T_a7a97_row2_col0 {
+  background-color: #f2f8fd;
+  color: #000000;
+}
+#T_a7a97_row2_col1 {
+  background-color: #0a539e;
+  color: #f1f1f1;
+}
+#T_a7a97_row2_col2 {
+  background-color: #e2edf8;
+  color: #000000;
+}
+#T_a7a97_row3_col0 {
+  background-color: #95c5df;
+  color: #000000;
+}
+#T_a7a97_row3_col1 {
+  background-color: #f6faff;
+  color: #000000;
+}
+#T_a7a97_row3_col2 {
+  background-color: #e8f1fa;
+  color: #000000;
+}
+#T_a7a97_row3_col3 {
+  background-color: #65aad4;
+  color: #f1f1f1;
+}
+</style> <table id=T_a7a97> <thead> <tr> <th class="blank level0">&nbsp;</th> <th id=T_a7a97_level0_col0 class="col_heading level0 col0">< START ></th> <th id=T_a7a97_level0_col1 class="col_heading level0 col1">i</th> <th id=T_a7a97_level0_col2 class="col_heading level0 col2">am</th> <th id=T_a7a97_level0_col3 class="col_heading level0 col3">groot</th> </tr> </thead> <tbody> <tr> <th id=T_a7a97_level0_row0 class="row_heading level0 row0">< START ></th> <td id=T_a7a97_row0_col0 class="data row0 col0">1.000</td> <td id=T_a7a97_row0_col1 class="data row0 col1">0.000</td> <td id=T_a7a97_row0_col2 class="data row0 col2">0.000</td> <td id=T_a7a97_row0_col3 class="data row0 col3">0.000</td> </tr> <tr> <th id=T_a7a97_level0_row1 class="row_heading level0 row1">i</th> <td id=T_a7a97_row1_col0 class="data row1 col0">0.935</td> <td id=T_a7a97_row1_col1 class="data row1 col1">0.065</td> <td id=T_a7a97_row1_col2 class="data row1 col2">0.000</td> <td id=T_a7a97_row1_col3 class="data row1 col3">0.000</td> </tr> <tr> <th id=T_a7a97_level0_row2 class="row_heading level0 row2">am</th> <td id=T_a7a97_row2_col0 class="data row2 col0">0.027</td> <td id=T_a7a97_row2_col1 class="data row2 col1">0.865</td> <td id=T_a7a97_row2_col2 class="data row2 col2">0.108</td> <td id=T_a7a97_row2_col3 class="data row2 col3">0.000</td> </tr> <tr> <th id=T_a7a97_level0_row3 class="row_heading level0 row3">groot</th> <td id=T_a7a97_row3_col0 class="data row3 col0">0.398</td> <td id=T_a7a97_row3_col1 class="data row3 col1">0.006</td> <td id=T_a7a97_row3_col2 class="data row3 col2">0.077</td> <td id=T_a7a97_row3_col3 class="data row3 col3">0.519</td> </tr> </tbody> </table> <h3 id=44-extracting-the-value-the-final-payload-mathbfamathbfv>4.4. Extracting the Value: The Final Payload (<span class=arithmatex>\(\mathbf{A}\mathbf{V}\)</span>)<a class=headerlink href=#44-extracting-the-value-the-final-payload-mathbfamathbfv title="Permanent link">&para;</a></h3> <p>Finally, we multiply our attention percentages by the Value matrix (<span class=arithmatex>\(\mathbf{V}\)</span>). If "am" pays 86.5% attention to 'i', 2.7% to "START" and 10.8% to itself, this operation extracts 86.5% of "i"'s Value vector, 2.7% of "START"'s and 10.8% of "am"'s Value vector, merging them into a brand new 8-dimensional array.</p> <div class=arithmatex>\[ ext{Context} = A V \]</div> <div class=highlight><pre><span></span><code><span class=n>V</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>transformer</span><span class=o>.</span><span class=n>attn</span><span class=o>.</span><span class=n>v</span><span class=p>(</span><span class=n>H_0</span><span class=p>)</span>
+<span class=c1># 1. Multiply probabilities by the Value matrix</span>
+<span class=n>context_output</span> <span class=o>=</span> <span class=n>attention_probs</span> <span class=o>@</span> <span class=n>V</span>
+<span class=c1># plot AV</span>
+<span class=n>plot_a_times_v</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>sentence</span><span class=p>,</span> <span class=n>device</span><span class=p>,</span> <span class=n>attention_probs</span><span class=p>,</span> <span class=n>token_to_id</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>3. Final Context-Aware Output (A @ V):
+</code></pre></div> <style type=text/css>
+#T_4b6aa_row0_col0 {
+  background-color: #6c54a5;
+  color: #f1f1f1;
+}
+#T_4b6aa_row0_col1 {
+  background-color: #d5d5e9;
+  color: #000000;
+}
+#T_4b6aa_row0_col2 {
+  background-color: #e2e1ef;
+  color: #000000;
+}
+#T_4b6aa_row0_col3 {
+  background-color: #6f5ba8;
+  color: #f1f1f1;
+}
+#T_4b6aa_row0_col4 {
+  background-color: #b5b5d7;
+  color: #000000;
+}
+#T_4b6aa_row0_col5 {
+  background-color: #a6a3cd;
+  color: #f1f1f1;
+}
+#T_4b6aa_row0_col6 {
+  background-color: #9f9cc9;
+  color: #f1f1f1;
+}
+#T_4b6aa_row0_col7 {
+  background-color: #a19eca;
+  color: #f1f1f1;
+}
+#T_4b6aa_row1_col0 {
+  background-color: #7567af;
+  color: #f1f1f1;
+}
+#T_4b6aa_row1_col1 {
+  background-color: #cecee5;
+  color: #000000;
+}
+#T_4b6aa_row1_col2 {
+  background-color: #dadaeb;
+  color: #000000;
+}
+#T_4b6aa_row1_col3 {
+  background-color: #6b53a4;
+  color: #f1f1f1;
+}
+#T_4b6aa_row1_col4 {
+  background-color: #bcbddc;
+  color: #000000;
+}
+#T_4b6aa_row1_col5 {
+  background-color: #9e9bc8;
+  color: #f1f1f1;
+}
+#T_4b6aa_row1_col6 {
+  background-color: #a3a0cb;
+  color: #f1f1f1;
+}
+#T_4b6aa_row1_col7 {
+  background-color: #9894c5;
+  color: #f1f1f1;
+}
+#T_4b6aa_row2_col0 {
+  background-color: #fcfbfd;
+  color: #000000;
+}
+#T_4b6aa_row2_col1 {
+  background-color: #796eb2;
+  color: #f1f1f1;
+}
+#T_4b6aa_row2_col2 {
+  background-color: #53268f;
+  color: #f1f1f1;
+}
+#T_4b6aa_row2_col3, #T_4b6aa_row2_col7 {
+  background-color: #3f007d;
+  color: #f1f1f1;
+}
+#T_4b6aa_row2_col4 {
+  background-color: #f8f7fa;
+  color: #000000;
+}
+#T_4b6aa_row2_col5 {
+  background-color: #4f1f8b;
+  color: #f1f1f1;
+}
+#T_4b6aa_row2_col6 {
+  background-color: #d3d3e8;
+  color: #000000;
+}
+#T_4b6aa_row3_col0 {
+  background-color: #9793c5;
+  color: #f1f1f1;
+}
+#T_4b6aa_row3_col1 {
+  background-color: #7b74b5;
+  color: #f1f1f1;
+}
+#T_4b6aa_row3_col2 {
+  background-color: #ddddec;
+  color: #000000;
+}
+#T_4b6aa_row3_col3 {
+  background-color: #7a71b4;
+  color: #f1f1f1;
+}
+#T_4b6aa_row3_col4 {
+  background-color: #562b91;
+  color: #f1f1f1;
+}
+#T_4b6aa_row3_col5 {
+  background-color: #bdbedc;
+  color: #000000;
+}
+#T_4b6aa_row3_col6 {
+  background-color: #9390c3;
+  color: #f1f1f1;
+}
+#T_4b6aa_row3_col7 {
+  background-color: #f2f0f7;
+  color: #000000;
+}
+</style> <table id=T_4b6aa> <thead> <tr> <th class="blank level0">&nbsp;</th> <th id=T_4b6aa_level0_col0 class="col_heading level0 col0">Mixed_V_1</th> <th id=T_4b6aa_level0_col1 class="col_heading level0 col1">Mixed_V_2</th> <th id=T_4b6aa_level0_col2 class="col_heading level0 col2">Mixed_V_3</th> <th id=T_4b6aa_level0_col3 class="col_heading level0 col3">Mixed_V_4</th> <th id=T_4b6aa_level0_col4 class="col_heading level0 col4">Mixed_V_5</th> <th id=T_4b6aa_level0_col5 class="col_heading level0 col5">Mixed_V_6</th> <th id=T_4b6aa_level0_col6 class="col_heading level0 col6">Mixed_V_7</th> <th id=T_4b6aa_level0_col7 class="col_heading level0 col7">Mixed_V_8</th> </tr> </thead> <tbody> <tr> <th id=T_4b6aa_level0_row0 class="row_heading level0 row0">< START ></th> <td id=T_4b6aa_row0_col0 class="data row0 col0">0.968</td> <td id=T_4b6aa_row0_col1 class="data row0 col1">-0.970</td> <td id=T_4b6aa_row0_col2 class="data row0 col2">-1.249</td> <td id=T_4b6aa_row0_col3 class="data row0 col3">0.896</td> <td id=T_4b6aa_row0_col4 class="data row0 col4">-0.416</td> <td id=T_4b6aa_row0_col5 class="data row0 col5">-0.166</td> <td id=T_4b6aa_row0_col6 class="data row0 col6">-0.054</td> <td id=T_4b6aa_row0_col7 class="data row0 col7">-0.072</td> </tr> <tr> <th id=T_4b6aa_level0_row1 class="row_heading level0 row1">i</th> <td id=T_4b6aa_row1_col0 class="data row1 col0">0.746</td> <td id=T_4b6aa_row1_col1 class="data row1 col1">-0.849</td> <td id=T_4b6aa_row1_col2 class="data row1 col2">-1.048</td> <td id=T_4b6aa_row1_col3 class="data row1 col3">0.986</td> <td id=T_4b6aa_row1_col4 class="data row1 col4">-0.528</td> <td id=T_4b6aa_row1_col5 class="data row1 col5">-0.035</td> <td id=T_4b6aa_row1_col6 class="data row1 col6">-0.117</td> <td id=T_4b6aa_row1_col7 class="data row1 col7">0.080</td> </tr> <tr> <th id=T_4b6aa_level0_row2 class="row_heading level0 row2">am</th> <td id=T_4b6aa_row2_col0 class="data row2 col0">-2.101</td> <td id=T_4b6aa_row2_col1 class="data row2 col1">0.666</td> <td id=T_4b6aa_row2_col2 class="data row2 col2">1.538</td> <td id=T_4b6aa_row2_col3 class="data row2 col3">2.050</td> <td id=T_4b6aa_row2_col4 class="data row2 col4">-1.928</td> <td id=T_4b6aa_row2_col5 class="data row2 col5">1.642</td> <td id=T_4b6aa_row2_col6 class="data row2 col6">-0.933</td> <td id=T_4b6aa_row2_col7 class="data row2 col7">2.054</td> </tr> <tr> <th id=T_4b6aa_level0_row3 class="row_heading level0 row3">groot</th> <td id=T_4b6aa_row3_col0 class="data row3 col0">0.102</td> <td id=T_4b6aa_row3_col1 class="data row3 col1">0.595</td> <td id=T_4b6aa_row3_col2 class="data row3 col2">-1.138</td> <td id=T_4b6aa_row3_col3 class="data row3 col3">0.629</td> <td id=T_4b6aa_row3_col4 class="data row3 col4">1.471</td> <td id=T_4b6aa_row3_col5 class="data row3 col5">-0.555</td> <td id=T_4b6aa_row3_col6 class="data row3 col6">0.160</td> <td id=T_4b6aa_row3_col7 class="data row3 col7">-1.689</td> </tr> </tbody> </table> <p>The background colours show which tokens the model relies on most heavily. The red-to-green heatmap shows raw mathematical affinity, the blue heatmap shows the triangular boundary that blocks future tokens, and the purple heatmap shows the new 8-dimensional mixed representations.</p> <div class=highlight><pre><span></span><code><span class=n>plot_causal_attention_flow</span><span class=p>(</span><span class=n>words</span> <span class=o>=</span> <span class=n>sentence</span><span class=p>)</span>
+</code></pre></div> <p><img alt=png src=output_34_0.png></p> <p>Now that the Attention layer has mixed the context, the word "am" knows it is connected to "i". However, the model still needs to digest this new information and stabilise the math so the neural network does not collapse during training.</p> <h2 id=part-5-tracing-the-matrix-through-the-transformer-block>Part 5. Tracing the Matrix Through the Transformer Block<a class=headerlink href=#part-5-tracing-the-matrix-through-the-transformer-block title="Permanent link">&para;</a></h2> <ul> <li><strong>1. The First Residual Connection (Addition)</strong> The first thing the block does is add our original input (<span class=arithmatex>\(\mathbf{H}_0\)</span>) directly to the new attention output. $$ R_1 = H_0 + \text{Context} $$</li> <li><strong>2. Layer Normalisation:</strong> Neural networks hate extreme numbers. Layer Normalisation (<code>self.norm1</code>) acts as a mathematical shock absorber, re-centring the 8-dimensional vector so its mean is <span class=arithmatex>\(0\)</span> and variance is <span class=arithmatex>\(1\)</span>. $$ N_1 = \text{LayerNorm}(R_1) $$</li> <li><strong>3. The Feed-Forward Network (FFN):</strong> Now that the context is mixed and stabilised, each word passes through a standard mini neural network (<code>self.ffn</code>) to "think" about what this new context means. It expands the 8 dimensions to 16, applies a non-linear <code>ReLU</code> activation, and shrinks it back to 8.</li> <li><strong>4. Final Residual &amp; Norm:</strong> We apply one last residual addition and normalisation (<code>self.norm2</code>) to complete the block.</li> </ul> <h3 id=51-the-first-residual-connection-addition>5.1. The First Residual Connection (Addition)<a class=headerlink href=#51-the-first-residual-connection-addition title="Permanent link">&para;</a></h3> <p>The first thing the block does is add our original input (<span class=arithmatex>\(\mathbf{H}_0\)</span>) directly to the new attention output. This ensures the model does not forget the original identity of the word while incorporating the new context. $$ R_1 = H_0 + \text{Context} $$</p> <div class=highlight><pre><span></span><code><span class=n>residual_1</span> <span class=o>=</span> <span class=n>H_0</span> <span class=o>+</span> <span class=n>context_output</span>
+<span class=n>residual_connection</span><span class=p>(</span><span class=n>H_0</span><span class=p>,</span> <span class=n>context_output</span><span class=p>,</span> <span class=n>residual_1</span><span class=p>,</span> <span class=n>sentence</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>1. First Residual Connection (H_0 + Attention_Context):
+</code></pre></div> <div> <style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style> <table border=1 class=dataframe> <thead> <tr style="text-align: right;"> <th></th> <th>Token</th> <th>Original_H0</th> <th>+</th> <th>Attention_Context</th> <th>=</th> <th>Residual_Output</th> </tr> </thead> <tbody> <tr> <th>0</th> <td>&lt;START&gt;</td> <td>[0.779, -0.815, 0.491, -0.816, -2.099, 0.103, ...</td> <td>+</td> <td>[0.968, -0.97, -1.249, 0.896, -0.416, -0.166, ...</td> <td>=</td> <td>[1.747, -1.785, -0.758, 0.08, -2.515, -0.063, ...</td> </tr> <tr> <th>1</th> <td>i</td> <td>[0.498, 2.053, -0.898, -0.741, -1.254, 0.686, ...</td> <td>+</td> <td>[0.746, -0.849, -1.048, 0.986, -0.528, -0.035,...</td> <td>=</td> <td>[1.244, 1.204, -1.946, 0.244, -1.782, 0.652, 3...</td> </tr> <tr> <th>2</th> <td>am</td> <td>[0.821, 0.159, -0.506, 0.233, -0.31, 0.813, -0...</td> <td>+</td> <td>[-2.101, 0.666, 1.538, 2.05, -1.928, 1.642, -0...</td> <td>=</td> <td>[-1.279, 0.825, 1.032, 2.284, -2.238, 2.455, -...</td> </tr> <tr> <th>3</th> <td>groot</td> <td>[0.382, 2.39, 0.984, 3.02, 1.778, -2.297, -0.8...</td> <td>+</td> <td>[0.102, 0.595, -1.138, 0.629, 1.471, -0.555, 0...</td> <td>=</td> <td>[0.484, 2.986, -0.153, 3.649, 3.248, -2.853, -...</td> </tr> </tbody> </table> </div> <h3 id=52-layer-normalisation>5.2. Layer Normalisation<a class=headerlink href=#52-layer-normalisation title="Permanent link">&para;</a></h3> <p>Neural networks become unstable if the numbers in the matrices grow too large or too small. <code>LayerNorm</code> forces the numbers in each 8-dimensional vector to have a mean of <span class=arithmatex>\(0\)</span> and a variance of <span class=arithmatex>\(1\)</span>. The normalised output is shown below. $$ N_1 = \text{LayerNorm}(R_1) $$</p> <div class=highlight><pre><span></span><code><span class=c1># Apply Layer Normalisation</span>
+<span class=n>norm1_out</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>transformer</span><span class=o>.</span><span class=n>norm1</span><span class=p>(</span><span class=n>residual_1</span><span class=p>)</span>
+<span class=n>plot_normalisation1</span><span class=p>(</span><span class=n>norm1_out</span><span class=p>,</span> <span class=n>sentence</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>2. Layer Normalisation Output:
+</code></pre></div> <style type=text/css>
+#T_efe89_row0_col0 {
+  background-color: #24409a;
+  color: #f1f1f1;
+}
+#T_efe89_row0_col1 {
+  background-color: #ffffd9;
+  color: #000000;
+}
+#T_efe89_row0_col2 {
+  background-color: #6fc7bd;
+  color: #000000;
+}
+#T_efe89_row0_col3 {
+  background-color: #3db2c4;
+  color: #f1f1f1;
+}
+#T_efe89_row0_col4 {
+  background-color: #feffd6;
+  color: #000000;
+}
+#T_efe89_row0_col5 {
+  background-color: #57bec1;
+  color: #000000;
+}
+#T_efe89_row0_col6, #T_efe89_row3_col0 {
+  background-color: #73c8bd;
+  color: #000000;
+}
+#T_efe89_row0_col7, #T_efe89_row3_col4 {
+  background-color: #2355a4;
+  color: #f1f1f1;
+}
+#T_efe89_row1_col0 {
+  background-color: #2397c1;
+  color: #f1f1f1;
+}
+#T_efe89_row1_col1 {
+  background-color: #2498c1;
+  color: #f1f1f1;
+}
+#T_efe89_row1_col2 {
+  background-color: #d5efb3;
+  color: #000000;
+}
+#T_efe89_row1_col3 {
+  background-color: #65c3bf;
+  color: #000000;
+}
+#T_efe89_row1_col4 {
+  background-color: #eef8b3;
+  color: #000000;
+}
+#T_efe89_row1_col5 {
+  background-color: #53bdc1;
+  color: #000000;
+}
+#T_efe89_row1_col6 {
+  background-color: #081d58;
+  color: #f1f1f1;
+}
+#T_efe89_row1_col7 {
+  background-color: #92d5b9;
+  color: #000000;
+}
+#T_efe89_row2_col0 {
+  background-color: #d1edb3;
+  color: #000000;
+}
+#T_efe89_row2_col1 {
+  background-color: #3eb3c4;
+  color: #f1f1f1;
+}
+#T_efe89_row2_col2 {
+  background-color: #2fa4c2;
+  color: #f1f1f1;
+}
+#T_efe89_row2_col3 {
+  background-color: #2259a6;
+  color: #f1f1f1;
+}
+#T_efe89_row2_col4 {
+  background-color: #f9fdcb;
+  color: #000000;
+}
+#T_efe89_row2_col5 {
+  background-color: #1f7bb6;
+  color: #f1f1f1;
+}
+#T_efe89_row2_col6 {
+  background-color: #f7fcc7;
+  color: #000000;
+}
+#T_efe89_row2_col7 {
+  background-color: #2b9fc2;
+  color: #f1f1f1;
+}
+#T_efe89_row3_col1 {
+  background-color: #2262aa;
+  color: #f1f1f1;
+}
+#T_efe89_row3_col2 {
+  background-color: #83cebb;
+  color: #000000;
+}
+#T_efe89_row3_col3 {
+  background-color: #2351a2;
+  color: #f1f1f1;
+}
+#T_efe89_row3_col5 {
+  background-color: #f8fcc9;
+  color: #000000;
+}
+#T_efe89_row3_col6 {
+  background-color: #e8f6b1;
+  color: #000000;
+}
+#T_efe89_row3_col7 {
+  background-color: #3fb4c4;
+  color: #f1f1f1;
+}
+</style> <table id=T_efe89> <thead> <tr> <th class="blank level0">&nbsp;</th> <th id=T_efe89_level0_col0 class="col_heading level0 col0">Norm_1</th> <th id=T_efe89_level0_col1 class="col_heading level0 col1">Norm_2</th> <th id=T_efe89_level0_col2 class="col_heading level0 col2">Norm_3</th> <th id=T_efe89_level0_col3 class="col_heading level0 col3">Norm_4</th> <th id=T_efe89_level0_col4 class="col_heading level0 col4">Norm_5</th> <th id=T_efe89_level0_col5 class="col_heading level0 col5">Norm_6</th> <th id=T_efe89_level0_col6 class="col_heading level0 col6">Norm_7</th> <th id=T_efe89_level0_col7 class="col_heading level0 col7">Norm_8</th> </tr> </thead> <tbody> <tr> <th id=T_efe89_level0_row0 class="row_heading level0 row0">< START ></th> <td id=T_efe89_row0_col0 class="data row0 col0">1.594</td> <td id=T_efe89_row0_col1 class="data row0 col1">-1.715</td> <td id=T_efe89_row0_col2 class="data row0 col2">-0.112</td> <td id=T_efe89_row0_col3 class="data row0 col3">0.314</td> <td id=T_efe89_row0_col4 class="data row0 col4">-1.672</td> <td id=T_efe89_row0_col5 class="data row0 col5">0.074</td> <td id=T_efe89_row0_col6 class="data row0 col6">-0.142</td> <td id=T_efe89_row0_col7 class="data row0 col7">1.344</td> </tr> <tr> <th id=T_efe89_level0_row1 class="row_heading level0 row1">i</th> <td id=T_efe89_row1_col0 class="data row1 col0">0.668</td> <td id=T_efe89_row1_col1 class="data row1 col1">0.650</td> <td id=T_efe89_row1_col2 class="data row1 col2">-0.909</td> <td id=T_efe89_row1_col3 class="data row1 col3">-0.021</td> <td id=T_efe89_row1_col4 class="data row1 col4">-1.250</td> <td id=T_efe89_row1_col5 class="data row1 col5">0.112</td> <td id=T_efe89_row1_col6 class="data row1 col6">2.231</td> <td id=T_efe89_row1_col7 class="data row1 col7">-0.364</td> </tr> <tr> <th id=T_efe89_level0_row2 class="row_heading level0 row2">am</th> <td id=T_efe89_row2_col0 class="data row2 col0">-0.860</td> <td id=T_efe89_row2_col1 class="data row2 col1">0.290</td> <td id=T_efe89_row2_col2 class="data row2 col2">0.491</td> <td id=T_efe89_row2_col3 class="data row2 col3">1.296</td> <td id=T_efe89_row2_col4 class="data row2 col4">-1.544</td> <td id=T_efe89_row2_col5 class="data row2 col5">0.965</td> <td id=T_efe89_row2_col6 class="data row2 col6">-1.492</td> <td id=T_efe89_row2_col7 class="data row2 col7">0.558</td> </tr> <tr> <th id=T_efe89_level0_row3 class="row_heading level0 row3">groot</th> <td id=T_efe89_row3_col0 class="data row3 col0">-0.138</td> <td id=T_efe89_row3_col1 class="data row3 col1">1.204</td> <td id=T_efe89_row3_col2 class="data row3 col2">-0.258</td> <td id=T_efe89_row3_col3 class="data row3 col3">1.384</td> <td id=T_efe89_row3_col4 class="data row3 col4">1.340</td> <td id=T_efe89_row3_col5 class="data row3 col5">-1.512</td> <td id=T_efe89_row3_col6 class="data row3 col6">-1.157</td> <td id=T_efe89_row3_col7 class="data row3 col7">0.283</td> </tr> </tbody> </table> <h3 id=53-visualising-the-feed-forward-network-ffn>5.3. Visualising the Feed-Forward Network (FFN)<a class=headerlink href=#53-visualising-the-feed-forward-network-ffn title="Permanent link">&para;</a></h3> <p>The Feed-Forward Network processes each token individually. It expands the 8 dimensions to 16 to find complex patterns, applies a <code>ReLU</code> activation, and shrinks it back to 8 dimensions. Since the network is small, we can plot every single node and connection using <code>networkx</code> and <code>matplotlib</code>.</p> <div class=highlight><pre><span></span><code><span class=n>plot_ffn_graph</span><span class=p>()</span>
+</code></pre></div> <p><img alt=png src=output_40_0.png></p> <h4 id=531-position-wise-processing-processing-token-by-token-in-parallel>5.3.1. Position-wise Processing: Processing Token-by-Token (In Parallel)<a class=headerlink href=#531-position-wise-processing-processing-token-by-token-in-parallel title="Permanent link">&para;</a></h4> <p>The FFN does <strong>not</strong> look at the entire <code>[4, 8]</code> matrix at once. Instead, it treats the matrix as a list of four separate 8-dimensional vectors.</p> <p>It applies the <strong>exact same</strong> <span class=arithmatex>\(8 \to 16 \to 8\)</span> neural network to the 1<sup>st</sup> token, then to the 2<sup>nd</sup> token, then to the 3<sup>rd</sup>, and then to the 4<sup>th</sup>—completely independently.</p> <p>In PyTorch, <code>nn.Linear(8, 16)</code> is smart enough to know that it should only operate on the <em>very last dimension</em>. It treats any dimensions before that (like our 4 tokens) as a batch.</p> <h4 id=532-the-matrix-multiplication-math>5.3.2. The Matrix Multiplication Math<a class=headerlink href=#532-the-matrix-multiplication-math title="Permanent link">&para;</a></h4> <p>Because neural networks use matrix multiplication, this "token-by-token" processing happens all at once in a single, highly efficient calculation.</p> <p>Here is how the shapes align perfectly during the first FFN step (<code>Linear(8, 16)</code>):</p> <ul> <li><strong>Input Matrix (<span class=arithmatex>\(\mathbf{X}\)</span>):</strong> <code>[4, 8]</code> (4 tokens, 8 features)</li> <li><strong>FFN Weight Matrix (<span class=arithmatex>\(\mathbf{W}_1\)</span>):</strong> <code>[8, 16]</code> (8 inputs, 16 outputs)</li> </ul> <p>When you multiply them (<span class=arithmatex>\(\mathbf{X} \times \mathbf{W}_1\)</span>):</p> <div class=arithmatex>\[[4, 8] \times [8, 16] \longrightarrow [4, 16]\]</div> <p>The output has shape <code>[4, 16]</code>. Each of the 4 tokens has been expanded from 8 dimensions to 16 dimensions using the same set of weights.</p> <p>After the ReLU activation, the second linear layer (<code>Linear(16, 8)</code>) shrinks them back down: $<span class=arithmatex>\(\mathbf{O}_{\text{ffn}} = \text{ReLU}(\mathbf{X}_1 \mathbf{W}_1 + \mathbf{b}_1)\mathbf{W}_2 + \mathbf{b}_2 \in \mathbb{R}^{4 \times 8}\)</span>$</p> <div class=arithmatex>\[[4, 16] \times [16, 8] \longrightarrow [4, 8]\]</div> <div class=highlight><pre><span></span><code><span class=nb>print</span><span class=p>(</span><span class=s2>&quot;Shape before FFN:&quot;</span><span class=p>,</span> <span class=n>norm1_out</span><span class=o>.</span><span class=n>shape</span><span class=p>)</span>
+<span class=n>hidden_state</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>transformer</span><span class=o>.</span><span class=n>ffn</span><span class=p>[</span><span class=mi>0</span><span class=p>](</span><span class=n>norm1_out</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=s2>&quot;Shape inside FFN (expanded):&quot;</span><span class=p>,</span> <span class=n>hidden_state</span><span class=o>.</span><span class=n>shape</span><span class=p>)</span>
+<span class=n>ff_out</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>transformer</span><span class=o>.</span><span class=n>ffn</span><span class=p>(</span><span class=n>norm1_out</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=s2>&quot;Shape after FFN:&quot;</span><span class=p>,</span> <span class=n>ff_out</span><span class=o>.</span><span class=n>shape</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>Shape before FFN: torch.Size([1, 4, 8])
+Shape inside FFN (expanded): torch.Size([1, 4, 16])
+Shape after FFN: torch.Size([1, 4, 8])
+</code></pre></div> <h4 id=533-why-do-it-this-way>5.3.3. Why do it this way?<a class=headerlink href=#533-why-do-it-this-way title="Permanent link">&para;</a></h4> <p>You might wonder: <em>If we are processing them separately, how do the words communicate?</em></p> <p>They already did!</p> <ol> <li><strong>Self-Attention</strong> is the only layer where tokens talk to each other and mix their data.</li> <li><strong>The FFN</strong> is the layer where each token pauses to independently "digest" the new information it just received from the group.</li> </ol> <p>By applying the exact same FFN weights to every position, the model learns universal rules for processing language, regardless of whether a word appears at the beginning or the end of a sentence.</p> <h4 id=534-the-feed-forward-output>5.3.4. The Feed-Forward Output<a class=headerlink href=#534-the-feed-forward-output title="Permanent link">&para;</a></h4> <p>With the shape of the network clear, we can pass the normalised matrix through it and display the resulting 8-dimensional output.</p> <div class=highlight><pre><span></span><code><span class=c1># 1. Pass the normalised data through the FFN</span>
+<span class=n>ff_out</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>transformer</span><span class=o>.</span><span class=n>ffn</span><span class=p>(</span><span class=n>norm1_out</span><span class=p>)</span>
+
+<span class=n>visualise_ff_output</span><span class=p>(</span><span class=n>ff_out</span><span class=p>,</span> <span class=n>sentence</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>4. Feed-Forward Network Output:
+</code></pre></div> <style type=text/css>
+#T_1ddf6_row0_col0 {
+  background-color: #5c3797;
+  color: #f1f1f1;
+}
+#T_1ddf6_row0_col1 {
+  background-color: #fcfbfd;
+  color: #000000;
+}
+#T_1ddf6_row0_col2 {
+  background-color: #3f007d;
+  color: #f1f1f1;
+}
+#T_1ddf6_row0_col3 {
+  background-color: #786db2;
+  color: #f1f1f1;
+}
+#T_1ddf6_row0_col4 {
+  background-color: #582e92;
+  color: #f1f1f1;
+}
+#T_1ddf6_row0_col5, #T_1ddf6_row3_col4 {
+  background-color: #50208c;
+  color: #f1f1f1;
+}
+#T_1ddf6_row0_col6, #T_1ddf6_row1_col7 {
+  background-color: #6d57a6;
+  color: #f1f1f1;
+}
+#T_1ddf6_row0_col7 {
+  background-color: #552890;
+  color: #f1f1f1;
+}
+#T_1ddf6_row1_col0 {
+  background-color: #5c3696;
+  color: #f1f1f1;
+}
+#T_1ddf6_row1_col1 {
+  background-color: #7c75b6;
+  color: #f1f1f1;
+}
+#T_1ddf6_row1_col2 {
+  background-color: #63449d;
+  color: #f1f1f1;
+}
+#T_1ddf6_row1_col3 {
+  background-color: #6f5ba8;
+  color: #f1f1f1;
+}
+#T_1ddf6_row1_col4 {
+  background-color: #63439c;
+  color: #f1f1f1;
+}
+#T_1ddf6_row1_col5 {
+  background-color: #705eaa;
+  color: #f1f1f1;
+}
+#T_1ddf6_row1_col6, #T_1ddf6_row2_col0, #T_1ddf6_row2_col4 {
+  background-color: #65479e;
+  color: #f1f1f1;
+}
+#T_1ddf6_row2_col1 {
+  background-color: #7b72b4;
+  color: #f1f1f1;
+}
+#T_1ddf6_row2_col2 {
+  background-color: #61409b;
+  color: #f1f1f1;
+}
+#T_1ddf6_row2_col3 {
+  background-color: #684da1;
+  color: #f1f1f1;
+}
+#T_1ddf6_row2_col5 {
+  background-color: #6950a3;
+  color: #f1f1f1;
+}
+#T_1ddf6_row2_col6, #T_1ddf6_row2_col7 {
+  background-color: #62429c;
+  color: #f1f1f1;
+}
+#T_1ddf6_row3_col0 {
+  background-color: #6a51a3;
+  color: #f1f1f1;
+}
+#T_1ddf6_row3_col1 {
+  background-color: #552a90;
+  color: #f1f1f1;
+}
+#T_1ddf6_row3_col2 {
+  background-color: #7d77b7;
+  color: #f1f1f1;
+}
+#T_1ddf6_row3_col3 {
+  background-color: #613f9a;
+  color: #f1f1f1;
+}
+#T_1ddf6_row3_col5 {
+  background-color: #7465ad;
+  color: #f1f1f1;
+}
+#T_1ddf6_row3_col6 {
+  background-color: #460d83;
+  color: #f1f1f1;
+}
+#T_1ddf6_row3_col7 {
+  background-color: #593093;
+  color: #f1f1f1;
+}
+</style> <table id=T_1ddf6> <thead> <tr> <th class="blank level0">&nbsp;</th> <th id=T_1ddf6_level0_col0 class="col_heading level0 col0">FFN_Out_1</th> <th id=T_1ddf6_level0_col1 class="col_heading level0 col1">FFN_Out_2</th> <th id=T_1ddf6_level0_col2 class="col_heading level0 col2">FFN_Out_3</th> <th id=T_1ddf6_level0_col3 class="col_heading level0 col3">FFN_Out_4</th> <th id=T_1ddf6_level0_col4 class="col_heading level0 col4">FFN_Out_5</th> <th id=T_1ddf6_level0_col5 class="col_heading level0 col5">FFN_Out_6</th> <th id=T_1ddf6_level0_col6 class="col_heading level0 col6">FFN_Out_7</th> <th id=T_1ddf6_level0_col7 class="col_heading level0 col7">FFN_Out_8</th> </tr> </thead> <tbody> <tr> <th id=T_1ddf6_level0_row0 class="row_heading level0 row0">< START ></th> <td id=T_1ddf6_row0_col0 class="data row0 col0">1.062</td> <td id=T_1ddf6_row0_col1 class="data row0 col1">-12.492</td> <td id=T_1ddf6_row0_col2 class="data row0 col2">3.892</td> <td id=T_1ddf6_row0_col3 class="data row0 col3">-1.524</td> <td id=T_1ddf6_row0_col4 class="data row0 col4">1.508</td> <td id=T_1ddf6_row0_col5 class="data row0 col5">2.212</td> <td id=T_1ddf6_row0_col6 class="data row0 col6">-0.461</td> <td id=T_1ddf6_row0_col7 class="data row0 col7">1.719</td> </tr> <tr> <th id=T_1ddf6_level0_row1 class="row_heading level0 row1">i</th> <td id=T_1ddf6_row1_col0 class="data row1 col0">1.090</td> <td id=T_1ddf6_row1_col1 class="data row1 col1">-1.889</td> <td id=T_1ddf6_row1_col2 class="data row1 col2">0.426</td> <td id=T_1ddf6_row1_col3 class="data row1 col3">-0.670</td> <td id=T_1ddf6_row1_col4 class="data row1 col4">0.443</td> <td id=T_1ddf6_row1_col5 class="data row1 col5">-0.832</td> <td id=T_1ddf6_row1_col6 class="data row1 col6">0.296</td> <td id=T_1ddf6_row1_col7 class="data row1 col7">-0.462</td> </tr> <tr> <th id=T_1ddf6_level0_row2 class="row_heading level0 row2">am</th> <td id=T_1ddf6_row2_col0 class="data row2 col0">0.252</td> <td id=T_1ddf6_row2_col1 class="data row2 col1">-1.765</td> <td id=T_1ddf6_row2_col2 class="data row2 col2">0.624</td> <td id=T_1ddf6_row2_col3 class="data row2 col3">-0.050</td> <td id=T_1ddf6_row2_col4 class="data row2 col4">0.268</td> <td id=T_1ddf6_row2_col5 class="data row2 col5">-0.155</td> <td id=T_1ddf6_row2_col6 class="data row2 col6">0.563</td> <td id=T_1ddf6_row2_col7 class="data row2 col7">0.507</td> </tr> <tr> <th id=T_1ddf6_level0_row3 class="row_heading level0 row3">groot</th> <td id=T_1ddf6_row3_col0 class="data row3 col0">-0.261</td> <td id=T_1ddf6_row3_col1 class="data row3 col1">1.693</td> <td id=T_1ddf6_row3_col2 class="data row3 col2">-1.950</td> <td id=T_1ddf6_row3_col3 class="data row3 col3">0.668</td> <td id=T_1ddf6_row3_col4 class="data row3 col4">2.212</td> <td id=T_1ddf6_row3_col5 class="data row3 col5">-1.157</td> <td id=T_1ddf6_row3_col6 class="data row3 col6">3.153</td> <td id=T_1ddf6_row3_col7 class="data row3 col7">1.382</td> </tr> </tbody> </table> <h2 id=part-6-logits-probabilities-and-generation>Part 6: Logits, Probabilities, and Generation<a class=headerlink href=#part-6-logits-probabilities-and-generation title="Permanent link">&para;</a></h2> <p>We are at the final stretch. The Feed-Forward Network has processed our context, but it is still in an 8-dimensional internal format. We need to turn this back into human-readable words. <img alt=png src=3.png></p> <h3 id=61-second-residual-final-normalisation>6.1. Second Residual &amp; Final Normalisation<a class=headerlink href=#61-second-residual-final-normalisation title="Permanent link">&para;</a></h3> <p>We add the FFN output back to its input (<code>norm1_out</code>) and normalise it one last time (<code>norm2</code>) to get the final hidden state for the block. $$ F = \text{FFN}(N_1), \quad R_2 = N_1 + F, \quad H_{\text{out}} = \text{LayerNorm}(R_2) $$</p> <div class=highlight><pre><span></span><code><span class=c1># 1. Second Residual Connection and Final Layer Normalisation</span>
+<span class=n>residual_2</span> <span class=o>=</span> <span class=n>norm1_out</span> <span class=o>+</span> <span class=n>ff_out</span>
+<span class=n>final_block_out</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>transformer</span><span class=o>.</span><span class=n>norm2</span><span class=p>(</span><span class=n>residual_2</span><span class=p>)</span>
+
+<span class=n>display_final_block_out</span><span class=p>(</span><span class=n>final_block_out</span><span class=p>,</span> <span class=n>residual_2</span><span class=p>,</span> <span class=n>sentence</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>1. Final Transformer Block Output (norm2):
+</code></pre></div> <style type=text/css>
+#T_4e60d_row0_col0, #T_4e60d_row3_col7 {
+  background-color: #f57622;
+  color: #f1f1f1;
+}
+#T_4e60d_row0_col1 {
+  background-color: #fff5eb;
+  color: #000000;
+}
+#T_4e60d_row0_col2, #T_4e60d_row0_col5 {
+  background-color: #e95e0d;
+  color: #f1f1f1;
+}
+#T_4e60d_row0_col3, #T_4e60d_row0_col6 {
+  background-color: #fd8f3e;
+  color: #f1f1f1;
+}
+#T_4e60d_row0_col4 {
+  background-color: #fd8c3b;
+  color: #f1f1f1;
+}
+#T_4e60d_row0_col7 {
+  background-color: #ee6511;
+  color: #f1f1f1;
+}
+#T_4e60d_row1_col0 {
+  background-color: #da4902;
+  color: #f1f1f1;
+}
+#T_4e60d_row1_col1 {
+  background-color: #fdc088;
+  color: #000000;
+}
+#T_4e60d_row1_col2 {
+  background-color: #fdaf6c;
+  color: #000000;
+}
+#T_4e60d_row1_col3 {
+  background-color: #fda45d;
+  color: #000000;
+}
+#T_4e60d_row1_col4 {
+  background-color: #fdb87c;
+  color: #000000;
+}
+#T_4e60d_row1_col5 {
+  background-color: #fd9e54;
+  color: #000000;
+}
+#T_4e60d_row1_col6 {
+  background-color: #7f2704;
+  color: #f1f1f1;
+}
+#T_4e60d_row1_col7 {
+  background-color: #fdac67;
+  color: #000000;
+}
+#T_4e60d_row2_col0 {
+  background-color: #fdb576;
+  color: #000000;
+}
+#T_4e60d_row2_col1 {
+  background-color: #fdd4aa;
+  color: #000000;
+}
+#T_4e60d_row2_col2 {
+  background-color: #de4e05;
+  color: #f1f1f1;
+}
+#T_4e60d_row2_col3 {
+  background-color: #cd4401;
+  color: #f1f1f1;
+}
+#T_4e60d_row2_col4 {
+  background-color: #fddbb8;
+  color: #000000;
+}
+#T_4e60d_row2_col5 {
+  background-color: #e05206;
+  color: #f1f1f1;
+}
+#T_4e60d_row2_col6 {
+  background-color: #fdc692;
+  color: #000000;
+}
+#T_4e60d_row2_col7 {
+  background-color: #e25508;
+  color: #f1f1f1;
+}
+#T_4e60d_row3_col0 {
+  background-color: #fdb77a;
+  color: #000000;
+}
+#T_4e60d_row3_col1 {
+  background-color: #e85d0c;
+  color: #f1f1f1;
+}
+#T_4e60d_row3_col2 {
+  background-color: #feead6;
+  color: #000000;
+}
+#T_4e60d_row3_col3 {
+  background-color: #ed6310;
+  color: #f1f1f1;
+}
+#T_4e60d_row3_col4 {
+  background-color: #c64102;
+  color: #f1f1f1;
+}
+#T_4e60d_row3_col5 {
+  background-color: #fddab6;
+  color: #000000;
+}
+#T_4e60d_row3_col6 {
+  background-color: #f16813;
+  color: #f1f1f1;
+}
+</style> <table id=T_4e60d> <thead> <tr> <th class="blank level0">&nbsp;</th> <th id=T_4e60d_level0_col0 class="col_heading level0 col0">Final_Out_1</th> <th id=T_4e60d_level0_col1 class="col_heading level0 col1">Final_Out_2</th> <th id=T_4e60d_level0_col2 class="col_heading level0 col2">Final_Out_3</th> <th id=T_4e60d_level0_col3 class="col_heading level0 col3">Final_Out_4</th> <th id=T_4e60d_level0_col4 class="col_heading level0 col4">Final_Out_5</th> <th id=T_4e60d_level0_col5 class="col_heading level0 col5">Final_Out_6</th> <th id=T_4e60d_level0_col6 class="col_heading level0 col6">Final_Out_7</th> <th id=T_4e60d_level0_col7 class="col_heading level0 col7">Final_Out_8</th> </tr> </thead> <tbody> <tr> <th id=T_4e60d_level0_row0 class="row_heading level0 row0">< START ></th> <td id=T_4e60d_row0_col0 class="data row0 col0">0.852</td> <td id=T_4e60d_row0_col1 class="data row0 col1">-4.997</td> <td id=T_4e60d_row0_col2 class="data row0 col2">1.705</td> <td id=T_4e60d_row0_col3 class="data row0 col3">-0.019</td> <td id=T_4e60d_row0_col4 class="data row0 col4">0.047</td> <td id=T_4e60d_row0_col5 class="data row0 col5">1.706</td> <td id=T_4e60d_row0_col6 class="data row0 col6">-0.002</td> <td id=T_4e60d_row0_col7 class="data row0 col7">1.434</td> </tr> <tr> <th id=T_4e60d_level0_row1 class="row_heading level0 row1">i</th> <td id=T_4e60d_row1_col0 class="data row1 col0">2.509</td> <td id=T_4e60d_row1_col1 class="data row1 col1">-1.850</td> <td id=T_4e60d_row1_col2 class="data row1 col2">-1.246</td> <td id=T_4e60d_row1_col3 class="data row1 col3">-0.851</td> <td id=T_4e60d_row1_col4 class="data row1 col4">-1.597</td> <td id=T_4e60d_row1_col5 class="data row1 col5">-0.589</td> <td id=T_4e60d_row1_col6 class="data row1 col6">5.091</td> <td id=T_4e60d_row1_col7 class="data row1 col7">-1.104</td> </tr> <tr> <th id=T_4e60d_level0_row2 class="row_heading level0 row2">am</th> <td id=T_4e60d_row2_col0 class="data row2 col0">-1.478</td> <td id=T_4e60d_row2_col1 class="data row2 col1">-2.702</td> <td id=T_4e60d_row2_col2 class="data row2 col2">2.303</td> <td id=T_4e60d_row2_col3 class="data row2 col3">2.872</td> <td id=T_4e60d_row2_col4 class="data row2 col4">-3.089</td> <td id=T_4e60d_row2_col5 class="data row2 col5">2.206</td> <td id=T_4e60d_row2_col6 class="data row2 col6">-2.120</td> <td id=T_4e60d_row2_col7 class="data row2 col7">2.070</td> </tr> <tr> <th id=T_4e60d_level0_row3 class="row_heading level0 row3">groot</th> <td id=T_4e60d_row3_col0 class="data row3 col0">-1.536</td> <td id=T_4e60d_row3_col1 class="data row3 col1">1.758</td> <td id=T_4e60d_row3_col2 class="data row3 col2">-4.087</td> <td id=T_4e60d_row3_col3 class="data row3 col3">1.506</td> <td id=T_4e60d_row3_col4 class="data row3 col4">3.010</td> <td id=T_4e60d_row3_col5 class="data row3 col5">-3.065</td> <td id=T_4e60d_row3_col6 class="data row3 col6">1.347</td> <td id=T_4e60d_row3_col7 class="data row3 col7">0.836</td> </tr> </tbody> </table> <h3 id=62-the-linear-prediction-head-logits>6.2. The Linear Prediction Head (Logits)<a class=headerlink href=#62-the-linear-prediction-head-logits title="Permanent link">&para;</a></h3> <p>A final linear layer (<code>model.head</code>) acts as a translator, projecting our 8-dimensional hidden state into 24 dimensions (one for every word in our vocabulary). These raw scores are called <strong>logits</strong>. </p> <p>he final hidden representations are projected from the latent space <span class=arithmatex>\(\mathbb{R}^8\)</span> into the full vocabulary space <span class=arithmatex>\(\mathbb{R}^{24}\)</span>:</p> <div class=arithmatex>\[\mathbf{Z} = \mathbf{H}_{\text{out}} \mathbf{W}_{\text{head}} + \mathbf{b}_{\text{head}} \in \mathbb{R}^{4 \times 24}\]</div> <div class=arithmatex>\[\mathbf{Z} = \begin{bmatrix} z_{0,0} &amp; z_{0,1} &amp; \dots &amp; z_{0,23} \\ z_{1,0} &amp; z_{1,1} &amp; \dots &amp; z_{1,23} \\ z_{2,0} &amp; z_{2,1} &amp; \dots &amp; z_{2,23} \\ z_{3,0} &amp; z_{3,1} &amp; \dots &amp; z_{3,23} \end{bmatrix} \begin{matrix} \longleftarrow \text{Logits for token following "&lt;START&gt;"} \\ \longleftarrow \text{Logits for token following "i"} \\ \longleftarrow \text{Logits for token following "am"} \\ \longleftarrow \text{Logits for token following "groot"} \end{matrix}\]</div> <p>We only care about the logits for the <em>last</em> token (<code>"groot"</code>), because we want to predict what comes next.</p> <div class=highlight><pre><span></span><code><span class=c1># 1. Project from 8 dimensions back to our 24-word vocabulary</span>
+<span class=n>logits</span> <span class=o>=</span> <span class=n>model</span><span class=o>.</span><span class=n>head</span><span class=p>(</span><span class=n>final_block_out</span><span class=p>)</span> 
+
+<span class=c1># 2. Extract the prediction for the LAST token in our sequence (index 3 for &quot;groot&quot;)</span>
+<span class=n>last_token_logits</span> <span class=o>=</span> <span class=n>logits</span><span class=p>[</span><span class=mi>0</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=p>:]</span><span class=o>.</span><span class=n>detach</span><span class=p>()</span><span class=o>.</span><span class=n>cpu</span><span class=p>()</span><span class=o>.</span><span class=n>numpy</span><span class=p>()</span>
+
+<span class=c1># 3. Pair each logit with its corresponding vocabulary word</span>
+<span class=n>vocab_words</span> <span class=o>=</span> <span class=p>[</span><span class=n>id_to_token</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>vocab_size</span><span class=p>)]</span>
+<span class=n>df_logits</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>DataFrame</span><span class=p>({</span>
+    <span class=s2>&quot;Vocabulary Word&quot;</span><span class=p>:</span> <span class=n>vocab_words</span><span class=p>,</span>
+    <span class=s2>&quot;Raw Logit Score&quot;</span><span class=p>:</span> <span class=n>last_token_logits</span>
+<span class=p>})</span>
+
+<span class=n>show_top_five_highest_scores</span><span class=p>(</span><span class=n>df_logits</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>2. Top 5 Raw Logit Scores for the next word:
+</code></pre></div> <style type=text/css>
+#T_da458_row0_col1 {
+  width: 10em;
+  background: linear-gradient(90deg, lightblue 100.0%, transparent 100.0%);
+}
+#T_da458_row1_col1 {
+  width: 10em;
+  background: linear-gradient(90deg, lightblue 75.2%, transparent 75.2%);
+}
+#T_da458_row2_col1 {
+  width: 10em;
+  background: linear-gradient(90deg, lightblue 55.1%, transparent 55.1%);
+}
+#T_da458_row3_col1 {
+  width: 10em;
+  background: linear-gradient(90deg, lightblue 29.7%, transparent 29.7%);
+}
+#T_da458_row4_col1 {
+  width: 10em;
+  background: linear-gradient(90deg, lightblue 29.6%, transparent 29.6%);
+}
+</style> <table id=T_da458> <thead> <tr> <th class="blank level0">&nbsp;</th> <th id=T_da458_level0_col0 class="col_heading level0 col0">Vocabulary Word</th> <th id=T_da458_level0_col1 class="col_heading level0 col1">Raw Logit Score</th> </tr> </thead> <tbody> <tr> <th id=T_da458_level0_row0 class="row_heading level0 row0">2</th> <td id=T_da458_row0_col0 class="data row0 col0">< END ></td> <td id=T_da458_row0_col1 class="data row0 col1">11.534508</td> </tr> <tr> <th id=T_da458_level0_row1 class="row_heading level0 row1">10</th> <td id=T_da458_row1_col0 class="data row1 col0">helps</td> <td id=T_da458_row1_col1 class="data row1 col1">8.676242</td> </tr> <tr> <th id=T_da458_level0_row2 class="row_heading level0 row2">15</th> <td id=T_da458_row2_col0 class="data row2 col0">needs</td> <td id=T_da458_row2_col1 class="data row2 col1">6.360995</td> </tr> <tr> <th id=T_da458_level0_row3 class="row_heading level0 row3">19</th> <td id=T_da458_row3_col0 class="data row3 col0">smiles</td> <td id=T_da458_row3_col1 class="data row3 col1">3.422407</td> </tr> <tr> <th id=T_da458_level0_row4 class="row_heading level0 row4">6</th> <td id=T_da458_row4_col0 class="data row4 col0">cries</td> <td id=T_da458_row4_col1 class="data row4 col1">3.418268</td> </tr> </tbody> </table> <h3 id=63-softmax-probabilities>6.3. Softmax Probabilities<a class=headerlink href=#63-softmax-probabilities title="Permanent link">&para;</a></h3> <p>Finally, we apply the Softmax function to convert these raw logits into percentages, showing us exactly how confident the model is about its decision. $$ p(y_t = i \mid x_{\le t}) = \frac{e^{\text{logit}_i}}{\sum_j e^{\text{logit}_j}} $$</p> <div class=highlight><pre><span></span><code><span class=c1># 1. Convert raw logits to probabilities summing to 1.0</span>
+<span class=n>probabilities</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>softmax</span><span class=p>(</span><span class=n>logits</span><span class=p>[</span><span class=mi>0</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=p>:],</span> <span class=n>dim</span><span class=o>=-</span><span class=mi>1</span><span class=p>)</span>
+
+<span class=n>show_final_probabilities</span><span class=p>(</span><span class=n>probabilities</span><span class=p>,</span> <span class=n>df_logits</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>3. Final Next-Word Probabilities:
+</code></pre></div> <div> <style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style> <table border=1 class=dataframe> <thead> <tr style="text-align: right;"> <th></th> <th>Vocabulary Word</th> <th>Raw Logit Score</th> <th>Probability</th> <th>Probability (%)</th> </tr> </thead> <tbody> <tr> <th>2</th> <td>&lt; END &gt;</td> <td>11.534508</td> <td>0.939936</td> <td>93.99%</td> </tr> <tr> <th>10</th> <td>helps</td> <td>8.676242</td> <td>0.053922</td> <td>5.39%</td> </tr> <tr> <th>15</th> <td>needs</td> <td>6.360995</td> <td>0.005324</td> <td>0.53%</td> </tr> <tr> <th>19</th> <td>smiles</td> <td>3.422407</td> <td>0.000282</td> <td>0.03%</td> </tr> <tr> <th>6</th> <td>cries</td> <td>3.418268</td> <td>0.000281</td> <td>0.03%</td> </tr> </tbody> </table> </div> <p>By looking at these tables, you can clearly trace how the abstract 8-dimensional array mathematically decodes into a 93.99% confidence that the sentence should end!</p> <h2 id=7-final-output-and-summary>7. Final Output and summary<a class=headerlink href=#7-final-output-and-summary title="Permanent link">&para;</a></h2> <p>Language generation in GPT-style models is <strong>autoregressive</strong> and <strong>iterative</strong>. The model does not write an entire sentence in one shot. Instead, it generates one single token at a time in a loop:</p> <ol> <li>It reads whatever text you provide as a prompt.</li> <li>It predicts the most likely immediate next word.</li> <li>It appends that new word to the end of the prompt.</li> <li>It feeds this expanded sequence back into itself and repeats the process until it generates the <code>&lt;END&gt;</code> token or hits a length limit.</li> </ol> <p>In this step, we use <strong>Greedy Decoding</strong> (via <code>argmax</code>), which means the model always selects the token with the highest predicted score (logit). $<span class=arithmatex>\(\hat{y} = \operatorname{argmax}(\mathbf{z}_{\text{last}})\)</span>$</p> <div class=highlight><pre><span></span><code><span class=k>def</span><span class=w> </span><span class=nf>generate_argmax</span><span class=p>(</span><span class=n>prompt</span><span class=p>,</span> <span class=n>max_new_tokens</span><span class=o>=</span><span class=mi>5</span><span class=p>):</span>
+    <span class=n>model</span><span class=o>.</span><span class=n>eval</span><span class=p>()</span>
+    <span class=n>generated_ids</span> <span class=o>=</span> <span class=p>[</span><span class=n>token_to_id</span><span class=p>[</span><span class=s2>&quot;&lt;START&gt;&quot;</span><span class=p>]]</span> <span class=o>+</span> <span class=p>[</span><span class=n>token_to_id</span><span class=p>[</span><span class=n>token</span><span class=p>]</span> <span class=k>for</span> <span class=n>token</span> <span class=ow>in</span> <span class=n>prompt</span><span class=o>.</span><span class=n>split</span><span class=p>()]</span>
+
+    <span class=k>for</span> <span class=n>_</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>max_new_tokens</span><span class=p>):</span>
+        <span class=n>active_ids</span> <span class=o>=</span> <span class=n>generated_ids</span><span class=p>[</span><span class=o>-</span><span class=n>max_len</span><span class=p>:]</span>
+        <span class=n>x</span> <span class=o>=</span> <span class=n>active_ids</span> <span class=o>+</span> <span class=p>[</span><span class=n>pad_id</span><span class=p>]</span> <span class=o>*</span> <span class=p>(</span><span class=n>max_len</span> <span class=o>-</span> <span class=nb>len</span><span class=p>(</span><span class=n>active_ids</span><span class=p>))</span>
+        <span class=n>x_tensor</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>tensor</span><span class=p>([</span><span class=n>x</span><span class=p>],</span> <span class=n>device</span><span class=o>=</span><span class=n>device</span><span class=p>)</span>
+
+        <span class=k>with</span> <span class=n>torch</span><span class=o>.</span><span class=n>no_grad</span><span class=p>():</span>
+            <span class=n>logits</span><span class=p>,</span> <span class=n>_</span> <span class=o>=</span> <span class=n>model</span><span class=p>(</span><span class=n>x_tensor</span><span class=p>)</span>
+
+        <span class=n>boundary_index</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>active_ids</span><span class=p>)</span> <span class=o>-</span> <span class=mi>1</span>
+        <span class=n>next_token_id</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>argmax</span><span class=p>(</span><span class=n>logits</span><span class=p>[</span><span class=mi>0</span><span class=p>,</span> <span class=n>boundary_index</span><span class=p>])</span><span class=o>.</span><span class=n>item</span><span class=p>()</span>
+        <span class=n>generated_ids</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>next_token_id</span><span class=p>)</span>
+
+        <span class=k>if</span> <span class=n>id_to_token</span><span class=p>[</span><span class=n>next_token_id</span><span class=p>]</span> <span class=o>==</span> <span class=s2>&quot;&lt;END&gt;&quot;</span><span class=p>:</span>
+            <span class=k>break</span>
+
+    <span class=k>return</span> <span class=s2>&quot; &quot;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>id_to_token</span><span class=p>[</span><span class=n>token_id</span><span class=p>]</span> <span class=k>for</span> <span class=n>token_id</span> <span class=ow>in</span> <span class=n>generated_ids</span><span class=p>)</span>
+</code></pre></div> <h3 id=71-i-am-groot>7.1 I am Groot<a class=headerlink href=#71-i-am-groot title="Permanent link">&para;</a></h3> <p>Now trace what happens when we prompt the model with <code>"i am"</code>.</p> <ul> <li><strong>Prompt:</strong> <code>"i am"</code></li> <li>This gets converted to Initial Token IDs: <code>['&lt;START&gt;', 'i', 'am']</code></li> <li>Target Maximum Length (<span class=arithmatex>\(T_{\max}\)</span>): <span class=arithmatex>\(4\)</span></li> </ul> <h4 id=711-iteration-1-predicting-token-1>7.1.1 Iteration 1: Predicting Token 1<a class=headerlink href=#711-iteration-1-predicting-token-1 title="Permanent link">&para;</a></h4> <ol> <li>Input Vector is Padded to 4): "<start>", "i", "am", "<pad>"} </li> <li>Extracted Logits Matrix (<span class=arithmatex>\(\mathbf{z}_{\text{next}}\)</span> at Index 2): The model computes scores for all 24 vocabulary words at position 2 (following <code>"am"</code>). The highest score is at index 8, which corresponds to <code>"groot"</code>)</li> <li>Updated Sequence: <code>['&lt;START&gt;', 'i', 'am', 'groot']</code></li> </ol> <h4 id=712-iteration-2-predicting-token-2>7.1.2 Iteration 2: Predicting Token 2<a class=headerlink href=#712-iteration-2-predicting-token-2 title="Permanent link">&para;</a></h4> <ol> <li>Input Vector: "<start>", "i", "am", "groot"</li> <li>Extracted Logits Matrix (<span class=arithmatex>\(\mathbf{z}_{\text{next}}\)</span> at Index 3): The model computes scores at position 3. The highest score is at index 2, which corresponds to <code>"&lt;END&gt;"</code></li> <li>Stop Condition Triggered: Token <code>2</code> is <code>"&lt;END&gt;"</code>. The generation loop halts.</li> </ol> <p><strong>Final Generated Output:</strong></p> <div class=highlight><pre><span></span><code>&quot;&lt;START&gt; i am groot &lt;END&gt;&quot;
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=nb>print</span><span class=p>(</span><span class=n>generate_argmax</span><span class=p>(</span><span class=s2>&quot;i am&quot;</span><span class=p>))</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>&lt;START&gt; i am groot &lt;END&gt;
+</code></pre></div> <h4 id=72-other-generation-examples-from-the-model>7.2 Other Generation Examples from the Model:<a class=headerlink href=#72-other-generation-examples-from-the-model title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><span class=nb>print</span><span class=p>(</span><span class=n>generate_argmax</span><span class=p>(</span><span class=s2>&quot;groot likes&quot;</span><span class=p>))</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>generate_argmax</span><span class=p>(</span><span class=s2>&quot;tree needs&quot;</span><span class=p>))</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>generate_argmax</span><span class=p>(</span><span class=s2>&quot;rocket helps&quot;</span><span class=p>))</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>&lt;START&gt; groot likes leaf &lt;END&gt;
+&lt;START&gt; tree needs water &lt;END&gt;
+&lt;START&gt; rocket helps rocket &lt;END&gt;
+</code></pre></div> <h3 id=73-summary>7.3 Summary<a class=headerlink href=#73-summary title="Permanent link">&para;</a></h3> <p>The following short notes add context for related concepts:</p> <p><strong>Single-Head vs Multi-Head Attention</strong> For simplicity, <code>BabyGrootGPT</code> uses a single attention head. In production models like GPT-2, the embedding dimension is split across multiple heads that run in parallel. This Multi-Head Attention allows the model to capture different linguistic relationships simultaneously—for example, one head might focus on grammatical structure while another tracks contextual meaning—before concatenating the results back together.</p> <p><strong>Pre-Layer vs Post-Layer Normalisation</strong> You might notice that our Transformer block applies Layer Normalisation <em>after</em> the residual addition (<code>x = self.norm1(x + attn_out)</code>), matching the architecture from the original "Attention is All You Need" paper. However, modern architectures like GPT-2 typically use Pre-LN, applying normalisation <em>before</em> the attention and feed-forward blocks to improve training stability at massive scales.</p> <p><strong>Positional Embedding Strategy</strong> We use a simple learned lookup table (<code>nn.Embedding</code>) to give our model a sense of position. While the original Transformer paper used fixed, mathematical sinusoidal waves to encode token positions, modern decoder-only models like GPT often opt for learned positional embeddings exactly like ours, letting the model figure out spatial relationships directly from the training data.</p> <p><strong>Decoding Strategies: Argmax vs Sampling</strong> Our text generation loop uses greedy decoding via <code>argmax</code>, meaning it always picks the single most likely next token. While straightforward, greedy decoding often causes models to get stuck in repetitive, infinite loops. Real-world language models solve this by using Temperature and Top-K/Top-P sampling, which introduce controlled randomness into the token selection to produce more creative and natural-sounding text.</p> <p><strong>The Batch Dimension in Matrix Operations</strong> Throughout our matrix walkthrough, we traced a single sequence resulting in a shape of <code>[1, 4, 8]</code>. During actual training, however, models process many sequences at once by utilizing a batch dimension. This makes the true tensor shape <span class=arithmatex>\(B \times T \times C\)</span> (Batch <span class=arithmatex>\(\times\)</span> Time <span class=arithmatex>\(\times\)</span> Channel), allowing neural networks to leverage highly optimized parallel matrix multiplications across thousands of examples simultaneously.</p> <p>Overall flow diagram <img alt=png src=4.png></p> <p>Deep dive flow diagram <img alt=png src=5.png></p> <p>Deep dive flow diagram <img alt=png src=6.png></p> <div class=giscus></div> <script src=https://giscus.app/client.js data-repo=HarshaAsh/website-mkdocs data-repo-id="MDEwOlJlcG9zaXRvcnkzOTg4MjYzNjk=" data-category=General data-category-id=DIC_kwDOF8Wbgc4C2jiA data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=en crossorigin=anonymous async>
+                  </script> </article> </div> </div> <a href=# class="md-top md-icon" data-md-component=top data-md-state=hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg> Back to top </a> </main> <footer class=md-footer> <nav class="md-footer__inner md-grid" aria-label=Footer> <a href=../Backpropagation/ class="md-footer__link md-footer__link--prev" aria-label="Previous: Backpropagation" rel=prev> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </div> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Previous </span> Backpropagation </div> </div> </a> <a href=../DNN/ class="md-footer__link md-footer__link--next" aria-label="Next: Tensorflow and Keras" rel=next> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Next </span> Tensorflow and Keras </div> </div> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> <img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by/4.0/88x31.png> </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> <div class=md-footer-contact style="text-align: center; margin: 1rem 0;"> <a href=../../contact title="Contact Me" style="display: inline-flex; align-items: center; gap: 0.5rem; color: rgba(255, 255, 255, 0.7); text-decoration: none;"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24" style="width: 1.2rem; height: 1.2rem; fill: rgba(255, 255, 255, 0.7);"> <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/> </svg> <span>Contact Me</span> </a> </div> <div class=md-footer-social> <a href=https://github.com/HarshaAsh target=_blank rel=noopener title=github.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </a> <a href=https://www.linkedin.com/in/sri-harsha-achyuthuni/ target=_blank rel=noopener title=www.linkedin.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg> </a> <a href=https://www.instagram.com/harshaash_com/ target=_blank rel=noopener title=www.instagram.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> </a> <a href=https://www.facebook.com/sri.harsha.achyuthuni/ target=_blank rel=noopener title=www.facebook.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg> </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "header.autohide", "navigation.sections", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.709b4209.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": null}</script> <script src=../../assets/javascripts/bundle.56838a2c.min.js></script> </body> </html>
