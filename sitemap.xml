@@ -57,6 +57,14 @@
         <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/AHP/"/>
     </url>
     <url>
+        <loc>https://www.harshaash.com/Others/AI-Powered%20Predictive%20Maintenance/</loc>
+        <lastmod>2026-10-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/AI-Powered%20Predictive%20Maintenance/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/AI-Powered%20Predictive%20Maintenance/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/AI-Powered%20Predictive%20Maintenance/"/>
+    </url>
+    <url>
         <loc>https://www.harshaash.com/Others/Contract%20Intelligence%20tool/</loc>
         <lastmod>2026-10-08</lastmod>
         <changefreq>daily</changefreq>
@@ -841,6 +849,14 @@
         <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/AHP/"/>
     </url>
     <url>
+        <loc>https://www.harshaash.com/hi/Others/AI-Powered%20Predictive%20Maintenance/</loc>
+        <lastmod>2026-10-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/AI-Powered%20Predictive%20Maintenance/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/AI-Powered%20Predictive%20Maintenance/"/>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/AI-Powered%20Predictive%20Maintenance/"/>
+    </url>
+    <url>
         <loc>https://www.harshaash.com/hi/Others/Contract%20Intelligence%20tool/</loc>
         <lastmod>2026-10-08</lastmod>
         <changefreq>daily</changefreq>
@@ -1623,6 +1639,14 @@
         <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/AHP/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/AHP/"/>
         <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/AHP/"/>
+    </url>
+    <url>
+        <loc>https://www.harshaash.com/te/Others/AI-Powered%20Predictive%20Maintenance/</loc>
+        <lastmod>2026-10-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="te" href="https://www.harshaash.com/te/Others/AI-Powered%20Predictive%20Maintenance/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.harshaash.com/Others/AI-Powered%20Predictive%20Maintenance/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://www.harshaash.com/hi/Others/AI-Powered%20Predictive%20Maintenance/"/>
     </url>
     <url>
         <loc>https://www.harshaash.com/te/Others/Contract%20Intelligence%20tool/</loc>
